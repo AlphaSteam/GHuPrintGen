@@ -4,9 +4,7 @@ description: This action creates a microprint of the given logs
 runs:
   using: docker
   image: 'Dockerfile'
-  env:
-    CONTEXT_GITHUB: ${{ toJson(github) }}
-    CONTEXT_JOB: ${{ toJson(job) }}
+
 
 branding:
   icon: file-text #icon of the image
