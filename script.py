@@ -6,7 +6,7 @@ def get_logs():
     owner = repository_from_context[0]
     repo = repository_from_context[1]
     
-    api = ghapi.GhApi(owner=owner,repo=repo,token=github_token())
+    api = ghapi.GhApi(owner=owner,repo=repo,token=ghapi.github_token())
 
     current_job_id = ghapi.env_github.job
 
