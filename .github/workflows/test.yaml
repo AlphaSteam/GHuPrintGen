@@ -8,6 +8,8 @@ jobs:
         uses: actions/checkout@v2
       - name: Get microprint of jobs logs
         uses: ./
+      - name: Pull Remote Changes
+        run: git pull
       - name: Commit microprint
         uses: stefanzweifel/git-auto-commit-action@v4
         with:
@@ -24,6 +26,8 @@ jobs:
             job_name: first-job
             github_token: ${{ secrets.pat }}
             log_name: logs2.txt
+      - name: Pull Remote Changes
+        run: git pull
       - name: Commit microprint
         uses: stefanzweifel/git-auto-commit-action@v4
         with:
