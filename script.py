@@ -1,6 +1,6 @@
 import os
 import requests
-
+import microprint_generator
 class Api:
 
     def __init__(self, repo, owner, token):
@@ -59,9 +59,9 @@ def get_logs(api):
     
     current_job_logs = api.get(f"jobs/{current_job_id}/logs")
 
-    print("current_job_logs.content", current_job_logs.content) 
-    print("current_job_logs.text", current_job_logs.text)
-    print("current_job_logs.headers",current_job_logs.headers)    
+    with open(os.environ['INPUT_LOG_NAME'], 'w') as file:
+        file.write(current_job_logs.text)
+
 
 
 def main():

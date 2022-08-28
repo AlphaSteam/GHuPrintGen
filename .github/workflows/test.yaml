@@ -19,4 +19,4 @@ jobs:
         with:
             job_name: first-job
             github_token: ${{ secrets.pat }}
-            
+            log_name: logs2.txt

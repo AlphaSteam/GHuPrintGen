@@ -23,3 +23,7 @@ inputs:
     required: false
     default: ${{ github.job }}
     description: Job whose logs will be transformed to microprint
+  log_name:
+    required: false
+    default: logs.txt
+    description: Job whose logs will be transformed to microprint
