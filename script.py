@@ -1,6 +1,5 @@
 import os
 import requests
-import microprint_generator
 class Api:
 
     def __init__(self, repo, owner, token):
