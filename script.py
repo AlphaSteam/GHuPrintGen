@@ -14,9 +14,6 @@ def get_job_id(api, job_name, run_id):
     all_jobs = api.actions.list_jobs_for_workflow_run(run_id=run_id)["jobs"]
 
     job = get_job_by_name(job_name, all_jobs)
-    
-    print("job", job)
-    print("job_id", job["id"])
 
     return job["id"]
 
@@ -41,7 +38,7 @@ def get_logs():
     
     current_job_logs = api.actions.download_job_logs_for_workflow_run(job_id=current_job_id)
     
-    print("current_job_logs", current_job_logs)
+    print("current_job_logs", loads(current_job_logs))
 
     
 
