@@ -1,7 +1,5 @@
 import os
-import json
 import requests
-
 
 class Api:
 
@@ -11,11 +9,12 @@ class Api:
         self.token = token
         self.base_url = f"https://api.github.com/repos/{owner}/{repo}/actions/"
 
-    def get(self, url):
+    def get_request(self, url):
         return requests.get(self.base_url + url, headers={
                 "Authorization": f"token {self.token}"
             })
 
+        
 def get_job_by_name(job_name, job_list):
 
     for _, job_obj in enumerate(job_list):
@@ -25,7 +24,7 @@ def get_job_by_name(job_name, job_list):
 
 def get_job_id(api, job_name, run_id):
 
-    all_jobs = json.loads(api.get(f"runs/{run_id}/jobs"))["jobs"]
+    all_jobs = api.get(f"runs/{run_id}/jobs").content.json()["jobs"]
 
     job = get_job_by_name(job_name, all_jobs)
 
@@ -53,7 +52,7 @@ def get_logs(api):
 
     current_job_id = get_job_id(api, job_name, run_id)
     
-    current_job_logs = api.get(f"jobs/{current_job_id}/logs")
+    current_job_logs = api.get(f"jobs/{current_job_id}/logs").content
 
     print(current_job_logs)    
     
