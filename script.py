@@ -54,7 +54,8 @@ def get_logs(api):
     
     current_job_logs = api.get(f"jobs/{current_job_id}/logs")
 
-    print("current_job_logs.content", current_job_logs.content)    
+    print("current_job_logs.content", current_job_logs.content) 
+    print("current_job_logs.text", current_job_logs.text)
     print("current_job_logs.headers",current_job_logs.headers)    
 
 
