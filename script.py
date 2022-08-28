@@ -6,17 +6,19 @@ def get_job_by_name(job_name, job_list):
 
     for _, job_obj in enumerate(job_list):
         if job_obj["name"] == job_name:
-            print("current_job", job_obj)
-            return loads(job_obj)
+            return job_obj
 
 
 def get_job_id(api, job_name, run_id):
 
     all_jobs = api.actions.list_jobs_for_workflow_run(run_id=run_id)["jobs"]
 
-    print("all_jobs", all_jobs)
+    job = get_job_by_name(job_name, all_jobs)
+    
+    print("job", job)
+    print("job_id", job["id"])
 
-    return get_job_by_name(job_name, all_jobs)["id"]
+    return job["id"]
 
     
 def get_logs():
