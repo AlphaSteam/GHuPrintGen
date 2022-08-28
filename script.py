@@ -18,12 +18,8 @@ def get_logs():
     current_job_id = ghapi.env_github.job
     print("current_job_id", current_job_id)
 
-    print("token", ghapi.github_token())
-
     current_job_logs = api.actions.download_job_logs_for_workflow_run(job_id=current_job_id)
-
-
-
+    print("current_job_logs", current_job_logs)
     #run_id = context_github.run_id
 
     #jobs = api.actions.list_jobs_for_workflow_run_attempt(run_id=run_id)
