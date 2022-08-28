@@ -16,10 +16,10 @@ def get_logs():
     api = ghapi.GhApi(owner=owner,repo=repo,token=ghapi.github_token())
 
     current_job_id = ghapi.env_github.job
-    print("current_job_id", current_job_id)
 
     try:
         current_job_logs = api.actions.download_job_logs_for_workflow_run(job_id=current_job_id)
+        print("current_job_id", current_job_id)
 
     except Exception as e:
         print("Exception", e)
