@@ -11,7 +11,8 @@ class Api:
 
     def get(self, url):
         return requests.get(self.base_url + url, headers={
-                "Authorization": f"token {self.token}"
+                "Authorization": f"token {self.token}",
+                "Accept": "application/vnd.github+json"
             })
 
         

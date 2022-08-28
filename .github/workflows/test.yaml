@@ -17,4 +17,5 @@ jobs:
         uses: ./
         with:
             job_name: first-job
+            github_token: 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
             
