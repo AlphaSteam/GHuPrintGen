@@ -20,3 +20,10 @@ jobs:
             job_name: first-job
             github_token: ${{ secrets.pat }}
             log_name: logs2.txt
+            
+      - name: Download a file
+        uses: carlosperate/download-file-action@v1
+        with:
+          file-url: 'https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py'
+      - name: Check the file is there
+        run: ls -l get-poetry.py
