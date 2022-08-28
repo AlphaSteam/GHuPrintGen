@@ -9,7 +9,7 @@ class Api:
         self.token = token
         self.base_url = f"https://api.github.com/repos/{owner}/{repo}/actions/"
 
-    def get_request(self, url):
+    def get(self, url):
         return requests.get(self.base_url + url, headers={
                 "Authorization": f"token {self.token}"
             })
