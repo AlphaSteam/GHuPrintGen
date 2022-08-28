@@ -38,15 +38,12 @@ def get_logs():
     
     current_job_logs = api.actions.download_job_logs_for_workflow_run(job_id=current_job_id)
     
-    print("current_job_logs", loads(current_job_logs))
-
     
 
 def main():
-    try:
-        get_logs()
-    except Exception as e:
-        print("Exception", e)
+
+    get_logs()
+
 
 if __name__ == "__main__":
     main()
