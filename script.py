@@ -1,6 +1,20 @@
-import ghapi.all as ghapi
 import os
-from jsonref import loads
+import json
+import requests
+
+
+class Api:
+
+    def __init__(self, repo, owner, token):
+        self.owner = owner
+        self.repo = repo
+        self.token = token
+        self.base_url = f"https://api.github.com/repos/{owner}/{repo}/actions/"
+
+    def get(self, url):
+        return requests.get(base_url + url, headers={
+                "Authorization": f"token {self.token}"
+            })
 
 def get_job_by_name(job_name, job_list):
 
@@ -11,14 +25,14 @@ def get_job_by_name(job_name, job_list):
 
 def get_job_id(api, job_name, run_id):
 
-    all_jobs = api.actions.list_jobs_for_workflow_run(run_id=run_id)["jobs"]
+    all_jobs = json.loads(api.get(f"runs/{run_id}/jobs"))["jobs"]
 
     job = get_job_by_name(job_name, all_jobs)
 
     return job["id"]
 
-    
-def get_logs():
+
+def setup_api():
 
     repository = os.environ['INPUT_REPOSITORY'].split("/")
     
@@ -28,21 +42,26 @@ def get_logs():
 
     token = os.environ['INPUT_GITHUB-TOKEN']
 
-    api = ghapi.GhApi(owner=owner, repo=repo, token=token)
+    return Api(repo, owner, token)
 
-    job_name = ghapi.env_github.job
 
-    run_id = ghapi.env_github.run_id
+def get_logs(api):
+
+    job_name = os.environ['GITHUB_JOB']
+
+    run_id = os.environ['GITHUB_RUN_ID']
 
     current_job_id = get_job_id(api, job_name, run_id)
     
-    current_job_logs = api.actions.download_job_logs_for_workflow_run(job_id=current_job_id)
-    
+    current_job_logs = api.get(f"jobs/{current_job_id}/logs")
+
+    print(current_job_logs)    
     
 
 def main():
+    api = setup_api()
 
-    get_logs()
+    get_logs(api)
 
 
 if __name__ == "__main__":
