@@ -2,18 +2,19 @@ import ghapi.all as ghapi
 
 def get_logs():
 
-    repository_from_context = ghapi.env_github.repository.split('/')
+    repository = os.environ['INPUT_REPOSITORY'].split("/")
+    
+    print("repository", repository)
 
-    print("repository_from_context", repository_from_context)
-
-    owner = repository_from_context[0]
+    owner = repository[0]
     print("owner", owner)
 
-    repo = repository_from_context[1]
+    repo = repository[1]
     print("repo", repo)
 
-    
-    api = ghapi.GhApi(owner=owner,repo=repo,token=ghapi.github_token())
+    token = os.environ['INPUT_GITHUB-TOKEN']
+
+    api = ghapi.GhApi(owner=owner, repo=repo, token=token)
 
     current_job_id = ghapi.env_github.job
     print("current_job_id", current_job_id)

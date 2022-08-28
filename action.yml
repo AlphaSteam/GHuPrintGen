@@ -9,3 +9,13 @@ runs:
 branding:
   icon: file-text #icon of the image
   color: blue # background color of the logo of our action 
+
+inputs:
+  repository:
+    description: 'Repository name with owner. For example, actions/checkout'
+    default: ${{ github.repository }}
+    required: false
+  github-token:
+    required: false
+    default: ${{ github.token }}
+    description: A GitHub personal access token with repo scope to the project
