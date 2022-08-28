@@ -24,7 +24,7 @@ def get_job_by_name(job_name, job_list):
 
 def get_job_id(api, job_name, run_id):
 
-    all_jobs = api.get(f"runs/{run_id}/jobs").content.json()["jobs"]
+    all_jobs = api.get(f"runs/{run_id}/jobs").json()["jobs"]
 
     job = get_job_by_name(job_name, all_jobs)
 
@@ -52,10 +52,11 @@ def get_logs(api):
 
     current_job_id = get_job_id(api, job_name, run_id)
     
-    current_job_logs = api.get(f"jobs/{current_job_id}/logs").content
+    current_job_logs = api.get(f"jobs/{current_job_id}/logs")
 
-    print(current_job_logs)    
-    
+    print("current_job_logs.content", current_job_logs.content)    
+    print("current_job_logs.headers",current_job_logs.headers)    
+
 
 def main():
     api = setup_api()
