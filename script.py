@@ -25,7 +25,11 @@ def get_job_by_name(job_name, job_list):
 
 def get_job_id(api, job_name, run_id):
 
-    all_jobs = api.get(f"runs/{run_id}/jobs").json()["jobs"]
+    all_jobs = api.get(f"runs/{run_id}/jobs").json()
+
+    print("all_jobs", all_jobs)
+
+    all_jobs = all_jobs["jobs"]
 
     job = get_job_by_name(job_name, all_jobs)
 
