@@ -12,7 +12,7 @@ class Api:
         self.base_url = f"https://api.github.com/repos/{owner}/{repo}/actions/"
 
     def get(self, url):
-        return requests.get(base_url + url, headers={
+        return requests.get(self.base_url + url, headers={
                 "Authorization": f"token {self.token}"
             })
 
