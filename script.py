@@ -39,15 +39,15 @@ def setup_api():
 
     repo = repository[1]
 
-    token = os.environ['INPUT_GITHUB-TOKEN']
+    token = os.environ['INPUT_GITHUB_TOKEN']
 
     return Api(repo, owner, token)
 
 
 def get_logs(api):
-
-    job_name = os.environ['GITHUB_JOB']
-
+    
+    job_name = os.environ['INPUT_JOB_NAME']
+        
     run_id = os.environ['GITHUB_RUN_ID']
 
     current_job_id = get_job_id(api, job_name, run_id)
