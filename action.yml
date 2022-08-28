@@ -26,4 +26,8 @@ inputs:
   log_name:
     required: false
     default: logs.txt
-    description: Job whose logs will be transformed to microprint
+    description: Log filename
+  log_path:
+    required: false
+    default: /
+    description: Path where the log will be saved
