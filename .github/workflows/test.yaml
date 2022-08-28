@@ -24,3 +24,7 @@ jobs:
             job_name: first-job
             github_token: ${{ secrets.pat }}
             log_name: logs2.txt
+      - name: Commit microprint
+        uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: Updated log microprint
