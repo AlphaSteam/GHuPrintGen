@@ -1,16 +1,20 @@
 import ghapi.all as ghapi
 import os
+from jsonref import loads
 
 def get_job_by_name(job_name, job_list):
 
     for _, job_obj in enumerate(job_list):
         if job_obj["name"] == job_name:
-            return job_obj
+            print("current_job", job_obj)
+            return loads(job_obj)
 
 
 def get_job_id(api, job_name, run_id):
 
     all_jobs = api.actions.list_jobs_for_workflow_run(run_id=run_id)["jobs"]
+
+    print("all_jobs", all_jobs)
 
     return get_job_by_name(job_name, all_jobs)["id"]
 
