@@ -53,7 +53,7 @@ def generate_svg_microprint_from_text(text, scale=9, output_filename="microprint
 
     text_lines = text.split('\n')
 
-    dwg = svgwrite.Drawing(output_filename, (50 * scale, (len(text_lines) + 1) * scale))
+    dwg = svgwrite.Drawing(output_filename, (50 * scale, (len(text_lines) + 2) * scale))
 
     dwg.add(dwg.rect(insert=(0, 0), size=('100%', '100%'), rx=None, ry=None, fill='rgb(255,255,255)'))
 
