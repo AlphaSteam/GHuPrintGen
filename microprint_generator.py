@@ -47,12 +47,12 @@ def generate_raster_microprint_from_text(text, scale=2, output_filename="micropr
 def generate_svg_microprint_from_text(text, scale=9, output_filename="microprint.svg"):
     text_lines = text.split('\n')
 
-    dwg = svgwrite.Drawing(output_filename, (50 * scale, len(text_lines) * scale), profile="tiny")
+    dwg = svgwrite.Drawing(output_filename, (50 * scale, len(text_lines) * scale))
 
     paragraph = dwg.add(dwg.g(font_size=scale))
 
     y = scale + 1
-    
+
     for line in text_lines:
         fill_color = color_rules(line)
 
