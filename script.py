@@ -1,5 +1,6 @@
 import os
 import requests
+
 class Api:
 
     def __init__(self, repo, owner, token):
@@ -67,6 +68,8 @@ def main():
     api = setup_api()
 
     get_logs(api)
+
+    print("Current directory: ", os.getcwd())
 
 
 if __name__ == "__main__":
