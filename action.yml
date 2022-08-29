@@ -39,7 +39,7 @@ inputs:
 
   log_path:
     required: false
-    default: /
+    default: ./
     description: Path where the log will be saved
     
   save_log:
@@ -58,5 +58,5 @@ inputs:
 
   microprint_path:
     required: false
-    default: /
+    default: ./
     description: Path where the microprint will be saved

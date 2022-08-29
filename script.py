@@ -61,10 +61,10 @@ def get_logs(api):
 
     save_path = Path(os.environ['INPUT_LOG_PATH']) / os.environ['INPUT_LOG_FILENAME']
 
-    print("input_save_log: ", os.environ['INPUT_SAVE_LOG'])
+    print("save_path: ", save_path, os.environ['INPUT_LOG_FILENAME'])
 
     if os.environ['INPUT_SAVE_LOG'] == "true":
-        with open(os.environ['INPUT_LOG_FILENAME'], 'w') as file:
+        with open(save_path, 'w') as file:
             file.write(current_job_logs)
 
     return current_job_logs
