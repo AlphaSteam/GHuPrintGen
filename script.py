@@ -1,5 +1,7 @@
 import os
 import requests
+from microprint_generator import generate_microprint_from_text 
+from pathlib import Path
 
 class Api:
 
@@ -57,19 +59,26 @@ def get_logs(api):
 
     current_job_id = get_job_id(api, job_name, run_id)
     
-    current_job_logs = api.get(f"jobs/{current_job_id}/logs")
+    current_job_logs = api.get(f"jobs/{current_job_id}/logs").text
 
-    with open(os.environ['INPUT_LOG_NAME'], 'w') as file:
-        file.write(current_job_logs.text)
+    save_path = Path(os.environ['INPUT_LOG_PATH']) / os.environ['INPUT_LOG_FILENAME']
 
+    if os.environ['INPUT_SAVE_LOG'] == "true":
+        with open(save_path, 'w') as file:
+            file.write(current_job_logs)
 
+    return current_job_logs
+    
 
 def main():
     api = setup_api()
 
-    get_logs(api)
+    logs = get_logs(api)
 
-    print("Current directory: ", os.getcwd())
+    microprint_filename = Path(os.environ['INPUT_MICROPRINT_PATH']) / os.environ['INPUT_MICROPRINT_FILENAME']
+
+
+    generate_microprint_from_text(logs, output_filename=microprint_filename)
 
 
 if __name__ == "__main__":

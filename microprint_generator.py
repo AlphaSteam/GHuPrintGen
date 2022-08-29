@@ -1,5 +1,4 @@
 from PIL import Image, ImageDraw, ImageFont
-import matplotlib.pyplot as plt
 
 
 def color_rules(line):
@@ -11,10 +10,11 @@ def color_rules(line):
         return 'black'
 
 
-def convert_text(filename, scale):
-    f = open(filename, "r")
+def generate_microprint_from_text(text, scale=3, output_filename="microprint.png"):
+
+    text_lines = text.split('\n')
     new_scale = scale * 10
-    lines = f.readlines()
+    
     size_x = 70 * new_scale
     size_y = len(lines) * (new_scale + 1)
     img = Image.new('RGBA', (int(size_x), int(size_y)), color="white")
@@ -23,7 +23,7 @@ def convert_text(filename, scale):
     font = ImageFont.truetype("NotoSans-Regular.ttf", new_scale)
 
     y = new_scale
-    for line in lines:
+    for line in text_lines:
         x = new_scale
         fill_color = color_rules(line)
         for char in line:
@@ -32,13 +32,8 @@ def convert_text(filename, scale):
             x += font.getlength(char)
         y += new_scale
 
-    plt.figure(constrained_layout=True, figsize=(10, 30))
-    plt.xticks([])
-    plt.yticks([])
+   
     img_resized = img.resize((int(size_x / 2), int(size_y / 2)), Image.Resampling.LANCZOS)
-
-    plt.imshow(img_resized)
-    plt.show()
-    img_resized.save("test-text.png")
+    img_resized.save(output_filename)
 
 

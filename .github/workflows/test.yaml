@@ -1,8 +1,10 @@
 name: Test Workflow
 on: push
 jobs:
+
   generate_microprint_mid_job:
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
@@ -14,8 +16,12 @@ jobs:
         uses: stefanzweifel/git-auto-commit-action@v4
         with:
           commit_message: Updated log microprint
+
   generate_microprint_of_first_job:
     runs-on: ubuntu-latest
+    # If the job doesn't finish, the logs won't be complete.
+    needs: generate_microprint_mid_job
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v2

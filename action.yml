@@ -11,23 +11,52 @@ branding:
   color: blue # background color of the logo of our action 
 
 inputs:
+  # ====================================================================================
+  # Github inputs
+
   repository:
     description: 'Repository name with owner. For example, actions/checkout'
     default: ${{ github.repository }}
     required: false
+
   github_token:
     required: false
     default: ${{ github.token }}
     description: A GitHub personal access token with repo scope to the project
+
   job_name:
     required: false
     default: ${{ github.job }}
     description: Job whose logs will be transformed to microprint
-  log_name:
+
+  # ====================================================================================
+  # Log inputs
+
+  log_filename:
     required: false
     default: logs.txt
     description: Log filename
+
   log_path:
     required: false
     default: /
     description: Path where the log will be saved
+    
+  save_log:
+    required: false
+    type: boolean
+    default: true
+    description: Whether or not to save the log file
+
+  # ====================================================================================
+  # Microprint inputs
+
+  microprint_filename:
+    required: false
+    default: microprint.png
+    description: Microprint filename
+
+  microprint_path:
+    required: false
+    default: /
+    description: Path where the microprint will be saved
