@@ -1,7 +1,10 @@
 name: Test Workflow
-on: push
-jobs:
 
+on: 
+  push:
+  workflow_dispatch:
+
+jobs:
   generate_microprint_mid_job:
     runs-on: ubuntu-latest
 
@@ -30,7 +33,7 @@ jobs:
         with:
             job_name: generate_microprint_mid_job
             github_token: ${{ secrets.pat }}
-            log_name: logs2.txt
+            log_filename: logs2.txt
       - name: Pull Remote Changes
         run: git pull
       - name: Commit microprint

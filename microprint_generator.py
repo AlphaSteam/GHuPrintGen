@@ -32,7 +32,7 @@ def generate_microprint_from_text(text, scale=3, output_filename="microprint.png
             x += font.getlength(char)
         y += new_scale
 
-   
+    print ("output_filename", output_filename)
     img_resized = img.resize((int(size_x / 2), int(size_y / 2)), Image.Resampling.LANCZOS)
     img_resized.save(output_filename)
 
