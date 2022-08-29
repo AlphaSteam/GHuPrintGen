@@ -3,9 +3,12 @@ import svgwrite
 import logging
 
 def color_rules(line):
-    if 'Installing' in line:
+    line = line.lower()
+    if 'installing' in line:
         return 'purple'
-    elif 'Fetching' in line:
+    elif 'fetching' in line:
+        return "orange"
+    elif 'complete' in line:
         return "orange"
     else:
         return 'black'
@@ -59,11 +62,8 @@ def generate_svg_microprint_from_text(text, scale=9, output_filename="microprint
     for line in text_lines:
         fill_color = color_rules(line)
 
-        atext = dwg.text("", insert=(0, y), fill=fill_color)
-
-        for char in line:
-            atext.add(dwg.tspan(char, fill=fill_color))
-
+        atext = dwg.text(line, insert=(0, y), fill=fill_color)
+        
         paragraph.add(atext)
 
         y += scale + 1
