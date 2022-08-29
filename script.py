@@ -1,6 +1,6 @@
 import os
 import requests
-from microprint_generator import generate_microprint_from_text 
+from microprint_generator import generate_raster_microprint_from_text, generate_svg_microprint_from_text 
 from pathlib import Path
 
 class Api:
@@ -59,7 +59,7 @@ def get_logs(api):
     
     current_job_logs = api.get(f"jobs/{current_job_id}/logs").text
 
-    save_path = Path(os.environ['INPUT_LOG_PATH']) / os.environ['INPUT_LOG_FILENAME']
+    save_path = Path(os.environ['INPUT_LOG_PATH']) / os.environ['INPUT_LOG_FILENAME'] + ".txt"
 
     if os.environ['INPUT_SAVE_LOG'] == "true":
         with open(save_path, 'w') as file:
@@ -75,8 +75,14 @@ def main():
 
     microprint_filename = Path(os.environ['INPUT_MICROPRINT_PATH']) / os.environ['INPUT_MICROPRINT_FILENAME']
 
-    generate_microprint_from_text(logs, output_filename=microprint_filename)
+    if os.environ['INPUT_MICROPRINT_RENDER_METHOD'] == "svg":
+        microprint_filename = microprint_filename +".svg"
 
+        generate_svg_microprint_from_text(logs, output_filename=microprint_filename)
+    else:
+        microprint_filename = microprint_filename +".png"
+
+        generate_raster_microprint_from_text(logs, output_filename=microprint_filename)
 
 if __name__ == "__main__":
     main()

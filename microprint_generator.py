@@ -1,4 +1,5 @@
 from PIL import Image, ImageDraw, ImageFont
+import svgwrite
 
 
 def color_rules(line):
@@ -10,7 +11,7 @@ def color_rules(line):
         return 'black'
 
 
-def generate_microprint_from_text(text, scale=2, output_filename="microprint.png"):
+def generate_raster_microprint_from_text(text, scale=2, output_filename="microprint.png"):
 
     text_lines = text.split('\n')
     new_scale = scale * 10
@@ -43,3 +44,25 @@ def generate_microprint_from_text(text, scale=2, output_filename="microprint.png
     img_resized.save(output_filename)
 
 
+def generate_svg_microprint_from_text(text, scale=9, output_filename="microprint.svg"):
+    text_lines = text.split('\n')
+
+    dwg = svgwrite.Drawing(output_filename, (50 * scale, len(text_lines) * scale), profile="tiny")
+
+    paragraph = dwg.add(dwg.g(font_size=scale))
+
+    y = scale + 1
+    
+    for line in text_lines:
+        fill_color = color_rules(line)
+
+        atext = dwg.text("", insert=(0, y), fill=fill_color)
+
+        for char in line:
+            atext.add(dwg.tspan(char, fill=fill_color))
+
+        paragraph.add(atext)
+
+        y += scale + 1
+
+    dwg.save()

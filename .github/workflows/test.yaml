@@ -2,7 +2,6 @@ name: Test Workflow
 
 on: 
   push:
-  workflow_dispatch:
 
 jobs:
   generate_microprint_mid_job:
@@ -11,33 +10,42 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
+
       - name: Get microprint of jobs logs
         uses: ./
+        with:
+            microprint_render_method: "raster"
+
       - name: Pull Remote Changes
         run: git pull
+
       - name: Commit microprint
         uses: stefanzweifel/git-auto-commit-action@v4
         with:
-          commit_message: Updated log microprint
+          commit_message: Updated mid job microprint
 
   generate_microprint_of_first_job:
     runs-on: ubuntu-latest
+
     # If the job doesn't finish first, the logs won't be complete.
     needs: generate_microprint_mid_job
 
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
+
       - name: Get microprint of jobs logs
         uses: ./
         with:
             job_name: generate_microprint_mid_job
             github_token: ${{ secrets.pat }}
-            log_filename: logs2.txt
-            microprint_filename: microprint2.png
+            log_filename: logs2
+            microprint_filename: microprint2
+
       - name: Pull Remote Changes
         run: git pull
+
       - name: Commit microprint
         uses: stefanzweifel/git-auto-commit-action@v4
         with:
-          commit_message: Updated log microprint
+          commit_message: Updated first job microprint
