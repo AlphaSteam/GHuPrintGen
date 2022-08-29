@@ -22,7 +22,7 @@ jobs:
 
   generate_microprint_of_first_job:
     runs-on: ubuntu-latest
-    # If the job doesn't finish, the logs won't be complete.
+    # If the job doesn't finish first, the logs won't be complete.
     needs: generate_microprint_mid_job
 
     steps:
@@ -34,6 +34,7 @@ jobs:
             job_name: generate_microprint_mid_job
             github_token: ${{ secrets.pat }}
             log_filename: logs2.txt
+            microprint_filename: microprint2.png
       - name: Pull Remote Changes
         run: git pull
       - name: Commit microprint

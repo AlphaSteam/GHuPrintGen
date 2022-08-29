@@ -61,8 +61,6 @@ def get_logs(api):
 
     save_path = Path(os.environ['INPUT_LOG_PATH']) / os.environ['INPUT_LOG_FILENAME']
 
-    print("save_path: ", save_path, os.environ['INPUT_LOG_FILENAME'])
-
     if os.environ['INPUT_SAVE_LOG'] == "true":
         with open(save_path, 'w') as file:
             file.write(current_job_logs)
@@ -76,7 +74,6 @@ def main():
     logs = get_logs(api)
 
     microprint_filename = Path(os.environ['INPUT_MICROPRINT_PATH']) / os.environ['INPUT_MICROPRINT_FILENAME']
-
 
     generate_microprint_from_text(logs, output_filename=microprint_filename)
 
