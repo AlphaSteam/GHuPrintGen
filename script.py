@@ -29,8 +29,6 @@ def get_job_id(api, job_name, run_id):
 
     all_jobs = api.get(f"runs/{run_id}/jobs").json()
 
-    print("all_jobs", all_jobs)
-
     all_jobs = all_jobs["jobs"]
 
     job = get_job_by_name(job_name, all_jobs)
@@ -66,9 +64,7 @@ def get_logs(api):
     print("input_save_log: ", os.environ['INPUT_SAVE_LOG'])
 
     if os.environ['INPUT_SAVE_LOG'] == "true":
-        print("save logs: ", os.environ['INPUT_SAVE_LOG'])
-        print("log save path: ", save_path)
-        with open(save_path, 'w') as file:
+        with open(os.environ['INPUT_LOG_FILENAME'], 'w') as file:
             file.write(current_job_logs)
 
     return current_job_logs

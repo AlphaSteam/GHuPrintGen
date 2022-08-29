@@ -10,7 +10,7 @@ def color_rules(line):
         return 'black'
 
 
-def generate_microprint_from_text(text, scale=3, output_filename="microprint.png"):
+def generate_microprint_from_text(text, scale=2, output_filename="microprint.png"):
 
     text_lines = text.split('\n')
     new_scale = scale * 10
