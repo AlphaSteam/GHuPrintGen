@@ -16,7 +16,7 @@ def generate_microprint_from_text(text, scale=3, output_filename="microprint.png
     new_scale = scale * 10
     
     size_x = 70 * new_scale
-    size_y = len(lines) * (new_scale + 1)
+    size_y = len(text_lines) * (new_scale + 1)
     img = Image.new('RGBA', (int(size_x), int(size_y)), color="white")
     d = ImageDraw.Draw(img)
     d.fontmode = "L"
