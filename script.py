@@ -59,7 +59,7 @@ def get_logs(api):
     
     current_job_logs = api.get(f"jobs/{current_job_id}/logs").text
 
-    save_path = Path(os.environ['INPUT_LOG_PATH']) / os.environ['INPUT_LOG_FILENAME'] + ".txt"
+    save_path = Path(os.environ['INPUT_LOG_PATH']) / (os.environ['INPUT_LOG_FILENAME'] + ".txt")
 
     if os.environ['INPUT_SAVE_LOG'] == "true":
         with open(save_path, 'w') as file:
@@ -73,14 +73,14 @@ def main():
 
     logs = get_logs(api)
 
-    microprint_filename = Path(os.environ['INPUT_MICROPRINT_PATH']) / os.environ['INPUT_MICROPRINT_FILENAME']
+    microprint_filename = Path(os.environ['INPUT_MICROPRINT_PATH']) 
 
     if os.environ['INPUT_MICROPRINT_RENDER_METHOD'] == "svg":
-        microprint_filename = microprint_filename +".svg"
+        microprint_filename = microprint_filename / (os.environ['INPUT_MICROPRINT_FILENAME'] +".svg")
 
         generate_svg_microprint_from_text(logs, output_filename=microprint_filename)
     else:
-        microprint_filename = microprint_filename +".png"
+        microprint_filename = microprint_filename / (os.environ['INPUT_MICROPRINT_FILENAME'] +".png")
 
         generate_raster_microprint_from_text(logs, output_filename=microprint_filename)
 
