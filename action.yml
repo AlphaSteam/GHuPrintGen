@@ -34,7 +34,7 @@ inputs:
 
   log_filename:
     required: false
-    default: logs.txt
+    default: logs
     description: Log filename
 
   log_path:

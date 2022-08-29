@@ -1,6 +1,6 @@
 from PIL import Image, ImageDraw, ImageFont
 import svgwrite
-
+import logging
 
 def color_rules(line):
     if 'Installing' in line:
@@ -12,6 +12,7 @@ def color_rules(line):
 
 
 def generate_raster_microprint_from_text(text, scale=2, output_filename="microprint.png"):
+    logging.info('Generating raster microprint')
 
     text_lines = text.split('\n')
     new_scale = scale * 10
@@ -45,9 +46,11 @@ def generate_raster_microprint_from_text(text, scale=2, output_filename="micropr
 
 
 def generate_svg_microprint_from_text(text, scale=9, output_filename="microprint.svg"):
+    logging.info('Generating svg microprint')
+
     text_lines = text.split('\n')
 
-    dwg = svgwrite.Drawing(output_filename, (50 * scale, len(text_lines) * scale))
+    dwg = svgwrite.Drawing(output_filename, (50 * scale, (len(text_lines) + 1) * scale))
 
     paragraph = dwg.add(dwg.g(font_size=scale))
 

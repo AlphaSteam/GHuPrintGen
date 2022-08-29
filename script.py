@@ -67,11 +67,18 @@ def get_logs(api):
 
     return current_job_logs
     
+def remove_ansi_escape_sequences(text):
 
+    ansi_escape = re.compile(r'\x1B(?:[@-Z\\-_]|\[[0-?]*[ -/]*[@-~])')
+
+    return ansi_escape.sub('', text)
+    
 def main():
     api = setup_api()
 
     logs = get_logs(api)
+
+    logs = remove_ansi_escape_sequences(logs)
 
     microprint_filename = Path(os.environ['INPUT_MICROPRINT_PATH']) 
 
