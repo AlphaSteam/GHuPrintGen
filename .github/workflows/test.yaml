@@ -16,14 +16,13 @@ jobs:
           commit_message: Updated log microprint
   generate_microprint_of_first_job:
     runs-on: ubuntu-latest
-    needs: first-job
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
       - name: Get microprint of jobs logs
         uses: ./
         with:
-            job_name: first-job
+            job_name: generate_microprint_mid_job
             github_token: ${{ secrets.pat }}
             log_name: logs2.txt
       - name: Pull Remote Changes
