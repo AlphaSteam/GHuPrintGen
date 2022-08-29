@@ -20,7 +20,7 @@ def generate_microprint_from_text(text, scale=3, output_filename="microprint.png
     img = Image.new('RGBA', (int(size_x), int(size_y)), color="white")
     d = ImageDraw.Draw(img)
     d.fontmode = "L"
-    font = ImageFont.truetype("NotoSans-Regular.ttf", new_scale)
+    font = ImageFont.truetype("fonts/NotoSans-Regular.ttf", new_scale)
 
     y = new_scale
     for line in text_lines:
