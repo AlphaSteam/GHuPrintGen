@@ -2,7 +2,7 @@ import os
 import requests
 from microprint_generator import generate_raster_microprint_from_text, generate_svg_microprint_from_text 
 from pathlib import Path
-
+import re
 class Api:
 
     def __init__(self, repo, owner, token):
