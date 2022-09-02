@@ -82,7 +82,7 @@ def main():
 
     microprint_filename = Path(os.environ['INPUT_MICROPRINT_PATH']) 
 
-    scale = os.environ['INPUT_MICROPRINT_SCALE']
+    scale = int(os.environ['INPUT_MICROPRINT_SCALE'])
 
     if os.environ['INPUT_MICROPRINT_RENDER_METHOD'] == "svg":
         microprint_filename = microprint_filename / (os.environ['INPUT_MICROPRINT_FILENAME'] +".svg")
