@@ -1,0 +1,5 @@
+2022-09-02T06:02:53.1484972Z Requested labels: ubuntu-latest
+2022-09-02T06:02:53.1485011Z Job defined at: AlphaSteam/microprint/.github/workflows/test.yaml@refs/heads/main
+2022-09-02T06:02:53.1485028Z Waiting for a runner to pick up this job...
+2022-09-02T06:02:54.0393342Z Job is waiting for a hosted runner to come online.
+2022-09-02T06:02:57.3507227Z Job is about to start running on the hosted runner: Hosted Agent (hosted)
