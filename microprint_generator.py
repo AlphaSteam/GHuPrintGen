@@ -48,12 +48,12 @@ def generate_raster_microprint_from_text(text, scale=2, output_filename="micropr
     img_resized.save(output_filename)
 
 
-def generate_svg_microprint_from_text(text, scale=9, output_filename="microprint.svg"):
+def generate_svg_microprint_from_text(text, scale=2, output_filename="microprint.svg"):
     logging.info('Generating svg microprint')
 
     text_lines = text.split('\n')
 
-    dwg = svgwrite.Drawing(output_filename, (50 * scale, (len(text_lines) + 10) * scale))
+    dwg = svgwrite.Drawing(output_filename, (50 * scale, (len(text_lines) + 10) * scale * 2))
 
     dwg.add(dwg.rect(insert=(0, 0), size=('100%', '100%'), rx=None, ry=None, fill='rgb(255,255,255)'))
 

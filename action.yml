@@ -66,3 +66,8 @@ inputs:
     required: false
     default: svg
     description: How to render the microprint. As svg or raster
+  
+  microprint_scale:
+    required: false
+    default: 2
+    description: Scale of the microprint (The same scale for raster and svg could produce different sizes)

@@ -15,6 +15,9 @@ jobs:
         uses: ./
         with:
             microprint_render_method: "raster"
+            log_path: ./logs
+            microprint_path: ./microprints
+            microprint_scale: 3
 
       - name: Pull Remote Changes
         run: git pull
@@ -40,7 +43,9 @@ jobs:
             job_name: generate_microprint_mid_job
             github_token: ${{ secrets.pat }}
             log_filename: logs2
+            log_path: ./logs
             microprint_filename: microprint2
+            microprint_path: ./microprints
 
       - name: Pull Remote Changes
         run: git pull

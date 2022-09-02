@@ -82,14 +82,16 @@ def main():
 
     microprint_filename = Path(os.environ['INPUT_MICROPRINT_PATH']) 
 
+    scale = os.environ['INPUT_SCALE']
+
     if os.environ['INPUT_MICROPRINT_RENDER_METHOD'] == "svg":
         microprint_filename = microprint_filename / (os.environ['INPUT_MICROPRINT_FILENAME'] +".svg")
 
-        generate_svg_microprint_from_text(logs, output_filename=microprint_filename)
+        generate_svg_microprint_from_text(logs, output_filename=microprint_filename, scale=scale)
     else:
         microprint_filename = microprint_filename / (os.environ['INPUT_MICROPRINT_FILENAME'] +".png")
 
-        generate_raster_microprint_from_text(logs, output_filename=microprint_filename)
+        generate_raster_microprint_from_text(logs, output_filename=microprint_filename, scale=scale)
 
 if __name__ == "__main__":
     main()
