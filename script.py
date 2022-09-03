@@ -3,6 +3,8 @@ import requests
 from microprint_generator import generate_raster_microprint_from_text, generate_svg_microprint_from_text 
 from pathlib import Path
 import re
+import logging
+
 class Api:
 
     def __init__(self, repo, owner, token):
@@ -75,7 +77,7 @@ def remove_ansi_escape_sequences(text):
     
 def main():
     logging.basicConfig(level=logging.DEBUG) 
-    
+
     api = setup_api()
 
     logs = get_logs(api)
