@@ -1,7 +1,7 @@
 {
   "default_colors": {
-    "background_color": "white",
-    "text_color": "black"
+    "background_color": "rgb(30, 30, 30)",
+    "text_color": "white"
   },
   "line_rules": {
     "error": {
