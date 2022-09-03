@@ -1,0 +1,28 @@
+{
+  "default_colors": {
+    "background_color": "white",
+    "text_color": "black"
+  },
+  "line_rules": {
+    "error": {
+      "text_color": "red",
+      "background_color": "white"
+    },
+    "installing": {
+      "text_color": "white",
+      "background_color": "green"
+    },
+    "warning": {
+      "text_color": "black",
+      "background_color": "yellow"
+    },
+    "fetching": {
+      "text_color": "black",
+      "background_color": "orange"
+    },
+    "complete": {
+      "text_color": "green",
+      "background_color": "white"
+    }
+  }
+}
