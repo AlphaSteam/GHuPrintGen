@@ -74,6 +74,8 @@ def remove_ansi_escape_sequences(text):
     return ansi_escape.sub('', text)
     
 def main():
+    logging.basicConfig(level=logging.DEBUG) 
+    
     api = setup_api()
 
     logs = get_logs(api)

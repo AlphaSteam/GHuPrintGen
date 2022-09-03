@@ -1,6 +1,7 @@
 from PIL import Image, ImageDraw, ImageFont
 import svgwrite
 import logging
+import json
 
 def get_rules():
     file = open('config.json')
