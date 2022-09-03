@@ -47,14 +47,14 @@ def generate_raster_microprint_from_text(text, scale=2, vertical_spacing=1, outp
     font = ImageFont.truetype("fonts/NotoSans-Regular.ttf", scale)
 
     y = 0
-    for line in text_lines:
+    for text_line in text_lines:
         background_color = check_color_line_rule(rules=rules, color_type="background_color", text_line=text_line)
 
         ImageDraw.rectangle((0, y), fill=background_color, outline=None, width=1)
 
         text_color = check_color_line_rule(rules=rules, color_type="text_color", text_line=text_line)
         
-        d.text((0, y), text=line, font=font, fill=text_color)
+        d.text((0, y), text=text_line, font=font, fill=text_color)
             
         y += scale
 
