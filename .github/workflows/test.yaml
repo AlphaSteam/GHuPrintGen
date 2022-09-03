@@ -17,7 +17,7 @@ jobs:
             microprint_render_method: "raster"
             log_path: ./logs
             microprint_path: ./microprints
-            microprint_scale: 3
+            microprint_scale: 10
 
       - name: Pull Remote Changes
         run: git pull

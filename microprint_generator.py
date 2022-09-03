@@ -4,29 +4,46 @@ import logging
 import json
 
 def get_rules():
-    file = open('config.json')
+    config_path = Path(os.environ['INPUT_MICROPRINT_CONFIG_PATH'])
+    config_filename = (os.environ['INPUT_MICROPRINT_CONFIG_FILENAME'] +".json")
+
+    config_file_path = config_path  / config_filename
+
+    file = open(config_file_path)
 
     config = json.load(file)
 
     return config
 
 
+def get_default_color(rules, color_type):
+    fallback_colors = {"background_color": "white", "text_color": "black"}
+
+    default_colors = rules.get("default_colors", fallback_colors)
+
+    return default_colors.get(color_type, fallback_colors[color_type])
+
+
 def check_color_line_rule(rules, color_type, text_line):
     text_line = text_line.lower()
 
     line_rules = rules["line_rules"]
+
+    default_color = get_default_color(rules, color_type)
+
     for rule in line_rules:
         if text_line.find(rule) != -1:
-            return line_rules[rule][color_type]
+            return line_rules[rule].get(color_type, default_color)
 
-    if color_type == "text_color":
-        return rules["default_colors"]["text_color"]
+    return default_color
 
-    return rules["default_colors"]["background_color"]
-
-
-def generate_raster_microprint_from_text(text, scale=2, vertical_spacing=1, output_filename="microprint.png"):
+def generate_raster_microprint_from_text(text, output_filename="microprint.png"):
     logging.info('Generating raster microprint')
+
+    rules = get_rules()
+    
+    scale = rules.get("scale", 2)
+    vertical_spacing = rules.get("vertical_spacing", 1)
 
     text_lines = text.split('\n')
     
@@ -37,7 +54,7 @@ def generate_raster_microprint_from_text(text, scale=2, vertical_spacing=1, outp
     size_x = 40 * scale
     size_y = len(text_lines) * scale_with_spacing
 
-    default_background_color = rules["default_colors"]["background_color"]
+    default_background_color = get_default_color(rules, "background_color")
 
     img = Image.new('RGBA', (int(size_x), int(size_y)), color=default_background_color)
 
@@ -61,8 +78,13 @@ def generate_raster_microprint_from_text(text, scale=2, vertical_spacing=1, outp
     img.save(output_filename)
 
 
-def generate_svg_microprint_from_text(text, scale=2, vertical_spacing=1, output_filename="microprint.svg"):
+def generate_svg_microprint_from_text(text, output_filename="microprint.svg"):
     logging.info('Generating svg microprint')
+
+    rules = get_rules()
+    
+    scale = rules.get("scale", 2)
+    vertical_spacing = rules.get("vertical_spacing", 1)
 
     text_lines = text.split('\n')
 
@@ -75,7 +97,7 @@ def generate_svg_microprint_from_text(text, scale=2, vertical_spacing=1, output_
 
     dwg = svgwrite.Drawing(output_filename, (svg_width, svg_height))
 
-    default_background_color = rules["default_colors"]["background_color"]
+    default_background_color = get_default_color(rules, "background_color")
 
     dwg.add(dwg.rect(insert=(0, 0), size=('100%', '100%'), rx=None, ry=None, fill=default_background_color))
 
