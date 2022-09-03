@@ -1,5 +1,5 @@
-2022-09-03T11:44:48.1464471Z Requested labels: ubuntu-latest
-2022-09-03T11:44:48.1464508Z Job defined at: AlphaSteam/microprint/.github/workflows/test.yaml@refs/heads/add_custom_rules
-2022-09-03T11:44:48.1464531Z Waiting for a runner to pick up this job...
-2022-09-03T11:44:48.7110865Z Job is waiting for a hosted runner to come online.
-2022-09-03T11:44:52.7032477Z Job is about to start running on the hosted runner: Hosted Agent (hosted)
+2022-09-03T11:59:16.4914622Z Requested labels: ubuntu-latest
+2022-09-03T11:59:16.4914666Z Job defined at: AlphaSteam/microprint/.github/workflows/test.yaml@refs/heads/add_custom_rules
+2022-09-03T11:59:16.4914686Z Waiting for a runner to pick up this job...
+2022-09-03T11:59:17.1712657Z Job is waiting for a hosted runner to come online.
+2022-09-03T11:59:20.1956659Z Job is about to start running on the hosted runner: Hosted Agent (hosted)
