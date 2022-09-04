@@ -19,14 +19,6 @@ jobs:
             microprint_path: ./Examples/Mid-job/microprints
             microprint_config_path: ./Examples/Mid-job/
 
-      - name: Pull Remote Changes
-        run: git pull
-
-      - name: Commit microprint
-        uses: stefanzweifel/git-auto-commit-action@v4
-        with:
-          commit_message: Updated mid job microprint
-
   generate_microprint_of_first_job_with_custom_rules:
     runs-on: ubuntu-latest
 
@@ -49,19 +41,11 @@ jobs:
             microprint_config_path: ./Examples/With-custom-rules/
             microprint_config_filename: custom_config_name
 
-      - name: Pull Remote Changes
-        run: git pull
-
-      - name: Commit microprint
-        uses: stefanzweifel/git-auto-commit-action@v4
-        with:
-          commit_message: Updated first job microprint
-
   generate_microprint_with_default_rules:
       runs-on: ubuntu-latest
 
       # If the job doesn't finish first, the logs won't be complete.
-      needs: generate_microprint_mid_job
+      needs: generate_microprint_with_default_rules
 
       steps:
         - name: Checkout code
