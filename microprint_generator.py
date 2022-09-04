@@ -72,7 +72,7 @@ def generate_raster_microprint_from_text(text, output_filename="microprint.png")
     d = ImageDraw.Draw(img)
     d.fontmode = "L"
 
-    font = ImageFont.truetype("NotoSans-Regular.ttf", int(scale))
+    font = ImageFont.truetype("fonts/NotoSans-Regular.ttf", int(scale))
 
     y = 0
     for text_line in text_lines:
