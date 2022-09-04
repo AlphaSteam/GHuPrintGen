@@ -1,73 +1,145 @@
 from PIL import Image, ImageDraw, ImageFont
 import svgwrite
 import logging
+import json
+from pathlib import Path
+import os
 
-def color_rules(line):
-    line = line.lower()
-    if 'installing' in line:
-        return 'purple'
-    elif 'fetching' in line:
-        return "orange"
-    elif 'complete' in line:
-        return "green"
+
+def get_rules():
+    config_path = Path(os.environ['INPUT_MICROPRINT_CONFIG_PATH'])
+    config_filename = (
+        os.environ['INPUT_MICROPRINT_CONFIG_FILENAME'] + ".json")
+
+    config_file_path = config_path / config_filename
+
+    try:
+        file = open(config_file_path)
+    except OSError:
+        return {}
     else:
-        return 'black'
+        with file:
+            config = json.load(file)
+
+            return config
 
 
-def generate_raster_microprint_from_text(text, scale=2, output_filename="microprint.png"):
+def get_default_color(rules, color_type):
+    fallback_colors = {"background_color": "white", "text_color": "black"}
+
+    default_colors = rules.get("default_colors", fallback_colors)
+
+    return default_colors.get(color_type, fallback_colors[color_type])
+
+
+def check_color_line_rule(rules, color_type, text_line):
+    text_line = text_line.lower()
+
+    line_rules = rules.get("line_rules", {})
+
+    default_color = get_default_color(rules, color_type)
+
+    for rule in line_rules:
+        if text_line.find(rule) != -1:
+            return line_rules[rule].get(color_type, default_color)
+
+    return default_color
+
+
+def generate_raster_microprint_from_text(text, output_filename="microprint.png"):
     logging.info('Generating raster microprint')
 
-    text_lines = text.split('\n')
-    new_scale = scale * 10
-    
-    size_x = 70 * new_scale
-    size_y = len(text_lines) * (new_scale + 1)
+    rules = get_rules()
 
-    img = Image.new('RGBA', (int(size_x), int(size_y)), color="white")
+    scale = rules.get("scale", 2)
+    vertical_spacing = rules.get("vertical_spacing", 1)
+    microprint_width = rules.get("microprint_width", 120)
+
+    text_lines = text.split('\n')
+
+    scale_with_spacing = scale * vertical_spacing
+
+    rules = get_rules()
+
+    size_x = microprint_width
+    size_y = len(text_lines) * scale_with_spacing
+
+    default_background_color = get_default_color(rules, "background_color")
+
+    img = Image.new('RGB', (int(size_x), int(size_y)),
+                    color=default_background_color)
 
     d = ImageDraw.Draw(img)
     d.fontmode = "L"
 
-    font = ImageFont.truetype("fonts/NotoSans-Regular.ttf", new_scale)
+    font = ImageFont.truetype("fonts/NotoSans-Regular.ttf", int(scale))
 
-    y = new_scale
-    for line in text_lines:
-        x = new_scale
+    y = 0
+    for text_line in text_lines:
+        background_color = check_color_line_rule(
+            rules=rules, color_type="background_color", text_line=text_line)
 
-        fill_color = color_rules(line)
-        
-        for char in line:
-            if char != " " and char != "\n":
-                d.text((x, y), text=char, font=font, fill=fill_color)
+        d.rectangle([(0, y - scale_with_spacing), (size_x, y)],
+                    fill=background_color, outline=None, width=1)
 
-            x += font.getlength(char)
-            
-        y += new_scale
+        text_color = check_color_line_rule(
+            rules=rules, color_type="text_color", text_line=text_line)
 
-    img_resized = img.resize((int(size_x / 2), int(size_y / 2)), Image.Resampling.LANCZOS)
-    img_resized.save(output_filename)
+        d.text((0, y), text=text_line, font=font, fill=text_color, anchor="ls")
+
+        y += scale_with_spacing
+
+    img.save(output_filename)
 
 
-def generate_svg_microprint_from_text(text, scale=2, output_filename="microprint.svg"):
+def generate_svg_microprint_from_text(text, output_filename="microprint.svg"):
     logging.info('Generating svg microprint')
+
+    rules = get_rules()
+
+    scale = rules.get("scale", 2)
+    vertical_spacing = rules.get("vertical_spacing", 1)
+    microprint_width = rules.get("width", 120)
 
     text_lines = text.split('\n')
 
-    dwg = svgwrite.Drawing(output_filename, (50 * scale, (len(text_lines) + 10) * scale * 2))
+    scale_with_spacing = scale * vertical_spacing
 
-    dwg.add(dwg.rect(insert=(0, 0), size=('100%', '100%'), rx=None, ry=None, fill='rgb(255,255,255)'))
+    rules = get_rules()
 
-    paragraph = dwg.add(dwg.g(font_size=scale))
+    svg_width = microprint_width
+    svg_height = len(text_lines) * scale_with_spacing
 
-    y = scale + 1
+    dwg = svgwrite.Drawing(output_filename, (svg_width, svg_height))
 
-    for line in text_lines:
-        fill_color = color_rules(line)
+    default_background_color = get_default_color(rules, "background_color")
 
-        atext = dwg.text(line, insert=(0, y), fill=fill_color)
-        
-        paragraph.add(atext)
+    dwg.add(dwg.rect(insert=(0, 0), size=('100%', '100%'),
+            rx=None, ry=None, fill=default_background_color))
 
-        y += scale + 1
+    backgrounds = dwg.add(dwg.g())
+    texts = dwg.add(dwg.g(font_size=scale))
+
+    attribs = {'xml:space': 'preserve'}
+    texts.update(attribs)
+
+    y = 0
+    for text_line in text_lines:
+        background_color = check_color_line_rule(
+            rules=rules, color_type="background_color", text_line=text_line)
+
+        background_rect = dwg.rect(insert=(0, y), size=('100%', scale + 0.3),
+                                   rx=None, ry=None, fill=background_color)
+
+        text_color = check_color_line_rule(
+            rules=rules, color_type="text_color", text_line=text_line)
+
+        text = dwg.text(text_line, insert=(0, y),
+                        fill=text_color, dominant_baseline="hanging")
+
+        backgrounds.add(background_rect)
+        texts.add(text)
+
+        y += scale_with_spacing
 
     dwg.save()

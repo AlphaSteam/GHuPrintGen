@@ -3,6 +3,8 @@ import requests
 from microprint_generator import generate_raster_microprint_from_text, generate_svg_microprint_from_text 
 from pathlib import Path
 import re
+import logging
+
 class Api:
 
     def __init__(self, repo, owner, token):
@@ -74,6 +76,8 @@ def remove_ansi_escape_sequences(text):
     return ansi_escape.sub('', text)
     
 def main():
+    logging.basicConfig(level=logging.DEBUG) 
+
     api = setup_api()
 
     logs = get_logs(api)
@@ -82,16 +86,14 @@ def main():
 
     microprint_filename = Path(os.environ['INPUT_MICROPRINT_PATH']) 
 
-    scale = int(os.environ['INPUT_MICROPRINT_SCALE'])
-
     if os.environ['INPUT_MICROPRINT_RENDER_METHOD'] == "svg":
         microprint_filename = microprint_filename / (os.environ['INPUT_MICROPRINT_FILENAME'] +".svg")
 
-        generate_svg_microprint_from_text(logs, output_filename=microprint_filename, scale=scale)
+        generate_svg_microprint_from_text(logs, output_filename=microprint_filename)
     else:
         microprint_filename = microprint_filename / (os.environ['INPUT_MICROPRINT_FILENAME'] +".png")
 
-        generate_raster_microprint_from_text(logs, output_filename=microprint_filename, scale=scale)
+        generate_raster_microprint_from_text(logs, output_filename=microprint_filename)
 
 if __name__ == "__main__":
     main()

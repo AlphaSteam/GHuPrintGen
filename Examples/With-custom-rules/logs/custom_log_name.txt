@@ -1,0 +1,299 @@
+2022-09-04T01:27:38.2824714Z Requested labels: ubuntu-latest
+2022-09-04T01:27:38.2824747Z Job defined at: AlphaSteam/microprint/.github/workflows/generate_examples.yaml@refs/heads/add_custom_rules
+2022-09-04T01:27:38.2824764Z Waiting for a runner to pick up this job...
+2022-09-04T01:27:38.6704667Z Job is waiting for a hosted runner to come online.
+2022-09-04T01:27:42.1568985Z Job is about to start running on the hosted runner: Hosted Agent (hosted)
+2022-09-04T01:27:45.3458497Z Current runner version: '2.296.1'
+2022-09-04T01:27:45.3490184Z ##[group]Operating System
+2022-09-04T01:27:45.3490827Z Ubuntu
+2022-09-04T01:27:45.3491171Z 20.04.4
+2022-09-04T01:27:45.3491564Z LTS
+2022-09-04T01:27:45.3491912Z ##[endgroup]
+2022-09-04T01:27:45.3492288Z ##[group]Runner Image
+2022-09-04T01:27:45.3492660Z Image: ubuntu-20.04
+2022-09-04T01:27:45.3493040Z Version: 20220828.1
+2022-09-04T01:27:45.3493682Z Included Software: https://github.com/actions/runner-images/blob/ubuntu20/20220828.1/images/linux/Ubuntu2004-Readme.md
+2022-09-04T01:27:45.3494433Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu20%2F20220828.1
+2022-09-04T01:27:45.3494911Z ##[endgroup]
+2022-09-04T01:27:45.3495311Z ##[group]Runner Image Provisioner
+2022-09-04T01:27:45.3495762Z 1.0.0.0-main-20220825-1
+2022-09-04T01:27:45.3496083Z ##[endgroup]
+2022-09-04T01:27:45.3497228Z ##[group]GITHUB_TOKEN Permissions
+2022-09-04T01:27:45.3497893Z Actions: write
+2022-09-04T01:27:45.3498484Z Checks: write
+2022-09-04T01:27:45.3498885Z Contents: write
+2022-09-04T01:27:45.3499268Z Deployments: write
+2022-09-04T01:27:45.3499658Z Discussions: write
+2022-09-04T01:27:45.3500045Z Issues: write
+2022-09-04T01:27:45.3500407Z Metadata: read
+2022-09-04T01:27:45.3500788Z Packages: write
+2022-09-04T01:27:45.3501104Z Pages: write
+2022-09-04T01:27:45.3501483Z PullRequests: write
+2022-09-04T01:27:45.3501932Z RepositoryProjects: write
+2022-09-04T01:27:45.3502312Z SecurityEvents: write
+2022-09-04T01:27:45.3502695Z Statuses: write
+2022-09-04T01:27:45.3503061Z ##[endgroup]
+2022-09-04T01:27:45.3507165Z Secret source: Actions
+2022-09-04T01:27:45.3507854Z Prepare workflow directory
+2022-09-04T01:27:45.4354706Z Prepare all required actions
+2022-09-04T01:27:45.4540348Z Getting action download info
+2022-09-04T01:27:45.6496353Z Download action repository 'actions/checkout@v2' (SHA:7884fcad6b5d53d10323aee724dc68d8b9096a2e)
+2022-09-04T01:27:45.9521321Z Download action repository 'stefanzweifel/git-auto-commit-action@v4' (SHA:49620cd3ed21ee620a48530e81dba0d139c9cb80)
+2022-09-04T01:27:46.2994349Z ##[group]Run actions/checkout@v2
+2022-09-04T01:27:46.2994721Z with:
+2022-09-04T01:27:46.2995005Z   repository: AlphaSteam/microprint
+2022-09-04T01:27:46.2995541Z   token: ***
+2022-09-04T01:27:46.2995801Z   ssh-strict: true
+2022-09-04T01:27:46.2996087Z   persist-credentials: true
+2022-09-04T01:27:46.2996375Z   clean: true
+2022-09-04T01:27:46.2996628Z   fetch-depth: 1
+2022-09-04T01:27:46.2996866Z   lfs: false
+2022-09-04T01:27:46.2997156Z   submodules: false
+2022-09-04T01:27:46.2997447Z   set-safe-directory: true
+2022-09-04T01:27:46.2997731Z ##[endgroup]
+2022-09-04T01:27:46.5934901Z Syncing repository: AlphaSteam/microprint
+2022-09-04T01:27:46.5937278Z ##[group]Getting Git version info
+2022-09-04T01:27:46.5938402Z Working directory is '/home/runner/work/microprint/microprint'
+2022-09-04T01:27:46.5939719Z [command]/usr/bin/git version
+2022-09-04T01:27:46.6003578Z git version 2.37.2
+2022-09-04T01:27:46.6024252Z ##[endgroup]
+2022-09-04T01:27:46.6043573Z Temporarily overriding HOME='/home/runner/work/_temp/db044e8d-3a1c-4670-9177-b7645b8422df' before making global git config changes
+2022-09-04T01:27:46.6044288Z Adding repository directory to the temporary git global config as a safe directory
+2022-09-04T01:27:46.6045005Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/microprint/microprint
+2022-09-04T01:27:46.6093870Z Deleting the contents of '/home/runner/work/microprint/microprint'
+2022-09-04T01:27:46.6097819Z ##[group]Initializing the repository
+2022-09-04T01:27:46.6101455Z [command]/usr/bin/git init /home/runner/work/microprint/microprint
+2022-09-04T01:27:46.6176462Z hint: Using 'master' as the name for the initial branch. This default branch name
+2022-09-04T01:27:46.6177333Z hint: is subject to change. To configure the initial branch name to use in all
+2022-09-04T01:27:46.6177985Z hint: of your new repositories, which will suppress this warning, call:
+2022-09-04T01:27:46.6178506Z hint: 
+2022-09-04T01:27:46.6179076Z hint: 	git config --global init.defaultBranch <name>
+2022-09-04T01:27:46.6179748Z hint: 
+2022-09-04T01:27:46.6180311Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+2022-09-04T01:27:46.6181027Z hint: 'development'. The just-created branch can be renamed via this command:
+2022-09-04T01:27:46.6181520Z hint: 
+2022-09-04T01:27:46.6181956Z hint: 	git branch -m <name>
+2022-09-04T01:27:46.6194831Z Initialized empty Git repository in /home/runner/work/microprint/microprint/.git/
+2022-09-04T01:27:46.6241960Z [command]/usr/bin/git remote add origin https://github.com/AlphaSteam/microprint
+2022-09-04T01:27:46.6288558Z ##[endgroup]
+2022-09-04T01:27:46.6289395Z ##[group]Disabling automatic garbage collection
+2022-09-04T01:27:46.6292577Z [command]/usr/bin/git config --local gc.auto 0
+2022-09-04T01:27:46.6323598Z ##[endgroup]
+2022-09-04T01:27:46.6324413Z ##[group]Setting up auth
+2022-09-04T01:27:46.6331503Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2022-09-04T01:27:46.6365522Z [command]/usr/bin/git submodule foreach --recursive git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :
+2022-09-04T01:27:46.6738557Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2022-09-04T01:27:46.6772207Z [command]/usr/bin/git submodule foreach --recursive git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :
+2022-09-04T01:27:46.7002494Z [command]/usr/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
+2022-09-04T01:27:46.7033121Z ##[endgroup]
+2022-09-04T01:27:46.7033737Z ##[group]Fetching the repository
+2022-09-04T01:27:46.7045424Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --progress --no-recurse-submodules --depth=1 origin +a0b701b5ee6f1de40827f3553bb5423d21dc08b7:refs/remotes/origin/add_custom_rules
+2022-09-04T01:27:46.8750229Z remote: Enumerating objects: 23, done.        
+2022-09-04T01:27:46.8751224Z remote: Counting objects:   4% (1/23)        
+2022-09-04T01:27:46.8752140Z remote: Counting objects:   8% (2/23)        
+2022-09-04T01:27:46.8752703Z remote: Counting objects:  13% (3/23)        
+2022-09-04T01:27:46.8753455Z remote: Counting objects:  17% (4/23)        
+2022-09-04T01:27:46.8754143Z remote: Counting objects:  21% (5/23)        
+2022-09-04T01:27:46.8754944Z remote: Counting objects:  26% (6/23)        
+2022-09-04T01:27:46.8755462Z remote: Counting objects:  30% (7/23)        
+2022-09-04T01:27:46.8756220Z remote: Counting objects:  34% (8/23)        
+2022-09-04T01:27:46.8756804Z remote: Counting objects:  39% (9/23)        
+2022-09-04T01:27:46.8757639Z remote: Counting objects:  43% (10/23)        
+2022-09-04T01:27:46.8758214Z remote: Counting objects:  47% (11/23)        
+2022-09-04T01:27:46.8759057Z remote: Counting objects:  52% (12/23)        
+2022-09-04T01:27:46.8759565Z remote: Counting objects:  56% (13/23)        
+2022-09-04T01:27:46.8760343Z remote: Counting objects:  60% (14/23)        
+2022-09-04T01:27:46.8761011Z remote: Counting objects:  65% (15/23)        
+2022-09-04T01:27:46.8761740Z remote: Counting objects:  69% (16/23)        
+2022-09-04T01:27:46.8762250Z remote: Counting objects:  73% (17/23)        
+2022-09-04T01:27:46.8762990Z remote: Counting objects:  78% (18/23)        
+2022-09-04T01:27:46.8763497Z remote: Counting objects:  82% (19/23)        
+2022-09-04T01:27:46.8764235Z remote: Counting objects:  86% (20/23)        
+2022-09-04T01:27:46.8764741Z remote: Counting objects:  91% (21/23)        
+2022-09-04T01:27:46.8765467Z remote: Counting objects:  95% (22/23)        
+2022-09-04T01:27:46.8765974Z remote: Counting objects: 100% (23/23)        
+2022-09-04T01:27:46.8766727Z remote: Counting objects: 100% (23/23), done.        
+2022-09-04T01:27:46.8767339Z remote: Compressing objects:   5% (1/17)        
+2022-09-04T01:27:46.8768119Z remote: Compressing objects:  11% (2/17)        
+2022-09-04T01:27:46.8768874Z remote: Compressing objects:  17% (3/17)        
+2022-09-04T01:27:46.8769703Z remote: Compressing objects:  23% (4/17)        
+2022-09-04T01:27:46.8770378Z remote: Compressing objects:  29% (5/17)        
+2022-09-04T01:27:46.8771343Z remote: Compressing objects:  35% (6/17)        
+2022-09-04T01:27:46.8771801Z remote: Compressing objects:  41% (7/17)        
+2022-09-04T01:27:46.8772563Z remote: Compressing objects:  47% (8/17)        
+2022-09-04T01:27:46.8773034Z remote: Compressing objects:  52% (9/17)        
+2022-09-04T01:27:46.8773701Z remote: Compressing objects:  58% (10/17)        
+2022-09-04T01:27:46.8774169Z remote: Compressing objects:  64% (11/17)        
+2022-09-04T01:27:46.8774853Z remote: Compressing objects:  70% (12/17)        
+2022-09-04T01:27:46.8775326Z remote: Compressing objects:  76% (13/17)        
+2022-09-04T01:27:46.8775991Z remote: Compressing objects:  82% (14/17)        
+2022-09-04T01:27:46.8776443Z remote: Compressing objects:  88% (15/17)        
+2022-09-04T01:27:46.8777182Z remote: Compressing objects:  94% (16/17)        
+2022-09-04T01:27:46.8777660Z remote: Compressing objects: 100% (17/17)        
+2022-09-04T01:27:46.8778318Z remote: Compressing objects: 100% (17/17), done.        
+2022-09-04T01:27:46.8918324Z remote: Total 23 (delta 1), reused 16 (delta 0), pack-reused 0        
+2022-09-04T01:27:46.9155382Z From https://github.com/AlphaSteam/microprint
+2022-09-04T01:27:46.9156514Z  * [new ref]         a0b701b5ee6f1de40827f3553bb5423d21dc08b7 -> origin/add_custom_rules
+2022-09-04T01:27:46.9188547Z ##[endgroup]
+2022-09-04T01:27:46.9189411Z ##[group]Determining the checkout info
+2022-09-04T01:27:46.9190307Z ##[endgroup]
+2022-09-04T01:27:46.9190925Z ##[group]Checking out the ref
+2022-09-04T01:27:46.9195551Z [command]/usr/bin/git checkout --progress --force -B add_custom_rules refs/remotes/origin/add_custom_rules
+2022-09-04T01:27:46.9305341Z Switched to a new branch 'add_custom_rules'
+2022-09-04T01:27:46.9310177Z branch 'add_custom_rules' set up to track 'origin/add_custom_rules'.
+2022-09-04T01:27:46.9314972Z ##[endgroup]
+2022-09-04T01:27:46.9360474Z [command]/usr/bin/git log -1 --format='%H'
+2022-09-04T01:27:46.9390300Z 'a0b701b5ee6f1de40827f3553bb5423d21dc08b7'
+2022-09-04T01:27:46.9776718Z ##[group]Run ./
+2022-09-04T01:27:46.9776938Z with:
+2022-09-04T01:27:46.9777163Z   microprint_render_method: raster
+2022-09-04T01:27:46.9777417Z   log_path: ./Examples/Mid-job/logs
+2022-09-04T01:27:46.9777684Z   microprint_path: ./Examples/Mid-job/microprints
+2022-09-04T01:27:46.9777976Z   microprint_config_path: ./Examples/Mid-job/
+2022-09-04T01:27:46.9778250Z   repository: AlphaSteam/microprint
+2022-09-04T01:27:46.9778713Z   github_token: ***
+2022-09-04T01:27:46.9778940Z   job_name: generate_microprint_mid_job
+2022-09-04T01:27:46.9779264Z   log_filename: logs
+2022-09-04T01:27:46.9779472Z   save_log: true
+2022-09-04T01:27:46.9779701Z   microprint_filename: microprint
+2022-09-04T01:27:46.9779942Z   microprint_config_filename: config
+2022-09-04T01:27:46.9780176Z ##[endgroup]
+2022-09-04T01:27:46.9965968Z ##[group]Building docker image
+2022-09-04T01:27:46.9966323Z Dockerfile for action: '/home/runner/work/microprint/microprint/./Dockerfile'.
+2022-09-04T01:27:46.9981903Z ##[command]/usr/bin/docker build -t 786a9b:ad9cd4fcbd7f5811b11201f18ccb01ec -f "/home/runner/work/microprint/microprint/./Dockerfile" "/home/runner/work/microprint/microprint"
+2022-09-04T01:27:47.2374720Z Sending build context to Docker daemon  1.023MB
+2022-09-04T01:27:47.2375538Z 
+2022-09-04T01:27:47.2425979Z Step 1/6 : FROM python:3
+2022-09-04T01:27:47.4871085Z 3: Pulling from library/python
+2022-09-04T01:27:47.5472994Z 1671565cc8df: Already exists
+2022-09-04T01:27:47.5479783Z 3e94d13e55e7: Already exists
+2022-09-04T01:27:47.5530841Z fa9c7528c685: Already exists
+2022-09-04T01:27:47.5532188Z 53ad072f9cd1: Already exists
+2022-09-04T01:27:47.5546293Z d6b983117533: Already exists
+2022-09-04T01:27:47.5610327Z d8092d56ded5: Pulling fs layer
+2022-09-04T01:27:47.5611250Z c71afc637d59: Pulling fs layer
+2022-09-04T01:27:47.5613416Z 864a10b3c704: Pulling fs layer
+2022-09-04T01:27:47.5613935Z 4334b2fe8293: Pulling fs layer
+2022-09-04T01:27:47.5614369Z 4334b2fe8293: Waiting
+2022-09-04T01:27:47.6172434Z 864a10b3c704: Verifying Checksum
+2022-09-04T01:27:47.6173196Z 864a10b3c704: Download complete
+2022-09-04T01:27:47.7392810Z 4334b2fe8293: Verifying Checksum
+2022-09-04T01:27:47.7472658Z 4334b2fe8293: Download complete
+2022-09-04T01:27:47.7545204Z d8092d56ded5: Verifying Checksum
+2022-09-04T01:27:47.7545854Z d8092d56ded5: Download complete
+2022-09-04T01:27:47.7722336Z c71afc637d59: Verifying Checksum
+2022-09-04T01:27:47.7725058Z c71afc637d59: Download complete
+2022-09-04T01:27:48.3971372Z d8092d56ded5: Pull complete
+2022-09-04T01:27:49.2101649Z c71afc637d59: Pull complete
+2022-09-04T01:27:49.2781910Z 864a10b3c704: Pull complete
+2022-09-04T01:27:49.6952615Z 4334b2fe8293: Pull complete
+2022-09-04T01:27:49.7006020Z Digest: sha256:745efdfb7e4aac9a8422bd8c62d8bc35a693e8979a240d29677cb03e6aa91052
+2022-09-04T01:27:49.7019259Z Status: Downloaded newer image for python:3
+2022-09-04T01:27:49.7034950Z  ---> d25a66380b10
+2022-09-04T01:27:49.7035444Z Step 2/6 : COPY requirements.txt /requirements.txt
+2022-09-04T01:27:51.3118052Z  ---> 05aaabf4c8c8
+2022-09-04T01:27:51.3118410Z Step 3/6 : RUN pip install -r /requirements.txt
+2022-09-04T01:27:51.3410262Z  ---> Running in 1466740c95af
+2022-09-04T01:27:53.3479687Z Collecting pillow
+2022-09-04T01:27:53.3842890Z   Downloading Pillow-9.2.0-cp310-cp310-manylinux_2_28_x86_64.whl (3.2 MB)
+2022-09-04T01:27:53.4191578Z      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 3.2/3.2 MB 99.7 MB/s eta 0:00:00
+2022-09-04T01:27:53.4750112Z Collecting requests
+2022-09-04T01:27:53.4796577Z   Downloading requests-2.28.1-py3-none-any.whl (62 kB)
+2022-09-04T01:27:53.4873440Z      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 62.8/62.8 kB 20.8 MB/s eta 0:00:00
+2022-09-04T01:27:53.5048232Z Collecting svgwrite
+2022-09-04T01:27:53.5096227Z   Downloading svgwrite-1.4.3-py3-none-any.whl (67 kB)
+2022-09-04T01:27:53.5148531Z      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 67.1/67.1 kB 21.0 MB/s eta 0:00:00
+2022-09-04T01:27:53.5530033Z Collecting idna<4,>=2.5
+2022-09-04T01:27:53.5575144Z   Downloading idna-3.3-py3-none-any.whl (61 kB)
+2022-09-04T01:27:53.5623545Z      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 61.2/61.2 kB 22.0 MB/s eta 0:00:00
+2022-09-04T01:27:53.6053798Z Collecting charset-normalizer<3,>=2
+2022-09-04T01:27:53.6090335Z   Downloading charset_normalizer-2.1.1-py3-none-any.whl (39 kB)
+2022-09-04T01:27:53.6547621Z Collecting urllib3<1.27,>=1.21.1
+2022-09-04T01:27:53.6585761Z   Downloading urllib3-1.26.12-py2.py3-none-any.whl (140 kB)
+2022-09-04T01:27:53.6644998Z      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 140.4/140.4 kB 42.5 MB/s eta 0:00:00
+2022-09-04T01:27:53.6931728Z Collecting certifi>=2017.4.17
+2022-09-04T01:27:53.7096323Z   Downloading certifi-2022.6.15-py3-none-any.whl (160 kB)
+2022-09-04T01:27:53.7162421Z      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 160.2/160.2 kB 37.6 MB/s eta 0:00:00
+2022-09-04T01:27:53.8087686Z Installing collected packages: urllib3, svgwrite, pillow, idna, charset-normalizer, certifi, requests
+2022-09-04T01:27:54.3474880Z Successfully installed certifi-2022.6.15 charset-normalizer-2.1.1 idna-3.3 pillow-9.2.0 requests-2.28.1 svgwrite-1.4.3 urllib3-1.26.12
+2022-09-04T01:27:54.3475543Z [91mWARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv
+2022-09-04T01:27:54.4218977Z [0m[91m
+2022-09-04T01:27:54.4219461Z [notice] A new release of pip available: 22.2.1 -> 22.2.2
+2022-09-04T01:27:54.4220310Z [notice] To update, run: pip install --upgrade pip
+2022-09-04T01:27:56.3958961Z [0mRemoving intermediate container 1466740c95af
+2022-09-04T01:27:56.3959318Z  ---> 90ad21e1fb83
+2022-09-04T01:27:56.3959564Z Step 4/6 : COPY script.py /script.py
+2022-09-04T01:27:57.4510649Z  ---> 3ff29f7c23f9
+2022-09-04T01:27:57.4511079Z Step 5/6 : COPY microprint_generator.py /microprint_generator.py
+2022-09-04T01:27:58.5114409Z  ---> e85fdf37a331
+2022-09-04T01:27:58.5114837Z Step 6/6 : CMD ["python", "/script.py"]
+2022-09-04T01:27:58.5397559Z  ---> Running in 3e60a8e3a6c8
+2022-09-04T01:27:59.5582998Z Removing intermediate container 3e60a8e3a6c8
+2022-09-04T01:27:59.5583302Z  ---> e71bfeb1ac4b
+2022-09-04T01:27:59.5598458Z Successfully built e71bfeb1ac4b
+2022-09-04T01:27:59.5669718Z Successfully tagged 786a9b:ad9cd4fcbd7f5811b11201f18ccb01ec
+2022-09-04T01:27:59.5681900Z ##[endgroup]
+2022-09-04T01:27:59.5764857Z ##[command]/usr/bin/docker run --name a9bad9cd4fcbd7f5811b11201f18ccb01ec_0521dd --label 786a9b --workdir /github/workspace --rm -e "INPUT_MICROPRINT_RENDER_METHOD" -e "INPUT_LOG_PATH" -e "INPUT_MICROPRINT_PATH" -e "INPUT_MICROPRINT_CONFIG_PATH" -e "INPUT_REPOSITORY" -e "INPUT_GITHUB_TOKEN" -e "INPUT_JOB_NAME" -e "INPUT_LOG_FILENAME" -e "INPUT_SAVE_LOG" -e "INPUT_MICROPRINT_FILENAME" -e "INPUT_MICROPRINT_CONFIG_FILENAME" -e "HOME" -e "GITHUB_JOB" -e "GITHUB_REF" -e "GITHUB_SHA" -e "GITHUB_REPOSITORY" -e "GITHUB_REPOSITORY_OWNER" -e "GITHUB_RUN_ID" -e "GITHUB_RUN_NUMBER" -e "GITHUB_RETENTION_DAYS" -e "GITHUB_RUN_ATTEMPT" -e "GITHUB_ACTOR" -e "GITHUB_TRIGGERING_ACTOR" -e "GITHUB_WORKFLOW" -e "GITHUB_HEAD_REF" -e "GITHUB_BASE_REF" -e "GITHUB_EVENT_NAME" -e "GITHUB_SERVER_URL" -e "GITHUB_API_URL" -e "GITHUB_GRAPHQL_URL" -e "GITHUB_REF_NAME" -e "GITHUB_REF_PROTECTED" -e "GITHUB_REF_TYPE" -e "GITHUB_WORKSPACE" -e "GITHUB_ACTION" -e "GITHUB_EVENT_PATH" -e "GITHUB_ACTION_REPOSITORY" -e "GITHUB_ACTION_REF" -e "GITHUB_PATH" -e "GITHUB_ENV" -e "GITHUB_STEP_SUMMARY" -e "RUNNER_OS" -e "RUNNER_ARCH" -e "RUNNER_NAME" -e "RUNNER_TOOL_CACHE" -e "RUNNER_TEMP" -e "RUNNER_WORKSPACE" -e "ACTIONS_RUNTIME_URL" -e "ACTIONS_RUNTIME_TOKEN" -e "ACTIONS_CACHE_URL" -e GITHUB_ACTIONS=true -e CI=true -v "/var/run/docker.sock":"/var/run/docker.sock" -v "/home/runner/work/_temp/_github_home":"/github/home" -v "/home/runner/work/_temp/_github_workflow":"/github/workflow" -v "/home/runner/work/_temp/_runner_file_commands":"/github/file_commands" -v "/home/runner/work/microprint/microprint":"/github/workspace" 786a9b:ad9cd4fcbd7f5811b11201f18ccb01ec
+2022-09-04T01:28:00.0642225Z DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): api.github.com:443
+2022-09-04T01:28:00.2624060Z DEBUG:urllib3.connectionpool:https://api.github.com:443 "GET /repos/AlphaSteam/microprint/actions/runs/2986429124/jobs HTTP/1.1" 200 None
+2022-09-04T01:28:00.2654226Z DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): api.github.com:443
+2022-09-04T01:28:00.4189599Z DEBUG:urllib3.connectionpool:https://api.github.com:443 "GET /repos/AlphaSteam/microprint/actions/jobs/8173300878/logs HTTP/1.1" 302 0
+2022-09-04T01:28:00.4205203Z DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): pipelines.actions.githubusercontent.com:443
+2022-09-04T01:28:00.4544996Z DEBUG:urllib3.connectionpool:https://pipelines.actions.githubusercontent.com:443 "GET /serviceHosts/871f7675-65c0-436d-aa94-5c5a4536b9ce/_apis/pipelines/1/runs/78/signedlogcontent/2?urlExpires=2022-09-04T01%3A29%3A00.4033722Z&urlSigningMethod=HMACV1&urlSignature=%2BOesQIxzsNx6qtzGoPLorkkN3f1xopCPyORtyA87FJY%3D HTTP/1.1" 200 None
+2022-09-04T01:28:00.4575360Z INFO:root:Generating raster microprint
+2022-09-04T01:28:00.6715797Z ##[group]Run git pull
+2022-09-04T01:28:00.6716058Z [36;1mgit pull[0m
+2022-09-04T01:28:00.6774956Z shell: /usr/bin/bash -e {0}
+2022-09-04T01:28:00.6775188Z ##[endgroup]
+2022-09-04T01:28:01.0720658Z From https://github.com/AlphaSteam/microprint
+2022-09-04T01:28:01.0721574Z  * [new branch]      main       -> origin/main
+2022-09-04T01:28:01.0761486Z Already up to date.
+2022-09-04T01:28:01.0878445Z ##[group]Run stefanzweifel/git-auto-commit-action@v4
+2022-09-04T01:28:01.0878717Z with:
+2022-09-04T01:28:01.0878948Z   commit_message: Updated mid job microprint
+2022-09-04T01:28:01.0879194Z   file_pattern: .
+2022-09-04T01:28:01.0879385Z   repository: .
+2022-09-04T01:28:01.0879612Z   commit_user_name: github-actions[bot]
+2022-09-04T01:28:01.0879920Z   commit_user_email: github-actions[bot]@users.noreply.github.com
+2022-09-04T01:28:01.0880402Z   commit_author: AlphaSteam <AlphaSteam@users.noreply.github.com>
+2022-09-04T01:28:01.0880693Z   skip_dirty_check: false
+2022-09-04T01:28:01.0880908Z   skip_fetch: false
+2022-09-04T01:28:01.0881103Z   skip_checkout: false
+2022-09-04T01:28:01.0881319Z   disable_globbing: false
+2022-09-04T01:28:01.0881533Z   create_branch: false
+2022-09-04T01:28:01.0881719Z ##[endgroup]
+2022-09-04T01:28:01.1225272Z Started: bash /home/runner/work/_actions/stefanzweifel/git-auto-commit-action/v4/entrypoint.sh
+2022-09-04T01:28:01.1281299Z INPUT_REPOSITORY value: .
+2022-09-04T01:28:01.1281890Z INPUT_STATUS_OPTIONS: 
+2022-09-04T01:28:01.1340497Z INPUT_BRANCH value: 
+2022-09-04T01:28:01.3625135Z Your branch is up to date with 'origin/add_custom_rules'.
+2022-09-04T01:28:01.3629186Z INPUT_ADD_OPTIONS: 
+2022-09-04T01:28:01.3630377Z INPUT_FILE_PATTERN: .
+2022-09-04T01:28:01.3660600Z INPUT_COMMIT_OPTIONS: 
+2022-09-04T01:28:01.3661980Z INPUT_COMMIT_USER_NAME: github-actions[bot]
+2022-09-04T01:28:01.3662664Z INPUT_COMMIT_USER_EMAIL: github-actions[bot]@users.noreply.github.com
+2022-09-04T01:28:01.3663305Z INPUT_COMMIT_MESSAGE: Updated mid job microprint
+2022-09-04T01:28:01.3663759Z INPUT_COMMIT_AUTHOR: AlphaSteam <AlphaSteam@users.noreply.github.com>
+2022-09-04T01:28:01.3721363Z [add_custom_rules 35a7e0a] Updated mid job microprint
+2022-09-04T01:28:01.3722077Z  Author: AlphaSteam <AlphaSteam@users.noreply.github.com>
+2022-09-04T01:28:01.3723190Z  2 files changed, 5 insertions(+)
+2022-09-04T01:28:01.3723997Z  create mode 100644 Examples/Mid-job/logs/logs.txt
+2022-09-04T01:28:01.3725064Z  create mode 100644 Examples/Mid-job/microprints/microprint.png
+2022-09-04T01:28:01.3746398Z INPUT_TAGGING_MESSAGE: 
+2022-09-04T01:28:01.3747262Z No tagging message supplied. No tag will be added.
+2022-09-04T01:28:01.3747830Z INPUT_PUSH_OPTIONS: 
+2022-09-04T01:28:01.9238642Z To https://github.com/AlphaSteam/microprint
+2022-09-04T01:28:01.9262840Z    a0b701b..35a7e0a  add_custom_rules -> add_custom_rules
+2022-09-04T01:28:01.9376234Z Post job cleanup.
+2022-09-04T01:28:02.0570080Z [command]/usr/bin/git version
+2022-09-04T01:28:02.0620040Z git version 2.37.2
+2022-09-04T01:28:02.0661190Z Temporarily overriding HOME='/home/runner/work/_temp/0c3cb13f-5478-4b6e-84df-5782877ef784' before making global git config changes
+2022-09-04T01:28:02.0661980Z Adding repository directory to the temporary git global config as a safe directory
+2022-09-04T01:28:02.0666499Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/microprint/microprint
+2022-09-04T01:28:02.0711972Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2022-09-04T01:28:02.0749631Z [command]/usr/bin/git submodule foreach --recursive git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :
+2022-09-04T01:28:02.0993246Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2022-09-04T01:28:02.1064767Z http.https://github.com/.extraheader
+2022-09-04T01:28:02.1073545Z [command]/usr/bin/git config --local --unset-all http.https://github.com/.extraheader
+2022-09-04T01:28:02.1112893Z [command]/usr/bin/git submodule foreach --recursive git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :
+2022-09-04T01:28:02.1584368Z Cleaning up orphan processes

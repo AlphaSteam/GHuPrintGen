@@ -59,15 +59,20 @@ inputs:
   microprint_path:
     required: false
     default: ./
-    description: Path where the microprint will be saved
+    description: Path where the microprint will be saved 
 
-  # Svg or raster
+  # svg or raster
   microprint_render_method:
     required: false
     default: svg
     description: How to render the microprint. As svg or raster
-  
-  microprint_scale:
+
+  microprint_config_filename:
     required: false
-    default: 2
-    description: Scale of the microprint (The same scale for raster and svg could produce different sizes)
+    default: config
+    description: Microprint config file name (without extension, has to be .json)
+
+  microprint_config_path:
+    required: false
+    default: ./
+    description: Microprint config path
