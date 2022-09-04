@@ -57,28 +57,28 @@ jobs:
         with:
           commit_message: Updated first job microprint
 
-generate_microprint_with_default_rules:
-    runs-on: ubuntu-latest
+  generate_microprint_with_default_rules:
+      runs-on: ubuntu-latest
 
-    # If the job doesn't finish first, the logs won't be complete.
-    needs: generate_microprint_mid_job
+      # If the job doesn't finish first, the logs won't be complete.
+      needs: generate_microprint_mid_job
 
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
+      steps:
+        - name: Checkout code
+          uses: actions/checkout@v2
 
-      - name: Get microprint of jobs logs
-        uses: ./
-        with:
-            job_name: generate_microprint_mid_job
-            log_path: ./Examples/With-default-rules/logs
-            microprint_path: ./Examples/With-default-rules/microprints
-            microprint_config_path: ./Examples/With-default-rules/
+        - name: Get microprint of jobs logs
+          uses: ./
+          with:
+              job_name: generate_microprint_mid_job
+              log_path: ./Examples/With-default-rules/logs
+              microprint_path: ./Examples/With-default-rules/microprints
+              microprint_config_path: ./Examples/With-default-rules/
 
-      - name: Pull Remote Changes
-        run: git pull
+        - name: Pull Remote Changes
+          run: git pull
 
-      - name: Commit microprint
-        uses: stefanzweifel/git-auto-commit-action@v4
-        with:
-          commit_message: Updated first job microprint
+        - name: Commit microprint
+          uses: stefanzweifel/git-auto-commit-action@v4
+          with:
+            commit_message: Updated first job microprint
