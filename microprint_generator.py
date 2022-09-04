@@ -53,6 +53,7 @@ def generate_raster_microprint_from_text(text, output_filename="microprint.png")
 
     scale = rules.get("scale", 2)
     vertical_spacing = rules.get("vertical_spacing", 1)
+    microprint_width = rules.get("microprint_width", 120)
 
     text_lines = text.split('\n')
 
@@ -60,33 +61,33 @@ def generate_raster_microprint_from_text(text, output_filename="microprint.png")
 
     rules = get_rules()
 
-    size_x = 40 * scale
+    size_x = microprint_width
     size_y = len(text_lines) * scale_with_spacing
 
     default_background_color = get_default_color(rules, "background_color")
 
-    img = Image.new('RGBA', (int(size_x), int(size_y)),
+    img = Image.new('RGB', (int(size_x), int(size_y)),
                     color=default_background_color)
 
     d = ImageDraw.Draw(img)
     d.fontmode = "L"
 
-    font = ImageFont.truetype("fonts/NotoSans-Regular.ttf", scale)
+    font = ImageFont.truetype("NotoSans-Regular.ttf", int(scale))
 
     y = 0
     for text_line in text_lines:
         background_color = check_color_line_rule(
             rules=rules, color_type="background_color", text_line=text_line)
 
-        d.rectangle([(0, y), (size_x, y + scale)],
+        d.rectangle([(0, y - scale_with_spacing), (size_x, y)],
                     fill=background_color, outline=None, width=1)
 
         text_color = check_color_line_rule(
             rules=rules, color_type="text_color", text_line=text_line)
 
-        d.text((0, y), text=text_line, font=font, fill=text_color)
+        d.text((0, y), text=text_line, font=font, fill=text_color, anchor="ls")
 
-        y += scale
+        y += scale_with_spacing
 
     img.save(output_filename)
 
@@ -98,6 +99,7 @@ def generate_svg_microprint_from_text(text, output_filename="microprint.svg"):
 
     scale = rules.get("scale", 2)
     vertical_spacing = rules.get("vertical_spacing", 1)
+    microprint_width = rules.get("width", 120)
 
     text_lines = text.split('\n')
 
@@ -105,7 +107,7 @@ def generate_svg_microprint_from_text(text, output_filename="microprint.svg"):
 
     rules = get_rules()
 
-    svg_width = 40 * scale
+    svg_width = microprint_width
     svg_height = len(text_lines) * scale_with_spacing
 
     dwg = svgwrite.Drawing(output_filename, (svg_width, svg_height))
