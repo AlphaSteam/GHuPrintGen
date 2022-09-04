@@ -44,8 +44,7 @@ jobs:
   generate_microprint_with_default_rules:
       runs-on: ubuntu-latest
 
-      # If the job doesn't finish first, the logs won't be complete.
-      needs: generate_microprint_with_default_rules
+      needs: generate_microprint_of_first_job_with_custom_rules
 
       steps:
         - name: Checkout code
