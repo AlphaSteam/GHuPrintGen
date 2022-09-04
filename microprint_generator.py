@@ -3,6 +3,7 @@ import svgwrite
 import logging
 import json
 from pathlib import Path
+import os
 
 
 def get_rules():
