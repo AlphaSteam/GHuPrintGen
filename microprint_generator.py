@@ -6,6 +6,27 @@ from pathlib import Path
 import os
 
 
+def load_svg_fonts(rules, dwg):
+
+    additional_fonts = rules.get("additional_fonts",
+                                 {"google_fonts": [], "truetype_fonts": []})
+    google_fonts = additional_fonts.get("google_fonts", [])
+
+    truetype_fonts = additional_fonts.get("truetype_fonts", [])
+
+    for count, google_font in enumerate(google_fonts):
+        name = google_font["name"]
+        url = google_font["google_font_url"]
+
+        dwg.embed_google_web_font(name, url)
+
+    for count, truetype_font in enumerate(truetype_fonts):
+        name = truetype_font["name"]
+        truetype_file = truetype_font["truetype_file"]
+
+        dwg.embed_font(name, truetype_file)
+
+
 def get_rules():
     config_path = Path(os.environ['INPUT_MICROPRINT_CONFIG_PATH'])
     config_filename = (
@@ -112,6 +133,8 @@ def generate_svg_microprint_from_text(text, output_filename="microprint.svg"):
 
     dwg = svgwrite.Drawing(output_filename, (svg_width, svg_height))
 
+    load_svg_fonts(rules, dwg)
+
     default_background_color = get_default_color(rules, "background_color")
 
     dwg.add(dwg.rect(insert=(0, 0), size=('100%', '100%'),
@@ -120,7 +143,9 @@ def generate_svg_microprint_from_text(text, output_filename="microprint.svg"):
     backgrounds = dwg.add(dwg.g())
     texts = dwg.add(dwg.g(font_size=scale))
 
-    attribs = {'xml:space': 'preserve'}
+    attribs = {'xml:space': 'preserve',
+               "font-family": rules.get("font-family", "Sans")}
+
     texts.update(attribs)
 
     y = 0
