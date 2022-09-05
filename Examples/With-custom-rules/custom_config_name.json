@@ -15,6 +15,9 @@
       "text_color": "white",
       "background_color": "green"
     },
+    "command": {
+      "text_color": "purple"
+    },
     "warning": {
       "text_color": "black",
       "background_color": "yellow"
