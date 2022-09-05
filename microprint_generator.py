@@ -16,14 +16,14 @@ def load_svg_fonts(rules, dwg):
     truetype_fonts = additional_fonts.get("truetype_fonts", [])
 
     for count, google_font in enumerate(google_fonts):
-        name = google_fonts["name"]
-        url = google_fonts["google_font_url"]
+        name = google_font["name"]
+        url = google_font["google_font_url"]
 
         dwg.embed_google_web_font(name, url)
 
     for count, truetype_font in enumerate(truetype_fonts):
-        name = truetype_fonts["name"]
-        truetype_file = truetype_fonts["truetype_file"]
+        name = truetype_font["name"]
+        truetype_file = truetype_font["truetype_file"]
 
         dwg.embed_font(name, truetype_file)
 
