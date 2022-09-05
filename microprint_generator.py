@@ -24,6 +24,7 @@ def load_svg_fonts(rules, dwg):
         name = google_font["name"]
         url = google_font["google_font_url"]
 
+        print("Name", name, "url", url)
         dwg.embed_google_web_font(name, url)
 
     for count, truetype_font in enumerate(truetype_fonts):
@@ -31,7 +32,8 @@ def load_svg_fonts(rules, dwg):
         truetype_file = truetype_font["truetype_file"]
 
         dwg.embed_font(name, truetype_file)
-
+    dwg.embed_google_web_font(
+        name="Acme", uri="https://fonts.googleapis.com/css?family=Acme")
     return dwg
 
 
