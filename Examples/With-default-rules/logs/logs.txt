@@ -1,395 +1,812 @@
-2022-09-05T07:08:46.8082046Z Requested labels: ubuntu-latest
-2022-09-05T07:08:46.8082110Z Job defined at: AlphaSteam/microprint/.github/workflows/generate_examples.yaml@refs/heads/main
-2022-09-05T07:08:46.8082131Z Waiting for a runner to pick up this job...
-2022-09-05T07:08:47.3622282Z Job is waiting for a hosted runner to come online.
-2022-09-05T07:08:50.7117572Z Job is about to start running on the hosted runner: Hosted Agent (hosted)
-2022-09-05T07:08:52.9546465Z Current runner version: '2.296.1'
-2022-09-05T07:08:52.9578935Z ##[group]Operating System
-2022-09-05T07:08:52.9579598Z Ubuntu
-2022-09-05T07:08:52.9579902Z 20.04.4
-2022-09-05T07:08:52.9580300Z LTS
-2022-09-05T07:08:52.9580601Z ##[endgroup]
-2022-09-05T07:08:52.9580953Z ##[group]Runner Image
-2022-09-05T07:08:52.9581332Z Image: ubuntu-20.04
-2022-09-05T07:08:52.9581707Z Version: 20220828.1
-2022-09-05T07:08:52.9582264Z Included Software: https://github.com/actions/runner-images/blob/ubuntu20/20220828.1/images/linux/Ubuntu2004-Readme.md
-2022-09-05T07:08:52.9582983Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu20%2F20220828.1
-2022-09-05T07:08:52.9583471Z ##[endgroup]
-2022-09-05T07:08:52.9583808Z ##[group]Runner Image Provisioner
-2022-09-05T07:08:52.9584199Z 1.0.0.0-main-20220825-1
-2022-09-05T07:08:52.9584604Z ##[endgroup]
-2022-09-05T07:08:52.9585646Z ##[group]GITHUB_TOKEN Permissions
-2022-09-05T07:08:52.9586432Z Actions: write
-2022-09-05T07:08:52.9586960Z Checks: write
-2022-09-05T07:08:52.9587319Z Contents: write
-2022-09-05T07:08:52.9587691Z Deployments: write
-2022-09-05T07:08:52.9588065Z Discussions: write
-2022-09-05T07:08:52.9588440Z Issues: write
-2022-09-05T07:08:52.9588733Z Metadata: read
-2022-09-05T07:08:52.9589080Z Packages: write
-2022-09-05T07:08:52.9589439Z Pages: write
-2022-09-05T07:08:52.9589746Z PullRequests: write
-2022-09-05T07:08:52.9590169Z RepositoryProjects: write
-2022-09-05T07:08:52.9590576Z SecurityEvents: write
-2022-09-05T07:08:52.9590901Z Statuses: write
-2022-09-05T07:08:52.9591245Z ##[endgroup]
-2022-09-05T07:08:52.9595090Z Secret source: Actions
-2022-09-05T07:08:52.9595680Z Prepare workflow directory
-2022-09-05T07:08:53.0441168Z Prepare all required actions
-2022-09-05T07:08:53.0626772Z Getting action download info
-2022-09-05T07:08:53.4411856Z Download action repository 'actions/checkout@v2' (SHA:7884fcad6b5d53d10323aee724dc68d8b9096a2e)
-2022-09-05T07:08:53.8037352Z Download action repository 'stefanzweifel/git-auto-commit-action@v4' (SHA:49620cd3ed21ee620a48530e81dba0d139c9cb80)
-2022-09-05T07:08:54.0154295Z Download action repository 'peter-evans/create-pull-request@v4' (SHA:18f90432bedd2afd6a825469ffd38aa24712a91d)
-2022-09-05T07:08:54.4628525Z ##[group]Run actions/checkout@v2
-2022-09-05T07:08:54.4628880Z with:
-2022-09-05T07:08:54.4629147Z   repository: AlphaSteam/microprint
-2022-09-05T07:08:54.4629732Z   token: ***
-2022-09-05T07:08:54.4629935Z   ssh-strict: true
-2022-09-05T07:08:54.4630175Z   persist-credentials: true
-2022-09-05T07:08:54.4630410Z   clean: true
-2022-09-05T07:08:54.4630601Z   fetch-depth: 1
-2022-09-05T07:08:54.4630803Z   lfs: false
-2022-09-05T07:08:54.4631004Z   submodules: false
-2022-09-05T07:08:54.4631222Z   set-safe-directory: true
-2022-09-05T07:08:54.4631450Z ##[endgroup]
-2022-09-05T07:08:54.7445335Z Syncing repository: AlphaSteam/microprint
-2022-09-05T07:08:54.7447185Z ##[group]Getting Git version info
-2022-09-05T07:08:54.7447843Z Working directory is '/home/runner/work/microprint/microprint'
-2022-09-05T07:08:54.7448397Z [command]/usr/bin/git version
-2022-09-05T07:08:54.7588678Z git version 2.37.2
-2022-09-05T07:08:54.7611592Z ##[endgroup]
-2022-09-05T07:08:54.7630940Z Temporarily overriding HOME='/home/runner/work/_temp/92217baa-4788-4889-bae4-660bcad518cf' before making global git config changes
-2022-09-05T07:08:54.7631451Z Adding repository directory to the temporary git global config as a safe directory
-2022-09-05T07:08:54.7638445Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/microprint/microprint
-2022-09-05T07:08:54.7688515Z Deleting the contents of '/home/runner/work/microprint/microprint'
-2022-09-05T07:08:54.7692983Z ##[group]Initializing the repository
-2022-09-05T07:08:54.7697161Z [command]/usr/bin/git init /home/runner/work/microprint/microprint
-2022-09-05T07:08:54.7770677Z hint: Using 'master' as the name for the initial branch. This default branch name
-2022-09-05T07:08:54.7771462Z hint: is subject to change. To configure the initial branch name to use in all
-2022-09-05T07:08:54.7772519Z hint: of your new repositories, which will suppress this warning, call:
-2022-09-05T07:08:54.7773271Z hint: 
-2022-09-05T07:08:54.7773918Z hint: 	git config --global init.defaultBranch <name>
-2022-09-05T07:08:54.7774193Z hint: 
-2022-09-05T07:08:54.7774593Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
-2022-09-05T07:08:54.7775063Z hint: 'development'. The just-created branch can be renamed via this command:
-2022-09-05T07:08:54.7775353Z hint: 
-2022-09-05T07:08:54.7775635Z hint: 	git branch -m <name>
-2022-09-05T07:08:54.7786642Z Initialized empty Git repository in /home/runner/work/microprint/microprint/.git/
-2022-09-05T07:08:54.7835872Z [command]/usr/bin/git remote add origin https://github.com/AlphaSteam/microprint
-2022-09-05T07:08:54.7882963Z ##[endgroup]
-2022-09-05T07:08:54.7883887Z ##[group]Disabling automatic garbage collection
-2022-09-05T07:08:54.7887389Z [command]/usr/bin/git config --local gc.auto 0
-2022-09-05T07:08:54.7920760Z ##[endgroup]
-2022-09-05T07:08:54.7921912Z ##[group]Setting up auth
-2022-09-05T07:08:54.7929437Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
-2022-09-05T07:08:54.7965274Z [command]/usr/bin/git submodule foreach --recursive git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :
-2022-09-05T07:08:54.8341830Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
-2022-09-05T07:08:54.8378912Z [command]/usr/bin/git submodule foreach --recursive git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :
-2022-09-05T07:08:54.8609984Z [command]/usr/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
-2022-09-05T07:08:54.8656257Z ##[endgroup]
-2022-09-05T07:08:54.8656840Z ##[group]Fetching the repository
-2022-09-05T07:08:54.8663299Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --progress --no-recurse-submodules --depth=1 origin +9065ccf4a62a9dcaf0ae0e4511ae4fde025e67f7:refs/remotes/origin/main
-2022-09-05T07:08:55.0644111Z remote: Enumerating objects: 34, done.        
-2022-09-05T07:08:55.0658918Z remote: Counting objects:   2% (1/34)        
-2022-09-05T07:08:55.0659864Z remote: Counting objects:   5% (2/34)        
-2022-09-05T07:08:55.0660356Z remote: Counting objects:   8% (3/34)        
-2022-09-05T07:08:55.0661041Z remote: Counting objects:  11% (4/34)        
-2022-09-05T07:08:55.0661515Z remote: Counting objects:  14% (5/34)        
-2022-09-05T07:08:55.0662162Z remote: Counting objects:  17% (6/34)        
-2022-09-05T07:08:55.0662627Z remote: Counting objects:  20% (7/34)        
-2022-09-05T07:08:55.0663565Z remote: Counting objects:  23% (8/34)        
-2022-09-05T07:08:55.0664010Z remote: Counting objects:  26% (9/34)        
-2022-09-05T07:08:55.0664679Z remote: Counting objects:  29% (10/34)        
-2022-09-05T07:08:55.0665135Z remote: Counting objects:  32% (11/34)        
-2022-09-05T07:08:55.0665817Z remote: Counting objects:  35% (12/34)        
-2022-09-05T07:08:55.0666278Z remote: Counting objects:  38% (13/34)        
-2022-09-05T07:08:55.0666943Z remote: Counting objects:  41% (14/34)        
-2022-09-05T07:08:55.0667421Z remote: Counting objects:  44% (15/34)        
-2022-09-05T07:08:55.0668081Z remote: Counting objects:  47% (16/34)        
-2022-09-05T07:08:55.0668515Z remote: Counting objects:  50% (17/34)        
-2022-09-05T07:08:55.0669171Z remote: Counting objects:  52% (18/34)        
-2022-09-05T07:08:55.0669623Z remote: Counting objects:  55% (19/34)        
-2022-09-05T07:08:55.0670282Z remote: Counting objects:  58% (20/34)        
-2022-09-05T07:08:55.0670758Z remote: Counting objects:  61% (21/34)        
-2022-09-05T07:08:55.0671471Z remote: Counting objects:  64% (22/34)        
-2022-09-05T07:08:55.0671927Z remote: Counting objects:  67% (23/34)        
-2022-09-05T07:08:55.0672685Z remote: Counting objects:  70% (24/34)        
-2022-09-05T07:08:55.0673143Z remote: Counting objects:  73% (25/34)        
-2022-09-05T07:08:55.0674113Z remote: Counting objects:  76% (26/34)        
-2022-09-05T07:08:55.0674578Z remote: Counting objects:  79% (27/34)        
-2022-09-05T07:08:55.0675273Z remote: Counting objects:  82% (28/34)        
-2022-09-05T07:08:55.0675836Z remote: Counting objects:  85% (29/34)        
-2022-09-05T07:08:55.0676814Z remote: Counting objects:  88% (30/34)        
-2022-09-05T07:08:55.0677092Z remote: Counting objects:  91% (31/34)        
-2022-09-05T07:08:55.0677350Z remote: Counting objects:  94% (32/34)        
-2022-09-05T07:08:55.0677628Z remote: Counting objects:  97% (33/34)        
-2022-09-05T07:08:55.0677912Z remote: Counting objects: 100% (34/34)        
-2022-09-05T07:08:55.0678184Z remote: Counting objects: 100% (34/34), done.        
-2022-09-05T07:08:55.0678493Z remote: Compressing objects:   3% (1/29)        
-2022-09-05T07:08:55.0678915Z remote: Compressing objects:   6% (2/29)        
-2022-09-05T07:08:55.0681641Z remote: Compressing objects:  10% (3/29)        
-2022-09-05T07:08:55.0682168Z remote: Compressing objects:  13% (4/29)        
-2022-09-05T07:08:55.0682472Z remote: Compressing objects:  17% (5/29)        
-2022-09-05T07:08:55.0682762Z remote: Compressing objects:  20% (6/29)        
-2022-09-05T07:08:55.0683028Z remote: Compressing objects:  24% (7/29)        
-2022-09-05T07:08:55.0683307Z remote: Compressing objects:  27% (8/29)        
-2022-09-05T07:08:55.0683590Z remote: Compressing objects:  31% (9/29)        
-2022-09-05T07:08:55.0683864Z remote: Compressing objects:  34% (10/29)        
-2022-09-05T07:08:55.0684153Z remote: Compressing objects:  37% (11/29)        
-2022-09-05T07:08:55.0861677Z remote: Compressing objects:  41% (12/29)        
-2022-09-05T07:08:55.0862364Z remote: Compressing objects:  44% (13/29)        
-2022-09-05T07:08:55.0863010Z remote: Compressing objects:  48% (14/29)        
-2022-09-05T07:08:55.0863644Z remote: Compressing objects:  51% (15/29)        
-2022-09-05T07:08:55.0875674Z remote: Compressing objects:  55% (16/29)        
-2022-09-05T07:08:55.0876558Z remote: Compressing objects:  58% (17/29)        
-2022-09-05T07:08:55.0877482Z remote: Compressing objects:  62% (18/29)        
-2022-09-05T07:08:55.0879190Z remote: Compressing objects:  65% (19/29)        
-2022-09-05T07:08:55.0879709Z remote: Compressing objects:  68% (20/29)        
-2022-09-05T07:08:55.0880164Z remote: Compressing objects:  72% (21/29)        
-2022-09-05T07:08:55.0880847Z remote: Compressing objects:  75% (22/29)        
-2022-09-05T07:08:55.0881528Z remote: Compressing objects:  79% (23/29)        
-2022-09-05T07:08:55.0882240Z remote: Compressing objects:  82% (24/29)        
-2022-09-05T07:08:55.0882734Z remote: Compressing objects:  86% (25/29)        
-2022-09-05T07:08:55.0883386Z remote: Compressing objects:  89% (26/29)        
-2022-09-05T07:08:55.0883946Z remote: Compressing objects:  93% (27/29)        
-2022-09-05T07:08:55.0884766Z remote: Compressing objects:  96% (28/29)        
-2022-09-05T07:08:55.0885195Z remote: Compressing objects: 100% (29/29)        
-2022-09-05T07:08:55.0885924Z remote: Compressing objects: 100% (29/29), done.        
-2022-09-05T07:08:55.2457716Z remote: Total 34 (delta 2), reused 20 (delta 0), pack-reused 0        
-2022-09-05T07:08:55.2717745Z From https://github.com/AlphaSteam/microprint
-2022-09-05T07:08:55.2718843Z  * [new ref]         9065ccf4a62a9dcaf0ae0e4511ae4fde025e67f7 -> origin/main
-2022-09-05T07:08:55.2762125Z ##[endgroup]
-2022-09-05T07:08:55.2762735Z ##[group]Determining the checkout info
-2022-09-05T07:08:55.2763234Z ##[endgroup]
-2022-09-05T07:08:55.2763750Z ##[group]Checking out the ref
-2022-09-05T07:08:55.2764485Z [command]/usr/bin/git checkout --progress --force -B main refs/remotes/origin/main
-2022-09-05T07:08:55.2965185Z Switched to a new branch 'main'
-2022-09-05T07:08:55.2967827Z branch 'main' set up to track 'origin/main'.
-2022-09-05T07:08:55.2970794Z ##[endgroup]
-2022-09-05T07:08:55.3021695Z [command]/usr/bin/git log -1 --format='%H'
-2022-09-05T07:08:55.3053534Z '9065ccf4a62a9dcaf0ae0e4511ae4fde025e67f7'
-2022-09-05T07:08:55.3411833Z ##[group]Run ./
-2022-09-05T07:08:55.3412093Z with:
-2022-09-05T07:08:55.3412317Z   microprint_render_method: raster
-2022-09-05T07:08:55.3412574Z   log_path: ./Examples/Mid-job/logs
-2022-09-05T07:08:55.3412841Z   microprint_path: ./Examples/Mid-job/microprints
-2022-09-05T07:08:55.3413138Z   microprint_config_path: ./Examples/Mid-job/
-2022-09-05T07:08:55.3413414Z   repository: AlphaSteam/microprint
-2022-09-05T07:08:55.3414075Z   github_token: ***
-2022-09-05T07:08:55.3414325Z   job_name: generate_microprint_mid_job
-2022-09-05T07:08:55.3414565Z   log_filename: logs
-2022-09-05T07:08:55.3414772Z   save_log: true
-2022-09-05T07:08:55.3414984Z   microprint_filename: microprint
-2022-09-05T07:08:55.3415237Z   microprint_config_filename: config
-2022-09-05T07:08:55.3415465Z ##[endgroup]
-2022-09-05T07:08:55.3606283Z ##[group]Building docker image
-2022-09-05T07:08:55.3606742Z Dockerfile for action: '/home/runner/work/microprint/microprint/./Dockerfile'.
-2022-09-05T07:08:55.3623496Z ##[command]/usr/bin/docker build -t 786a9b:ad9cd4fcbd7f5811b11201f18ccb01ec -f "/home/runner/work/microprint/microprint/./Dockerfile" "/home/runner/work/microprint/microprint"
-2022-09-05T07:08:55.6241027Z Sending build context to Docker daemon  2.523MB
-2022-09-05T07:08:55.6255290Z 
-2022-09-05T07:08:55.6280172Z Step 1/6 : FROM python:3
-2022-09-05T07:08:56.0656576Z 3: Pulling from library/python
-2022-09-05T07:08:56.1527912Z 1671565cc8df: Already exists
-2022-09-05T07:08:56.1552996Z 3e94d13e55e7: Already exists
-2022-09-05T07:08:56.1570263Z fa9c7528c685: Already exists
-2022-09-05T07:08:56.1589589Z 53ad072f9cd1: Already exists
-2022-09-05T07:08:56.1605164Z d6b983117533: Already exists
-2022-09-05T07:08:56.1619573Z d8092d56ded5: Pulling fs layer
-2022-09-05T07:08:56.1619998Z c71afc637d59: Pulling fs layer
-2022-09-05T07:08:56.1620547Z 864a10b3c704: Pulling fs layer
-2022-09-05T07:08:56.1621147Z 4334b2fe8293: Pulling fs layer
-2022-09-05T07:08:56.1632957Z 4334b2fe8293: Waiting
-2022-09-05T07:08:56.2898241Z 864a10b3c704: Verifying Checksum
-2022-09-05T07:08:56.2899315Z 864a10b3c704: Download complete
-2022-09-05T07:08:56.3886925Z d8092d56ded5: Verifying Checksum
-2022-09-05T07:08:56.3977554Z d8092d56ded5: Download complete
-2022-09-05T07:08:56.5450222Z 4334b2fe8293: Verifying Checksum
-2022-09-05T07:08:56.5452382Z 4334b2fe8293: Download complete
-2022-09-05T07:08:56.5636578Z c71afc637d59: Verifying Checksum
-2022-09-05T07:08:57.1639582Z d8092d56ded5: Pull complete
-2022-09-05T07:08:58.0636731Z c71afc637d59: Pull complete
-2022-09-05T07:08:58.1394779Z 864a10b3c704: Pull complete
-2022-09-05T07:08:58.5545688Z 4334b2fe8293: Pull complete
-2022-09-05T07:08:58.5594265Z Digest: sha256:745efdfb7e4aac9a8422bd8c62d8bc35a693e8979a240d29677cb03e6aa91052
-2022-09-05T07:08:58.5610777Z Status: Downloaded newer image for python:3
-2022-09-05T07:08:58.5625028Z  ---> d25a66380b10
-2022-09-05T07:08:58.5625321Z Step 2/6 : COPY requirements.txt /requirements.txt
-2022-09-05T07:09:00.0871402Z  ---> b67d42f4faae
-2022-09-05T07:09:00.0871769Z Step 3/6 : RUN pip install -r /requirements.txt
-2022-09-05T07:09:00.1086610Z  ---> Running in 17ce9b81f55f
-2022-09-05T07:09:02.2608382Z Collecting pillow
-2022-09-05T07:09:02.3026093Z   Downloading Pillow-9.2.0-cp310-cp310-manylinux_2_28_x86_64.whl (3.2 MB)
-2022-09-05T07:09:02.3570410Z      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 3.2/3.2 MB 61.8 MB/s eta 0:00:00
-2022-09-05T07:09:02.4185783Z Collecting requests
-2022-09-05T07:09:02.4273026Z   Downloading requests-2.28.1-py3-none-any.whl (62 kB)
-2022-09-05T07:09:02.4327079Z      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 62.8/62.8 kB 19.8 MB/s eta 0:00:00
-2022-09-05T07:09:02.4576607Z Collecting svgwrite
-2022-09-05T07:09:02.4671472Z   Downloading svgwrite-1.4.3-py3-none-any.whl (67 kB)
-2022-09-05T07:09:02.4753433Z      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 67.1/67.1 kB 10.4 MB/s eta 0:00:00
-2022-09-05T07:09:02.5232548Z Collecting certifi>=2017.4.17
-2022-09-05T07:09:02.5386588Z   Downloading certifi-2022.6.15-py3-none-any.whl (160 kB)
-2022-09-05T07:09:02.5452625Z      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 160.2/160.2 kB 45.0 MB/s eta 0:00:00
-2022-09-05T07:09:02.5928465Z Collecting charset-normalizer<3,>=2
-2022-09-05T07:09:02.6011561Z   Downloading charset_normalizer-2.1.1-py3-none-any.whl (39 kB)
-2022-09-05T07:09:02.6536378Z Collecting urllib3<1.27,>=1.21.1
-2022-09-05T07:09:02.6619162Z   Downloading urllib3-1.26.12-py2.py3-none-any.whl (140 kB)
-2022-09-05T07:09:02.6680145Z      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 140.4/140.4 kB 39.8 MB/s eta 0:00:00
-2022-09-05T07:09:02.6938705Z Collecting idna<4,>=2.5
-2022-09-05T07:09:02.7023388Z   Downloading idna-3.3-py3-none-any.whl (61 kB)
-2022-09-05T07:09:02.7092855Z      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 61.2/61.2 kB 18.3 MB/s eta 0:00:00
-2022-09-05T07:09:02.8106102Z Installing collected packages: urllib3, svgwrite, pillow, idna, charset-normalizer, certifi, requests
-2022-09-05T07:09:03.3620077Z Successfully installed certifi-2022.6.15 charset-normalizer-2.1.1 idna-3.3 pillow-9.2.0 requests-2.28.1 svgwrite-1.4.3 urllib3-1.26.12
-2022-09-05T07:09:03.3624720Z [91mWARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv
-2022-09-05T07:09:03.4485838Z [0m[91m
-2022-09-05T07:09:03.4486172Z [notice] A new release of pip available: 22.2.1 -> 22.2.2
-2022-09-05T07:09:03.4486481Z [notice] To update, run: pip install --upgrade pip
-2022-09-05T07:09:05.5608203Z [0mRemoving intermediate container 17ce9b81f55f
-2022-09-05T07:09:05.5609712Z  ---> 054c32ad8f7a
-2022-09-05T07:09:05.5610157Z Step 4/6 : COPY script.py /script.py
-2022-09-05T07:09:06.6497190Z  ---> 2e4ffc41c213
-2022-09-05T07:09:06.6497800Z Step 5/6 : COPY microprint_generator.py /microprint_generator.py
-2022-09-05T07:09:07.7391558Z  ---> 1726b7383f6f
-2022-09-05T07:09:07.7391873Z Step 6/6 : CMD ["python", "/script.py"]
-2022-09-05T07:09:07.7720524Z  ---> Running in ea43ab8251c0
-2022-09-05T07:09:08.8091329Z Removing intermediate container ea43ab8251c0
-2022-09-05T07:09:08.8091670Z  ---> f700fab8f7fa
-2022-09-05T07:09:08.8149150Z Successfully built f700fab8f7fa
-2022-09-05T07:09:08.8202953Z Successfully tagged 786a9b:ad9cd4fcbd7f5811b11201f18ccb01ec
-2022-09-05T07:09:08.8232212Z ##[endgroup]
-2022-09-05T07:09:08.8329087Z ##[command]/usr/bin/docker run --name a9bad9cd4fcbd7f5811b11201f18ccb01ec_13437e --label 786a9b --workdir /github/workspace --rm -e "INPUT_MICROPRINT_RENDER_METHOD" -e "INPUT_LOG_PATH" -e "INPUT_MICROPRINT_PATH" -e "INPUT_MICROPRINT_CONFIG_PATH" -e "INPUT_REPOSITORY" -e "INPUT_GITHUB_TOKEN" -e "INPUT_JOB_NAME" -e "INPUT_LOG_FILENAME" -e "INPUT_SAVE_LOG" -e "INPUT_MICROPRINT_FILENAME" -e "INPUT_MICROPRINT_CONFIG_FILENAME" -e "HOME" -e "GITHUB_JOB" -e "GITHUB_REF" -e "GITHUB_SHA" -e "GITHUB_REPOSITORY" -e "GITHUB_REPOSITORY_OWNER" -e "GITHUB_RUN_ID" -e "GITHUB_RUN_NUMBER" -e "GITHUB_RETENTION_DAYS" -e "GITHUB_RUN_ATTEMPT" -e "GITHUB_ACTOR" -e "GITHUB_TRIGGERING_ACTOR" -e "GITHUB_WORKFLOW" -e "GITHUB_HEAD_REF" -e "GITHUB_BASE_REF" -e "GITHUB_EVENT_NAME" -e "GITHUB_SERVER_URL" -e "GITHUB_API_URL" -e "GITHUB_GRAPHQL_URL" -e "GITHUB_REF_NAME" -e "GITHUB_REF_PROTECTED" -e "GITHUB_REF_TYPE" -e "GITHUB_WORKSPACE" -e "GITHUB_ACTION" -e "GITHUB_EVENT_PATH" -e "GITHUB_ACTION_REPOSITORY" -e "GITHUB_ACTION_REF" -e "GITHUB_PATH" -e "GITHUB_ENV" -e "GITHUB_STEP_SUMMARY" -e "RUNNER_OS" -e "RUNNER_ARCH" -e "RUNNER_NAME" -e "RUNNER_TOOL_CACHE" -e "RUNNER_TEMP" -e "RUNNER_WORKSPACE" -e "ACTIONS_RUNTIME_URL" -e "ACTIONS_RUNTIME_TOKEN" -e "ACTIONS_CACHE_URL" -e GITHUB_ACTIONS=true -e CI=true -v "/var/run/docker.sock":"/var/run/docker.sock" -v "/home/runner/work/_temp/_github_home":"/github/home" -v "/home/runner/work/_temp/_github_workflow":"/github/workflow" -v "/home/runner/work/_temp/_runner_file_commands":"/github/file_commands" -v "/home/runner/work/microprint/microprint":"/github/workspace" 786a9b:ad9cd4fcbd7f5811b11201f18ccb01ec
-2022-09-05T07:09:09.3284794Z DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): api.github.com:443
-2022-09-05T07:09:09.6073730Z DEBUG:urllib3.connectionpool:https://api.github.com:443 "GET /repos/AlphaSteam/microprint/actions/runs/2991346996/jobs HTTP/1.1" 200 None
-2022-09-05T07:09:09.6102756Z DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): api.github.com:443
-2022-09-05T07:09:09.7567171Z DEBUG:urllib3.connectionpool:https://api.github.com:443 "GET /repos/AlphaSteam/microprint/actions/jobs/8183445627/logs HTTP/1.1" 302 0
-2022-09-05T07:09:09.7582849Z DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): pipelines.actions.githubusercontent.com:443
-2022-09-05T07:09:09.7958461Z DEBUG:urllib3.connectionpool:https://pipelines.actions.githubusercontent.com:443 "GET /serviceHosts/871f7675-65c0-436d-aa94-5c5a4536b9ce/_apis/pipelines/1/runs/95/signedlogcontent/2?urlExpires=2022-09-05T07%3A10%3A09.7405626Z&urlSigningMethod=HMACV1&urlSignature=BMefZdalAarqo37hRtX6scHVYT%2Bf9cLe7PmNUUf3rzU%3D HTTP/1.1" 200 None
-2022-09-05T07:09:09.7996505Z INFO:root:Generating raster microprint
-2022-09-05T07:09:10.0073324Z ##[group]Run git pull
-2022-09-05T07:09:10.0073620Z [36;1mgit pull[0m
-2022-09-05T07:09:10.0134789Z shell: /usr/bin/bash -e {0}
-2022-09-05T07:09:10.0135033Z ##[endgroup]
-2022-09-05T07:09:10.5923698Z From https://github.com/AlphaSteam/microprint
-2022-09-05T07:09:10.5925000Z  * [new branch]      add_custom_rules -> origin/add_custom_rules
-2022-09-05T07:09:10.5926735Z  * [new branch]      custom_fonts     -> origin/custom_fonts
-2022-09-05T07:09:10.5965017Z Already up to date.
-2022-09-05T07:09:10.6143921Z ##[group]Run peter-evans/create-pull-request@v4
-2022-09-05T07:09:10.6144292Z with:
-2022-09-05T07:09:10.6144758Z   token: ***
-2022-09-05T07:09:10.6145161Z   commit-message: [create-pull-request] automated change
-2022-09-05T07:09:10.6145494Z   committer: GitHub <noreply@github.com>
-2022-09-05T07:09:10.6145892Z   author: AlphaSteam <AlphaSteam@users.noreply.github.com>
-2022-09-05T07:09:10.6146240Z   signoff: false
-2022-09-05T07:09:10.6146591Z   branch: create-pull-request/patch
-2022-09-05T07:09:10.6146871Z   delete-branch: false
-2022-09-05T07:09:10.6147244Z   title: Changes by create-pull-request action
-2022-09-05T07:09:10.6147738Z   body: Automated changes by [create-pull-request](https://github.com/peter-evans/create-pull-request) GitHub action
-2022-09-05T07:09:10.6148120Z   draft: false
-2022-09-05T07:09:10.6148414Z ##[endgroup]
-2022-09-05T07:09:10.8499969Z ##[group]Save persisted git credentials
-2022-09-05T07:09:10.8545326Z [command]/usr/bin/git config --local --name-only --get-regexp http.https://github.com/.extraheader ^AUTHORIZATION:
-2022-09-05T07:09:10.8604797Z http.https://github.com/.extraheader
-2022-09-05T07:09:10.8639523Z [command]/usr/bin/git config --local --get-regexp http.https://github.com/.extraheader ^AUTHORIZATION:
-2022-09-05T07:09:10.8701239Z http.https://github.com/.extraheader AUTHORIZATION: basic ***
-2022-09-05T07:09:10.8702512Z [command]/usr/bin/git config --local --unset http.https://github.com/.extraheader ^AUTHORIZATION:
-2022-09-05T07:09:10.8739991Z Unset config key 'http.https://github.com/.extraheader'
-2022-09-05T07:09:10.8741382Z ##[endgroup]
-2022-09-05T07:09:10.8797984Z ##[group]Determining the base and head repositories
-2022-09-05T07:09:10.8805075Z [command]/usr/bin/git config --local --get remote.origin.url
-2022-09-05T07:09:10.8836168Z https://github.com/AlphaSteam/microprint
-2022-09-05T07:09:10.8848705Z ##[endgroup]
-2022-09-05T07:09:10.8849287Z Pull request branch target repository set to AlphaSteam/microprint
-2022-09-05T07:09:10.8868053Z ##[group]Configuring credential for HTTPS authentication
-2022-09-05T07:09:10.8870832Z [command]/usr/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
-2022-09-05T07:09:10.8914576Z ##[endgroup]
-2022-09-05T07:09:10.8915358Z ##[group]Checking the base repository state
-2022-09-05T07:09:10.8922818Z [command]/usr/bin/git symbolic-ref HEAD --short
-2022-09-05T07:09:10.8953883Z main
-2022-09-05T07:09:10.8960178Z Working base is branch 'main'
-2022-09-05T07:09:10.8965892Z [command]/usr/bin/git remote prune origin
-2022-09-05T07:09:11.0712561Z ##[endgroup]
-2022-09-05T07:09:11.0714036Z Pull request branch to create or update set to 'create-pull-request/patch'
-2022-09-05T07:09:11.0714852Z ##[group]Configuring the committer and author
-2022-09-05T07:09:11.0715371Z Configured git committer as 'GitHub <noreply@github.com>'
-2022-09-05T07:09:11.0716591Z Configured git author as 'AlphaSteam <AlphaSteam@users.noreply.github.com>'
-2022-09-05T07:09:11.0717308Z ##[endgroup]
-2022-09-05T07:09:11.0718153Z ##[group]Create or update the pull request branch
-2022-09-05T07:09:11.0719355Z [command]/usr/bin/git symbolic-ref HEAD --short
-2022-09-05T07:09:11.0754588Z main
-2022-09-05T07:09:11.0759930Z Working base is branch 'main'
-2022-09-05T07:09:11.0774564Z [command]/usr/bin/git checkout --progress -B 984961b4-e4f6-465a-a3f2-dfbdc3f7064c HEAD --
-2022-09-05T07:09:11.0886775Z Switched to a new branch '984961b4-e4f6-465a-a3f2-dfbdc3f7064c'
-2022-09-05T07:09:11.0891011Z M	Examples/Mid-job/logs/logs.txt
-2022-09-05T07:09:11.0891754Z M	Examples/Mid-job/microprints/microprint.png
-2022-09-05T07:09:11.0903683Z [command]/usr/bin/git status --porcelain -unormal --
-2022-09-05T07:09:11.0944271Z  M Examples/Mid-job/logs/logs.txt
-2022-09-05T07:09:11.0945310Z  M Examples/Mid-job/microprints/microprint.png
-2022-09-05T07:09:11.0951741Z Uncommitted changes found. Adding a commit.
-2022-09-05T07:09:11.0956846Z [command]/usr/bin/git add -A
-2022-09-05T07:09:11.1012836Z [command]/usr/bin/git -c author.name=AlphaSteam -c author.email=AlphaSteam@users.noreply.github.com -c committer.name=GitHub -c committer.email=noreply@github.com commit -m [create-pull-request] automated change
-2022-09-05T07:09:11.1089446Z [984961b4-e4f6-465a-a3f2-dfbdc3f7064c 1a59ea7] [create-pull-request] automated change
-2022-09-05T07:09:11.1090234Z  Author: AlphaSteam <AlphaSteam@users.noreply.github.com>
-2022-09-05T07:09:11.1091105Z  2 files changed, 5 insertions(+), 5 deletions(-)
-2022-09-05T07:09:11.1098779Z [command]/usr/bin/git reset --hard
-2022-09-05T07:09:11.1153291Z HEAD is now at 1a59ea7 [create-pull-request] automated change
-2022-09-05T07:09:11.1154164Z [command]/usr/bin/git clean -f -d
-2022-09-05T07:09:11.1222577Z Resetting working base branch 'main'
-2022-09-05T07:09:11.1226748Z [command]/usr/bin/git checkout --progress main --
-2022-09-05T07:09:11.1276357Z Switched to branch 'main'
-2022-09-05T07:09:11.1277306Z Your branch is up to date with 'origin/main'.
-2022-09-05T07:09:11.1288691Z [command]/usr/bin/git reset --hard origin/main
-2022-09-05T07:09:11.1335619Z HEAD is now at 9065ccf 🩹 main Fixed workflow
-2022-09-05T07:09:11.1352235Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --progress --no-recurse-submodules --unshallow --force origin create-pull-request/patch:refs/remotes/origin/create-pull-request/patch
-2022-09-05T07:09:11.3131320Z fatal: couldn't find remote ref create-pull-request/patch
-2022-09-05T07:09:11.3328519Z Pull request branch 'create-pull-request/patch' does not exist yet.
-2022-09-05T07:09:11.3331192Z [command]/usr/bin/git checkout --progress -B create-pull-request/patch 984961b4-e4f6-465a-a3f2-dfbdc3f7064c --
-2022-09-05T07:09:11.3332499Z Switched to a new branch 'create-pull-request/patch'
-2022-09-05T07:09:11.3333169Z [command]/usr/bin/git rev-list --right-only --count main...create-pull-request/patch
-2022-09-05T07:09:11.3334249Z 1
-2022-09-05T07:09:11.3334735Z Created branch 'create-pull-request/patch'
-2022-09-05T07:09:11.3335556Z [command]/usr/bin/git rev-parse HEAD
-2022-09-05T07:09:11.3335989Z 1a59ea7ed3f9dcb3eaa9f2d561078f21f6b4083a
-2022-09-05T07:09:11.3336879Z [command]/usr/bin/git branch --delete --force 984961b4-e4f6-465a-a3f2-dfbdc3f7064c
-2022-09-05T07:09:11.3373547Z Deleted branch 984961b4-e4f6-465a-a3f2-dfbdc3f7064c (was 1a59ea7).
-2022-09-05T07:09:11.3376395Z ##[endgroup]
-2022-09-05T07:09:11.3377204Z ##[group]Pushing pull request branch to 'origin/create-pull-request/patch'
-2022-09-05T07:09:11.3382876Z [command]/usr/bin/git push --force-with-lease origin HEAD:refs/heads/create-pull-request/patch
-2022-09-05T07:09:11.9301693Z remote: 
-2022-09-05T07:09:11.9313247Z remote: Create a pull request for 'create-pull-request/patch' on GitHub by visiting:        
-2022-09-05T07:09:11.9335655Z remote:      https://github.com/AlphaSteam/microprint/pull/new/create-pull-request/patch        
-2022-09-05T07:09:11.9336232Z remote: 
-2022-09-05T07:09:11.9336693Z To https://github.com/AlphaSteam/microprint
-2022-09-05T07:09:11.9337224Z  * [new branch]      HEAD -> create-pull-request/patch
-2022-09-05T07:09:11.9359974Z ##[endgroup]
-2022-09-05T07:09:11.9360639Z ##[group]Create or update the pull request
-2022-09-05T07:09:11.9364594Z Attempting creation of pull request
-2022-09-05T07:09:13.0907068Z Created pull request #3 (AlphaSteam:create-pull-request/patch => main)
-2022-09-05T07:09:13.0907831Z ##[endgroup]
-2022-09-05T07:09:13.0908295Z ##[group]Setting outputs
-2022-09-05T07:09:13.0908462Z 
-2022-09-05T07:09:13.0916333Z 
-2022-09-05T07:09:13.0917119Z 
-2022-09-05T07:09:13.0917389Z 
-2022-09-05T07:09:13.0918298Z ##[endgroup]
-2022-09-05T07:09:13.0918730Z ##[group]Restore persisted git credentials
-2022-09-05T07:09:13.0925789Z [command]/usr/bin/git config --local --name-only --get-regexp http.https://github.com/.extraheader ^AUTHORIZATION:
-2022-09-05T07:09:13.0964837Z http.https://github.com/.extraheader
-2022-09-05T07:09:13.0976141Z [command]/usr/bin/git config --local --get-regexp http.https://github.com/.extraheader ^AUTHORIZATION:
-2022-09-05T07:09:13.1008451Z http.https://github.com/.extraheader AUTHORIZATION: basic ***
-2022-09-05T07:09:13.1018485Z [command]/usr/bin/git config --local --unset http.https://github.com/.extraheader ^AUTHORIZATION:
-2022-09-05T07:09:13.1053402Z Unset config key 'http.https://github.com/.extraheader'
-2022-09-05T07:09:13.1061374Z [command]/usr/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
-2022-09-05T07:09:13.1100929Z Persisted git credentials restored
-2022-09-05T07:09:13.1102115Z ##[endgroup]
-2022-09-05T07:09:13.1208799Z Post job cleanup.
-2022-09-05T07:09:13.2505254Z [command]/usr/bin/git version
-2022-09-05T07:09:13.2556531Z git version 2.37.2
-2022-09-05T07:09:13.2606148Z Temporarily overriding HOME='/home/runner/work/_temp/a206ddcd-ef0b-4245-9bba-fd2e54b86492' before making global git config changes
-2022-09-05T07:09:13.2609185Z Adding repository directory to the temporary git global config as a safe directory
-2022-09-05T07:09:13.2617468Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/microprint/microprint
-2022-09-05T07:09:13.2676455Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
-2022-09-05T07:09:13.2722678Z [command]/usr/bin/git submodule foreach --recursive git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :
-2022-09-05T07:09:13.2976210Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
-2022-09-05T07:09:13.3050047Z http.https://github.com/.extraheader
-2022-09-05T07:09:13.3058107Z [command]/usr/bin/git config --local --unset-all http.https://github.com/.extraheader
-2022-09-05T07:09:13.3098163Z [command]/usr/bin/git submodule foreach --recursive git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :
-2022-09-05T07:09:13.3571270Z Cleaning up orphan processes
+2022-09-05T07:12:34.5180423Z Requested labels: ubuntu-latest
+2022-09-05T07:12:34.5180453Z Job defined at: AlphaSteam/microprint/.github/workflows/generate_examples.yaml@refs/heads/main
+2022-09-05T07:12:34.5180471Z Waiting for a runner to pick up this job...
+2022-09-05T07:12:35.0660173Z Job is waiting for a hosted runner to come online.
+2022-09-05T07:12:38.0595147Z Job is about to start running on the hosted runner: Hosted Agent (hosted)
+2022-09-05T07:12:40.4643254Z Current runner version: '2.296.1'
+2022-09-05T07:12:40.4690522Z ##[group]Operating System
+2022-09-05T07:12:40.4691343Z Ubuntu
+2022-09-05T07:12:40.4691724Z 20.04.4
+2022-09-05T07:12:40.4692049Z LTS
+2022-09-05T07:12:40.4692336Z ##[endgroup]
+2022-09-05T07:12:40.4692702Z ##[group]Runner Image
+2022-09-05T07:12:40.4693185Z Image: ubuntu-20.04
+2022-09-05T07:12:40.4693557Z Version: 20220828.1
+2022-09-05T07:12:40.4694092Z Included Software: https://github.com/actions/runner-images/blob/ubuntu20/20220828.1/images/linux/Ubuntu2004-Readme.md
+2022-09-05T07:12:40.4694829Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu20%2F20220828.1
+2022-09-05T07:12:40.4695400Z ##[endgroup]
+2022-09-05T07:12:40.4695749Z ##[group]Runner Image Provisioner
+2022-09-05T07:12:40.4696164Z 1.0.0.0-main-20220825-1
+2022-09-05T07:12:40.4696531Z ##[endgroup]
+2022-09-05T07:12:40.4697675Z ##[group]GITHUB_TOKEN Permissions
+2022-09-05T07:12:40.4698474Z Actions: write
+2022-09-05T07:12:40.4699064Z Checks: write
+2022-09-05T07:12:40.4699476Z Contents: write
+2022-09-05T07:12:40.4699895Z Deployments: write
+2022-09-05T07:12:40.4700363Z Discussions: write
+2022-09-05T07:12:40.4700732Z Issues: write
+2022-09-05T07:12:40.4701031Z Metadata: read
+2022-09-05T07:12:40.4701406Z Packages: write
+2022-09-05T07:12:40.4701806Z Pages: write
+2022-09-05T07:12:40.4702124Z PullRequests: write
+2022-09-05T07:12:40.4702534Z RepositoryProjects: write
+2022-09-05T07:12:40.4702963Z SecurityEvents: write
+2022-09-05T07:12:40.4703288Z Statuses: write
+2022-09-05T07:12:40.4703696Z ##[endgroup]
+2022-09-05T07:12:40.4708671Z Secret source: Actions
+2022-09-05T07:12:40.4709234Z Prepare workflow directory
+2022-09-05T07:12:40.5869612Z Prepare all required actions
+2022-09-05T07:12:40.6172348Z Getting action download info
+2022-09-05T07:12:40.8476345Z Download action repository 'actions/checkout@v2' (SHA:7884fcad6b5d53d10323aee724dc68d8b9096a2e)
+2022-09-05T07:12:41.1794234Z Download action repository 'stefanzweifel/git-auto-commit-action@v4' (SHA:49620cd3ed21ee620a48530e81dba0d139c9cb80)
+2022-09-05T07:12:41.2994417Z Download action repository 'peter-evans/create-pull-request@v4' (SHA:18f90432bedd2afd6a825469ffd38aa24712a91d)
+2022-09-05T07:12:41.8084340Z ##[group]Run actions/checkout@v2
+2022-09-05T07:12:41.8084873Z with:
+2022-09-05T07:12:41.8085199Z   repository: AlphaSteam/microprint
+2022-09-05T07:12:41.8085951Z   token: ***
+2022-09-05T07:12:41.8086302Z   ssh-strict: true
+2022-09-05T07:12:41.8086626Z   persist-credentials: true
+2022-09-05T07:12:41.8086974Z   clean: true
+2022-09-05T07:12:41.8087294Z   fetch-depth: 1
+2022-09-05T07:12:41.8087618Z   lfs: false
+2022-09-05T07:12:41.8087960Z   submodules: false
+2022-09-05T07:12:41.8088345Z   set-safe-directory: true
+2022-09-05T07:12:41.8088661Z ##[endgroup]
+2022-09-05T07:12:42.1565692Z Syncing repository: AlphaSteam/microprint
+2022-09-05T07:12:42.1580122Z ##[group]Getting Git version info
+2022-09-05T07:12:42.1581206Z Working directory is '/home/runner/work/microprint/microprint'
+2022-09-05T07:12:42.1581998Z [command]/usr/bin/git version
+2022-09-05T07:12:42.1713981Z git version 2.37.2
+2022-09-05T07:12:42.1757280Z ##[endgroup]
+2022-09-05T07:12:42.1786424Z Temporarily overriding HOME='/home/runner/work/_temp/7a62b529-fae3-4a31-8d08-66262d055a9e' before making global git config changes
+2022-09-05T07:12:42.1787073Z Adding repository directory to the temporary git global config as a safe directory
+2022-09-05T07:12:42.1789108Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/microprint/microprint
+2022-09-05T07:12:42.1847257Z Deleting the contents of '/home/runner/work/microprint/microprint'
+2022-09-05T07:12:42.1853262Z ##[group]Initializing the repository
+2022-09-05T07:12:42.1857644Z [command]/usr/bin/git init /home/runner/work/microprint/microprint
+2022-09-05T07:12:42.1935788Z hint: Using 'master' as the name for the initial branch. This default branch name
+2022-09-05T07:12:42.2212630Z hint: is subject to change. To configure the initial branch name to use in all
+2022-09-05T07:12:42.2261571Z hint: of your new repositories, which will suppress this warning, call:
+2022-09-05T07:12:42.2262693Z hint: 
+2022-09-05T07:12:42.2272136Z hint: 	git config --global init.defaultBranch <name>
+2022-09-05T07:12:42.2274506Z hint: 
+2022-09-05T07:12:42.2275711Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+2022-09-05T07:12:42.2276777Z hint: 'development'. The just-created branch can be renamed via this command:
+2022-09-05T07:12:42.2277458Z hint: 
+2022-09-05T07:12:42.2278698Z hint: 	git branch -m <name>
+2022-09-05T07:12:42.2279625Z Initialized empty Git repository in /home/runner/work/microprint/microprint/.git/
+2022-09-05T07:12:42.2280278Z [command]/usr/bin/git remote add origin https://github.com/AlphaSteam/microprint
+2022-09-05T07:12:42.2281400Z ##[endgroup]
+2022-09-05T07:12:42.2282225Z ##[group]Disabling automatic garbage collection
+2022-09-05T07:12:42.2282866Z [command]/usr/bin/git config --local gc.auto 0
+2022-09-05T07:12:42.2283524Z ##[endgroup]
+2022-09-05T07:12:42.2284123Z ##[group]Setting up auth
+2022-09-05T07:12:42.2284790Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2022-09-05T07:12:42.2285763Z [command]/usr/bin/git submodule foreach --recursive git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :
+2022-09-05T07:12:42.2714204Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2022-09-05T07:12:42.2745935Z [command]/usr/bin/git submodule foreach --recursive git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :
+2022-09-05T07:12:42.3040124Z [command]/usr/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
+2022-09-05T07:12:42.3093761Z ##[endgroup]
+2022-09-05T07:12:42.3094848Z ##[group]Fetching the repository
+2022-09-05T07:12:42.3105759Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --progress --no-recurse-submodules --depth=1 origin +f1cebf41e8913fad732d8b34d5f63d77f99f7044:refs/remotes/origin/main
+2022-09-05T07:12:42.6437881Z remote: Enumerating objects: 35, done.        
+2022-09-05T07:12:42.6487530Z remote: Counting objects:   2% (1/35)        
+2022-09-05T07:12:42.6487903Z remote: Counting objects:   5% (2/35)        
+2022-09-05T07:12:42.6488207Z remote: Counting objects:   8% (3/35)        
+2022-09-05T07:12:42.6489076Z remote: Counting objects:  11% (4/35)        
+2022-09-05T07:12:42.6489414Z remote: Counting objects:  14% (5/35)        
+2022-09-05T07:12:42.6489707Z remote: Counting objects:  17% (6/35)        
+2022-09-05T07:12:42.6490019Z remote: Counting objects:  20% (7/35)        
+2022-09-05T07:12:42.6490321Z remote: Counting objects:  22% (8/35)        
+2022-09-05T07:12:42.6490627Z remote: Counting objects:  25% (9/35)        
+2022-09-05T07:12:42.6490916Z remote: Counting objects:  28% (10/35)        
+2022-09-05T07:12:42.6491227Z remote: Counting objects:  31% (11/35)        
+2022-09-05T07:12:42.6491559Z remote: Counting objects:  34% (12/35)        
+2022-09-05T07:12:42.6491852Z remote: Counting objects:  37% (13/35)        
+2022-09-05T07:12:42.6492155Z remote: Counting objects:  40% (14/35)        
+2022-09-05T07:12:42.6492461Z remote: Counting objects:  42% (15/35)        
+2022-09-05T07:12:42.6493517Z remote: Counting objects:  45% (16/35)        
+2022-09-05T07:12:42.6493882Z remote: Counting objects:  48% (17/35)        
+2022-09-05T07:12:42.6494231Z remote: Counting objects:  51% (18/35)        
+2022-09-05T07:12:42.6494516Z remote: Counting objects:  54% (19/35)        
+2022-09-05T07:12:42.6494828Z remote: Counting objects:  57% (20/35)        
+2022-09-05T07:12:42.6495123Z remote: Counting objects:  60% (21/35)        
+2022-09-05T07:12:42.6495425Z remote: Counting objects:  62% (22/35)        
+2022-09-05T07:12:42.6495710Z remote: Counting objects:  65% (23/35)        
+2022-09-05T07:12:42.6496007Z remote: Counting objects:  68% (24/35)        
+2022-09-05T07:12:42.6496309Z remote: Counting objects:  71% (25/35)        
+2022-09-05T07:12:42.6496888Z remote: Counting objects:  74% (26/35)        
+2022-09-05T07:12:42.6497200Z remote: Counting objects:  77% (27/35)        
+2022-09-05T07:12:42.6497502Z remote: Counting objects:  80% (28/35)        
+2022-09-05T07:12:42.6497801Z remote: Counting objects:  82% (29/35)        
+2022-09-05T07:12:42.6498100Z remote: Counting objects:  85% (30/35)        
+2022-09-05T07:12:42.6498401Z remote: Counting objects:  88% (31/35)        
+2022-09-05T07:12:42.6498700Z remote: Counting objects:  91% (32/35)        
+2022-09-05T07:12:42.6498984Z remote: Counting objects:  94% (33/35)        
+2022-09-05T07:12:42.6499281Z remote: Counting objects:  97% (34/35)        
+2022-09-05T07:12:42.6499580Z remote: Counting objects: 100% (35/35)        
+2022-09-05T07:12:42.6499881Z remote: Counting objects: 100% (35/35), done.        
+2022-09-05T07:12:42.6500223Z remote: Compressing objects:   3% (1/29)        
+2022-09-05T07:12:42.6500550Z remote: Compressing objects:   6% (2/29)        
+2022-09-05T07:12:42.6500870Z remote: Compressing objects:  10% (3/29)        
+2022-09-05T07:12:42.6501191Z remote: Compressing objects:  13% (4/29)        
+2022-09-05T07:12:42.6501515Z remote: Compressing objects:  17% (5/29)        
+2022-09-05T07:12:42.6501816Z remote: Compressing objects:  20% (6/29)        
+2022-09-05T07:12:42.6502135Z remote: Compressing objects:  24% (7/29)        
+2022-09-05T07:12:42.6502448Z remote: Compressing objects:  27% (8/29)        
+2022-09-05T07:12:42.6502760Z remote: Compressing objects:  31% (9/29)        
+2022-09-05T07:12:42.6503065Z remote: Compressing objects:  34% (10/29)        
+2022-09-05T07:12:42.6503387Z remote: Compressing objects:  37% (11/29)        
+2022-09-05T07:12:42.6599025Z remote: Compressing objects:  41% (12/29)        
+2022-09-05T07:12:42.6599432Z remote: Compressing objects:  44% (13/29)        
+2022-09-05T07:12:42.6599763Z remote: Compressing objects:  48% (14/29)        
+2022-09-05T07:12:42.6600094Z remote: Compressing objects:  51% (15/29)        
+2022-09-05T07:12:42.6619719Z remote: Compressing objects:  55% (16/29)        
+2022-09-05T07:12:42.6620085Z remote: Compressing objects:  58% (17/29)        
+2022-09-05T07:12:42.6620668Z remote: Compressing objects:  62% (18/29)        
+2022-09-05T07:12:42.6621038Z remote: Compressing objects:  65% (19/29)        
+2022-09-05T07:12:42.6621344Z remote: Compressing objects:  68% (20/29)        
+2022-09-05T07:12:42.6621674Z remote: Compressing objects:  72% (21/29)        
+2022-09-05T07:12:42.6621993Z remote: Compressing objects:  75% (22/29)        
+2022-09-05T07:12:42.6622310Z remote: Compressing objects:  79% (23/29)        
+2022-09-05T07:12:42.6622615Z remote: Compressing objects:  82% (24/29)        
+2022-09-05T07:12:42.6622936Z remote: Compressing objects:  86% (25/29)        
+2022-09-05T07:12:42.6623254Z remote: Compressing objects:  89% (26/29)        
+2022-09-05T07:12:42.6623555Z remote: Compressing objects:  93% (27/29)        
+2022-09-05T07:12:42.6623867Z remote: Compressing objects:  96% (28/29)        
+2022-09-05T07:12:42.6624215Z remote: Compressing objects: 100% (29/29)        
+2022-09-05T07:12:42.6624558Z remote: Compressing objects: 100% (29/29), done.        
+2022-09-05T07:12:42.7665997Z remote: Total 35 (delta 3), reused 19 (delta 1), pack-reused 0        
+2022-09-05T07:12:42.7948756Z From https://github.com/AlphaSteam/microprint
+2022-09-05T07:12:42.7949620Z  * [new ref]         f1cebf41e8913fad732d8b34d5f63d77f99f7044 -> origin/main
+2022-09-05T07:12:42.8093397Z ##[endgroup]
+2022-09-05T07:12:42.8093939Z ##[group]Determining the checkout info
+2022-09-05T07:12:42.8094387Z ##[endgroup]
+2022-09-05T07:12:42.8094855Z ##[group]Checking out the ref
+2022-09-05T07:12:42.8100206Z [command]/usr/bin/git checkout --progress --force -B main refs/remotes/origin/main
+2022-09-05T07:12:42.8366702Z Switched to a new branch 'main'
+2022-09-05T07:12:42.8374962Z branch 'main' set up to track 'origin/main'.
+2022-09-05T07:12:42.8378236Z ##[endgroup]
+2022-09-05T07:12:42.8445539Z [command]/usr/bin/git log -1 --format='%H'
+2022-09-05T07:12:42.8490569Z 'f1cebf41e8913fad732d8b34d5f63d77f99f7044'
+2022-09-05T07:12:42.8985903Z ##[group]Run ./
+2022-09-05T07:12:42.8986170Z with:
+2022-09-05T07:12:42.8986415Z   microprint_render_method: raster
+2022-09-05T07:12:42.8986703Z   log_path: ./Examples/Mid-job/logs
+2022-09-05T07:12:42.8986999Z   microprint_path: ./Examples/Mid-job/microprints
+2022-09-05T07:12:42.8987330Z   microprint_config_path: ./Examples/Mid-job/
+2022-09-05T07:12:42.8987636Z   repository: AlphaSteam/microprint
+2022-09-05T07:12:42.8988255Z   github_token: ***
+2022-09-05T07:12:42.8988524Z   job_name: generate_microprint_mid_job
+2022-09-05T07:12:42.8988781Z   log_filename: logs
+2022-09-05T07:12:42.8989002Z   save_log: true
+2022-09-05T07:12:42.8989227Z   microprint_filename: microprint
+2022-09-05T07:12:42.8989503Z   microprint_config_filename: config
+2022-09-05T07:12:42.8989752Z ##[endgroup]
+2022-09-05T07:12:42.9227277Z ##[group]Building docker image
+2022-09-05T07:12:42.9227682Z Dockerfile for action: '/home/runner/work/microprint/microprint/./Dockerfile'.
+2022-09-05T07:12:42.9249736Z ##[command]/usr/bin/docker build -t 786a9b:ad9cd4fcbd7f5811b11201f18ccb01ec -f "/home/runner/work/microprint/microprint/./Dockerfile" "/home/runner/work/microprint/microprint"
+2022-09-05T07:12:45.1830809Z Sending build context to Docker daemon  2.557MB
+2022-09-05T07:12:45.1831883Z 
+2022-09-05T07:12:45.1867533Z Step 1/6 : FROM python:3
+2022-09-05T07:12:45.4951179Z 3: Pulling from library/python
+2022-09-05T07:12:45.5824114Z 1671565cc8df: Already exists
+2022-09-05T07:12:45.6056035Z 3e94d13e55e7: Already exists
+2022-09-05T07:12:45.6093402Z fa9c7528c685: Already exists
+2022-09-05T07:12:45.6125376Z 53ad072f9cd1: Already exists
+2022-09-05T07:12:45.6206898Z d6b983117533: Already exists
+2022-09-05T07:12:45.6284950Z d8092d56ded5: Pulling fs layer
+2022-09-05T07:12:45.6285877Z c71afc637d59: Pulling fs layer
+2022-09-05T07:12:45.6286854Z 864a10b3c704: Pulling fs layer
+2022-09-05T07:12:45.6287991Z 4334b2fe8293: Pulling fs layer
+2022-09-05T07:12:45.6297167Z 4334b2fe8293: Waiting
+2022-09-05T07:12:45.6727314Z 864a10b3c704: Verifying Checksum
+2022-09-05T07:12:45.6728211Z 864a10b3c704: Download complete
+2022-09-05T07:12:45.7282871Z d8092d56ded5: Verifying Checksum
+2022-09-05T07:12:45.7286277Z d8092d56ded5: Download complete
+2022-09-05T07:12:45.8008801Z 4334b2fe8293: Verifying Checksum
+2022-09-05T07:12:45.8009522Z 4334b2fe8293: Download complete
+2022-09-05T07:12:45.8503485Z c71afc637d59: Verifying Checksum
+2022-09-05T07:12:45.8503857Z c71afc637d59: Download complete
+2022-09-05T07:12:46.8982240Z d8092d56ded5: Pull complete
+2022-09-05T07:12:48.0602203Z c71afc637d59: Pull complete
+2022-09-05T07:12:48.1561235Z 864a10b3c704: Pull complete
+2022-09-05T07:12:48.6539517Z 4334b2fe8293: Pull complete
+2022-09-05T07:12:48.6604840Z Digest: sha256:745efdfb7e4aac9a8422bd8c62d8bc35a693e8979a240d29677cb03e6aa91052
+2022-09-05T07:12:48.6624454Z Status: Downloaded newer image for python:3
+2022-09-05T07:12:48.6645587Z  ---> d25a66380b10
+2022-09-05T07:12:48.6645901Z Step 2/6 : COPY requirements.txt /requirements.txt
+2022-09-05T07:12:53.9501611Z  ---> 662c1a02d6b0
+2022-09-05T07:12:53.9502004Z Step 3/6 : RUN pip install -r /requirements.txt
+2022-09-05T07:12:53.9811896Z  ---> Running in 82d0d677f8aa
+2022-09-05T07:12:57.8188142Z Collecting pillow
+2022-09-05T07:12:57.8490893Z   Downloading Pillow-9.2.0-cp310-cp310-manylinux_2_28_x86_64.whl (3.2 MB)
+2022-09-05T07:12:57.8993111Z      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 3.2/3.2 MB 69.3 MB/s eta 0:00:00
+2022-09-05T07:12:57.9723244Z Collecting requests
+2022-09-05T07:12:57.9800918Z   Downloading requests-2.28.1-py3-none-any.whl (62 kB)
+2022-09-05T07:12:57.9981807Z      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 62.8/62.8 kB 3.7 MB/s eta 0:00:00
+2022-09-05T07:12:58.0233872Z Collecting svgwrite
+2022-09-05T07:12:58.0287937Z   Downloading svgwrite-1.4.3-py3-none-any.whl (67 kB)
+2022-09-05T07:12:58.0357100Z      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 67.1/67.1 kB 17.4 MB/s eta 0:00:00
+2022-09-05T07:12:58.1223432Z Collecting urllib3<1.27,>=1.21.1
+2022-09-05T07:12:58.1268447Z   Downloading urllib3-1.26.12-py2.py3-none-any.whl (140 kB)
+2022-09-05T07:12:58.1342891Z      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 140.4/140.4 kB 33.1 MB/s eta 0:00:00
+2022-09-05T07:12:58.1684533Z Collecting certifi>=2017.4.17
+2022-09-05T07:12:58.1732308Z   Downloading certifi-2022.6.15-py3-none-any.whl (160 kB)
+2022-09-05T07:12:58.1815531Z      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 160.2/160.2 kB 31.8 MB/s eta 0:00:00
+2022-09-05T07:12:58.2433057Z Collecting charset-normalizer<3,>=2
+2022-09-05T07:12:58.2478260Z   Downloading charset_normalizer-2.1.1-py3-none-any.whl (39 kB)
+2022-09-05T07:12:58.2765480Z Collecting idna<4,>=2.5
+2022-09-05T07:12:58.2811273Z   Downloading idna-3.3-py3-none-any.whl (61 kB)
+2022-09-05T07:12:58.2876047Z      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 61.2/61.2 kB 16.3 MB/s eta 0:00:00
+2022-09-05T07:12:58.4184636Z Installing collected packages: urllib3, svgwrite, pillow, idna, charset-normalizer, certifi, requests
+2022-09-05T07:12:59.1370256Z Successfully installed certifi-2022.6.15 charset-normalizer-2.1.1 idna-3.3 pillow-9.2.0 requests-2.28.1 svgwrite-1.4.3 urllib3-1.26.12
+2022-09-05T07:12:59.1371084Z [91mWARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv
+2022-09-05T07:12:59.2320668Z [0m[91m
+2022-09-05T07:12:59.2321053Z [notice] A new release of pip available: 22.2.1 -> 22.2.2
+2022-09-05T07:12:59.2321391Z [notice] To update, run: pip install --upgrade pip
+2022-09-05T07:13:01.8234814Z [0mRemoving intermediate container 82d0d677f8aa
+2022-09-05T07:13:01.8235154Z  ---> 5ceef3f55765
+2022-09-05T07:13:01.8235444Z Step 4/6 : COPY script.py /script.py
+2022-09-05T07:13:03.3031396Z  ---> 7b1e223cc081
+2022-09-05T07:13:03.3033278Z Step 5/6 : COPY microprint_generator.py /microprint_generator.py
+2022-09-05T07:13:04.7015724Z  ---> a3018adc5820
+2022-09-05T07:13:04.7016079Z Step 6/6 : CMD ["python", "/script.py"]
+2022-09-05T07:13:04.7474329Z  ---> Running in fb0f5fa62741
+2022-09-05T07:13:06.1744347Z Removing intermediate container fb0f5fa62741
+2022-09-05T07:13:06.1744689Z  ---> bfe178d7f789
+2022-09-05T07:13:06.1807631Z Successfully built bfe178d7f789
+2022-09-05T07:13:06.1869778Z Successfully tagged 786a9b:ad9cd4fcbd7f5811b11201f18ccb01ec
+2022-09-05T07:13:06.1897713Z ##[endgroup]
+2022-09-05T07:13:06.2014574Z ##[command]/usr/bin/docker run --name a9bad9cd4fcbd7f5811b11201f18ccb01ec_e5b620 --label 786a9b --workdir /github/workspace --rm -e "INPUT_MICROPRINT_RENDER_METHOD" -e "INPUT_LOG_PATH" -e "INPUT_MICROPRINT_PATH" -e "INPUT_MICROPRINT_CONFIG_PATH" -e "INPUT_REPOSITORY" -e "INPUT_GITHUB_TOKEN" -e "INPUT_JOB_NAME" -e "INPUT_LOG_FILENAME" -e "INPUT_SAVE_LOG" -e "INPUT_MICROPRINT_FILENAME" -e "INPUT_MICROPRINT_CONFIG_FILENAME" -e "HOME" -e "GITHUB_JOB" -e "GITHUB_REF" -e "GITHUB_SHA" -e "GITHUB_REPOSITORY" -e "GITHUB_REPOSITORY_OWNER" -e "GITHUB_RUN_ID" -e "GITHUB_RUN_NUMBER" -e "GITHUB_RETENTION_DAYS" -e "GITHUB_RUN_ATTEMPT" -e "GITHUB_ACTOR" -e "GITHUB_TRIGGERING_ACTOR" -e "GITHUB_WORKFLOW" -e "GITHUB_HEAD_REF" -e "GITHUB_BASE_REF" -e "GITHUB_EVENT_NAME" -e "GITHUB_SERVER_URL" -e "GITHUB_API_URL" -e "GITHUB_GRAPHQL_URL" -e "GITHUB_REF_NAME" -e "GITHUB_REF_PROTECTED" -e "GITHUB_REF_TYPE" -e "GITHUB_WORKSPACE" -e "GITHUB_ACTION" -e "GITHUB_EVENT_PATH" -e "GITHUB_ACTION_REPOSITORY" -e "GITHUB_ACTION_REF" -e "GITHUB_PATH" -e "GITHUB_ENV" -e "GITHUB_STEP_SUMMARY" -e "RUNNER_OS" -e "RUNNER_ARCH" -e "RUNNER_NAME" -e "RUNNER_TOOL_CACHE" -e "RUNNER_TEMP" -e "RUNNER_WORKSPACE" -e "ACTIONS_RUNTIME_URL" -e "ACTIONS_RUNTIME_TOKEN" -e "ACTIONS_CACHE_URL" -e GITHUB_ACTIONS=true -e CI=true -v "/var/run/docker.sock":"/var/run/docker.sock" -v "/home/runner/work/_temp/_github_home":"/github/home" -v "/home/runner/work/_temp/_github_workflow":"/github/workflow" -v "/home/runner/work/_temp/_runner_file_commands":"/github/file_commands" -v "/home/runner/work/microprint/microprint":"/github/workspace" 786a9b:ad9cd4fcbd7f5811b11201f18ccb01ec
+2022-09-05T07:13:06.8382988Z DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): api.github.com:443
+2022-09-05T07:13:07.0396582Z DEBUG:urllib3.connectionpool:https://api.github.com:443 "GET /repos/AlphaSteam/microprint/actions/runs/2991364681/jobs HTTP/1.1" 200 None
+2022-09-05T07:13:07.0433093Z DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): api.github.com:443
+2022-09-05T07:13:07.2511984Z DEBUG:urllib3.connectionpool:https://api.github.com:443 "GET /repos/AlphaSteam/microprint/actions/jobs/8183494190/logs HTTP/1.1" 302 0
+2022-09-05T07:13:07.2534215Z DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): pipelines.actions.githubusercontent.com:443
+2022-09-05T07:13:07.2917849Z DEBUG:urllib3.connectionpool:https://pipelines.actions.githubusercontent.com:443 "GET /serviceHosts/871f7675-65c0-436d-aa94-5c5a4536b9ce/_apis/pipelines/1/runs/96/signedlogcontent/2?urlExpires=2022-09-05T07%3A14%3A07.2306144Z&urlSigningMethod=HMACV1&urlSignature=PQNvtF4kfWCZqvqBk7yg%2FqaRGtomPKdsqrrUUP4brzs%3D HTTP/1.1" 200 None
+2022-09-05T07:13:07.2952596Z INFO:root:Generating raster microprint
+2022-09-05T07:13:07.5527927Z ##[group]Run git pull
+2022-09-05T07:13:07.5528231Z [36;1mgit pull[0m
+2022-09-05T07:13:07.5605839Z shell: /usr/bin/bash -e {0}
+2022-09-05T07:13:07.5606112Z ##[endgroup]
+2022-09-05T07:13:08.1541108Z From https://github.com/AlphaSteam/microprint
+2022-09-05T07:13:08.1541838Z  * [new branch]      add_custom_rules -> origin/add_custom_rules
+2022-09-05T07:13:08.1542389Z  * [new branch]      create-pull-request/patch -> origin/create-pull-request/patch
+2022-09-05T07:13:08.1542893Z  * [new branch]      custom_fonts     -> origin/custom_fonts
+2022-09-05T07:13:08.1586541Z Already up to date.
+2022-09-05T07:13:08.1781860Z ##[group]Run peter-evans/create-pull-request@v4
+2022-09-05T07:13:08.1782181Z with:
+2022-09-05T07:13:08.1782616Z   token: ***
+2022-09-05T07:13:08.1782921Z   commit-message: [create-pull-request] automated change
+2022-09-05T07:13:08.1783238Z   committer: GitHub <noreply@github.com>
+2022-09-05T07:13:08.1783596Z   author: AlphaSteam <AlphaSteam@users.noreply.github.com>
+2022-09-05T07:13:08.1783898Z   signoff: false
+2022-09-05T07:13:08.1784143Z   branch: create-pull-request/patch
+2022-09-05T07:13:08.1784417Z   delete-branch: false
+2022-09-05T07:13:08.1784708Z   title: Changes by create-pull-request action
+2022-09-05T07:13:08.1785153Z   body: Automated changes by [create-pull-request](https://github.com/peter-evans/create-pull-request) GitHub action
+2022-09-05T07:13:08.1785551Z   draft: false
+2022-09-05T07:13:08.1785766Z ##[endgroup]
+2022-09-05T07:13:08.5095473Z ##[group]Save persisted git credentials
+2022-09-05T07:13:08.5371404Z [command]/usr/bin/git config --local --name-only --get-regexp http.https://github.com/.extraheader ^AUTHORIZATION:
+2022-09-05T07:13:08.5439572Z http.https://github.com/.extraheader
+2022-09-05T07:13:08.5482740Z [command]/usr/bin/git config --local --get-regexp http.https://github.com/.extraheader ^AUTHORIZATION:
+2022-09-05T07:13:08.5518502Z http.https://github.com/.extraheader AUTHORIZATION: basic ***
+2022-09-05T07:13:08.5535566Z [command]/usr/bin/git config --local --unset http.https://github.com/.extraheader ^AUTHORIZATION:
+2022-09-05T07:13:08.5583162Z Unset config key 'http.https://github.com/.extraheader'
+2022-09-05T07:13:08.5585837Z ##[endgroup]
+2022-09-05T07:13:08.5662665Z ##[group]Determining the base and head repositories
+2022-09-05T07:13:08.5671470Z [command]/usr/bin/git config --local --get remote.origin.url
+2022-09-05T07:13:08.5706330Z https://github.com/AlphaSteam/microprint
+2022-09-05T07:13:08.5720649Z ##[endgroup]
+2022-09-05T07:13:08.5721356Z Pull request branch target repository set to AlphaSteam/microprint
+2022-09-05T07:13:08.5722474Z ##[group]Configuring credential for HTTPS authentication
+2022-09-05T07:13:08.5734920Z [command]/usr/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
+2022-09-05T07:13:08.5802884Z ##[endgroup]
+2022-09-05T07:13:08.5803829Z ##[group]Checking the base repository state
+2022-09-05T07:13:08.5814033Z [command]/usr/bin/git symbolic-ref HEAD --short
+2022-09-05T07:13:08.5849232Z main
+2022-09-05T07:13:08.5857503Z Working base is branch 'main'
+2022-09-05T07:13:08.5867566Z [command]/usr/bin/git remote prune origin
+2022-09-05T07:13:08.7504704Z ##[endgroup]
+2022-09-05T07:13:08.7505861Z Pull request branch to create or update set to 'create-pull-request/patch'
+2022-09-05T07:13:08.7507710Z ##[group]Configuring the committer and author
+2022-09-05T07:13:08.7508776Z Configured git committer as 'GitHub <noreply@github.com>'
+2022-09-05T07:13:08.7509644Z Configured git author as 'AlphaSteam <AlphaSteam@users.noreply.github.com>'
+2022-09-05T07:13:08.7510399Z ##[endgroup]
+2022-09-05T07:13:08.7549961Z ##[group]Create or update the pull request branch
+2022-09-05T07:13:08.7550466Z [command]/usr/bin/git symbolic-ref HEAD --short
+2022-09-05T07:13:08.7577077Z main
+2022-09-05T07:13:08.7581911Z Working base is branch 'main'
+2022-09-05T07:13:08.7599796Z [command]/usr/bin/git checkout --progress -B bae3866c-057c-429b-8807-233a06cd0e27 HEAD --
+2022-09-05T07:13:08.7726344Z Switched to a new branch 'bae3866c-057c-429b-8807-233a06cd0e27'
+2022-09-05T07:13:08.7729307Z M	Examples/Mid-job/logs/logs.txt
+2022-09-05T07:13:08.7730128Z M	Examples/Mid-job/microprints/microprint.png
+2022-09-05T07:13:08.7746748Z [command]/usr/bin/git status --porcelain -unormal --
+2022-09-05T07:13:08.7791296Z  M Examples/Mid-job/logs/logs.txt
+2022-09-05T07:13:08.7792213Z  M Examples/Mid-job/microprints/microprint.png
+2022-09-05T07:13:08.7801300Z Uncommitted changes found. Adding a commit.
+2022-09-05T07:13:08.7809130Z [command]/usr/bin/git add -A
+2022-09-05T07:13:08.7866293Z [command]/usr/bin/git -c author.name=AlphaSteam -c author.email=AlphaSteam@users.noreply.github.com -c committer.name=GitHub -c committer.email=noreply@github.com commit -m [create-pull-request] automated change
+2022-09-05T07:13:08.7971795Z [bae3866c-057c-429b-8807-233a06cd0e27 6732f4d] [create-pull-request] automated change
+2022-09-05T07:13:08.7972750Z  Author: AlphaSteam <AlphaSteam@users.noreply.github.com>
+2022-09-05T07:13:08.7973757Z  2 files changed, 5 insertions(+), 5 deletions(-)
+2022-09-05T07:13:08.7984690Z [command]/usr/bin/git reset --hard
+2022-09-05T07:13:08.8039080Z HEAD is now at 6732f4d [create-pull-request] automated change
+2022-09-05T07:13:08.8055569Z [command]/usr/bin/git clean -f -d
+2022-09-05T07:13:08.8151261Z Resetting working base branch 'main'
+2022-09-05T07:13:08.8159181Z [command]/usr/bin/git checkout --progress main --
+2022-09-05T07:13:08.8217738Z Switched to branch 'main'
+2022-09-05T07:13:08.8220144Z Your branch is up to date with 'origin/main'.
+2022-09-05T07:13:08.8232578Z [command]/usr/bin/git reset --hard origin/main
+2022-09-05T07:13:08.8288120Z HEAD is now at f1cebf4 Merge pull request #3 from AlphaSteam/create-pull-request/patch
+2022-09-05T07:13:08.8308936Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --progress --no-recurse-submodules --unshallow --force origin create-pull-request/patch:refs/remotes/origin/create-pull-request/patch
+2022-09-05T07:13:09.1084858Z remote: Enumerating objects: 708, done.        
+2022-09-05T07:13:09.1085311Z remote: Counting objects:   0% (1/708)        
+2022-09-05T07:13:09.1086900Z remote: Counting objects:   1% (8/708)        
+2022-09-05T07:13:09.1087424Z remote: Counting objects:   2% (15/708)        
+2022-09-05T07:13:09.1087878Z remote: Counting objects:   3% (22/708)        
+2022-09-05T07:13:09.1097974Z remote: Counting objects:   4% (29/708)        
+2022-09-05T07:13:09.1101552Z remote: Counting objects:   5% (36/708)        
+2022-09-05T07:13:09.1102024Z remote: Counting objects:   6% (43/708)        
+2022-09-05T07:13:09.1102323Z remote: Counting objects:   7% (50/708)        
+2022-09-05T07:13:09.1102629Z remote: Counting objects:   8% (57/708)        
+2022-09-05T07:13:09.1102922Z remote: Counting objects:   9% (64/708)        
+2022-09-05T07:13:09.1103350Z remote: Counting objects:  10% (71/708)        
+2022-09-05T07:13:09.1103627Z remote: Counting objects:  11% (78/708)        
+2022-09-05T07:13:09.1103908Z remote: Counting objects:  12% (85/708)        
+2022-09-05T07:13:09.1104515Z remote: Counting objects:  13% (93/708)        
+2022-09-05T07:13:09.1104968Z remote: Counting objects:  14% (100/708)        
+2022-09-05T07:13:09.1105265Z remote: Counting objects:  15% (107/708)        
+2022-09-05T07:13:09.1105540Z remote: Counting objects:  16% (114/708)        
+2022-09-05T07:13:09.1105831Z remote: Counting objects:  17% (121/708)        
+2022-09-05T07:13:09.1106125Z remote: Counting objects:  18% (128/708)        
+2022-09-05T07:13:09.1106396Z remote: Counting objects:  19% (135/708)        
+2022-09-05T07:13:09.1106687Z remote: Counting objects:  20% (142/708)        
+2022-09-05T07:13:09.1106980Z remote: Counting objects:  21% (149/708)        
+2022-09-05T07:13:09.1107248Z remote: Counting objects:  22% (156/708)        
+2022-09-05T07:13:09.1107536Z remote: Counting objects:  23% (163/708)        
+2022-09-05T07:13:09.1107823Z remote: Counting objects:  24% (170/708)        
+2022-09-05T07:13:09.1108265Z remote: Counting objects:  25% (177/708)        
+2022-09-05T07:13:09.1108528Z remote: Counting objects:  26% (185/708)        
+2022-09-05T07:13:09.1108806Z remote: Counting objects:  27% (192/708)        
+2022-09-05T07:13:09.1109082Z remote: Counting objects:  28% (199/708)        
+2022-09-05T07:13:09.1109342Z remote: Counting objects:  29% (206/708)        
+2022-09-05T07:13:09.1109615Z remote: Counting objects:  30% (213/708)        
+2022-09-05T07:13:09.1109891Z remote: Counting objects:  31% (220/708)        
+2022-09-05T07:13:09.1110149Z remote: Counting objects:  32% (227/708)        
+2022-09-05T07:13:09.1110422Z remote: Counting objects:  33% (234/708)        
+2022-09-05T07:13:09.1111162Z remote: Counting objects:  34% (241/708)        
+2022-09-05T07:13:09.1111455Z remote: Counting objects:  35% (248/708)        
+2022-09-05T07:13:09.1111751Z remote: Counting objects:  36% (255/708)        
+2022-09-05T07:13:09.1112340Z remote: Counting objects:  37% (262/708)        
+2022-09-05T07:13:09.1112826Z remote: Counting objects:  38% (270/708)        
+2022-09-05T07:13:09.1113125Z remote: Counting objects:  39% (277/708)        
+2022-09-05T07:13:09.1113422Z remote: Counting objects:  40% (284/708)        
+2022-09-05T07:13:09.1113718Z remote: Counting objects:  41% (291/708)        
+2022-09-05T07:13:09.1113996Z remote: Counting objects:  42% (298/708)        
+2022-09-05T07:13:09.1114286Z remote: Counting objects:  43% (305/708)        
+2022-09-05T07:13:09.1114582Z remote: Counting objects:  44% (312/708)        
+2022-09-05T07:13:09.1114858Z remote: Counting objects:  45% (319/708)        
+2022-09-05T07:13:09.1115306Z remote: Counting objects:  46% (326/708)        
+2022-09-05T07:13:09.1115590Z remote: Counting objects:  47% (333/708)        
+2022-09-05T07:13:09.1116301Z remote: Counting objects:  48% (340/708)        
+2022-09-05T07:13:09.1116596Z remote: Counting objects:  49% (347/708)        
+2022-09-05T07:13:09.1116895Z remote: Counting objects:  50% (354/708)        
+2022-09-05T07:13:09.1117174Z remote: Counting objects:  51% (362/708)        
+2022-09-05T07:13:09.1117476Z remote: Counting objects:  52% (369/708)        
+2022-09-05T07:13:09.1117772Z remote: Counting objects:  53% (376/708)        
+2022-09-05T07:13:09.1119038Z remote: Counting objects:  54% (383/708)        
+2022-09-05T07:13:09.1119326Z remote: Counting objects:  55% (390/708)        
+2022-09-05T07:13:09.1119620Z remote: Counting objects:  56% (397/708)        
+2022-09-05T07:13:09.1119915Z remote: Counting objects:  57% (404/708)        
+2022-09-05T07:13:09.1120251Z remote: Counting objects:  58% (411/708)        
+2022-09-05T07:13:09.1120552Z remote: Counting objects:  59% (418/708)        
+2022-09-05T07:13:09.1120847Z remote: Counting objects:  60% (425/708)        
+2022-09-05T07:13:09.1121130Z remote: Counting objects:  61% (432/708)        
+2022-09-05T07:13:09.1122390Z remote: Counting objects:  62% (439/708)        
+2022-09-05T07:13:09.1122685Z remote: Counting objects:  63% (447/708)        
+2022-09-05T07:13:09.1122961Z remote: Counting objects:  64% (454/708)        
+2022-09-05T07:13:09.1123256Z remote: Counting objects:  65% (461/708)        
+2022-09-05T07:13:09.1123890Z remote: Counting objects:  66% (468/708)        
+2022-09-05T07:13:09.1124368Z remote: Counting objects:  67% (475/708)        
+2022-09-05T07:13:09.1124646Z remote: Counting objects:  68% (482/708)        
+2022-09-05T07:13:09.1124940Z remote: Counting objects:  69% (489/708)        
+2022-09-05T07:13:09.1125237Z remote: Counting objects:  70% (496/708)        
+2022-09-05T07:13:09.1125516Z remote: Counting objects:  71% (503/708)        
+2022-09-05T07:13:09.1125906Z remote: Counting objects:  72% (510/708)        
+2022-09-05T07:13:09.1126211Z remote: Counting objects:  73% (517/708)        
+2022-09-05T07:13:09.1126499Z remote: Counting objects:  74% (524/708)        
+2022-09-05T07:13:09.1127727Z remote: Counting objects:  75% (531/708)        
+2022-09-05T07:13:09.1128184Z remote: Counting objects:  76% (539/708)        
+2022-09-05T07:13:09.1128451Z remote: Counting objects:  77% (546/708)        
+2022-09-05T07:13:09.1128735Z remote: Counting objects:  78% (553/708)        
+2022-09-05T07:13:09.1129974Z remote: Counting objects:  79% (560/708)        
+2022-09-05T07:13:09.1130262Z remote: Counting objects:  80% (567/708)        
+2022-09-05T07:13:09.1130547Z remote: Counting objects:  81% (574/708)        
+2022-09-05T07:13:09.1130835Z remote: Counting objects:  82% (581/708)        
+2022-09-05T07:13:09.1131121Z remote: Counting objects:  83% (588/708)        
+2022-09-05T07:13:09.1131443Z remote: Counting objects:  84% (595/708)        
+2022-09-05T07:13:09.1132541Z remote: Counting objects:  85% (602/708)        
+2022-09-05T07:13:09.1132827Z remote: Counting objects:  86% (609/708)        
+2022-09-05T07:13:09.1133211Z remote: Counting objects:  87% (616/708)        
+2022-09-05T07:13:09.1133507Z remote: Counting objects:  88% (624/708)        
+2022-09-05T07:13:09.1134845Z remote: Counting objects:  89% (631/708)        
+2022-09-05T07:13:09.1135125Z remote: Counting objects:  90% (638/708)        
+2022-09-05T07:13:09.1135417Z remote: Counting objects:  91% (645/708)        
+2022-09-05T07:13:09.1135714Z remote: Counting objects:  92% (652/708)        
+2022-09-05T07:13:09.1136828Z remote: Counting objects:  93% (659/708)        
+2022-09-05T07:13:09.1137126Z remote: Counting objects:  94% (666/708)        
+2022-09-05T07:13:09.1137417Z remote: Counting objects:  95% (673/708)        
+2022-09-05T07:13:09.1137710Z remote: Counting objects:  96% (680/708)        
+2022-09-05T07:13:09.1139219Z remote: Counting objects:  97% (687/708)        
+2022-09-05T07:13:09.1139549Z remote: Counting objects:  98% (694/708)        
+2022-09-05T07:13:09.1139845Z remote: Counting objects:  99% (701/708)        
+2022-09-05T07:13:09.1140128Z remote: Counting objects: 100% (708/708)        
+2022-09-05T07:13:09.1140440Z remote: Counting objects: 100% (708/708), done.        
+2022-09-05T07:13:09.1140781Z remote: Compressing objects:   0% (1/310)        
+2022-09-05T07:13:09.1141101Z remote: Compressing objects:   1% (4/310)        
+2022-09-05T07:13:09.1141421Z remote: Compressing objects:   2% (7/310)        
+2022-09-05T07:13:09.1141746Z remote: Compressing objects:   3% (10/310)        
+2022-09-05T07:13:09.1142047Z remote: Compressing objects:   4% (13/310)        
+2022-09-05T07:13:09.1142368Z remote: Compressing objects:   5% (16/310)        
+2022-09-05T07:13:09.1142684Z remote: Compressing objects:   6% (19/310)        
+2022-09-05T07:13:09.1142997Z remote: Compressing objects:   7% (22/310)        
+2022-09-05T07:13:09.1143290Z remote: Compressing objects:   8% (25/310)        
+2022-09-05T07:13:09.1339218Z remote: Compressing objects:   9% (28/310)        
+2022-09-05T07:13:09.1606113Z remote: Compressing objects:  10% (31/310)        
+2022-09-05T07:13:09.1627844Z remote: Compressing objects:  11% (35/310)        
+2022-09-05T07:13:09.1637090Z remote: Compressing objects:  12% (38/310)        
+2022-09-05T07:13:09.1637859Z remote: Compressing objects:  13% (41/310)        
+2022-09-05T07:13:09.1638578Z remote: Compressing objects:  14% (44/310)        
+2022-09-05T07:13:09.1639311Z remote: Compressing objects:  15% (47/310)        
+2022-09-05T07:13:09.1640316Z remote: Compressing objects:  16% (50/310)        
+2022-09-05T07:13:09.1640935Z remote: Compressing objects:  17% (53/310)        
+2022-09-05T07:13:09.1645080Z remote: Compressing objects:  18% (56/310)        
+2022-09-05T07:13:09.1645725Z remote: Compressing objects:  19% (59/310)        
+2022-09-05T07:13:09.1647565Z remote: Compressing objects:  20% (62/310)        
+2022-09-05T07:13:09.1648931Z remote: Compressing objects:  21% (66/310)        
+2022-09-05T07:13:09.1649334Z remote: Compressing objects:  22% (69/310)        
+2022-09-05T07:13:09.1649655Z remote: Compressing objects:  23% (72/310)        
+2022-09-05T07:13:09.1649959Z remote: Compressing objects:  24% (75/310)        
+2022-09-05T07:13:09.1650272Z remote: Compressing objects:  25% (78/310)        
+2022-09-05T07:13:09.1650707Z remote: Compressing objects:  26% (81/310)        
+2022-09-05T07:13:09.1651020Z remote: Compressing objects:  27% (84/310)        
+2022-09-05T07:13:09.1651341Z remote: Compressing objects:  28% (87/310)        
+2022-09-05T07:13:09.1651635Z remote: Compressing objects:  29% (90/310)        
+2022-09-05T07:13:09.1651949Z remote: Compressing objects:  30% (93/310)        
+2022-09-05T07:13:09.1652260Z remote: Compressing objects:  31% (97/310)        
+2022-09-05T07:13:09.1652555Z remote: Compressing objects:  32% (100/310)        
+2022-09-05T07:13:09.1653295Z remote: Compressing objects:  33% (103/310)        
+2022-09-05T07:13:09.1653970Z remote: Compressing objects:  34% (106/310)        
+2022-09-05T07:13:09.1654615Z remote: Compressing objects:  35% (109/310)        
+2022-09-05T07:13:09.1655584Z remote: Compressing objects:  36% (112/310)        
+2022-09-05T07:13:09.1656200Z remote: Compressing objects:  37% (115/310)        
+2022-09-05T07:13:09.1659043Z remote: Compressing objects:  38% (118/310)        
+2022-09-05T07:13:09.1659650Z remote: Compressing objects:  39% (121/310)        
+2022-09-05T07:13:09.1660426Z remote: Compressing objects:  40% (124/310)        
+2022-09-05T07:13:09.1661076Z remote: Compressing objects:  41% (128/310)        
+2022-09-05T07:13:09.1661931Z remote: Compressing objects:  42% (131/310)        
+2022-09-05T07:13:09.1662573Z remote: Compressing objects:  43% (134/310)        
+2022-09-05T07:13:09.1663264Z remote: Compressing objects:  44% (137/310)        
+2022-09-05T07:13:09.1663885Z remote: Compressing objects:  45% (140/310)        
+2022-09-05T07:13:09.1664524Z remote: Compressing objects:  46% (143/310)        
+2022-09-05T07:13:09.1665287Z remote: Compressing objects:  47% (146/310)        
+2022-09-05T07:13:09.1666024Z remote: Compressing objects:  48% (149/310)        
+2022-09-05T07:13:09.1666647Z remote: Compressing objects:  49% (152/310)        
+2022-09-05T07:13:09.1667288Z remote: Compressing objects:  50% (155/310)        
+2022-09-05T07:13:09.1667929Z remote: Compressing objects:  51% (159/310)        
+2022-09-05T07:13:09.1668703Z remote: Compressing objects:  52% (162/310)        
+2022-09-05T07:13:09.1672302Z remote: Compressing objects:  53% (165/310)        
+2022-09-05T07:13:09.1673001Z remote: Compressing objects:  54% (168/310)        
+2022-09-05T07:13:09.1673699Z remote: Compressing objects:  55% (171/310)        
+2022-09-05T07:13:09.1674335Z remote: Compressing objects:  56% (174/310)        
+2022-09-05T07:13:09.1674948Z remote: Compressing objects:  57% (177/310)        
+2022-09-05T07:13:09.1675579Z remote: Compressing objects:  58% (180/310)        
+2022-09-05T07:13:09.1676433Z remote: Compressing objects:  59% (183/310)        
+2022-09-05T07:13:09.1677078Z remote: Compressing objects:  60% (186/310)        
+2022-09-05T07:13:09.1677689Z remote: Compressing objects:  61% (190/310)        
+2022-09-05T07:13:09.1678327Z remote: Compressing objects:  62% (193/310)        
+2022-09-05T07:13:09.1678968Z remote: Compressing objects:  63% (196/310)        
+2022-09-05T07:13:09.1679609Z remote: Compressing objects:  64% (199/310)        
+2022-09-05T07:13:09.1680216Z remote: Compressing objects:  65% (202/310)        
+2022-09-05T07:13:09.1681115Z remote: Compressing objects:  66% (205/310)        
+2022-09-05T07:13:09.1681756Z remote: Compressing objects:  67% (208/310)        
+2022-09-05T07:13:09.1682389Z remote: Compressing objects:  68% (211/310)        
+2022-09-05T07:13:09.1683013Z remote: Compressing objects:  69% (214/310)        
+2022-09-05T07:13:09.1685951Z remote: Compressing objects:  70% (217/310)        
+2022-09-05T07:13:09.1686676Z remote: Compressing objects:  71% (221/310)        
+2022-09-05T07:13:09.1687306Z remote: Compressing objects:  72% (224/310)        
+2022-09-05T07:13:09.1687944Z remote: Compressing objects:  73% (227/310)        
+2022-09-05T07:13:09.1688578Z remote: Compressing objects:  74% (230/310)        
+2022-09-05T07:13:09.1689638Z remote: Compressing objects:  75% (233/310)        
+2022-09-05T07:13:09.1689935Z remote: Compressing objects:  76% (236/310)        
+2022-09-05T07:13:09.1690246Z remote: Compressing objects:  77% (239/310)        
+2022-09-05T07:13:09.1690561Z remote: Compressing objects:  78% (242/310)        
+2022-09-05T07:13:09.1690878Z remote: Compressing objects:  79% (245/310)        
+2022-09-05T07:13:09.1691280Z remote: Compressing objects:  80% (248/310)        
+2022-09-05T07:13:09.1691605Z remote: Compressing objects:  81% (252/310)        
+2022-09-05T07:13:09.1691916Z remote: Compressing objects:  82% (255/310)        
+2022-09-05T07:13:09.1692207Z remote: Compressing objects:  83% (258/310)        
+2022-09-05T07:13:09.1692520Z remote: Compressing objects:  84% (261/310)        
+2022-09-05T07:13:09.1692831Z remote: Compressing objects:  85% (264/310)        
+2022-09-05T07:13:09.1693122Z remote: Compressing objects:  86% (267/310)        
+2022-09-05T07:13:09.1694013Z remote: Compressing objects:  87% (270/310)        
+2022-09-05T07:13:09.1694367Z remote: Compressing objects:  88% (273/310)        
+2022-09-05T07:13:09.1694661Z remote: Compressing objects:  89% (276/310)        
+2022-09-05T07:13:09.1694973Z remote: Compressing objects:  90% (279/310)        
+2022-09-05T07:13:09.1695283Z remote: Compressing objects:  91% (283/310)        
+2022-09-05T07:13:09.1695602Z remote: Compressing objects:  92% (286/310)        
+2022-09-05T07:13:09.1695893Z remote: Compressing objects:  93% (289/310)        
+2022-09-05T07:13:09.1696199Z remote: Compressing objects:  94% (292/310)        
+2022-09-05T07:13:09.1696509Z remote: Compressing objects:  95% (295/310)        
+2022-09-05T07:13:09.1696798Z remote: Compressing objects:  96% (298/310)        
+2022-09-05T07:13:09.1697214Z remote: Compressing objects:  97% (301/310)        
+2022-09-05T07:13:09.1697591Z remote: Compressing objects:  98% (304/310)        
+2022-09-05T07:13:09.1697881Z remote: Compressing objects:  99% (307/310)        
+2022-09-05T07:13:09.1698193Z remote: Compressing objects: 100% (310/310)        
+2022-09-05T07:13:09.1698520Z remote: Compressing objects: 100% (310/310), done.        
+2022-09-05T07:13:09.1701883Z Receiving objects:   0% (1/681)
+2022-09-05T07:13:09.1702592Z Receiving objects:   1% (7/681)
+2022-09-05T07:13:09.1702863Z Receiving objects:   2% (14/681)
+2022-09-05T07:13:09.1703143Z Receiving objects:   3% (21/681)
+2022-09-05T07:13:09.1703806Z Receiving objects:   4% (28/681)
+2022-09-05T07:13:09.1705391Z Receiving objects:   5% (35/681)
+2022-09-05T07:13:09.1711361Z Receiving objects:   6% (41/681)
+2022-09-05T07:13:09.1714285Z Receiving objects:   7% (48/681)
+2022-09-05T07:13:09.1714560Z Receiving objects:   8% (55/681)
+2022-09-05T07:13:09.1720618Z Receiving objects:   9% (62/681)
+2022-09-05T07:13:09.1723034Z Receiving objects:  10% (69/681)
+2022-09-05T07:13:09.1724835Z Receiving objects:  11% (75/681)
+2022-09-05T07:13:09.1727777Z Receiving objects:  12% (82/681)
+2022-09-05T07:13:09.1728068Z Receiving objects:  13% (89/681)
+2022-09-05T07:13:09.1728316Z Receiving objects:  14% (96/681)
+2022-09-05T07:13:09.1728583Z Receiving objects:  15% (103/681)
+2022-09-05T07:13:09.1728855Z Receiving objects:  16% (109/681)
+2022-09-05T07:13:09.1729107Z Receiving objects:  17% (116/681)
+2022-09-05T07:13:09.1729375Z Receiving objects:  18% (123/681)
+2022-09-05T07:13:09.1729863Z Receiving objects:  19% (130/681)
+2022-09-05T07:13:09.1730113Z Receiving objects:  20% (137/681)
+2022-09-05T07:13:09.1730378Z Receiving objects:  21% (144/681)
+2022-09-05T07:13:09.1730641Z Receiving objects:  22% (150/681)
+2022-09-05T07:13:09.1731469Z Receiving objects:  23% (157/681)
+2022-09-05T07:13:09.1731741Z Receiving objects:  24% (164/681)
+2022-09-05T07:13:09.1732005Z Receiving objects:  25% (171/681)
+2022-09-05T07:13:09.1733884Z Receiving objects:  26% (178/681)
+2022-09-05T07:13:09.1734681Z Receiving objects:  27% (184/681)
+2022-09-05T07:13:09.1740786Z Receiving objects:  28% (191/681)
+2022-09-05T07:13:09.1808975Z Receiving objects:  29% (198/681)
+2022-09-05T07:13:09.1809280Z Receiving objects:  30% (205/681)
+2022-09-05T07:13:09.1823627Z Receiving objects:  31% (212/681)
+2022-09-05T07:13:09.1823935Z Receiving objects:  32% (218/681)
+2022-09-05T07:13:09.1828819Z Receiving objects:  33% (225/681)
+2022-09-05T07:13:09.1830079Z Receiving objects:  34% (232/681)
+2022-09-05T07:13:09.1874808Z Receiving objects:  35% (239/681)
+2022-09-05T07:13:09.1877121Z Receiving objects:  36% (246/681)
+2022-09-05T07:13:09.1879048Z Receiving objects:  37% (252/681)
+2022-09-05T07:13:09.1879364Z Receiving objects:  38% (259/681)
+2022-09-05T07:13:09.1879636Z Receiving objects:  39% (266/681)
+2022-09-05T07:13:09.1879886Z Receiving objects:  40% (273/681)
+2022-09-05T07:13:09.1880157Z Receiving objects:  41% (280/681)
+2022-09-05T07:13:09.1880426Z Receiving objects:  42% (287/681)
+2022-09-05T07:13:09.1880673Z Receiving objects:  43% (293/681)
+2022-09-05T07:13:09.1880940Z Receiving objects:  44% (300/681)
+2022-09-05T07:13:09.1881659Z Receiving objects:  45% (307/681)
+2022-09-05T07:13:09.1882521Z Receiving objects:  46% (314/681)
+2022-09-05T07:13:09.1882815Z Receiving objects:  47% (321/681)
+2022-09-05T07:13:09.1883652Z Receiving objects:  48% (327/681)
+2022-09-05T07:13:09.1888113Z Receiving objects:  49% (334/681)
+2022-09-05T07:13:09.1888387Z Receiving objects:  50% (341/681)
+2022-09-05T07:13:09.1888657Z Receiving objects:  51% (348/681)
+2022-09-05T07:13:09.1888935Z Receiving objects:  52% (355/681)
+2022-09-05T07:13:09.1889187Z Receiving objects:  53% (361/681)
+2022-09-05T07:13:09.1916463Z Receiving objects:  54% (368/681)
+2022-09-05T07:13:09.1922535Z Receiving objects:  55% (375/681)
+2022-09-05T07:13:09.1954657Z Receiving objects:  56% (382/681)
+2022-09-05T07:13:09.1955160Z Receiving objects:  57% (389/681)
+2022-09-05T07:13:09.1958901Z Receiving objects:  58% (395/681)
+2022-09-05T07:13:09.1959943Z Receiving objects:  59% (402/681)
+2022-09-05T07:13:09.1960209Z Receiving objects:  60% (409/681)
+2022-09-05T07:13:09.1960477Z Receiving objects:  61% (416/681)
+2022-09-05T07:13:09.1960757Z Receiving objects:  62% (423/681)
+2022-09-05T07:13:09.1977514Z Receiving objects:  63% (430/681)
+2022-09-05T07:13:09.2417451Z Receiving objects:  64% (436/681)
+2022-09-05T07:13:09.2430490Z Receiving objects:  65% (443/681)
+2022-09-05T07:13:09.2442108Z Receiving objects:  66% (450/681)
+2022-09-05T07:13:09.2451875Z Receiving objects:  67% (457/681)
+2022-09-05T07:13:09.2524467Z Receiving objects:  68% (464/681)
+2022-09-05T07:13:09.2534176Z Receiving objects:  69% (470/681)
+2022-09-05T07:13:09.2534758Z Receiving objects:  70% (477/681)
+2022-09-05T07:13:09.2546994Z Receiving objects:  71% (484/681)
+2022-09-05T07:13:09.2549867Z Receiving objects:  72% (491/681)
+2022-09-05T07:13:09.2550861Z remote: Total 681 (delta 358), reused 633 (delta 312), pack-reused 0        
+2022-09-05T07:13:09.2558213Z Receiving objects:  73% (498/681)
+2022-09-05T07:13:09.2572915Z Receiving objects:  74% (504/681)
+2022-09-05T07:13:09.2573477Z Receiving objects:  75% (511/681)
+2022-09-05T07:13:09.2574625Z Receiving objects:  76% (518/681)
+2022-09-05T07:13:09.2575119Z Receiving objects:  77% (525/681)
+2022-09-05T07:13:09.2575646Z Receiving objects:  78% (532/681)
+2022-09-05T07:13:09.2576056Z Receiving objects:  79% (538/681)
+2022-09-05T07:13:09.2577102Z Receiving objects:  80% (545/681)
+2022-09-05T07:13:09.2579267Z Receiving objects:  81% (552/681)
+2022-09-05T07:13:09.2581895Z Receiving objects:  82% (559/681)
+2022-09-05T07:13:09.2582736Z Receiving objects:  83% (566/681)
+2022-09-05T07:13:09.2584739Z Receiving objects:  84% (573/681)
+2022-09-05T07:13:09.2585275Z Receiving objects:  85% (579/681)
+2022-09-05T07:13:09.2586746Z Receiving objects:  86% (586/681)
+2022-09-05T07:13:09.2587230Z Receiving objects:  87% (593/681)
+2022-09-05T07:13:09.2589004Z Receiving objects:  88% (600/681)
+2022-09-05T07:13:09.2589487Z Receiving objects:  89% (607/681)
+2022-09-05T07:13:09.2591097Z Receiving objects:  90% (613/681)
+2022-09-05T07:13:09.2591579Z Receiving objects:  91% (620/681)
+2022-09-05T07:13:09.2593078Z Receiving objects:  92% (627/681)
+2022-09-05T07:13:09.2593564Z Receiving objects:  93% (634/681)
+2022-09-05T07:13:09.2594993Z Receiving objects:  94% (641/681)
+2022-09-05T07:13:09.2595588Z Receiving objects:  95% (647/681)
+2022-09-05T07:13:09.2597165Z Receiving objects:  96% (654/681)
+2022-09-05T07:13:09.2597640Z Receiving objects:  97% (661/681)
+2022-09-05T07:13:09.2600738Z Receiving objects:  98% (668/681)
+2022-09-05T07:13:09.2601250Z Receiving objects:  99% (675/681)
+2022-09-05T07:13:09.2603017Z Receiving objects: 100% (681/681)
+2022-09-05T07:13:09.2605513Z Receiving objects: 100% (681/681), 1.61 MiB | 18.29 MiB/s, done.
+2022-09-05T07:13:09.2607411Z Resolving deltas:   0% (0/358)
+2022-09-05T07:13:09.2607904Z Resolving deltas:   1% (4/358)
+2022-09-05T07:13:09.2608375Z Resolving deltas:   2% (8/358)
+2022-09-05T07:13:09.2609586Z Resolving deltas:   3% (11/358)
+2022-09-05T07:13:09.2610071Z Resolving deltas:   4% (15/358)
+2022-09-05T07:13:09.2610429Z Resolving deltas:   5% (18/358)
+2022-09-05T07:13:09.2612277Z Resolving deltas:   6% (22/358)
+2022-09-05T07:13:09.2613085Z Resolving deltas:   7% (26/358)
+2022-09-05T07:13:09.2614361Z Resolving deltas:   8% (29/358)
+2022-09-05T07:13:09.2614862Z Resolving deltas:   9% (33/358)
+2022-09-05T07:13:09.2616421Z Resolving deltas:  10% (36/358)
+2022-09-05T07:13:09.2616940Z Resolving deltas:  11% (40/358)
+2022-09-05T07:13:09.2618283Z Resolving deltas:  12% (43/358)
+2022-09-05T07:13:09.2618856Z Resolving deltas:  13% (47/358)
+2022-09-05T07:13:09.2620212Z Resolving deltas:  14% (51/358)
+2022-09-05T07:13:09.2620740Z Resolving deltas:  15% (54/358)
+2022-09-05T07:13:09.2622064Z Resolving deltas:  16% (58/358)
+2022-09-05T07:13:09.2622632Z Resolving deltas:  17% (61/358)
+2022-09-05T07:13:09.2624195Z Resolving deltas:  18% (65/358)
+2022-09-05T07:13:09.2624713Z Resolving deltas:  19% (69/358)
+2022-09-05T07:13:09.2626113Z Resolving deltas:  20% (72/358)
+2022-09-05T07:13:09.2626620Z Resolving deltas:  21% (76/358)
+2022-09-05T07:13:09.2628258Z Resolving deltas:  22% (79/358)
+2022-09-05T07:13:09.2628798Z Resolving deltas:  23% (83/358)
+2022-09-05T07:13:09.2630228Z Resolving deltas:  24% (86/358)
+2022-09-05T07:13:09.2630801Z Resolving deltas:  25% (90/358)
+2022-09-05T07:13:09.2631182Z Resolving deltas:  26% (94/358)
+2022-09-05T07:13:09.2634818Z Resolving deltas:  27% (97/358)
+2022-09-05T07:13:09.2636038Z Resolving deltas:  28% (101/358)
+2022-09-05T07:13:09.2638740Z Resolving deltas:  29% (104/358)
+2022-09-05T07:13:09.2639676Z Resolving deltas:  30% (108/358)
+2022-09-05T07:13:09.2642199Z Resolving deltas:  31% (111/358)
+2022-09-05T07:13:09.2644503Z Resolving deltas:  32% (115/358)
+2022-09-05T07:13:09.2646468Z Resolving deltas:  33% (119/358)
+2022-09-05T07:13:09.2649058Z Resolving deltas:  34% (122/358)
+2022-09-05T07:13:09.2650856Z Resolving deltas:  35% (126/358)
+2022-09-05T07:13:09.2653111Z Resolving deltas:  36% (129/358)
+2022-09-05T07:13:09.2655238Z Resolving deltas:  37% (133/358)
+2022-09-05T07:13:09.2658792Z Resolving deltas:  38% (137/358)
+2022-09-05T07:13:09.2660817Z Resolving deltas:  39% (140/358)
+2022-09-05T07:13:09.2667956Z Resolving deltas:  40% (144/358)
+2022-09-05T07:13:09.2668816Z Resolving deltas:  41% (147/358)
+2022-09-05T07:13:09.2670525Z Resolving deltas:  42% (151/358)
+2022-09-05T07:13:09.2671817Z Resolving deltas:  43% (154/358)
+2022-09-05T07:13:09.2672480Z Resolving deltas:  44% (158/358)
+2022-09-05T07:13:09.2673442Z Resolving deltas:  45% (162/358)
+2022-09-05T07:13:09.2674258Z Resolving deltas:  46% (165/358)
+2022-09-05T07:13:09.2675219Z Resolving deltas:  47% (169/358)
+2022-09-05T07:13:09.2675719Z Resolving deltas:  48% (172/358)
+2022-09-05T07:13:09.2677118Z Resolving deltas:  49% (176/358)
+2022-09-05T07:13:09.2678010Z Resolving deltas:  50% (179/358)
+2022-09-05T07:13:09.2681709Z Resolving deltas:  51% (183/358)
+2022-09-05T07:13:09.2685716Z Resolving deltas:  52% (187/358)
+2022-09-05T07:13:09.2690627Z Resolving deltas:  53% (190/358)
+2022-09-05T07:13:09.2691591Z Resolving deltas:  54% (194/358)
+2022-09-05T07:13:09.2692298Z Resolving deltas:  55% (197/358)
+2022-09-05T07:13:09.2693248Z Resolving deltas:  56% (201/358)
+2022-09-05T07:13:09.2825866Z Resolving deltas:  57% (205/358)
+2022-09-05T07:13:09.2826633Z Resolving deltas:  58% (208/358)
+2022-09-05T07:13:09.2827490Z Resolving deltas:  59% (212/358)
+2022-09-05T07:13:09.2827977Z Resolving deltas:  60% (215/358)
+2022-09-05T07:13:09.2828681Z Resolving deltas:  61% (219/358)
+2022-09-05T07:13:09.2829139Z Resolving deltas:  62% (222/358)
+2022-09-05T07:13:09.2829853Z Resolving deltas:  63% (226/358)
+2022-09-05T07:13:09.2830315Z Resolving deltas:  64% (230/358)
+2022-09-05T07:13:09.2830987Z Resolving deltas:  65% (233/358)
+2022-09-05T07:13:09.2831455Z Resolving deltas:  66% (237/358)
+2022-09-05T07:13:09.2832347Z Resolving deltas:  67% (240/358)
+2022-09-05T07:13:09.2832833Z Resolving deltas:  68% (244/358)
+2022-09-05T07:13:09.2839549Z Resolving deltas:  69% (248/358)
+2022-09-05T07:13:09.2860254Z Resolving deltas:  70% (251/358)
+2022-09-05T07:13:09.2876840Z Resolving deltas:  71% (255/358)
+2022-09-05T07:13:09.2909858Z Resolving deltas:  72% (258/358)
+2022-09-05T07:13:09.2927968Z Resolving deltas:  73% (262/358)
+2022-09-05T07:13:09.2942998Z Resolving deltas:  74% (265/358)
+2022-09-05T07:13:09.2957006Z Resolving deltas:  75% (269/358)
+2022-09-05T07:13:09.3539918Z Resolving deltas:  76% (273/358)
+2022-09-05T07:13:09.3545873Z Resolving deltas:  77% (276/358)
+2022-09-05T07:13:09.3559644Z Resolving deltas:  78% (280/358)
+2022-09-05T07:13:09.3572215Z Resolving deltas:  79% (283/358)
+2022-09-05T07:13:09.3581215Z Resolving deltas:  80% (287/358)
+2022-09-05T07:13:09.3592107Z Resolving deltas:  81% (290/358)
+2022-09-05T07:13:09.3593284Z Resolving deltas:  82% (294/358)
+2022-09-05T07:13:09.3597663Z Resolving deltas:  83% (298/358)
+2022-09-05T07:13:09.3597926Z Resolving deltas:  84% (301/358)
+2022-09-05T07:13:09.3598179Z Resolving deltas:  85% (305/358)
+2022-09-05T07:13:09.3601073Z Resolving deltas:  86% (308/358)
+2022-09-05T07:13:09.3601326Z Resolving deltas:  87% (312/358)
+2022-09-05T07:13:09.3603262Z Resolving deltas:  88% (316/358)
+2022-09-05T07:13:09.3603544Z Resolving deltas:  89% (319/358)
+2022-09-05T07:13:09.3603857Z Resolving deltas:  90% (323/358)
+2022-09-05T07:13:09.3608024Z Resolving deltas:  91% (326/358)
+2022-09-05T07:13:09.3608411Z Resolving deltas:  92% (330/358)
+2022-09-05T07:13:09.3608670Z Resolving deltas:  93% (333/358)
+2022-09-05T07:13:09.3608941Z Resolving deltas:  94% (337/358)
+2022-09-05T07:13:09.3662138Z Resolving deltas:  95% (341/358)
+2022-09-05T07:13:09.3664069Z Resolving deltas:  96% (344/358)
+2022-09-05T07:13:09.3664329Z Resolving deltas:  97% (348/358)
+2022-09-05T07:13:09.3664580Z Resolving deltas:  98% (351/358)
+2022-09-05T07:13:09.3664832Z Resolving deltas:  99% (355/358)
+2022-09-05T07:13:09.3665070Z Resolving deltas: 100% (358/358)
+2022-09-05T07:13:09.3665390Z Resolving deltas: 100% (358/358), completed with 15 local objects.
+2022-09-05T07:13:09.3950724Z Pull request branch 'create-pull-request/patch' already exists as remote branch 'origin/create-pull-request/patch'
+2022-09-05T07:13:09.3957019Z [command]/usr/bin/git checkout --progress create-pull-request/patch --
+2022-09-05T07:13:09.4013862Z Switched to a new branch 'create-pull-request/patch'
+2022-09-05T07:13:09.4014847Z branch 'create-pull-request/patch' set up to track 'origin/create-pull-request/patch'.
+2022-09-05T07:13:09.4027566Z [command]/usr/bin/git diff --quiet create-pull-request/patch..bae3866c-057c-429b-8807-233a06cd0e27
+2022-09-05T07:13:09.4066735Z Resetting 'create-pull-request/patch'
+2022-09-05T07:13:09.4072309Z [command]/usr/bin/git checkout --progress -B create-pull-request/patch bae3866c-057c-429b-8807-233a06cd0e27 --
+2022-09-05T07:13:09.4124254Z Reset branch 'create-pull-request/patch'
+2022-09-05T07:13:09.4129967Z Your branch is ahead of 'origin/create-pull-request/patch' by 2 commits.
+2022-09-05T07:13:09.4130663Z   (use "git push" to publish your local commits)
+2022-09-05T07:13:09.4145925Z [command]/usr/bin/git rev-list --right-only --count origin/create-pull-request/patch...create-pull-request/patch
+2022-09-05T07:13:09.4182531Z 2
+2022-09-05T07:13:09.4187344Z Updated branch 'create-pull-request/patch'
+2022-09-05T07:13:09.4193932Z [command]/usr/bin/git rev-list --right-only --count main...create-pull-request/patch
+2022-09-05T07:13:09.4229728Z 1
+2022-09-05T07:13:09.4243500Z [command]/usr/bin/git rev-parse HEAD
+2022-09-05T07:13:09.4274011Z 6732f4df93543f1a7da51c2e4941cf7c14cc5ef6
+2022-09-05T07:13:09.4285389Z [command]/usr/bin/git branch --delete --force bae3866c-057c-429b-8807-233a06cd0e27
+2022-09-05T07:13:09.4327141Z Deleted branch bae3866c-057c-429b-8807-233a06cd0e27 (was 6732f4d).
+2022-09-05T07:13:09.4331735Z ##[endgroup]
+2022-09-05T07:13:09.4332706Z ##[group]Pushing pull request branch to 'origin/create-pull-request/patch'
+2022-09-05T07:13:09.4339438Z [command]/usr/bin/git push --force-with-lease origin HEAD:refs/heads/create-pull-request/patch
+2022-09-05T07:13:10.0637070Z To https://github.com/AlphaSteam/microprint
+2022-09-05T07:13:10.0638003Z    4c6ff94..6732f4d  HEAD -> create-pull-request/patch
+2022-09-05T07:13:10.0738713Z ##[endgroup]
+2022-09-05T07:13:10.0740109Z ##[group]Create or update the pull request
+2022-09-05T07:13:10.0743841Z Attempting creation of pull request
+2022-09-05T07:13:10.9393343Z Created pull request #4 (AlphaSteam:create-pull-request/patch => main)
+2022-09-05T07:13:10.9394625Z ##[endgroup]
+2022-09-05T07:13:10.9396445Z ##[group]Setting outputs
+2022-09-05T07:13:10.9396783Z 
+2022-09-05T07:13:10.9403410Z 
+2022-09-05T07:13:10.9404698Z 
+2022-09-05T07:13:10.9405493Z 
+2022-09-05T07:13:10.9406512Z ##[endgroup]
+2022-09-05T07:13:10.9460814Z ##[group]Restore persisted git credentials
+2022-09-05T07:13:10.9461592Z [command]/usr/bin/git config --local --name-only --get-regexp http.https://github.com/.extraheader ^AUTHORIZATION:
+2022-09-05T07:13:10.9512217Z http.https://github.com/.extraheader
+2022-09-05T07:13:10.9523160Z [command]/usr/bin/git config --local --get-regexp http.https://github.com/.extraheader ^AUTHORIZATION:
+2022-09-05T07:13:10.9558087Z http.https://github.com/.extraheader AUTHORIZATION: basic ***
+2022-09-05T07:13:10.9568851Z [command]/usr/bin/git config --local --unset http.https://github.com/.extraheader ^AUTHORIZATION:
+2022-09-05T07:13:10.9609433Z Unset config key 'http.https://github.com/.extraheader'
+2022-09-05T07:13:10.9616704Z [command]/usr/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
+2022-09-05T07:13:10.9675383Z Persisted git credentials restored
+2022-09-05T07:13:10.9680629Z ##[endgroup]
+2022-09-05T07:13:10.9804186Z Post job cleanup.
+2022-09-05T07:13:11.1413773Z [command]/usr/bin/git version
+2022-09-05T07:13:11.1470772Z git version 2.37.2
+2022-09-05T07:13:11.1525420Z Temporarily overriding HOME='/home/runner/work/_temp/21f3f3c8-f189-4044-b55c-fb0213f9ad82' before making global git config changes
+2022-09-05T07:13:11.1526669Z Adding repository directory to the temporary git global config as a safe directory
+2022-09-05T07:13:11.1533714Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/microprint/microprint
+2022-09-05T07:13:11.1586779Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2022-09-05T07:13:11.1628314Z [command]/usr/bin/git submodule foreach --recursive git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :
+2022-09-05T07:13:11.1974358Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2022-09-05T07:13:11.2009727Z http.https://github.com/.extraheader
+2022-09-05T07:13:11.2023328Z [command]/usr/bin/git config --local --unset-all http.https://github.com/.extraheader
+2022-09-05T07:13:11.2067759Z [command]/usr/bin/git submodule foreach --recursive git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :
+2022-09-05T07:13:11.2658388Z Cleaning up orphan processes
