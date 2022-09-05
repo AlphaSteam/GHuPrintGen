@@ -1,5 +1,5 @@
-name: Create log microprint
-description: This action creates a microprint of the given logs
+name: Generate microprint of the logs of a workflow job
+description: Creates a microprint of the logs a job inside a Github workflow
 
 runs:
   using: docker
@@ -7,8 +7,8 @@ runs:
 
 
 branding:
-  icon: file-text #icon of the image
-  color: blue # background color of the logo of our action 
+  icon: file-text
+  color: green 
 
 inputs:
   # ====================================================================================
