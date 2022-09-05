@@ -15,7 +15,7 @@ inputs:
   # Github inputs
 
   repository:
-    description: 'Repository name with owner. For example, actions/checkout'
+    description: Repository name with owner. For example, actions/checkout
     default: ${{ github.repository }}
     required: false
 
