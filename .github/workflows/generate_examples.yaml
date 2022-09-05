@@ -31,8 +31,12 @@ jobs:
         with:
           commit_message: Updated first job microprint
 
-      - name: Protected branch commit
-        uses: augustonascimentos/commit_and_push_to_protected_branch@v1
+      - name: Push to protected branch
+        if: github.ref == 'refs/heads/main'
+        uses: CasperWA/push-protected@v2
+        with:
+          token: ${{ secrets.pat }}
+          branch: main
 
   generate_microprint_of_first_job_with_custom_rules:
     runs-on: ubuntu-latest
@@ -68,8 +72,12 @@ jobs:
         with:
             commit_message: Updated first job microprint
 
-      - name: Protected branch commit
-        uses: augustonascimentos/commit_and_push_to_protected_branch@v1
+      - name: Push to protected branch
+        if: github.ref == 'refs/heads/main'
+        uses: CasperWA/push-protected@v2
+        with:
+          token: ${{ secrets.pat }}
+          branch: main
 
   generate_microprint_with_default_rules:
       runs-on: ubuntu-latest
@@ -100,5 +108,9 @@ jobs:
           with:
             commit_message: Updated first job microprint
 
-        - name: Protected branch commit
-          uses: augustonascimentos/commit_and_push_to_protected_branch@v1
+        - name: Push to protected branch
+          if: github.ref == 'refs/heads/main'
+          uses: CasperWA/push-protected@v2
+          with:
+            token: ${{ secrets.pat }}
+            branch: main
