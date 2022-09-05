@@ -22,6 +22,9 @@ jobs:
       - name: Pull Remote Changes
         run: git pull
 
+      - name: Change folder ownership
+        run: git config --global --add safe.directory /github/workspace
+
       - name: Commit microprint
         if: github.ref != 'refs/heads/main'
         uses: stefanzweifel/git-auto-commit-action@v4
@@ -56,6 +59,9 @@ jobs:
       - name: Pull Remote Changes
         run: git pull
 
+      - name: Change folder ownership
+        run: git config --global --add safe.directory /github/workspace
+
       - name: Commit microprint
         if: github.ref != 'refs/heads/main'
         uses: stefanzweifel/git-auto-commit-action@v4
@@ -84,6 +90,9 @@ jobs:
 
         - name: Pull Remote Changes
           run: git pull
+
+        - name: Change folder ownership
+          run: git config --global --add safe.directory /github/workspace
 
         - name: Commit microprint
           if: github.ref != 'refs/heads/main'
