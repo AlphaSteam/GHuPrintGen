@@ -1,4 +1,4 @@
-name: Generate microprint of the logs of a workflow job
+name: Generate a microprint of the logs of a workflow job
 description: Creates a microprint of the logs a job inside a Github workflow
 
 runs:
