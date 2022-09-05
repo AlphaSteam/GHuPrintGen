@@ -1,6 +1,7 @@
 {
   "scale": 9,
   "vertical_spacing": 1,
+  "width": 200,
   "default_colors": {
     "background_color": "rgb(30, 30, 30)",
     "text_color": "white"
