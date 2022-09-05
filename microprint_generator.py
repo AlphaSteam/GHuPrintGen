@@ -10,21 +10,14 @@ def load_svg_fonts(rules, dwg):
 
     additional_fonts = rules.get("additional_fonts",
                                  {"google_fonts": [], "truetype_fonts": []})
-
-    print("additional_fonts", additional_fonts)
-
     google_fonts = additional_fonts.get("google_fonts", [])
 
     truetype_fonts = additional_fonts.get("truetype_fonts", [])
-
-    print('google_fonts', google_fonts)
-    print("truetype_fonts", truetype_fonts)
 
     for count, google_font in enumerate(google_fonts):
         name = google_font["name"]
         url = google_font["google_font_url"]
 
-        print("Name", name, "url", url)
         dwg.embed_google_web_font(name, url)
 
     for count, truetype_font in enumerate(truetype_fonts):
@@ -32,9 +25,6 @@ def load_svg_fonts(rules, dwg):
         truetype_file = truetype_font["truetype_file"]
 
         dwg.embed_font(name, truetype_file)
-    dwg.embed_google_web_font(
-        name="Acme", uri="https://fonts.googleapis.com/css?family=Acme")
-    return dwg
 
 
 def get_rules():
@@ -143,7 +133,7 @@ def generate_svg_microprint_from_text(text, output_filename="microprint.svg"):
 
     dwg = svgwrite.Drawing(output_filename, (svg_width, svg_height))
 
-    dwg = load_svg_fonts(rules, dwg)
+    load_svg_fonts(rules, dwg)
 
     default_background_color = get_default_color(rules, "background_color")
 
@@ -176,8 +166,5 @@ def generate_svg_microprint_from_text(text, output_filename="microprint.svg"):
         texts.add(text)
 
         y += scale_with_spacing
-
-    dwg.embed_google_web_font(
-        "Acme", "https://fonts.googleapis.com/css?family=Acme")
 
     dwg.save()
