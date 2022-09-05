@@ -33,6 +33,10 @@
       {
         "name": "Anton",
         "google_font_url": "https://fonts.googleapis.com/css?family=Anton"
+      },
+      {
+        "name": "Acme",
+        "google_font_url": "https://fonts.googleapis.com/css?family=Acme"
       }
     ],
     "truetype_fonts": [
@@ -42,5 +46,5 @@
       }
     ]
   },
-  "font-family": "Anton, Sans, Sans-Serif, Cursive"
+  "font-family": "Acme"
 }

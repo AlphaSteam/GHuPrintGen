@@ -10,7 +10,9 @@ def load_svg_fonts(rules, dwg):
 
     additional_fonts = rules.get("additional_fonts",
                                  {"google_fonts": [], "truetype_fonts": []})
+
     print("additional_fonts", additional_fonts)
+
     google_fonts = additional_fonts.get("google_fonts", [])
 
     truetype_fonts = additional_fonts.get("truetype_fonts", [])
