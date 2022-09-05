@@ -32,7 +32,7 @@
     "google_fonts": [
       {
         "name": "Anton",
-        "google_font_url": "https://fonts.googleapis.com/css?family=Anton"
+        "google_font_url": "http://fonts.googleapis.com/css?family=Anton"
       },
       {
         "name": "Acme",
@@ -46,5 +46,5 @@
       }
     ]
   },
-  "font-family": "Acme"
+  "font-family": "Acme, Anton"
 }

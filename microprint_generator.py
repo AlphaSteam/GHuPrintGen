@@ -177,4 +177,7 @@ def generate_svg_microprint_from_text(text, output_filename="microprint.svg"):
 
         y += scale_with_spacing
 
+    dwg.embed_google_web_font(
+        "Acme", "https://fonts.googleapis.com/css?family=Acme")
+
     dwg.save()
