@@ -27,5 +27,20 @@
       "text_color": "green",
       "background_color": "white"
     }
-  }
+  },
+  "additional_fonts": {
+    "google_fonts": [
+      {
+        "name": "Anton",
+        "google_font_url": "https://fonts.googleapis.com/css?family=Anton"
+      }
+    ],
+    "truetype_fonts": [
+      {
+        "name": "NotoSans",
+        "truetype_file": "./fonts/NotoSans-Regular.ttf"
+      }
+    ]
+  },
+  "font": "Anton, Sans, Sans-Serif, Cursive"
 }
