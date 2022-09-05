@@ -27,6 +27,8 @@ def load_svg_fonts(rules, dwg):
 
         dwg.embed_font(name, truetype_file)
 
+    return dwg
+
 
 def get_rules():
     config_path = Path(os.environ['INPUT_MICROPRINT_CONFIG_PATH'])
@@ -134,7 +136,7 @@ def generate_svg_microprint_from_text(text, output_filename="microprint.svg"):
 
     dwg = svgwrite.Drawing(output_filename, (svg_width, svg_height))
 
-    load_svg_fonts(rules, dwg)
+    dwg = load_svg_fonts(rules, dwg)
 
     default_background_color = get_default_color(rules, "background_color")
 
@@ -145,7 +147,7 @@ def generate_svg_microprint_from_text(text, output_filename="microprint.svg"):
     texts = dwg.add(dwg.g(font_size=scale))
 
     attribs = {'xml:space': 'preserve',
-               "font-family": rules.get("font", "Sans")}
+               "font-family": rules.get("font-family", "Sans")}
 
     texts.update(attribs)
 
