@@ -4,7 +4,7 @@ import logging
 import json
 from pathlib import Path
 import os
-from abc import ABC
+from abc import ABC, abstractmethod
 
 
 class MicroprintGenerator(ABC):
