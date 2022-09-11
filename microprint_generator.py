@@ -4,167 +4,181 @@ import logging
 import json
 from pathlib import Path
 import os
+from abc import ABC
 
 
-def load_svg_fonts(rules, dwg):
+class MicroprintGenerator(ABC):
 
-    additional_fonts = rules.get("additional_fonts",
-                                 {"google_fonts": [], "truetype_fonts": []})
-    google_fonts = additional_fonts.get("google_fonts", [])
+    def _load_config_file(self):
+        config_path = Path(os.environ['INPUT_MICROPRINT_CONFIG_PATH'])
+        config_filename = (
+            os.environ['INPUT_MICROPRINT_CONFIG_FILENAME'] + ".json")
 
-    truetype_fonts = additional_fonts.get("truetype_fonts", [])
+        config_file_path = config_path / config_filename
 
-    for count, google_font in enumerate(google_fonts):
-        name = google_font["name"]
-        url = google_font["google_font_url"]
+        try:
+            file = open(config_file_path)
+        except OSError as e:
+            return {"error": e}
+        else:
+            with file:
+                rules = json.load(file)
 
-        dwg.embed_google_web_font(name, url)
+                self.rules = rules
 
-    for count, truetype_font in enumerate(truetype_fonts):
-        name = truetype_font["name"]
-        truetype_file = truetype_font["truetype_file"]
+    def _set_default_colors(self):
+        fallback_colors = {"background_color": "white", "text_color": "black"}
 
-        dwg.embed_font(name, truetype_file)
+        default_colors = self.rules.get("default_colors", fallback_colors)
 
+        default_colors["background_color"] = default_colors.get(
+            "background_color", fallback_colors["background_color"])
 
-def get_rules():
-    config_path = Path(os.environ['INPUT_MICROPRINT_CONFIG_PATH'])
-    config_filename = (
-        os.environ['INPUT_MICROPRINT_CONFIG_FILENAME'] + ".json")
+        default_colors["text_color"] = default_colors.get(
+            "text_color", fallback_colors["text_color"])
 
-    config_file_path = config_path / config_filename
+        self.default_colors = default_colors
 
-    try:
-        file = open(config_file_path)
-    except OSError:
-        return {}
-    else:
-        with file:
-            config = json.load(file)
+    def __init__(self, output_filename, text):
 
-            return config
+        self.output_filename = output_filename
+        self.text_lines = text.split('\n')
 
+        self._load_config_file()
 
-def get_default_color(rules, color_type):
-    fallback_colors = {"background_color": "white", "text_color": "black"}
+        self.scale = self.rules.get("scale", 2)
+        self.vertical_spacing = self.rules.get("vertical_spacing", 1)
+        self.microprint_width = self.rules.get("microprint_width", 120)
 
-    default_colors = rules.get("default_colors", fallback_colors)
+        self.scale_with_spacing = self.scale * self.vertical_spacing
 
-    return default_colors.get(color_type, fallback_colors[color_type])
+        self.microprint_height = len(self.text_lines) * self.scale_with_spacing
 
+        self._set_default_colors()
 
-def check_color_line_rule(rules, color_type, text_line):
-    text_line = text_line.lower()
+    def check_color_line_rule(self, color_type, text_line):
+        text_line = text_line.lower()
 
-    line_rules = rules.get("line_rules", {})
+        line_rules = self.rules.get("line_rules", {})
 
-    default_color = get_default_color(rules, color_type)
+        default_color = self.default_colors[color_type]
 
-    for rule in line_rules:
-        if text_line.find(rule) != -1:
-            return line_rules[rule].get(color_type, default_color)
+        for rule in line_rules:
+            if text_line.find(rule) != -1:
+                return line_rules[rule].get(color_type, default_color)
 
-    return default_color
+        return default_color
 
-
-def generate_raster_microprint_from_text(text, output_filename="microprint.png"):
-    logging.info('Generating raster microprint')
-
-    rules = get_rules()
-
-    scale = rules.get("scale", 2)
-    vertical_spacing = rules.get("vertical_spacing", 1)
-    microprint_width = rules.get("microprint_width", 120)
-
-    text_lines = text.split('\n')
-
-    scale_with_spacing = scale * vertical_spacing
-
-    rules = get_rules()
-
-    size_x = microprint_width
-    size_y = len(text_lines) * scale_with_spacing
-
-    default_background_color = get_default_color(rules, "background_color")
-
-    img = Image.new('RGB', (int(size_x), int(size_y)),
-                    color=default_background_color)
-
-    d = ImageDraw.Draw(img)
-    d.fontmode = "L"
-
-    font = ImageFont.truetype("fonts/NotoSans-Regular.ttf", int(scale))
-
-    y = 0
-    for text_line in text_lines:
-        background_color = check_color_line_rule(
-            rules=rules, color_type="background_color", text_line=text_line)
-
-        d.rectangle([(0, y - scale_with_spacing), (size_x, y)],
-                    fill=background_color, outline=None, width=1)
-
-        text_color = check_color_line_rule(
-            rules=rules, color_type="text_color", text_line=text_line)
-
-        d.text((0, y), text=text_line, font=font, fill=text_color, anchor="ls")
-
-        y += scale_with_spacing
-
-    img.save(output_filename)
+    @abstractmethod
+    def render_microprint(self):
+        pass
 
 
-def generate_svg_microprint_from_text(text, output_filename="microprint.svg"):
-    logging.info('Generating svg microprint')
+class SVGMicroprintGenerator(MicroprintGenerator):
 
-    rules = get_rules()
+    def _load_svg_fonts(self):
 
-    scale = rules.get("scale", 2)
-    vertical_spacing = rules.get("vertical_spacing", 1)
-    microprint_width = rules.get("width", 120)
+        additional_fonts = self.rules.get("additional_fonts",
+                                          {"google_fonts": [],
+                                           "truetype_fonts": []})
 
-    text_lines = text.split('\n')
+        google_fonts = additional_fonts.get("google_fonts", [])
 
-    scale_with_spacing = scale * vertical_spacing
+        truetype_fonts = additional_fonts.get("truetype_fonts", [])
 
-    rules = get_rules()
+        for count, google_font in enumerate(google_fonts):
+            name = google_font["name"]
+            url = google_font["google_font_url"]
 
-    svg_width = microprint_width
-    svg_height = len(text_lines) * scale_with_spacing
+            self.drawing.embed_google_web_font(name, url)
 
-    dwg = svgwrite.Drawing(output_filename, (svg_width, svg_height))
+        for count, truetype_font in enumerate(truetype_fonts):
+            name = truetype_font["name"]
+            truetype_file = truetype_font["truetype_file"]
 
-    load_svg_fonts(rules, dwg)
+            self.drawing.embed_font(name, truetype_file)
 
-    default_background_color = get_default_color(rules, "background_color")
+    def __init__(self, output_filename="microprint.svg", text=""):
+        super().__init__(output_filename, text)
 
-    dwg.add(dwg.rect(insert=(0, 0), size=('100%', '100%'),
-            rx=None, ry=None, fill=default_background_color))
+        self.drawing = svgwrite.Drawing(
+            output_filename, (self.microprint_width, self.microprint_height))
 
-    backgrounds = dwg.add(dwg.g())
-    texts = dwg.add(dwg.g(font_size=scale))
+        self.font_family = self.rules.get("font-family", "Sans")
+        self._load_svg_fonts()
 
-    attribs = {'xml:space': 'preserve',
-               "font-family": rules.get("font-family", "Sans")}
+    def render_microprint(self):
+        logging.info('Generating svg microprint')
 
-    texts.update(attribs)
+        default_background_color = self.default_colors["background_color"]
 
-    y = 0
-    for text_line in text_lines:
-        background_color = check_color_line_rule(
-            rules=rules, color_type="background_color", text_line=text_line)
+        self.drawing.add(self.drawing.rect(insert=(0, 0), size=('100%', '100%'),
+                                           rx=None, ry=None, fill=default_background_color))
 
-        background_rect = dwg.rect(insert=(0, y), size=('100%', scale + 0.3),
-                                   rx=None, ry=None, fill=background_color)
+        backgrounds = self.drawing.add(self.drawing.g())
+        texts = self.drawing.add(self.drawing.g(font_size=self.scale))
 
-        text_color = check_color_line_rule(
-            rules=rules, color_type="text_color", text_line=text_line)
+        attributes = {'xml:space': 'preserve',
+                      "font-family": self.rules["font-family"]}
 
-        text = dwg.text(text_line, insert=(0, y),
-                        fill=text_color, dominant_baseline="hanging")
+        texts.update(attributes)
 
-        backgrounds.add(background_rect)
-        texts.add(text)
+        y = 0
 
-        y += scale_with_spacing
+        for text_line in self.text_lines:
+            background_color = self.check_color_line_rule(
+                color_type="background_color", text_line=text_line)
 
-    dwg.save()
+            background_rect = self.drawing.rect(insert=(0, y), size=('100%', self.scale + 0.3),
+                                                rx=None, ry=None, fill=background_color)
+
+            text_color = self.check_color_line_rule(
+                color_type="text_color", text_line=text_line)
+
+            text = self.drawing.text(text_line, insert=(0, y),
+                                     fill=text_color, dominant_baseline="hanging")
+
+            backgrounds.add(background_rect)
+            texts.add(text)
+
+            y += self.scale_with_spacing
+
+        self.drawing.save()
+
+
+class RasterMicroprintGenerator(MicroprintGenerator):
+
+    def __init__(self, output_filename="microprint.png", text=""):
+        super().__init__(output_filename, text)
+        default_background_color = self.default_colors["background_color"]
+
+        self.img = Image.new('RGB', (int(self.microprint_width), int(self.microprint_height)),
+                             color=default_background_color)
+
+        self.drawing = ImageDraw.Draw(img)
+        self.drawing.fontmode = "1"
+
+    def render_microprint(self):
+        logging.info('Generating raster microprint')
+
+        font = ImageFont.truetype(
+            "fonts/NotoSans-Regular.ttf", int(self.scale))
+
+        y = 0
+
+        for text_line in text_lines:
+            background_color = self.check_color_line_rule(
+                color_type="background_color", text_line=text_line)
+
+            self.drawing.rectangle([(0, y - self.scale_with_spacing), (self.microprint_width, y)],
+                                   fill=background_color, outline=None, width=1)
+
+            text_color = self.check_color_line_rule(
+                color_type="text_color", text_line=text_line)
+
+            self.drawing.text((0, y), text=text_line, font=font,
+                              fill=text_color, anchor="ls")
+
+            y += self.scale_with_spacing
+
+        self.img.save(self.output_filename)

@@ -1,9 +1,10 @@
 import os
 import requests
-from microprint_generator import generate_raster_microprint_from_text, generate_svg_microprint_from_text 
+from microprint_generator import SVGMicroprintGenerator, RasterMicroprintGenerator
 from pathlib import Path
 import re
 import logging
+
 
 class Api:
 
@@ -15,11 +16,11 @@ class Api:
 
     def get(self, url):
         return requests.get(self.base_url + url, headers={
-                "Authorization": f"token {self.token}",
-                "Accept": "application/vnd.github+json"
-            })
+            "Authorization": f"token {self.token}",
+            "Accept": "application/vnd.github+json"
+        })
 
-        
+
 def get_job_by_name(job_name, job_list):
 
     for _, job_obj in enumerate(job_list):
@@ -41,7 +42,7 @@ def get_job_id(api, job_name, run_id):
 def setup_api():
 
     repository = os.environ['INPUT_REPOSITORY'].split("/")
-    
+
     owner = repository[0]
 
     repo = repository[1]
@@ -52,31 +53,34 @@ def setup_api():
 
 
 def get_logs(api):
-    
+
     job_name = os.environ['INPUT_JOB_NAME']
-        
+
     run_id = os.environ['GITHUB_RUN_ID']
 
     current_job_id = get_job_id(api, job_name, run_id)
-    
+
     current_job_logs = api.get(f"jobs/{current_job_id}/logs").text
 
-    save_path = Path(os.environ['INPUT_LOG_PATH']) / (os.environ['INPUT_LOG_FILENAME'] + ".txt")
+    save_path = Path(os.environ['INPUT_LOG_PATH']) / \
+        (os.environ['INPUT_LOG_FILENAME'] + ".txt")
 
     if os.environ['INPUT_SAVE_LOG'] == "true":
         with open(save_path, 'w') as file:
             file.write(current_job_logs)
 
     return current_job_logs
-    
+
+
 def remove_ansi_escape_sequences(text):
 
     ansi_escape = re.compile(r'\x1B(?:[@-Z\\-_]|\[[0-?]*[ -/]*[@-~])')
 
     return ansi_escape.sub('', text)
-    
+
+
 def main():
-    logging.basicConfig(level=logging.DEBUG) 
+    logging.basicConfig(level=logging.DEBUG)
 
     api = setup_api()
 
@@ -84,17 +88,25 @@ def main():
 
     logs = remove_ansi_escape_sequences(logs)
 
-    microprint_filename = Path(os.environ['INPUT_MICROPRINT_PATH']) 
+    microprint_filename = Path(os.environ['INPUT_MICROPRINT_PATH'])
 
     if os.environ['INPUT_MICROPRINT_RENDER_METHOD'] == "svg":
-        microprint_filename = microprint_filename / (os.environ['INPUT_MICROPRINT_FILENAME'] +".svg")
+        microprint_filename = microprint_filename / \
+            (os.environ['INPUT_MICROPRINT_FILENAME'] + ".svg")
 
-        generate_svg_microprint_from_text(logs, output_filename=microprint_filename)
+        microprint_generator = SVGMicroprintGenerator(
+            output_filename=microprint_filename, text=logs)
+
+        microprint_generator.render_microprint()
     else:
-        microprint_filename = microprint_filename / (os.environ['INPUT_MICROPRINT_FILENAME'] +".png")
+        microprint_filename = microprint_filename / \
+            (os.environ['INPUT_MICROPRINT_FILENAME'] + ".png")
 
-        generate_raster_microprint_from_text(logs, output_filename=microprint_filename)
+        microprint_generator = RasterMicroprintGenerator(
+            output_filename=microprint_filename, text=logs)
+
+        microprint_generator.render_microprint()
+
 
 if __name__ == "__main__":
     main()
-
