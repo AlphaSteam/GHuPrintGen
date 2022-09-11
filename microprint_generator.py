@@ -155,7 +155,7 @@ class RasterMicroprintGenerator(MicroprintGenerator):
         self.img = Image.new('RGB', (int(self.microprint_width), int(self.microprint_height)),
                              color=default_background_color)
 
-        self.drawing = ImageDraw.Draw(img)
+        self.drawing = ImageDraw.Draw(self.img)
         self.drawing.fontmode = "1"
 
     def render_microprint(self):
@@ -166,7 +166,7 @@ class RasterMicroprintGenerator(MicroprintGenerator):
 
         y = 0
 
-        for text_line in text_lines:
+        for text_line in self.text_lines:
             background_color = self.check_color_line_rule(
                 color_type="background_color", text_line=text_line)
 
