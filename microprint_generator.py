@@ -119,7 +119,7 @@ class SVGMicroprintGenerator(MicroprintGenerator):
         texts = self.drawing.add(self.drawing.g(font_size=self.scale))
 
         attributes = {'xml:space': 'preserve',
-                      "font-family": self.rules["font-family"]}
+                      "font-family": self.font_family}
 
         texts.update(attributes)
 
