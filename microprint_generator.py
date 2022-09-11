@@ -18,8 +18,8 @@ class MicroprintGenerator(ABC):
 
         try:
             file = open(config_file_path)
-        except OSError as e:
-            return {"error": e}
+        except OSError as _:
+            self.rules = {}
         else:
             with file:
                 rules = json.load(file)
