@@ -5,6 +5,7 @@ import json
 from pathlib import Path
 import os
 from abc import ABC, abstractmethod
+import math
 
 
 class MicroprintGenerator(ABC):

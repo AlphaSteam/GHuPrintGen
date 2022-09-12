@@ -4,7 +4,6 @@ from microprint_generator import SVGMicroprintGenerator, RasterMicroprintGenerat
 from pathlib import Path
 import re
 import logging
-import math
 
 
 class Api:
