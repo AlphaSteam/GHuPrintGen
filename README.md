@@ -30,7 +30,7 @@ jobs:
         uses: actions/checkout@v3
 
       - name: Get microprint of jobs logs
-        uses: AlphaSteam/microprint-generator@v1
+        uses: AlphaSteam/microprint-generator@v2
         with: # None of the inputs are required (though some are really recommended)
 
             # You can generate microprints of jobs on another repository if needed. By default it expects the job to be on the same repository.
