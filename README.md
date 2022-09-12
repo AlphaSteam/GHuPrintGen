@@ -121,9 +121,29 @@ Here's an example with all the configurations that it can control (comments adde
   # Default: 1
   "vertical_spacing": 1.4,
 
-  # Changes the total width of the microprint
+  # Changes the width of the microprint (or each column if there's more than one)
   # Default: 120
-  "width": 140,
+  "microprint_width": 140,
+
+  # Changes the max height of the microprint
+  # If "number_of_columns" is set, this parameter is not used.
+  # The microprint will be divided in columns to fulfill the desired height.
+  # Default: Total log height. No limit
+  "max_microprint_height": 300,
+
+  # Changes the number of columns to render.
+  # If this parameter is set, "max_microprint_height" is not used.
+  # The height of the microprint will be set automatically to fulfill the desired number of columns
+  # Default: Total log height. No limit
+  "number_of_columns": 4,
+
+  # Changes the size of the gap between columns
+  # Default: 0.2
+  "column_gap_size": 0.3,
+
+  # Changes the color of the gap between columns
+  # Default: "white"
+  "column_gap_color": "red",
 
   # These define the default colors that are used in case no color was defined for
   # a certain rule. If this section is not present, both colors will be the
