@@ -1,6 +1,7 @@
 {
   "scale": 2,
-  "vertical_spacing": 1,
+  "vertical_spacing": 1.4,
+  "microprint_width": 100,
   "number_of_columns": 4,
   "column_gap_size": 0.3,
   "column_gap_color": "red",
