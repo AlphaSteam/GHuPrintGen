@@ -5,6 +5,7 @@ import json
 from pathlib import Path
 import os
 from abc import ABC, abstractmethod
+import math
 
 
 class MicroprintGenerator(ABC):
@@ -48,11 +49,39 @@ class MicroprintGenerator(ABC):
 
         self.scale = self.rules.get("scale", 2)
         self.vertical_spacing = self.rules.get("vertical_spacing", 1)
-        self.microprint_width = self.rules.get("microprint_width", 120)
-
         self.scale_with_spacing = self.scale * self.vertical_spacing
 
-        self.microprint_height = len(self.text_lines) * self.scale_with_spacing
+        self.scaled_microprint_height = len(
+            self.text_lines) * self.scale_with_spacing
+
+        if "number_of_columns" not in self.rules:
+
+            self.max_microprint_height = self.rules.get(
+                "max_microprint_height", len(self.text_lines) * self.scale_with_spacing)
+
+            self.number_of_columns = math.ceil(
+                self.scaled_microprint_height / self.max_microprint_height)
+        else:
+            self.number_of_columns = self.rules["number_of_columns"]
+
+            self.max_microprint_height = math.floor(
+                self.scaled_microprint_height / self.number_of_columns)
+
+        self.column_width = self.rules.get(
+            "microprint_width", 120)
+
+        self.column_gap_size = self.rules.get(
+            "column_gap_size", 0.2) * self.scale
+        self.column_gap_color = self.rules.get("column_gap_color", "white")
+
+        self.microprint_width = (
+            self.column_width + self.column_gap_size) * self.number_of_columns
+
+        self.microprint_height = min(
+            len(self.text_lines) * self.scale_with_spacing, self.max_microprint_height)
+
+        self.text_lines_per_column = math.floor(
+            self.microprint_height / self.scale_with_spacing)
 
         self._set_default_colors()
 
@@ -107,13 +136,7 @@ class SVGMicroprintGenerator(MicroprintGenerator):
         self.font_family = self.rules.get("font-family", "Sans")
         self._load_svg_fonts()
 
-    def render_microprint(self):
-        logging.info('Generating svg microprint')
-
-        default_background_color = self.default_colors["background_color"]
-
-        self.drawing.add(self.drawing.rect(insert=(0, 0), size=('100%', '100%'),
-                                           rx=None, ry=None, fill=default_background_color))
+    def render_microprint_column(self, first_line, last_line, x_with_gap, y):
 
         backgrounds = self.drawing.add(self.drawing.g())
         texts = self.drawing.add(self.drawing.g(font_size=self.scale))
@@ -123,25 +146,57 @@ class SVGMicroprintGenerator(MicroprintGenerator):
 
         texts.update(attributes)
 
-        y = 0
-
-        for text_line in self.text_lines:
+        for text_line in self.text_lines[first_line:last_line]:
             background_color = self.check_color_line_rule(
                 color_type="background_color", text_line=text_line)
 
-            background_rect = self.drawing.rect(insert=(0, y), size=('100%', self.scale + 0.3),
+            background_rect = self.drawing.rect(insert=(x_with_gap, y),
+                                                size=(self.column_width,
+                                                      self.scale + 0.3),
                                                 rx=None, ry=None, fill=background_color)
 
             text_color = self.check_color_line_rule(
                 color_type="text_color", text_line=text_line)
 
-            text = self.drawing.text(text_line, insert=(0, y),
+            text = self.drawing.text(text_line, insert=(x_with_gap, y),
                                      fill=text_color, dominant_baseline="hanging")
 
             backgrounds.add(background_rect)
             texts.add(text)
 
             y += self.scale_with_spacing
+
+    def render_microprint(self):
+        logging.info('Generating svg microprint')
+
+        default_background_color = self.default_colors["background_color"]
+
+        self.drawing.add(self.drawing.rect(insert=(0, 0), size=('100%', '100%'),
+                                           rx=None, ry=None, fill=default_background_color))
+
+        for column in range(self.number_of_columns):
+            x = math.ceil(column * self.column_width)
+            x_with_gap = x if column == 0 else x + self.column_gap_size
+
+            self.drawing.add(self.drawing.rect(insert=(x_with_gap, 0), size=(self.column_width, '100%'),
+                                               rx=None, ry=None, fill=default_background_color))
+
+            if column != 0:
+                self.drawing.add(self.drawing.rect(insert=(x, 0), size=(self.column_gap_size, '100%'),
+                                                   rx=None, ry=None, fill=self.column_gap_color))
+
+            y = 0
+
+            first_line = math.ceil(column * self.text_lines_per_column)
+
+            last_line = min(
+                math.ceil((column + 1) * self.text_lines_per_column), len(self.text_lines) - 1)
+
+            if first_line >= len(self.text_lines):
+                break
+
+            self.render_microprint_column(
+                first_line=first_line, last_line=last_line, x_with_gap=x_with_gap, y=y)
 
         self.drawing.save()
 
