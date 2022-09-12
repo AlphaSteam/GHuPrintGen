@@ -12,7 +12,7 @@ jobs:
         uses: actions/checkout@v3
 
       - name: Get microprint of jobs logs
-        uses: AlphaSteam/microprint-generator@v1
+        uses: ./
         with:
             microprint_render_method: "raster"
             log_path: ./Examples/Mid-job/logs
@@ -46,7 +46,7 @@ jobs:
         uses: actions/checkout@v3
 
       - name: Get microprint of jobs logs
-        uses: AlphaSteam/microprint-generator@v1
+        uses: ./
         with:
             job_name: generate_microprint_mid_job
             github_token: ${{ secrets.pat }}
@@ -83,7 +83,7 @@ jobs:
           uses: actions/checkout@v3
 
         - name: Get microprint of jobs logs
-          uses: AlphaSteam/microprint-generator@v1
+          uses: ./
           with:
               job_name: generate_microprint_mid_job
               log_path: ./Examples/With-default-rules/logs
@@ -116,7 +116,7 @@ jobs:
           uses: actions/checkout@v3
 
         - name: Get microprint of jobs logs
-          uses: AlphaSteam/microprint-generator@v1
+          uses: ./
           with:
               job_name: generate_microprint_mid_job
               log_path: ./Examples/With-multiple-columns/logs
