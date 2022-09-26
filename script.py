@@ -13,6 +13,13 @@ class Api:
         self.repo = repo
         self.token = token
         self.base_url = f"https://api.github.com/repos/{owner}/{repo}/actions/"
+        self.is_private = self.get_private_status()
+
+    def _get_private_status(self):
+        return requests.get(f"https://api.github.com/repos/{owner}/{repo}", headers={
+            "Authorization": f"token {self.token}",
+            "Accept": "application/vnd.github+json"
+        }).private
 
     def get(self, url):
         return requests.get(self.base_url + url, headers={
@@ -98,6 +105,21 @@ def main():
             output_filename=microprint_filename, text=logs)
 
         microprint_generator.render_microprint()
+
+        if os.environ['INPUT_GENERATE_MICROPRINT_VISUALIZER_LINK']:
+
+            link = "https://api.github.com/repos/owner/repo/contents/path"
+
+            if self.is_private:
+                link = link + "?token=" + self.token
+
+            markdown = (
+                f"[Look at microprint with Microprint visualizer]({link})")
+
+            markdown_path = Path(os.environ['INPUT_MICROPRINT_VISUALIZER_LINK_PATH']) / Path(
+                os.environ['INPUT_MICROPRINT_VISUALIZER_LINK_FILENAME']) + "md"
+
+            Path(markdown_path).write_text(markdown)
     else:
         microprint_filename = microprint_filename / \
             (os.environ['INPUT_MICROPRINT_FILENAME'] + ".png")

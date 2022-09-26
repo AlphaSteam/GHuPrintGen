@@ -18,11 +18,11 @@ class MicroprintGenerator(ABC):
         config_file_path = config_path / config_filename
 
         try:
-            file = open(config_file_path)
+            _file = open(config_file_path)
         except OSError as _:
             self.rules = {}
         else:
-            with file:
+            with _file:
                 rules = json.load(file)
 
                 self.rules = rules
@@ -136,7 +136,7 @@ class SVGMicroprintGenerator(MicroprintGenerator):
         self.font_family = self.rules.get("font-family", "Sans")
         self._load_svg_fonts()
 
-    def render_microprint_column(self, first_line, last_line, x_with_gap, y):
+    def render_microprint_column(self, first_line, last_line, x_with_gap, y, current_line):
 
         backgrounds = self.drawing.add(self.drawing.g())
         texts = self.drawing.add(self.drawing.g(font_size=self.scale))
@@ -161,10 +161,14 @@ class SVGMicroprintGenerator(MicroprintGenerator):
             text = self.drawing.text(text_line, insert=(x_with_gap, y),
                                      fill=text_color, dominant_baseline="hanging")
 
+            text.update({"data-text-line": current_line})
+            background_rect.update({"data-text-line": current_line})
+
             backgrounds.add(background_rect)
             texts.add(text)
 
             y += self.scale_with_spacing
+            current_line += 1
 
     def render_microprint(self):
         logging.info('Generating svg microprint')
@@ -173,6 +177,8 @@ class SVGMicroprintGenerator(MicroprintGenerator):
 
         self.drawing.add(self.drawing.rect(insert=(0, 0), size=('100%', '100%'),
                                            rx=None, ry=None, fill=default_background_color))
+
+        current_line = 0
 
         for column in range(self.number_of_columns):
             x = math.ceil(column * self.column_width)
@@ -196,7 +202,9 @@ class SVGMicroprintGenerator(MicroprintGenerator):
                 break
 
             self.render_microprint_column(
-                first_line=first_line, last_line=last_line, x_with_gap=x_with_gap, y=y)
+                first_line=first_line, last_line=last_line, x_with_gap=x_with_gap, y=y, current_line=current_line)
+
+            current_line += self.text_lines_per_column
 
         self.drawing.save()
 
