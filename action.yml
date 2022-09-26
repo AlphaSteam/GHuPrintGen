@@ -29,6 +29,11 @@ inputs:
     default: ${{ github.job }}
     description: Job whose logs will be transformed to microprint
 
+  ref:
+    required: false
+      default: ${{ github.ref }}
+      description: Reference to target branch.
+
   # ====================================================================================
   # Log inputs
 

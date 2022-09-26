@@ -8,10 +8,11 @@ import logging
 
 class Api:
 
-    def __init__(self, repo, owner, token):
+    def __init__(self, repo, owner, token, ref):
         self.owner = owner
         self.repo = repo
         self.token = token
+        self.ref = ref
         self.base_url = f"https://api.github.com/repos/{owner}/{repo}/actions/"
         self.is_private = self._get_private_status()
 
@@ -59,7 +60,9 @@ def setup_api():
 
     token = os.environ['INPUT_GITHUB_TOKEN']
 
-    return Api(repo, owner, token)
+    ref = os.environ['INPUT_REF']
+
+    return Api(repo, owner, token, ref)
 
 
 def get_logs(api):
@@ -112,7 +115,7 @@ def main():
         if os.environ['INPUT_GENERATE_MICROPRINT_VISUALIZER_LINK']:
             microprint_visualizer_page = "https://alphasteam.github.io/microprint-visualizer/"
 
-            link = f"{microprint_visualizer_page}?url=https://api.github.com/repos/{api.owner}/{api.repo}/contents/{microprint_filename}&ref={api.repo}"
+            link = f"{microprint_visualizer_page}?url=https://api.github.com/repos/{api.owner}/{api.repo}/contents/{microprint_filename}&ref={api.ref}"
 
             if api.is_private:
                 link = link + "&token=" + api.token
