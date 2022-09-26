@@ -22,8 +22,8 @@ class Api:
             "Accept": "application/vnd.github+json"
         })
 
-        print("RESPONSE: ", response)
-        return response.private
+        print("RESPONSE: ", response.json())
+        return response.json().private
 
     def get(self, url):
         return requests.get(self.base_url + url, headers={
