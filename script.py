@@ -13,7 +13,7 @@ class Api:
         self.repo = repo
         self.token = token
         self.base_url = f"https://api.github.com/repos/{owner}/{repo}/actions/"
-        self.is_private = self.get_private_status()
+        self.is_private = self._get_private_status()
 
     def _get_private_status(self):
         return requests.get(f"https://api.github.com/repos/{owner}/{repo}", headers={
