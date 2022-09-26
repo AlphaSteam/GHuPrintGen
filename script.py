@@ -111,7 +111,7 @@ def main():
 
         if os.environ['INPUT_GENERATE_MICROPRINT_VISUALIZER_LINK']:
 
-            link = f"https://api.github.com/repos/{api.owner}/{api.repo}/contents/"
+            link = f"https://api.github.com/repos/{api.owner}/{api.repo}/contents/{microprint_filename}"
 
             if api.is_private:
                 link = link + "?token=" + api.token
