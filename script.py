@@ -120,7 +120,7 @@ def main():
                 f"[Look at microprint with Microprint visualizer]({link})")
 
             markdown_path = Path(os.environ['INPUT_MICROPRINT_VISUALIZER_LINK_PATH']) / Path(
-                os.environ['INPUT_MICROPRINT_VISUALIZER_LINK_FILENAME']) + "md"
+                os.environ['INPUT_MICROPRINT_VISUALIZER_LINK_FILENAME'] + ".md")
 
             Path(markdown_path).write_text(markdown)
     else:
