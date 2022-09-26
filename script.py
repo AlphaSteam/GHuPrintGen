@@ -110,11 +110,12 @@ def main():
         microprint_generator.render_microprint()
 
         if os.environ['INPUT_GENERATE_MICROPRINT_VISUALIZER_LINK']:
+            microprint_visualizer_page = "https://alphasteam.github.io/microprint-visualizer/"
 
-            link = f"https://api.github.com/repos/{api.owner}/{api.repo}/contents/{microprint_filename}"
+            link = f"{microprint_visualizer_page}?url=https://api.github.com/repos/{api.owner}/{api.repo}/contents/{microprint_filename}"
 
             if api.is_private:
-                link = link + "?token=" + api.token
+                link = link + "&token=" + api.token
 
             markdown = (
                 f"[Look at microprint with Microprint visualizer]({link})")
