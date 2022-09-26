@@ -53,12 +53,6 @@ inputs:
     default: true
     description: Whether or not to save the log file
 
-  generate_microprint_visualizer_link:
-    required: false
-    type: boolean
-    default: true
-    description: Whether or not to generate a link to a microprint visualizer
-
   # ====================================================================================
   # Microprint inputs
 
@@ -88,6 +82,15 @@ inputs:
     default: ./
     description: Microprint config path
 
+  # ====================================================================================
+  # Microprint visualizer link inputs
+
+  generate_microprint_visualizer_link:
+    required: false
+    type: boolean
+    default: true
+    description: Whether or not to generate a link to a microprint visualizer
+
   microprint_visualizer_link_filename:
       required: false
       default: microprint_visualizer
@@ -97,3 +100,5 @@ inputs:
     required: false
     default: ./
     description: Path where the microprint visualizer link will be saved 
+
+  
