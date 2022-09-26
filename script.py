@@ -16,10 +16,14 @@ class Api:
         self.is_private = self._get_private_status()
 
     def _get_private_status(self):
-        return requests.get(f"https://api.github.com/repos/{self.owner}/{self.repo}", headers={
+
+        response = requests.get(f"https://api.github.com/repos/{self.owner}/{self.repo}", headers={
             "Authorization": f"token {self.token}",
             "Accept": "application/vnd.github+json"
-        }).private
+        })
+
+        print("RESPONSE: ", response)
+        return response.private
 
     def get(self, url):
         return requests.get(self.base_url + url, headers={
