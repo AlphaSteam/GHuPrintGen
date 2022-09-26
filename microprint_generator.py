@@ -131,7 +131,7 @@ class SVGMicroprintGenerator(MicroprintGenerator):
         super().__init__(output_filename, text)
 
         self.drawing = svgwrite.Drawing(
-            output_filename, (self.microprint_width, self.microprint_height))
+            output_filename, (self.microprint_width, self.microprint_height), debug=False)
 
         self.font_family = self.rules.get("font-family", "Sans")
         self._load_svg_fonts()
