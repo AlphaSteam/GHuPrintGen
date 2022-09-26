@@ -29,13 +29,18 @@ inputs:
     default: ${{ github.job }}
     description: Job whose logs will be transformed to microprint
 
+  ref:
+    required: false
+    default: ${{ github.ref }}
+    description: Reference to target branch.
+
   # ====================================================================================
   # Log inputs
 
   log_filename:
     required: false
     default: logs
-    description: Log filename
+    description: Log filename (without extension)
 
   log_path:
     required: false
@@ -48,23 +53,29 @@ inputs:
     default: true
     description: Whether or not to save the log file
 
+  generate_microprint_visualizer_link:
+    required: false
+    type: boolean
+    default: true
+    description: Whether or not to generate a link to a microprint visualizer
+
   # ====================================================================================
   # Microprint inputs
 
   microprint_filename:
     required: false
     default: microprint
-    description: Microprint filename
+    description: Microprint filename (without extension)
 
   microprint_path:
     required: false
     default: ./
     description: Path where the microprint will be saved 
 
-  # svg or raster
+  
   microprint_render_method:
     required: false
-    default: svg
+    default: svg # svg | raster
     description: How to render the microprint. As svg or raster
 
   microprint_config_filename:
@@ -76,3 +87,13 @@ inputs:
     required: false
     default: ./
     description: Microprint config path
+
+  microprint_visualizer_link_filename:
+      required: false
+      default: microprint_visualizer
+      description: Microprint visualizer link filename (without extension)
+
+  microprint_visualizer_link_path:
+    required: false
+    default: ./
+    description: Path where the microprint visualizer link will be saved 

@@ -56,6 +56,9 @@ jobs:
             microprint_path: ./Examples/With-custom-rules/microprint
             microprint_config_path: ./Examples/With-custom-rules/
             microprint_config_filename: custom_config_name
+            microprint_visualizer_link_filename: custom_visualizer_link_name
+            microprint_visualizer_link_path: ./Examples/With-custom-rules/microprint
+
 
       - name: Pull Remote Changes
         run: git pull
@@ -89,6 +92,7 @@ jobs:
               log_path: ./Examples/With-default-rules/logs
               microprint_path: ./Examples/With-default-rules/microprint
               microprint_config_path: ./Examples/With-default-rules/
+              microprint_visualizer_link_path: ./Examples/With-default-rules/microprint
 
         - name: Pull Remote Changes
           run: git pull
@@ -122,6 +126,7 @@ jobs:
               log_path: ./Examples/With-multiple-columns/logs
               microprint_path: ./Examples/With-multiple-columns/microprint
               microprint_config_path: ./Examples/With-multiple-columns/
+              microprint_visualizer_link_path: ./Examples/With-multiple-columns/microprint
 
         - name: Pull Remote Changes
           run: git pull

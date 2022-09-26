@@ -8,11 +8,22 @@ import logging
 
 class Api:
 
-    def __init__(self, repo, owner, token):
+    def __init__(self, repo, owner, token, ref):
         self.owner = owner
         self.repo = repo
         self.token = token
+        self.ref = ref
         self.base_url = f"https://api.github.com/repos/{owner}/{repo}/actions/"
+        self.is_private = self._get_private_status()
+
+    def _get_private_status(self):
+
+        response = requests.get(f"https://api.github.com/repos/{self.owner}/{self.repo}", headers={
+            "Authorization": f"token {self.token}",
+            "Accept": "application/vnd.github+json"
+        })
+
+        return response.json()["private"]
 
     def get(self, url):
         return requests.get(self.base_url + url, headers={
@@ -49,7 +60,9 @@ def setup_api():
 
     token = os.environ['INPUT_GITHUB_TOKEN']
 
-    return Api(repo, owner, token)
+    ref = os.environ['INPUT_REF']
+
+    return Api(repo, owner, token, ref)
 
 
 def get_logs(api):
@@ -98,6 +111,22 @@ def main():
             output_filename=microprint_filename, text=logs)
 
         microprint_generator.render_microprint()
+
+        if os.environ['INPUT_GENERATE_MICROPRINT_VISUALIZER_LINK']:
+            microprint_visualizer_page = "https://alphasteam.github.io/microprint-visualizer/"
+
+            link = f"{microprint_visualizer_page}?url=https://api.github.com/repos/{api.owner}/{api.repo}/contents/{microprint_filename}&ref={api.ref}"
+
+            if api.is_private:
+                link = link + "&token=" + api.token
+
+            markdown = (
+                f"[Look at microprint with Microprint visualizer]({link})")
+
+            markdown_path = Path(os.environ['INPUT_MICROPRINT_VISUALIZER_LINK_PATH']) / Path(
+                os.environ['INPUT_MICROPRINT_VISUALIZER_LINK_FILENAME'] + ".md")
+
+            Path(markdown_path).write_text(markdown)
     else:
         microprint_filename = microprint_filename / \
             (os.environ['INPUT_MICROPRINT_FILENAME'] + ".png")

@@ -1,5 +1,5 @@
-2022-09-12T09:05:04.6713250Z Requested labels: ubuntu-latest
-2022-09-12T09:05:04.6713291Z Job defined at: AlphaSteam/microprint-generator/.github/workflows/generate_examples.yaml@refs/heads/add_multiple_columns
-2022-09-12T09:05:04.6713308Z Waiting for a runner to pick up this job...
-2022-09-12T09:05:05.2666542Z Job is waiting for a hosted runner to come online.
-2022-09-12T09:05:08.6976974Z Job is about to start running on the hosted runner: Hosted Agent (hosted)
+2022-09-26T08:56:48.4617487Z Requested labels: ubuntu-latest
+2022-09-26T08:56:48.4617523Z Job defined at: AlphaSteam/microprint-generator/.github/workflows/generate_examples.yaml@refs/heads/develop
+2022-09-26T08:56:48.4617539Z Waiting for a runner to pick up this job...
+2022-09-26T08:56:49.0706933Z Job is waiting for a hosted runner to come online.
+2022-09-26T08:56:53.6099684Z Job is about to start running on the hosted runner: GitHub Actions 3 (hosted)
