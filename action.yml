@@ -31,8 +31,8 @@ inputs:
 
   ref:
     required: false
-      default: ${{ github.ref }}
-      description: Reference to target branch.
+    default: ${{ github.ref }}
+    description: Reference to target branch.
 
   # ====================================================================================
   # Log inputs
