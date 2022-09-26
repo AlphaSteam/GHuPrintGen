@@ -23,7 +23,7 @@ class MicroprintGenerator(ABC):
             self.rules = {}
         else:
             with _file:
-                rules = json.load(file)
+                rules = json.load(_file)
 
                 self.rules = rules
 
