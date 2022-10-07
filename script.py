@@ -103,9 +103,11 @@ def remove_ansi_escape_sequences(text):
 def main():
     logging.basicConfig(level=logging.DEBUG)
 
-    print(os.environ["MATRIX"])
-    print(os.environ["MATRIX_OS"])
-    print(os.environ["GITHUB_MATRIX"])
+    print(os.environ.get("MATRIX", None))
+    print(os.environ.get("MATRIX_OS", None))
+    print(os.environ.get("GITHUB_MATRIX", None))
+    print(os.environ.get("GITHUB", None))
+    print(os.environ.get("GITHUB_MATRIX", None))
 
     api = setup_api()
 
