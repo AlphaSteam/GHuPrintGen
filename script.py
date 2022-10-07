@@ -71,7 +71,7 @@ def get_logs(api):
 
     job_id = os.environ['INPUT_JOB_ID']
 
-    logging.info('Job id: ', job_id)
+    print('Job id: ', job_id)
 
     run_id = os.environ['GITHUB_RUN_ID']
 
@@ -107,7 +107,7 @@ def main():
     print(os.environ.get("MATRIX_OS", None))
     print(os.environ.get("GITHUB_MATRIX", None))
     print(os.environ.get("GITHUB", None))
-    print(os.environ.get("GITHUB_MATRIX", None))
+    print(os.environ.get("", None))
 
     api = setup_api()
 

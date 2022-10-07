@@ -4,6 +4,8 @@ description: Creates a microprint of the logs a job inside a Github workflow
 runs:
   using: docker
   image: 'Dockerfile'
+  args:
+    - ${{ matrix }}
 
 
 branding:
