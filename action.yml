@@ -24,10 +24,15 @@ inputs:
     default: ${{ github.token }}
     description: A GitHub personal access token with repo scope to the project
 
+  job_id:
+    required: false
+    default: null
+    description: id of the job whose logs will be transformed to microprint (Takes precedence over job_name)
+
   job_name:
     required: false
     default: ${{ github.job }}
-    description: Job whose logs will be transformed to microprint
+    description: name of the job whose logs will be transformed to microprint
 
   ref:
     required: false

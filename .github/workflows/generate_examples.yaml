@@ -48,7 +48,7 @@ jobs:
       - name: Get microprint of jobs logs
         uses: ./
         with:
-            job_name: generate_microprint_mid_job
+            job_id: generate_microprint_mid_job
             github_token: ${{ secrets.pat }}
             log_filename: custom_log_name
             log_path: ./Examples/With-custom-rules/logs
@@ -88,7 +88,7 @@ jobs:
         - name: Get microprint of jobs logs
           uses: ./
           with:
-              job_name: generate_microprint_mid_job
+              job_id: generate_microprint_mid_job
               log_path: ./Examples/With-default-rules/logs
               microprint_path: ./Examples/With-default-rules/microprint
               microprint_config_path: ./Examples/With-default-rules/
@@ -122,7 +122,47 @@ jobs:
         - name: Get microprint of jobs logs
           uses: ./
           with:
-              job_name: generate_microprint_mid_job
+              job_id: generate_microprint_mid_job
+              log_path: ./Examples/With-multiple-columns/logs
+              microprint_path: ./Examples/With-multiple-columns/microprint
+              microprint_config_path: ./Examples/With-multiple-columns/
+              microprint_visualizer_link_path: ./Examples/With-multiple-columns/microprint
+
+        - name: Pull Remote Changes
+          run: git pull
+
+        - name: Commit microprint
+          if: github.ref != 'refs/heads/main'
+          uses: stefanzweifel/git-auto-commit-action@v4
+          with:
+            commit_message: Updated microprint with multiple columns
+
+        - name: Push to protected branch
+          if: github.ref == 'refs/heads/main'
+          uses: CasperWA/push-protected@v2
+          with:
+            token: ${{ secrets.pat }}
+            branch: main
+
+  generate_microprint_matrix:
+      runs-on: ubuntu-latest
+
+      strategy:
+      fail-fast: true
+      matrix:
+        os: [ubuntu-latest, macos-latest, windows-latest]
+        julia_version: [1.6]
+
+      needs: generate_microprint_with_default_rules
+
+      steps:
+        - name: Checkout code
+          uses: actions/checkout@v3
+
+        - name: Get microprint of jobs logs
+          uses: ./
+          with:
+              job_id: generate_microprint_mid_job
               log_path: ./Examples/With-multiple-columns/logs
               microprint_path: ./Examples/With-multiple-columns/microprint
               microprint_config_path: ./Examples/With-multiple-columns/
