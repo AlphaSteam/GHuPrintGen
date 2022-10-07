@@ -107,7 +107,7 @@ def main():
     print(os.environ.get("MATRIX_OS", None))
     print(os.environ.get("GITHUB_MATRIX", None))
     print(os.environ.get("GITHUB", None))
-    print(os.environ.get("", None))
+    print(os.environ.get("INPUT_MATRIX", None))
 
     api = setup_api()
 
