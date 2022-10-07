@@ -4,8 +4,6 @@ description: Creates a microprint of the logs a job inside a Github workflow
 runs:
   using: docker
   image: 'Dockerfile'
-  args:
-    - ${{ matrix }}
 
 
 branding:
@@ -106,6 +104,11 @@ inputs:
   microprint_visualizer_link_path:
     required: false
     default: ./
+    description: Path where the microprint visualizer link will be saved 
+
+  matrix:
+    required: false
+    default: {{matrix}}
     description: Path where the microprint visualizer link will be saved 
 
   
