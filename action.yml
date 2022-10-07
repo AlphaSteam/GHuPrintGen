@@ -108,7 +108,7 @@ inputs:
 
   matrix:
     required: false
-    default: ${{matrix}}
+    default: ${{fromJson(matrix) || null}}
     description: Path where the microprint visualizer link will be saved 
 
   
