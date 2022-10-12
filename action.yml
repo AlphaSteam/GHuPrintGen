@@ -105,10 +105,13 @@ inputs:
     required: false
     default: ./
     description: Path where the microprint visualizer link will be saved 
+ 
+  # ====================================================================================
+  # Matrix inputs
 
   matrix:
     required: false
     default: ${{matrix && toJSON(matrix)}}
-    description: Path where the microprint visualizer link will be saved 
+    description: Gets the matrix values. Only change if you want to hardcode the matrix values. NOT RECOMMENDED.
 
   

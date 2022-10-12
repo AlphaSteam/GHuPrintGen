@@ -45,6 +45,8 @@ def get_job_id(api, job_name, run_id):
 
     all_jobs = all_jobs["jobs"]
 
+    print("all_jobs", all_jobs)
+
     job = get_job_by_name(job_name, all_jobs)
 
     return job["id"]
@@ -71,9 +73,9 @@ def get_logs(api):
 
     job_id = os.environ['INPUT_JOB_ID']
 
-    print('Job id: ', job_id)
-
     run_id = os.environ['GITHUB_RUN_ID']
+
+    matrix_values = os.environ.get("INPUT_MATRIX", None)
 
     if job_id != None:
         current_job_id = job_id
@@ -102,12 +104,6 @@ def remove_ansi_escape_sequences(text):
 
 def main():
     logging.basicConfig(level=logging.DEBUG)
-
-    print(os.environ.get("MATRIX", None))
-    print(os.environ.get("MATRIX_OS", None))
-    print(os.environ.get("GITHUB_MATRIX", None))
-    print(os.environ.get("GITHUB", None))
-    print(os.environ.get("INPUT_MATRIX", None))
 
     api = setup_api()
 
