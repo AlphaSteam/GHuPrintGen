@@ -77,6 +77,8 @@ def get_logs(api):
 
     matrix_values = os.environ.get("INPUT_MATRIX", None)
 
+    get_job_id(api, job_name, run_id)
+
     if job_id != None:
         current_job_id = job_id
 
