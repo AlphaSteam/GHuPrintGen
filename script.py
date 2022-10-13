@@ -47,6 +47,7 @@ def get_job_id(api, job_name, run_id):
 
     print("all_jobs", all_jobs)
 
+    print("job_name", job_name)
     job = get_job_by_name(job_name, all_jobs)
 
     return job["id"]
@@ -84,6 +85,8 @@ def get_logs(api):
 
     else:
         matrix_values = matrix_values.values()
+
+        print("matrix_values", matrix_values)
         if matrix_values.length > 0:
             job_name += " (" + ', '.join(map(str, matrix_values)) + ")"
 
