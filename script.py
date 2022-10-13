@@ -78,8 +78,6 @@ def get_logs(api):
 
     matrix_values = os.environ.get("INPUT_MATRIX", None)
 
-    get_job_id(api, job_name, run_id)
-
     if job_id != None:
         current_job_id = job_id
 
@@ -91,6 +89,8 @@ def get_logs(api):
             job_name += " (" + ', '.join(map(str, matrix_values)) + ")"
 
         current_job_id = get_job_id(api, job_name, run_id)
+
+    get_job_id(api, job_name, run_id)
 
     current_job_logs = api.get(f"jobs/{current_job_id}/logs").text
 

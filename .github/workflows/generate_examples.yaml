@@ -151,7 +151,7 @@ jobs:
         fail-fast: true
         matrix:
           os: [ubuntu-latest, macos-latest, windows-latest]
-          julia_version: [1.6]
+          version: [1.6]
 
       needs: generate_microprint_mid_job
 
