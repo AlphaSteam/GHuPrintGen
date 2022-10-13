@@ -90,8 +90,6 @@ def get_logs(api):
 
         current_job_id = get_job_id(api, job_name, run_id)
 
-    get_job_id(api, job_name, run_id)
-
     current_job_logs = api.get(f"jobs/{current_job_id}/logs").text
 
     save_path = Path(os.environ['INPUT_LOG_PATH']) / \
