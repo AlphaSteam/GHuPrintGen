@@ -74,6 +74,8 @@ def get_logs(api):
 
     job_id = os.environ['INPUT_JOB_ID']
 
+    print("job_id", job_id)
+
     run_id = os.environ['GITHUB_RUN_ID']
 
     matrix_values = os.environ.get("INPUT_MATRIX", None)
