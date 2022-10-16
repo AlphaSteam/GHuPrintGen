@@ -40,7 +40,7 @@ def get_job_by_name(job_name, job_list):
             return job_obj
 
 
-def append_matrix_values(string, matrix_values, with_spaces="false"):
+def append_matrix_values(string, matrix_values, with_spaces=False):
 
     if matrix_values != None and matrix_values != "":
         matrix_values = matrix_values.values()
@@ -48,8 +48,12 @@ def append_matrix_values(string, matrix_values, with_spaces="false"):
         if len(matrix_values) > 0:
             string += f" (" + ', '.join(
                 map(str, matrix_values)) + ")"
-    if not with_spaces:
-        string = string.replace(" ", "")
+
+    if with_spaces == False:
+        print("Without spaces")
+        print("string before: ", string)
+        string = string.replace(" ", "-")
+        print("string after: ", string)
 
     return string
 
