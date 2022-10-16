@@ -46,8 +46,10 @@ def append_matrix_values(string, matrix_values, with_spaces="false"):
         matrix_values = matrix_values.values()
 
         if len(matrix_values) > 0:
-            string += f"{' ' if with_spaces == True else '-' }(" + ', '.join(
+            string += f" (" + ', '.join(
                 map(str, matrix_values)) + ")"
+    if not with_spaces:
+        string = string.replace(" ", "")
 
     return string
 
