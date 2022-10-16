@@ -80,6 +80,7 @@ def get_logs(api):
     matrix_values = os.environ.get("INPUT_MATRIX", None)
 
     if matrix_values != None:
+        print(matrix_values)
         matrix_values = json.loads(matrix_values)
 
     if job_id != None and job_id != "":
