@@ -1,5 +1,0 @@
-2022-10-16T10:15:17.6199382Z Requested labels: ubuntu-latest
-2022-10-16T10:15:17.6199420Z Job defined at: AlphaSteam/microprint-generator/.github/workflows/generate_examples.yaml@refs/heads/matrix_actions
-2022-10-16T10:15:17.6199440Z Waiting for a runner to pick up this job...
-2022-10-16T10:15:17.8833524Z Job is waiting for a hosted runner to come online.
-2022-10-16T10:15:20.0147160Z Job is about to start running on the hosted runner: Hosted Agent (hosted)
