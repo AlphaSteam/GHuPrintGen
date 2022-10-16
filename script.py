@@ -52,7 +52,7 @@ def append_matrix_values(string, matrix_values, with_spaces=False):
     if with_spaces == False:
         print("Without spaces")
         print("string before: ", string)
-        string = string.replace(" ", "-")
+        string = string.replace(" ", "")
         print("string after: ", string)
 
     return string
