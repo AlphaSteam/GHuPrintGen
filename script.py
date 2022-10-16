@@ -101,6 +101,10 @@ def get_logs(api, matrix_values):
         (os.environ['INPUT_LOG_FILENAME'] + ".txt")
 
     if os.environ['INPUT_SAVE_LOG'] == "true":
+
+        if not os.path.exists(save_path):
+            os.makedirs(save_path)
+
         with open(save_path, 'w') as file:
             file.write(current_job_logs)
 
@@ -112,6 +116,27 @@ def remove_ansi_escape_sequences(text):
     ansi_escape = re.compile(r'\x1B(?:[@-Z\\-_]|\[[0-?]*[ -/]*[@-~])')
 
     return ansi_escape.sub('', text)
+
+
+def generate_visualizer_link():
+    microprint_visualizer_page = "https://alphasteam.github.io/microprint-visualizer/"
+
+    link = f"{microprint_visualizer_page}?url=https://api.github.com/repos/{api.owner}/{api.repo}/contents/{microprint_filename}&ref={api.ref}"
+
+    if api.is_private:
+        link = link + "&token=" + api.token
+
+    markdown = (
+        f"[Look at microprint with Microprint visualizer]({link})")
+
+    markdown_path = Path(append_matrix_values(
+        os.environ['INPUT_MICROPRINT_VISUALIZER_LINK_PATH'], matrix_values)) / Path(
+        os.environ['INPUT_MICROPRINT_VISUALIZER_LINK_FILENAME'] + ".md")
+
+    if not os.path.exists(markdown_path):
+        os.makedirs(markdown_path)
+
+    Path(markdown_path).write_text(markdown)
 
 
 def main():
@@ -144,21 +169,8 @@ def main():
         microprint_generator.render_microprint()
 
         if os.environ['INPUT_GENERATE_MICROPRINT_VISUALIZER_LINK']:
-            microprint_visualizer_page = "https://alphasteam.github.io/microprint-visualizer/"
+            generate_visualizer_link()
 
-            link = f"{microprint_visualizer_page}?url=https://api.github.com/repos/{api.owner}/{api.repo}/contents/{microprint_filename}&ref={api.ref}"
-
-            if api.is_private:
-                link = link + "&token=" + api.token
-
-            markdown = (
-                f"[Look at microprint with Microprint visualizer]({link})")
-
-            markdown_path = Path(append_matrix_values(
-                os.environ['INPUT_MICROPRINT_VISUALIZER_LINK_PATH'], matrix_values)) / Path(
-                os.environ['INPUT_MICROPRINT_VISUALIZER_LINK_FILENAME'] + ".md")
-
-            Path(markdown_path).write_text(markdown)
     else:
         microprint_filename = microprint_filename / \
             (os.environ['INPUT_MICROPRINT_FILENAME'] + ".png")
