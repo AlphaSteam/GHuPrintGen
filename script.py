@@ -41,6 +41,7 @@ def get_job_by_name(job_name, job_list):
 
 
 def append_matrix_values(string, matrix_values):
+
     if matrix_values != None and matrix_values != "":
         matrix_values = matrix_values.values()
 
@@ -57,12 +58,6 @@ def get_job_id(api, matrix_values):
     run_id = os.environ['GITHUB_RUN_ID']
 
     job_id = os.environ['INPUT_JOB_ID']
-
-    if matrix_values != None and matrix_values != "":
-        try:
-            matrix_values = json.loads(matrix_values)
-        except e:
-            pass
 
     if job_id != None and job_id != "":
         # TODO add matrix values to job_id
@@ -125,6 +120,12 @@ def main():
     api = setup_api()
 
     matrix_values = os.environ.get("INPUT_MATRIX", None)
+
+    if matrix_values != None and matrix_values != "":
+        try:
+            matrix_values = json.loads(matrix_values)
+        except e:
+            pass
 
     logs = get_logs(api, matrix_values)
 
