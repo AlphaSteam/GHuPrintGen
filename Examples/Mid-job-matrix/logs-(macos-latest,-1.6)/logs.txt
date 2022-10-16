@@ -1,0 +1,711 @@
+2022-10-16T21:02:56.3718664Z Requested labels: ubuntu-latest
+2022-10-16T21:02:56.3718700Z Job defined at: AlphaSteam/microprint-generator/.github/workflows/generate_examples.yaml@refs/heads/matrix_actions
+2022-10-16T21:02:56.3718717Z Waiting for a runner to pick up this job...
+2022-10-16T21:02:56.6780943Z Job is waiting for a hosted runner to come online.
+2022-10-16T21:03:00.1242576Z Job is about to start running on the hosted runner: GitHub Actions 3 (hosted)
+2022-10-16T21:03:02.7090358Z Current runner version: '2.298.2'
+2022-10-16T21:03:02.7135008Z ##[group]Operating System
+2022-10-16T21:03:02.7135583Z Ubuntu
+2022-10-16T21:03:02.7135815Z 20.04.5
+2022-10-16T21:03:02.7136097Z LTS
+2022-10-16T21:03:02.7136537Z ##[endgroup]
+2022-10-16T21:03:02.7137020Z ##[group]Runner Image
+2022-10-16T21:03:02.7137344Z Image: ubuntu-20.04
+2022-10-16T21:03:02.7137631Z Version: 20221012.1
+2022-10-16T21:03:02.7138100Z Included Software: https://github.com/actions/runner-images/blob/ubuntu20/20221012.1/images/linux/Ubuntu2004-Readme.md
+2022-10-16T21:03:02.7138728Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu20%2F20221012.1
+2022-10-16T21:03:02.7139084Z ##[endgroup]
+2022-10-16T21:03:02.7139388Z ##[group]Runner Image Provisioner
+2022-10-16T21:03:02.7139703Z 2.0.78.1
+2022-10-16T21:03:02.7139968Z ##[endgroup]
+2022-10-16T21:03:02.7140839Z ##[group]GITHUB_TOKEN Permissions
+2022-10-16T21:03:02.7141418Z Actions: write
+2022-10-16T21:03:02.7141731Z Checks: write
+2022-10-16T21:03:02.7142215Z Contents: write
+2022-10-16T21:03:02.7142549Z Deployments: write
+2022-10-16T21:03:02.7142855Z Discussions: write
+2022-10-16T21:03:02.7143147Z Issues: write
+2022-10-16T21:03:02.7143465Z Metadata: read
+2022-10-16T21:03:02.7143713Z Packages: write
+2022-10-16T21:03:02.7144004Z Pages: write
+2022-10-16T21:03:02.7144293Z PullRequests: write
+2022-10-16T21:03:02.7144629Z RepositoryProjects: write
+2022-10-16T21:03:02.7145121Z SecurityEvents: write
+2022-10-16T21:03:02.7145436Z Statuses: write
+2022-10-16T21:03:02.7145727Z ##[endgroup]
+2022-10-16T21:03:02.7149854Z Secret source: Actions
+2022-10-16T21:03:02.7151242Z Prepare workflow directory
+2022-10-16T21:03:02.8093663Z Prepare all required actions
+2022-10-16T21:03:02.8320098Z Getting action download info
+2022-10-16T21:03:03.0795423Z Download action repository 'actions/checkout@v3' (SHA:93ea575cb5d8a053eaa0ac8fa3b40d7e05a33cc8)
+2022-10-16T21:03:04.5072082Z Download action repository 'stefanzweifel/git-auto-commit-action@v4' (SHA:fd157da78fa13d9383e5580d1fd1184d89554b51)
+2022-10-16T21:03:05.3171857Z Download action repository 'CasperWA/push-protected@v2' (SHA:6b25de805895da731062c43da647425fbb383128)
+2022-10-16T21:03:06.3468585Z ##[group]Build container for action use: '/home/runner/work/_actions/CasperWA/push-protected/v2/Dockerfile'.
+2022-10-16T21:03:06.3556510Z ##[command]/usr/bin/docker build -t 8d5581:a8d9a9c87f3e402582b63a893ec3a24b -f "/home/runner/work/_actions/CasperWA/push-protected/v2/Dockerfile" "/home/runner/work/_actions/CasperWA/push-protected/v2"
+2022-10-16T21:03:06.6163640Z Sending build context to Docker daemon  113.2kB
+2022-10-16T21:03:06.6170319Z 
+2022-10-16T21:03:06.6654507Z Step 1/6 : FROM python:alpine
+2022-10-16T21:03:08.0041613Z alpine: Pulling from library/python
+2022-10-16T21:03:08.3599329Z 213ec9aee27d: Already exists
+2022-10-16T21:03:08.3668417Z 47858aee13bf: Pulling fs layer
+2022-10-16T21:03:08.3669098Z cfe0d6c6d05c: Pulling fs layer
+2022-10-16T21:03:08.3669450Z 2df617b3dcd9: Pulling fs layer
+2022-10-16T21:03:08.3669710Z 38da16a6ebe8: Pulling fs layer
+2022-10-16T21:03:08.3670158Z 38da16a6ebe8: Waiting
+2022-10-16T21:03:08.6889148Z 2df617b3dcd9: Verifying Checksum
+2022-10-16T21:03:08.6891330Z 2df617b3dcd9: Download complete
+2022-10-16T21:03:08.7007238Z 47858aee13bf: Verifying Checksum
+2022-10-16T21:03:08.7008117Z 47858aee13bf: Download complete
+2022-10-16T21:03:08.8340434Z cfe0d6c6d05c: Verifying Checksum
+2022-10-16T21:03:08.8341346Z cfe0d6c6d05c: Download complete
+2022-10-16T21:03:09.1059171Z 38da16a6ebe8: Verifying Checksum
+2022-10-16T21:03:09.1063413Z 38da16a6ebe8: Download complete
+2022-10-16T21:03:09.2064880Z 47858aee13bf: Pull complete
+2022-10-16T21:03:09.7728695Z cfe0d6c6d05c: Pull complete
+2022-10-16T21:03:09.8352064Z 2df617b3dcd9: Pull complete
+2022-10-16T21:03:10.2899797Z 38da16a6ebe8: Pull complete
+2022-10-16T21:03:10.3000576Z Digest: sha256:3bfac1caa31cc6c0e796b65ba936f320d1e549d80f5ac02c2e4f83a0f04af3aa
+2022-10-16T21:03:10.3026106Z Status: Downloaded newer image for python:alpine
+2022-10-16T21:03:10.3062856Z  ---> 880fc229346e
+2022-10-16T21:03:10.3063858Z Step 2/6 : COPY README.md setup.py requirements*.txt ./
+2022-10-16T21:03:11.0206564Z  ---> f740bf1e0ca7
+2022-10-16T21:03:11.0207710Z Step 3/6 : COPY push_action ./push_action
+2022-10-16T21:03:12.0201752Z  ---> f061db298703
+2022-10-16T21:03:12.0202602Z Step 4/6 : RUN apk update     && apk add --no-cache git git-lfs bash     && pip install -U -e .
+2022-10-16T21:03:12.0563362Z  ---> Running in 79aaba2a4c87
+2022-10-16T21:03:12.4882892Z fetch https://dl-cdn.alpinelinux.org/alpine/v3.16/main/x86_64/APKINDEX.tar.gz
+2022-10-16T21:03:12.5847892Z fetch https://dl-cdn.alpinelinux.org/alpine/v3.16/community/x86_64/APKINDEX.tar.gz
+2022-10-16T21:03:12.8680176Z v3.16.2-301-g3f9d0a65f8 [https://dl-cdn.alpinelinux.org/alpine/v3.16/main]
+2022-10-16T21:03:12.8681298Z v3.16.2-302-g26bb45e677 [https://dl-cdn.alpinelinux.org/alpine/v3.16/community]
+2022-10-16T21:03:12.8683498Z OK: 17037 distinct packages available
+2022-10-16T21:03:12.9118845Z fetch https://dl-cdn.alpinelinux.org/alpine/v3.16/main/x86_64/APKINDEX.tar.gz
+2022-10-16T21:03:13.0004571Z fetch https://dl-cdn.alpinelinux.org/alpine/v3.16/community/x86_64/APKINDEX.tar.gz
+2022-10-16T21:03:13.2540923Z (1/7) Installing bash (5.1.16-r2)
+2022-10-16T21:03:13.2718084Z Executing bash-5.1.16-r2.post-install
+2022-10-16T21:03:13.2746743Z (2/7) Installing brotli-libs (1.0.9-r6)
+2022-10-16T21:03:13.2858802Z (3/7) Installing nghttp2-libs (1.47.0-r0)
+2022-10-16T21:03:13.2903703Z (4/7) Installing libcurl (7.83.1-r3)
+2022-10-16T21:03:13.2987817Z (5/7) Installing pcre2 (10.40-r0)
+2022-10-16T21:03:13.3118433Z (6/7) Installing git (2.36.2-r0)
+2022-10-16T21:03:13.4376741Z (7/7) Installing git-lfs (3.1.4-r5)
+2022-10-16T21:03:13.5517211Z Executing git-lfs-3.1.4-r5.post-install
+2022-10-16T21:03:13.5676871Z Git LFS initialized.
+2022-10-16T21:03:13.5691910Z Executing busybox-1.35.0-r17.trigger
+2022-10-16T21:03:13.5750718Z OK: 39 MiB in 43 packages
+2022-10-16T21:03:16.1259950Z Obtaining file:///
+2022-10-16T21:03:16.1274226Z   Preparing metadata (setup.py): started
+2022-10-16T21:03:16.8275734Z   Preparing metadata (setup.py): finished with status 'done'
+2022-10-16T21:03:16.9105863Z Collecting requests~=2.28
+2022-10-16T21:03:16.9472139Z   Downloading requests-2.28.1-py3-none-any.whl (62 kB)
+2022-10-16T21:03:16.9565393Z      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 62.8/62.8 kB 9.0 MB/s eta 0:00:00
+2022-10-16T21:03:17.0168057Z Collecting urllib3<1.27,>=1.21.1
+2022-10-16T21:03:17.0426336Z   Downloading urllib3-1.26.12-py2.py3-none-any.whl (140 kB)
+2022-10-16T21:03:17.0427061Z      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 140.4/140.4 kB 20.2 MB/s eta 0:00:00
+2022-10-16T21:03:17.0512751Z Collecting idna<4,>=2.5
+2022-10-16T21:03:17.0564208Z   Downloading idna-3.4-py3-none-any.whl (61 kB)
+2022-10-16T21:03:17.0648093Z      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 61.5/61.5 kB 10.3 MB/s eta 0:00:00
+2022-10-16T21:03:17.1036107Z Collecting charset-normalizer<3,>=2
+2022-10-16T21:03:17.1085658Z   Downloading charset_normalizer-2.1.1-py3-none-any.whl (39 kB)
+2022-10-16T21:03:17.1371038Z Collecting certifi>=2017.4.17
+2022-10-16T21:03:17.1413726Z   Downloading certifi-2022.9.24-py3-none-any.whl (161 kB)
+2022-10-16T21:03:17.1505944Z      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 161.1/161.1 kB 24.6 MB/s eta 0:00:00
+2022-10-16T21:03:17.2482698Z Installing collected packages: urllib3, idna, charset-normalizer, certifi, requests, push-action
+2022-10-16T21:03:17.6113489Z   Running setup.py develop for push-action
+2022-10-16T21:03:18.0413634Z Successfully installed certifi-2022.9.24 charset-normalizer-2.1.1 idna-3.4 push-action-2.14.0 requests-2.28.1 urllib3-1.26.12
+2022-10-16T21:03:18.0419592Z [91mWARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv
+2022-10-16T21:03:18.1322841Z [0m[91m
+2022-10-16T21:03:18.1323192Z [notice] A new release of pip available: 22.2.2 -> 22.3
+2022-10-16T21:03:18.1323469Z [notice] To update, run: pip install --upgrade pip
+2022-10-16T21:03:19.4864292Z [0mRemoving intermediate container 79aaba2a4c87
+2022-10-16T21:03:19.4865107Z  ---> 51f1bb3949ef
+2022-10-16T21:03:19.4959866Z Step 5/6 : COPY entrypoint.sh ./
+2022-10-16T21:03:20.0258182Z  ---> 37fd2e6eaf7c
+2022-10-16T21:03:20.0258501Z Step 6/6 : ENTRYPOINT [ "/entrypoint.sh" ]
+2022-10-16T21:03:20.0566708Z  ---> Running in 23617776b8ae
+2022-10-16T21:03:21.0269012Z Removing intermediate container 23617776b8ae
+2022-10-16T21:03:21.0269299Z  ---> cf429b3e7b2a
+2022-10-16T21:03:21.0274009Z Successfully built cf429b3e7b2a
+2022-10-16T21:03:21.0350848Z Successfully tagged 8d5581:a8d9a9c87f3e402582b63a893ec3a24b
+2022-10-16T21:03:21.0369726Z ##[endgroup]
+2022-10-16T21:03:21.0856438Z ##[group]Run actions/checkout@v3
+2022-10-16T21:03:21.0856717Z with:
+2022-10-16T21:03:21.0856961Z   repository: AlphaSteam/microprint-generator
+2022-10-16T21:03:21.0857378Z   token: ***
+2022-10-16T21:03:21.0857556Z   ssh-strict: true
+2022-10-16T21:03:21.0857774Z   persist-credentials: true
+2022-10-16T21:03:21.0857983Z   clean: true
+2022-10-16T21:03:21.0858187Z   fetch-depth: 1
+2022-10-16T21:03:21.0858357Z   lfs: false
+2022-10-16T21:03:21.0858543Z   submodules: false
+2022-10-16T21:03:21.0858752Z   set-safe-directory: true
+2022-10-16T21:03:21.0858966Z ##[endgroup]
+2022-10-16T21:03:21.5495621Z Syncing repository: AlphaSteam/microprint-generator
+2022-10-16T21:03:21.5497714Z ##[group]Getting Git version info
+2022-10-16T21:03:21.5498235Z Working directory is '/home/runner/work/microprint-generator/microprint-generator'
+2022-10-16T21:03:21.5498777Z [command]/usr/bin/git version
+2022-10-16T21:03:21.5830061Z git version 2.38.0
+2022-10-16T21:03:21.5866120Z ##[endgroup]
+2022-10-16T21:03:21.5893868Z Temporarily overriding HOME='/home/runner/work/_temp/9f4bf8f6-514c-4266-a8ee-9386b5e6a34d' before making global git config changes
+2022-10-16T21:03:21.5894287Z Adding repository directory to the temporary git global config as a safe directory
+2022-10-16T21:03:21.5894836Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/microprint-generator/microprint-generator
+2022-10-16T21:03:21.5948120Z Deleting the contents of '/home/runner/work/microprint-generator/microprint-generator'
+2022-10-16T21:03:21.5954778Z ##[group]Initializing the repository
+2022-10-16T21:03:21.5958596Z [command]/usr/bin/git init /home/runner/work/microprint-generator/microprint-generator
+2022-10-16T21:03:21.6076049Z hint: Using 'master' as the name for the initial branch. This default branch name
+2022-10-16T21:03:21.6076801Z hint: is subject to change. To configure the initial branch name to use in all
+2022-10-16T21:03:21.6077671Z hint: of your new repositories, which will suppress this warning, call:
+2022-10-16T21:03:21.6077996Z hint: 
+2022-10-16T21:03:21.6078608Z hint: 	git config --global init.defaultBranch <name>
+2022-10-16T21:03:21.6079048Z hint: 
+2022-10-16T21:03:21.6079393Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+2022-10-16T21:03:21.6079856Z hint: 'development'. The just-created branch can be renamed via this command:
+2022-10-16T21:03:21.6080167Z hint: 
+2022-10-16T21:03:21.6080485Z hint: 	git branch -m <name>
+2022-10-16T21:03:21.6091227Z Initialized empty Git repository in /home/runner/work/microprint-generator/microprint-generator/.git/
+2022-10-16T21:03:21.6107906Z [command]/usr/bin/git remote add origin https://github.com/AlphaSteam/microprint-generator
+2022-10-16T21:03:21.6179053Z ##[endgroup]
+2022-10-16T21:03:21.6179660Z ##[group]Disabling automatic garbage collection
+2022-10-16T21:03:21.6189791Z [command]/usr/bin/git config --local gc.auto 0
+2022-10-16T21:03:21.6230469Z ##[endgroup]
+2022-10-16T21:03:21.6232915Z ##[group]Setting up auth
+2022-10-16T21:03:21.6248985Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2022-10-16T21:03:21.6288752Z [command]/usr/bin/git submodule foreach --recursive git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :
+2022-10-16T21:03:21.6809872Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2022-10-16T21:03:21.6862720Z [command]/usr/bin/git submodule foreach --recursive git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :
+2022-10-16T21:03:21.7103336Z [command]/usr/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
+2022-10-16T21:03:21.7152229Z ##[endgroup]
+2022-10-16T21:03:21.7157716Z ##[group]Fetching the repository
+2022-10-16T21:03:21.7171244Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --progress --no-recurse-submodules --depth=1 origin +3f9fb85a9c255c04b811186b8adf0ebaf0eaf4be:refs/remotes/origin/matrix_actions
+2022-10-16T21:03:22.3446483Z remote: Enumerating objects: 104, done.        
+2022-10-16T21:03:22.3447202Z remote: Counting objects:   0% (1/104)        
+2022-10-16T21:03:22.3447977Z remote: Counting objects:   1% (2/104)        
+2022-10-16T21:03:22.3448533Z remote: Counting objects:   2% (3/104)        
+2022-10-16T21:03:22.3449450Z remote: Counting objects:   3% (4/104)        
+2022-10-16T21:03:22.3450115Z remote: Counting objects:   4% (5/104)        
+2022-10-16T21:03:22.3450829Z remote: Counting objects:   5% (6/104)        
+2022-10-16T21:03:22.3451347Z remote: Counting objects:   6% (7/104)        
+2022-10-16T21:03:22.3452068Z remote: Counting objects:   7% (8/104)        
+2022-10-16T21:03:22.3452542Z remote: Counting objects:   8% (9/104)        
+2022-10-16T21:03:22.3453589Z remote: Counting objects:   9% (10/104)        
+2022-10-16T21:03:22.3455590Z remote: Counting objects:  10% (11/104)        
+2022-10-16T21:03:22.3456604Z remote: Counting objects:  11% (12/104)        
+2022-10-16T21:03:22.3457196Z remote: Counting objects:  12% (13/104)        
+2022-10-16T21:03:22.3458454Z remote: Counting objects:  13% (14/104)        
+2022-10-16T21:03:22.3459312Z remote: Counting objects:  14% (15/104)        
+2022-10-16T21:03:22.3460709Z remote: Counting objects:  15% (16/104)        
+2022-10-16T21:03:22.3461278Z remote: Counting objects:  16% (17/104)        
+2022-10-16T21:03:22.3462030Z remote: Counting objects:  17% (18/104)        
+2022-10-16T21:03:22.3462680Z remote: Counting objects:  18% (19/104)        
+2022-10-16T21:03:22.3464133Z remote: Counting objects:  19% (20/104)        
+2022-10-16T21:03:22.3464630Z remote: Counting objects:  20% (21/104)        
+2022-10-16T21:03:22.3465339Z remote: Counting objects:  21% (22/104)        
+2022-10-16T21:03:22.3465885Z remote: Counting objects:  22% (23/104)        
+2022-10-16T21:03:22.3466582Z remote: Counting objects:  23% (24/104)        
+2022-10-16T21:03:22.3467089Z remote: Counting objects:  24% (25/104)        
+2022-10-16T21:03:22.3468059Z remote: Counting objects:  25% (26/104)        
+2022-10-16T21:03:22.3468715Z remote: Counting objects:  26% (28/104)        
+2022-10-16T21:03:22.3469723Z remote: Counting objects:  27% (29/104)        
+2022-10-16T21:03:22.3470808Z remote: Counting objects:  28% (30/104)        
+2022-10-16T21:03:22.3471572Z remote: Counting objects:  29% (31/104)        
+2022-10-16T21:03:22.3472059Z remote: Counting objects:  30% (32/104)        
+2022-10-16T21:03:22.3472757Z remote: Counting objects:  31% (33/104)        
+2022-10-16T21:03:22.3473239Z remote: Counting objects:  32% (34/104)        
+2022-10-16T21:03:22.3474062Z remote: Counting objects:  33% (35/104)        
+2022-10-16T21:03:22.3474528Z remote: Counting objects:  34% (36/104)        
+2022-10-16T21:03:22.3475386Z remote: Counting objects:  35% (37/104)        
+2022-10-16T21:03:22.3476070Z remote: Counting objects:  36% (38/104)        
+2022-10-16T21:03:22.3476786Z remote: Counting objects:  37% (39/104)        
+2022-10-16T21:03:22.3477269Z remote: Counting objects:  38% (40/104)        
+2022-10-16T21:03:22.3477978Z remote: Counting objects:  39% (41/104)        
+2022-10-16T21:03:22.3478476Z remote: Counting objects:  40% (42/104)        
+2022-10-16T21:03:22.3479182Z remote: Counting objects:  41% (43/104)        
+2022-10-16T21:03:22.3479965Z remote: Counting objects:  42% (44/104)        
+2022-10-16T21:03:22.3481479Z remote: Counting objects:  43% (45/104)        
+2022-10-16T21:03:22.3481988Z remote: Counting objects:  44% (46/104)        
+2022-10-16T21:03:22.3482704Z remote: Counting objects:  45% (47/104)        
+2022-10-16T21:03:22.3484180Z remote: Counting objects:  46% (48/104)        
+2022-10-16T21:03:22.3485134Z remote: Counting objects:  47% (49/104)        
+2022-10-16T21:03:22.3485920Z remote: Counting objects:  48% (50/104)        
+2022-10-16T21:03:22.3486815Z remote: Counting objects:  49% (51/104)        
+2022-10-16T21:03:22.3487692Z remote: Counting objects:  50% (52/104)        
+2022-10-16T21:03:22.3489073Z remote: Counting objects:  51% (54/104)        
+2022-10-16T21:03:22.3489390Z remote: Counting objects:  52% (55/104)        
+2022-10-16T21:03:22.3489689Z remote: Counting objects:  53% (56/104)        
+2022-10-16T21:03:22.3490380Z remote: Counting objects:  54% (57/104)        
+2022-10-16T21:03:22.3490841Z remote: Counting objects:  55% (58/104)        
+2022-10-16T21:03:22.3491163Z remote: Counting objects:  56% (59/104)        
+2022-10-16T21:03:22.3491936Z remote: Counting objects:  57% (60/104)        
+2022-10-16T21:03:22.3492395Z remote: Counting objects:  58% (61/104)        
+2022-10-16T21:03:22.3492955Z remote: Counting objects:  59% (62/104)        
+2022-10-16T21:03:22.3493390Z remote: Counting objects:  60% (63/104)        
+2022-10-16T21:03:22.3497840Z remote: Counting objects:  61% (64/104)        
+2022-10-16T21:03:22.3498541Z remote: Counting objects:  62% (65/104)        
+2022-10-16T21:03:22.3498837Z remote: Counting objects:  63% (66/104)        
+2022-10-16T21:03:22.3499153Z remote: Counting objects:  64% (67/104)        
+2022-10-16T21:03:22.3499617Z remote: Counting objects:  65% (68/104)        
+2022-10-16T21:03:22.3500070Z remote: Counting objects:  66% (69/104)        
+2022-10-16T21:03:22.3500411Z remote: Counting objects:  67% (70/104)        
+2022-10-16T21:03:22.3500708Z remote: Counting objects:  68% (71/104)        
+2022-10-16T21:03:22.3501008Z remote: Counting objects:  69% (72/104)        
+2022-10-16T21:03:22.3501452Z remote: Counting objects:  70% (73/104)        
+2022-10-16T21:03:22.3501885Z remote: Counting objects:  71% (74/104)        
+2022-10-16T21:03:22.3502141Z remote: Counting objects:  72% (75/104)        
+2022-10-16T21:03:22.3502466Z remote: Counting objects:  73% (76/104)        
+2022-10-16T21:03:22.3502711Z remote: Counting objects:  74% (77/104)        
+2022-10-16T21:03:22.3503141Z remote: Counting objects:  75% (78/104)        
+2022-10-16T21:03:22.3504130Z remote: Counting objects:  76% (80/104)        
+2022-10-16T21:03:22.3504422Z remote: Counting objects:  77% (81/104)        
+2022-10-16T21:03:22.3504886Z remote: Counting objects:  78% (82/104)        
+2022-10-16T21:03:22.3505327Z remote: Counting objects:  79% (83/104)        
+2022-10-16T21:03:22.3505622Z remote: Counting objects:  80% (84/104)        
+2022-10-16T21:03:22.3505940Z remote: Counting objects:  81% (85/104)        
+2022-10-16T21:03:22.3507050Z remote: Counting objects:  82% (86/104)        
+2022-10-16T21:03:22.3507373Z remote: Counting objects:  83% (87/104)        
+2022-10-16T21:03:22.3507668Z remote: Counting objects:  84% (88/104)        
+2022-10-16T21:03:22.3508276Z remote: Counting objects:  85% (89/104)        
+2022-10-16T21:03:22.3508719Z remote: Counting objects:  86% (90/104)        
+2022-10-16T21:03:22.3509292Z remote: Counting objects:  87% (91/104)        
+2022-10-16T21:03:22.3509654Z remote: Counting objects:  88% (92/104)        
+2022-10-16T21:03:22.3509907Z remote: Counting objects:  89% (93/104)        
+2022-10-16T21:03:22.3510158Z remote: Counting objects:  90% (94/104)        
+2022-10-16T21:03:22.3510561Z remote: Counting objects:  91% (95/104)        
+2022-10-16T21:03:22.3511085Z remote: Counting objects:  92% (96/104)        
+2022-10-16T21:03:22.3511396Z remote: Counting objects:  93% (97/104)        
+2022-10-16T21:03:22.3511663Z remote: Counting objects:  94% (98/104)        
+2022-10-16T21:03:22.3512290Z remote: Counting objects:  95% (99/104)        
+2022-10-16T21:03:22.3512771Z remote: Counting objects:  96% (100/104)        
+2022-10-16T21:03:22.3513062Z remote: Counting objects:  97% (101/104)        
+2022-10-16T21:03:22.3513351Z remote: Counting objects:  98% (102/104)        
+2022-10-16T21:03:22.3513617Z remote: Counting objects:  99% (103/104)        
+2022-10-16T21:03:22.3513902Z remote: Counting objects: 100% (104/104)        
+2022-10-16T21:03:22.3514199Z remote: Counting objects: 100% (104/104), done.        
+2022-10-16T21:03:22.3514511Z remote: Compressing objects:   1% (1/78)        
+2022-10-16T21:03:22.3514787Z remote: Compressing objects:   2% (2/78)        
+2022-10-16T21:03:22.3515158Z remote: Compressing objects:   3% (3/78)        
+2022-10-16T21:03:22.3515466Z remote: Compressing objects:   5% (4/78)        
+2022-10-16T21:03:22.3515758Z remote: Compressing objects:   6% (5/78)        
+2022-10-16T21:03:22.3518498Z remote: Compressing objects:   7% (6/78)        
+2022-10-16T21:03:22.3522906Z remote: Compressing objects:   8% (7/78)        
+2022-10-16T21:03:22.3523212Z remote: Compressing objects:  10% (8/78)        
+2022-10-16T21:03:22.3523493Z remote: Compressing objects:  11% (9/78)        
+2022-10-16T21:03:22.3523920Z remote: Compressing objects:  12% (10/78)        
+2022-10-16T21:03:22.3524195Z remote: Compressing objects:  14% (11/78)        
+2022-10-16T21:03:22.3526656Z remote: Compressing objects:  15% (12/78)        
+2022-10-16T21:03:22.3526950Z remote: Compressing objects:  16% (13/78)        
+2022-10-16T21:03:22.3527226Z remote: Compressing objects:  17% (14/78)        
+2022-10-16T21:03:22.4076583Z remote: Compressing objects:  19% (15/78)        
+2022-10-16T21:03:22.4079049Z remote: Compressing objects:  20% (16/78)        
+2022-10-16T21:03:22.4079790Z remote: Compressing objects:  21% (17/78)        
+2022-10-16T21:03:22.4080588Z remote: Compressing objects:  23% (18/78)        
+2022-10-16T21:03:22.4080888Z remote: Compressing objects:  24% (19/78)        
+2022-10-16T21:03:22.4085729Z remote: Compressing objects:  25% (20/78)        
+2022-10-16T21:03:22.4086370Z remote: Compressing objects:  26% (21/78)        
+2022-10-16T21:03:22.4086961Z remote: Compressing objects:  28% (22/78)        
+2022-10-16T21:03:22.4087706Z remote: Compressing objects:  29% (23/78)        
+2022-10-16T21:03:22.4088327Z remote: Compressing objects:  30% (24/78)        
+2022-10-16T21:03:22.4089192Z remote: Compressing objects:  32% (25/78)        
+2022-10-16T21:03:22.4090107Z remote: Compressing objects:  33% (26/78)        
+2022-10-16T21:03:22.4091121Z remote: Compressing objects:  34% (27/78)        
+2022-10-16T21:03:22.4091842Z remote: Compressing objects:  35% (28/78)        
+2022-10-16T21:03:22.4092722Z remote: Compressing objects:  37% (29/78)        
+2022-10-16T21:03:22.4093597Z remote: Compressing objects:  38% (30/78)        
+2022-10-16T21:03:22.4094274Z remote: Compressing objects:  39% (31/78)        
+2022-10-16T21:03:22.4095956Z remote: Compressing objects:  41% (32/78)        
+2022-10-16T21:03:22.4096241Z remote: Compressing objects:  42% (33/78)        
+2022-10-16T21:03:22.4096524Z remote: Compressing objects:  43% (34/78)        
+2022-10-16T21:03:22.4096788Z remote: Compressing objects:  44% (35/78)        
+2022-10-16T21:03:22.4097062Z remote: Compressing objects:  46% (36/78)        
+2022-10-16T21:03:22.4097332Z remote: Compressing objects:  47% (37/78)        
+2022-10-16T21:03:22.4097601Z remote: Compressing objects:  48% (38/78)        
+2022-10-16T21:03:22.4097853Z remote: Compressing objects:  50% (39/78)        
+2022-10-16T21:03:22.4098126Z remote: Compressing objects:  51% (40/78)        
+2022-10-16T21:03:22.4098393Z remote: Compressing objects:  52% (41/78)        
+2022-10-16T21:03:22.4098664Z remote: Compressing objects:  53% (42/78)        
+2022-10-16T21:03:22.4098919Z remote: Compressing objects:  55% (43/78)        
+2022-10-16T21:03:22.4099265Z remote: Compressing objects:  56% (44/78)        
+2022-10-16T21:03:22.4099551Z remote: Compressing objects:  57% (45/78)        
+2022-10-16T21:03:22.4099828Z remote: Compressing objects:  58% (46/78)        
+2022-10-16T21:03:22.4100910Z remote: Compressing objects:  60% (47/78)        
+2022-10-16T21:03:22.4101187Z remote: Compressing objects:  61% (48/78)        
+2022-10-16T21:03:22.4101478Z remote: Compressing objects:  62% (49/78)        
+2022-10-16T21:03:22.4101766Z remote: Compressing objects:  64% (50/78)        
+2022-10-16T21:03:22.4102058Z remote: Compressing objects:  65% (51/78)        
+2022-10-16T21:03:22.4102333Z remote: Compressing objects:  66% (52/78)        
+2022-10-16T21:03:22.4102619Z remote: Compressing objects:  67% (53/78)        
+2022-10-16T21:03:22.4102907Z remote: Compressing objects:  69% (54/78)        
+2022-10-16T21:03:22.4103317Z remote: Compressing objects:  70% (55/78)        
+2022-10-16T21:03:22.4103609Z remote: Compressing objects:  71% (56/78)        
+2022-10-16T21:03:22.4103899Z remote: Compressing objects:  73% (57/78)        
+2022-10-16T21:03:22.4104190Z remote: Compressing objects:  74% (58/78)        
+2022-10-16T21:03:22.4104481Z remote: Compressing objects:  75% (59/78)        
+2022-10-16T21:03:22.4104760Z remote: Compressing objects:  76% (60/78)        
+2022-10-16T21:03:22.4105046Z remote: Compressing objects:  78% (61/78)        
+2022-10-16T21:03:22.4105486Z remote: Compressing objects:  79% (62/78)        
+2022-10-16T21:03:22.4105762Z remote: Compressing objects:  80% (63/78)        
+2022-10-16T21:03:22.4106026Z remote: Compressing objects:  82% (64/78)        
+2022-10-16T21:03:22.4106303Z remote: Compressing objects:  83% (65/78)        
+2022-10-16T21:03:22.4106581Z remote: Compressing objects:  84% (66/78)        
+2022-10-16T21:03:22.4106860Z remote: Compressing objects:  85% (67/78)        
+2022-10-16T21:03:22.4107124Z remote: Compressing objects:  87% (68/78)        
+2022-10-16T21:03:22.4107404Z remote: Compressing objects:  88% (69/78)        
+2022-10-16T21:03:22.4107859Z remote: Compressing objects:  89% (70/78)        
+2022-10-16T21:03:22.4108365Z remote: Compressing objects:  91% (71/78)        
+2022-10-16T21:03:22.4108645Z remote: Compressing objects:  92% (72/78)        
+2022-10-16T21:03:22.4108945Z remote: Compressing objects:  93% (73/78)        
+2022-10-16T21:03:22.4109586Z remote: Compressing objects:  94% (74/78)        
+2022-10-16T21:03:22.4109864Z remote: Compressing objects:  96% (75/78)        
+2022-10-16T21:03:22.4110123Z remote: Compressing objects:  97% (76/78)        
+2022-10-16T21:03:22.4110582Z remote: Compressing objects:  98% (77/78)        
+2022-10-16T21:03:22.4110866Z remote: Compressing objects: 100% (78/78)        
+2022-10-16T21:03:22.4111165Z remote: Compressing objects: 100% (78/78), done.        
+2022-10-16T21:03:22.4236428Z Receiving objects:   0% (1/104)
+2022-10-16T21:03:22.4237097Z Receiving objects:   1% (2/104)
+2022-10-16T21:03:22.4237768Z Receiving objects:   2% (3/104)
+2022-10-16T21:03:22.4238508Z Receiving objects:   3% (4/104)
+2022-10-16T21:03:22.4239426Z Receiving objects:   4% (5/104)
+2022-10-16T21:03:22.4240288Z Receiving objects:   5% (6/104)
+2022-10-16T21:03:22.4240665Z Receiving objects:   6% (7/104)
+2022-10-16T21:03:22.4241516Z Receiving objects:   7% (8/104)
+2022-10-16T21:03:22.4242682Z Receiving objects:   8% (9/104)
+2022-10-16T21:03:22.4243242Z Receiving objects:   9% (10/104)
+2022-10-16T21:03:22.4243830Z Receiving objects:  10% (11/104)
+2022-10-16T21:03:22.4244389Z Receiving objects:  11% (12/104)
+2022-10-16T21:03:22.4245016Z Receiving objects:  12% (13/104)
+2022-10-16T21:03:22.4246094Z Receiving objects:  13% (14/104)
+2022-10-16T21:03:22.4246684Z Receiving objects:  14% (15/104)
+2022-10-16T21:03:22.4247230Z Receiving objects:  15% (16/104)
+2022-10-16T21:03:22.4247889Z Receiving objects:  16% (17/104)
+2022-10-16T21:03:22.4257382Z Receiving objects:  17% (18/104)
+2022-10-16T21:03:22.4827440Z Receiving objects:  18% (19/104)
+2022-10-16T21:03:22.4827941Z Receiving objects:  19% (20/104)
+2022-10-16T21:03:22.4828388Z Receiving objects:  20% (21/104)
+2022-10-16T21:03:22.4832842Z Receiving objects:  21% (22/104)
+2022-10-16T21:03:22.4833911Z Receiving objects:  22% (23/104)
+2022-10-16T21:03:22.4834322Z Receiving objects:  23% (24/104)
+2022-10-16T21:03:22.4921895Z Receiving objects:  24% (25/104)
+2022-10-16T21:03:22.4922403Z Receiving objects:  25% (26/104)
+2022-10-16T21:03:22.4923043Z Receiving objects:  26% (28/104)
+2022-10-16T21:03:22.4923461Z Receiving objects:  27% (29/104)
+2022-10-16T21:03:22.5003994Z Receiving objects:  28% (30/104)
+2022-10-16T21:03:22.5013989Z Receiving objects:  29% (31/104)
+2022-10-16T21:03:22.5014584Z Receiving objects:  30% (32/104)
+2022-10-16T21:03:22.5015438Z Receiving objects:  31% (33/104)
+2022-10-16T21:03:22.5015920Z Receiving objects:  32% (34/104)
+2022-10-16T21:03:22.5016925Z Receiving objects:  33% (35/104)
+2022-10-16T21:03:22.5017584Z Receiving objects:  34% (36/104)
+2022-10-16T21:03:22.5580044Z Receiving objects:  35% (37/104)
+2022-10-16T21:03:22.5581257Z Receiving objects:  36% (38/104)
+2022-10-16T21:03:22.5583575Z Receiving objects:  37% (39/104)
+2022-10-16T21:03:22.5668022Z Receiving objects:  38% (40/104)
+2022-10-16T21:03:22.5671096Z Receiving objects:  39% (41/104)
+2022-10-16T21:03:22.5678250Z Receiving objects:  40% (42/104)
+2022-10-16T21:03:22.5678916Z Receiving objects:  41% (43/104)
+2022-10-16T21:03:22.5681908Z Receiving objects:  42% (44/104)
+2022-10-16T21:03:22.5683028Z Receiving objects:  43% (45/104)
+2022-10-16T21:03:22.5684395Z Receiving objects:  44% (46/104)
+2022-10-16T21:03:22.5685372Z Receiving objects:  45% (47/104)
+2022-10-16T21:03:22.5685836Z Receiving objects:  46% (48/104)
+2022-10-16T21:03:22.5686579Z Receiving objects:  47% (49/104)
+2022-10-16T21:03:22.5687238Z Receiving objects:  48% (50/104)
+2022-10-16T21:03:22.5687913Z Receiving objects:  49% (51/104)
+2022-10-16T21:03:22.5688572Z Receiving objects:  50% (52/104)
+2022-10-16T21:03:22.5689426Z Receiving objects:  51% (54/104)
+2022-10-16T21:03:22.5690757Z Receiving objects:  52% (55/104)
+2022-10-16T21:03:22.5691329Z Receiving objects:  53% (56/104)
+2022-10-16T21:03:22.5692157Z Receiving objects:  54% (57/104)
+2022-10-16T21:03:22.5692857Z Receiving objects:  55% (58/104)
+2022-10-16T21:03:22.5693802Z Receiving objects:  56% (59/104)
+2022-10-16T21:03:22.5694703Z Receiving objects:  57% (60/104)
+2022-10-16T21:03:22.5695550Z Receiving objects:  58% (61/104)
+2022-10-16T21:03:22.5696255Z Receiving objects:  59% (62/104)
+2022-10-16T21:03:22.5696947Z Receiving objects:  60% (63/104)
+2022-10-16T21:03:22.5697701Z Receiving objects:  61% (64/104)
+2022-10-16T21:03:22.5698391Z Receiving objects:  62% (65/104)
+2022-10-16T21:03:22.5699064Z Receiving objects:  63% (66/104)
+2022-10-16T21:03:22.5699862Z Receiving objects:  64% (67/104)
+2022-10-16T21:03:22.5700489Z Receiving objects:  65% (68/104)
+2022-10-16T21:03:22.5701147Z Receiving objects:  66% (69/104)
+2022-10-16T21:03:22.5701801Z Receiving objects:  67% (70/104)
+2022-10-16T21:03:22.5702445Z Receiving objects:  68% (71/104)
+2022-10-16T21:03:22.5703078Z Receiving objects:  69% (72/104)
+2022-10-16T21:03:22.5703740Z Receiving objects:  70% (73/104)
+2022-10-16T21:03:22.5704514Z Receiving objects:  71% (74/104)
+2022-10-16T21:03:22.5705304Z Receiving objects:  72% (75/104)
+2022-10-16T21:03:22.5705978Z Receiving objects:  73% (76/104)
+2022-10-16T21:03:22.5706662Z Receiving objects:  74% (77/104)
+2022-10-16T21:03:22.5707479Z Receiving objects:  75% (78/104)
+2022-10-16T21:03:22.5708126Z Receiving objects:  76% (80/104)
+2022-10-16T21:03:22.5709659Z Receiving objects:  77% (81/104)
+2022-10-16T21:03:22.5710608Z Receiving objects:  78% (82/104)
+2022-10-16T21:03:22.5711607Z Receiving objects:  79% (83/104)
+2022-10-16T21:03:22.7103693Z Receiving objects:  80% (84/104)
+2022-10-16T21:03:22.7106269Z Receiving objects:  81% (85/104)
+2022-10-16T21:03:22.7108558Z Receiving objects:  82% (86/104)
+2022-10-16T21:03:22.7111176Z Receiving objects:  83% (87/104)
+2022-10-16T21:03:22.7113490Z Receiving objects:  84% (88/104)
+2022-10-16T21:03:22.7116086Z Receiving objects:  85% (89/104)
+2022-10-16T21:03:22.7118880Z Receiving objects:  86% (90/104)
+2022-10-16T21:03:22.7121769Z Receiving objects:  87% (91/104)
+2022-10-16T21:03:22.7125824Z Receiving objects:  88% (92/104)
+2022-10-16T21:03:22.7155993Z Receiving objects:  89% (93/104)
+2022-10-16T21:03:22.7156828Z Receiving objects:  90% (94/104)
+2022-10-16T21:03:22.7160673Z Receiving objects:  91% (95/104)
+2022-10-16T21:03:22.7163986Z Receiving objects:  92% (96/104)
+2022-10-16T21:03:22.7164251Z Receiving objects:  93% (97/104)
+2022-10-16T21:03:22.7164494Z Receiving objects:  94% (98/104)
+2022-10-16T21:03:22.7164732Z Receiving objects:  95% (99/104)
+2022-10-16T21:03:22.7267423Z Receiving objects:  96% (100/104)
+2022-10-16T21:03:22.7268662Z remote: Total 104 (delta 28), reused 71 (delta 3), pack-reused 0        
+2022-10-16T21:03:22.7294530Z Receiving objects:  97% (101/104)
+2022-10-16T21:03:22.7295266Z Receiving objects:  98% (102/104)
+2022-10-16T21:03:22.7299053Z Receiving objects:  99% (103/104)
+2022-10-16T21:03:22.7299570Z Receiving objects: 100% (104/104)
+2022-10-16T21:03:22.7300118Z Receiving objects: 100% (104/104), 757.71 KiB | 2.41 MiB/s, done.
+2022-10-16T21:03:22.7312954Z Resolving deltas:   0% (0/28)
+2022-10-16T21:03:22.7320818Z Resolving deltas:   3% (1/28)
+2022-10-16T21:03:22.7330271Z Resolving deltas:   7% (2/28)
+2022-10-16T21:03:22.7334676Z Resolving deltas:  10% (3/28)
+2022-10-16T21:03:22.7341117Z Resolving deltas:  14% (4/28)
+2022-10-16T21:03:22.7345642Z Resolving deltas:  17% (5/28)
+2022-10-16T21:03:22.7349054Z Resolving deltas:  21% (6/28)
+2022-10-16T21:03:22.7350246Z Resolving deltas:  25% (7/28)
+2022-10-16T21:03:22.7351615Z Resolving deltas:  28% (8/28)
+2022-10-16T21:03:22.7352573Z Resolving deltas:  32% (9/28)
+2022-10-16T21:03:22.7353487Z Resolving deltas:  35% (10/28)
+2022-10-16T21:03:22.7354756Z Resolving deltas:  39% (11/28)
+2022-10-16T21:03:22.7355719Z Resolving deltas:  42% (12/28)
+2022-10-16T21:03:22.7356589Z Resolving deltas:  46% (13/28)
+2022-10-16T21:03:22.7357282Z Resolving deltas:  50% (14/28)
+2022-10-16T21:03:22.7358435Z Resolving deltas:  53% (15/28)
+2022-10-16T21:03:22.7359229Z Resolving deltas:  57% (16/28)
+2022-10-16T21:03:22.7359966Z Resolving deltas:  60% (17/28)
+2022-10-16T21:03:22.7360823Z Resolving deltas:  64% (18/28)
+2022-10-16T21:03:22.7361808Z Resolving deltas:  67% (19/28)
+2022-10-16T21:03:22.7362675Z Resolving deltas:  71% (20/28)
+2022-10-16T21:03:22.7363381Z Resolving deltas:  75% (21/28)
+2022-10-16T21:03:22.7364251Z Resolving deltas:  78% (22/28)
+2022-10-16T21:03:22.7365345Z Resolving deltas:  82% (23/28)
+2022-10-16T21:03:22.7370168Z Resolving deltas:  85% (24/28)
+2022-10-16T21:03:22.7376777Z Resolving deltas:  89% (25/28)
+2022-10-16T21:03:22.7388855Z Resolving deltas:  92% (26/28)
+2022-10-16T21:03:22.7481042Z Resolving deltas:  96% (27/28)
+2022-10-16T21:03:22.7481564Z Resolving deltas: 100% (28/28)
+2022-10-16T21:03:22.7481786Z Resolving deltas: 100% (28/28), done.
+2022-10-16T21:03:22.7601244Z From https://github.com/AlphaSteam/microprint-generator
+2022-10-16T21:03:22.7602060Z  * [new ref]         3f9fb85a9c255c04b811186b8adf0ebaf0eaf4be -> origin/matrix_actions
+2022-10-16T21:03:22.7626527Z ##[endgroup]
+2022-10-16T21:03:22.7627211Z ##[group]Determining the checkout info
+2022-10-16T21:03:22.7634576Z ##[endgroup]
+2022-10-16T21:03:22.7635437Z ##[group]Checking out the ref
+2022-10-16T21:03:22.7719862Z [command]/usr/bin/git checkout --progress --force -B matrix_actions refs/remotes/origin/matrix_actions
+2022-10-16T21:03:22.7956245Z Switched to a new branch 'matrix_actions'
+2022-10-16T21:03:22.7956712Z branch 'matrix_actions' set up to track 'origin/matrix_actions'.
+2022-10-16T21:03:22.7961245Z ##[endgroup]
+2022-10-16T21:03:22.7995474Z [command]/usr/bin/git log -1 --format='%H'
+2022-10-16T21:03:22.8031127Z '3f9fb85a9c255c04b811186b8adf0ebaf0eaf4be'
+2022-10-16T21:03:22.8472218Z ##[group]Run ./
+2022-10-16T21:03:22.8472440Z with:
+2022-10-16T21:03:22.8472647Z   microprint_render_method: raster
+2022-10-16T21:03:22.8472871Z   log_path: ./Examples/Mid-job/logs
+2022-10-16T21:03:22.8473133Z   microprint_path: ./Examples/Mid-job/microprint
+2022-10-16T21:03:22.8473404Z   microprint_config_path: ./Examples/Mid-job/
+2022-10-16T21:03:22.8473679Z   repository: AlphaSteam/microprint-generator
+2022-10-16T21:03:22.8474099Z   github_token: ***
+2022-10-16T21:03:22.8474506Z   job_name: generate_microprint_mid_job_matrix
+2022-10-16T21:03:22.8474748Z   ref: refs/heads/matrix_actions
+2022-10-16T21:03:22.8474958Z   log_filename: logs
+2022-10-16T21:03:22.8475310Z   save_log: true
+2022-10-16T21:03:22.8475701Z   microprint_filename: microprint
+2022-10-16T21:03:22.8475950Z   microprint_config_filename: config
+2022-10-16T21:03:22.8476215Z   generate_microprint_visualizer_link: true
+2022-10-16T21:03:22.8476515Z   microprint_visualizer_link_filename: microprint_visualizer
+2022-10-16T21:03:22.8477796Z   microprint_visualizer_link_path: ./
+2022-10-16T21:03:22.8478080Z   matrix: {
+  "os": "macos-latest",
+  "version": 1.6
+}
+2022-10-16T21:03:22.8478319Z ##[endgroup]
+2022-10-16T21:03:22.8612244Z ##[group]Building docker image
+2022-10-16T21:03:22.8612585Z Dockerfile for action: '/home/runner/work/microprint-generator/microprint-generator/./Dockerfile'.
+2022-10-16T21:03:22.8613875Z ##[command]/usr/bin/docker build -t 8d5581:d5bb21b2d2c35991623e9b8c8cae6fc7 -f "/home/runner/work/microprint-generator/microprint-generator/./Dockerfile" "/home/runner/work/microprint-generator/microprint-generator"
+2022-10-16T21:03:22.9760530Z Sending build context to Docker daemon  4.307MB
+2022-10-16T21:03:22.9761055Z 
+2022-10-16T21:03:22.9824796Z Step 1/6 : FROM python:3
+2022-10-16T21:03:24.2480647Z 3: Pulling from library/python
+2022-10-16T21:03:24.5662270Z f606d8928ed3: Already exists
+2022-10-16T21:03:24.5692005Z 47db815c6a45: Already exists
+2022-10-16T21:03:24.5760864Z bf4849400000: Already exists
+2022-10-16T21:03:24.5798225Z a572f7a256d3: Already exists
+2022-10-16T21:03:24.5836797Z 8f7d05258955: Already exists
+2022-10-16T21:03:24.5909045Z 7110f04115ae: Pulling fs layer
+2022-10-16T21:03:24.5912794Z 967c89122295: Pulling fs layer
+2022-10-16T21:03:24.5913153Z 9f28dfdab382: Pulling fs layer
+2022-10-16T21:03:24.5913641Z 5e971b2ac572: Pulling fs layer
+2022-10-16T21:03:24.5914772Z 5e971b2ac572: Waiting
+2022-10-16T21:03:24.9047873Z 9f28dfdab382: Verifying Checksum
+2022-10-16T21:03:24.9048177Z 9f28dfdab382: Download complete
+2022-10-16T21:03:24.9749351Z 7110f04115ae: Verifying Checksum
+2022-10-16T21:03:24.9749998Z 7110f04115ae: Download complete
+2022-10-16T21:03:25.0936404Z 967c89122295: Verifying Checksum
+2022-10-16T21:03:25.0937100Z 967c89122295: Download complete
+2022-10-16T21:03:25.2611168Z 5e971b2ac572: Verifying Checksum
+2022-10-16T21:03:25.2611540Z 5e971b2ac572: Download complete
+2022-10-16T21:03:25.5838335Z 7110f04115ae: Pull complete
+2022-10-16T21:03:26.4804796Z 967c89122295: Pull complete
+2022-10-16T21:03:26.5469062Z 9f28dfdab382: Pull complete
+2022-10-16T21:03:26.9825265Z 5e971b2ac572: Pull complete
+2022-10-16T21:03:26.9926515Z Digest: sha256:3e15ea73ac5c1f9408d8dc9eeb8297ece8e727f3004129a829519230c7de720c
+2022-10-16T21:03:26.9967788Z Status: Downloaded newer image for python:3
+2022-10-16T21:03:26.9986959Z  ---> f05c8762fe15
+2022-10-16T21:03:26.9987245Z Step 2/6 : COPY requirements.txt /requirements.txt
+2022-10-16T21:03:29.8725679Z  ---> b23555a72728
+2022-10-16T21:03:29.8726002Z Step 3/6 : RUN pip install -r /requirements.txt
+2022-10-16T21:03:29.9136914Z  ---> Running in 331cfe0831e5
+2022-10-16T21:03:32.2312546Z Collecting pillow
+2022-10-16T21:03:32.2580581Z   Downloading Pillow-9.2.0-cp310-cp310-manylinux_2_28_x86_64.whl (3.2 MB)
+2022-10-16T21:03:32.2962769Z      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 3.2/3.2 MB 91.2 MB/s eta 0:00:00
+2022-10-16T21:03:32.3595813Z Collecting requests
+2022-10-16T21:03:32.3639348Z   Downloading requests-2.28.1-py3-none-any.whl (62 kB)
+2022-10-16T21:03:32.3710019Z      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 62.8/62.8 kB 11.9 MB/s eta 0:00:00
+2022-10-16T21:03:32.4070897Z Collecting svgwrite
+2022-10-16T21:03:32.4126075Z   Downloading svgwrite-1.4.3-py3-none-any.whl (67 kB)
+2022-10-16T21:03:32.4180558Z      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 67.1/67.1 kB 22.2 MB/s eta 0:00:00
+2022-10-16T21:03:32.4532687Z Collecting markdown-it-py[plugins]
+2022-10-16T21:03:32.4698773Z   Downloading markdown_it_py-2.1.0-py3-none-any.whl (84 kB)
+2022-10-16T21:03:32.4769597Z      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 84.5/84.5 kB 17.3 MB/s eta 0:00:00
+2022-10-16T21:03:32.5477717Z Collecting charset-normalizer<3,>=2
+2022-10-16T21:03:32.5515733Z   Downloading charset_normalizer-2.1.1-py3-none-any.whl (39 kB)
+2022-10-16T21:03:32.6085872Z Collecting urllib3<1.27,>=1.21.1
+2022-10-16T21:03:32.6153125Z   Downloading urllib3-1.26.12-py2.py3-none-any.whl (140 kB)
+2022-10-16T21:03:32.6224180Z      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 140.4/140.4 kB 36.3 MB/s eta 0:00:00
+2022-10-16T21:03:32.6534767Z Collecting certifi>=2017.4.17
+2022-10-16T21:03:32.6581249Z   Downloading certifi-2022.9.24-py3-none-any.whl (161 kB)
+2022-10-16T21:03:32.6706549Z      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 161.1/161.1 kB 37.9 MB/s eta 0:00:00
+2022-10-16T21:03:32.6939003Z Collecting idna<4,>=2.5
+2022-10-16T21:03:32.6994769Z   Downloading idna-3.4-py3-none-any.whl (61 kB)
+2022-10-16T21:03:32.7060280Z      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 61.5/61.5 kB 13.4 MB/s eta 0:00:00
+2022-10-16T21:03:32.7490206Z Collecting mdurl~=0.1
+2022-10-16T21:03:32.7525640Z   Downloading mdurl-0.1.2-py3-none-any.whl (10.0 kB)
+2022-10-16T21:03:32.7826754Z Collecting mdit-py-plugins
+2022-10-16T21:03:32.7874239Z   Downloading mdit_py_plugins-0.3.1-py3-none-any.whl (46 kB)
+2022-10-16T21:03:32.7934921Z      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 46.5/46.5 kB 10.2 MB/s eta 0:00:00
+2022-10-16T21:03:32.9665129Z Installing collected packages: urllib3, svgwrite, pillow, mdurl, idna, charset-normalizer, certifi, requests, markdown-it-py, mdit-py-plugins
+2022-10-16T21:03:33.7341942Z Successfully installed certifi-2022.9.24 charset-normalizer-2.1.1 idna-3.4 markdown-it-py-2.1.0 mdit-py-plugins-0.3.1 mdurl-0.1.2 pillow-9.2.0 requests-2.28.1 svgwrite-1.4.3 urllib3-1.26.12
+2022-10-16T21:03:33.7358200Z [91mWARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv
+2022-10-16T21:03:33.8383721Z [0m[91m
+2022-10-16T21:03:33.8384327Z [notice] A new release of pip available: 22.2.2 -> 22.3
+2022-10-16T21:03:33.8385031Z [notice] To update, run: pip install --upgrade pip
+2022-10-16T21:03:36.1642935Z [0mRemoving intermediate container 331cfe0831e5
+2022-10-16T21:03:36.1643231Z  ---> 96916b1e0603
+2022-10-16T21:03:36.1643473Z Step 4/6 : COPY script.py /script.py
+2022-10-16T21:03:37.4707835Z  ---> f9d118f15d05
+2022-10-16T21:03:37.4708211Z Step 5/6 : COPY microprint_generator.py /microprint_generator.py
+2022-10-16T21:03:38.7550148Z  ---> 8c0649cf45ff
+2022-10-16T21:03:38.7551164Z Step 6/6 : CMD ["python", "/script.py"]
+2022-10-16T21:03:38.7877310Z  ---> Running in 06562b714e13
+2022-10-16T21:03:40.0386286Z Removing intermediate container 06562b714e13
+2022-10-16T21:03:40.0386573Z  ---> 590bd610a151
+2022-10-16T21:03:40.0428130Z Successfully built 590bd610a151
+2022-10-16T21:03:40.0495895Z Successfully tagged 8d5581:d5bb21b2d2c35991623e9b8c8cae6fc7
+2022-10-16T21:03:40.0530768Z ##[endgroup]
+2022-10-16T21:03:40.0698314Z ##[command]/usr/bin/docker run --name d5581d5bb21b2d2c35991623e9b8c8cae6fc7_d48408 --label 8d5581 --workdir /github/workspace --rm -e "INPUT_MICROPRINT_RENDER_METHOD" -e "INPUT_LOG_PATH" -e "INPUT_MICROPRINT_PATH" -e "INPUT_MICROPRINT_CONFIG_PATH" -e "INPUT_REPOSITORY" -e "INPUT_GITHUB_TOKEN" -e "INPUT_JOB_ID" -e "INPUT_JOB_NAME" -e "INPUT_REF" -e "INPUT_LOG_FILENAME" -e "INPUT_SAVE_LOG" -e "INPUT_MICROPRINT_FILENAME" -e "INPUT_MICROPRINT_CONFIG_FILENAME" -e "INPUT_GENERATE_MICROPRINT_VISUALIZER_LINK" -e "INPUT_MICROPRINT_VISUALIZER_LINK_FILENAME" -e "INPUT_MICROPRINT_VISUALIZER_LINK_PATH" -e "INPUT_MATRIX" -e "HOME" -e "GITHUB_JOB" -e "GITHUB_REF" -e "GITHUB_SHA" -e "GITHUB_REPOSITORY" -e "GITHUB_REPOSITORY_OWNER" -e "GITHUB_RUN_ID" -e "GITHUB_RUN_NUMBER" -e "GITHUB_RETENTION_DAYS" -e "GITHUB_RUN_ATTEMPT" -e "GITHUB_ACTOR" -e "GITHUB_TRIGGERING_ACTOR" -e "GITHUB_WORKFLOW" -e "GITHUB_HEAD_REF" -e "GITHUB_BASE_REF" -e "GITHUB_EVENT_NAME" -e "GITHUB_SERVER_URL" -e "GITHUB_API_URL" -e "GITHUB_GRAPHQL_URL" -e "GITHUB_REF_NAME" -e "GITHUB_REF_PROTECTED" -e "GITHUB_REF_TYPE" -e "GITHUB_WORKSPACE" -e "GITHUB_ACTION" -e "GITHUB_EVENT_PATH" -e "GITHUB_ACTION_REPOSITORY" -e "GITHUB_ACTION_REF" -e "GITHUB_PATH" -e "GITHUB_ENV" -e "GITHUB_STEP_SUMMARY" -e "GITHUB_STATE" -e "GITHUB_OUTPUT" -e "RUNNER_OS" -e "RUNNER_ARCH" -e "RUNNER_NAME" -e "RUNNER_TOOL_CACHE" -e "RUNNER_TEMP" -e "RUNNER_WORKSPACE" -e "ACTIONS_RUNTIME_URL" -e "ACTIONS_RUNTIME_TOKEN" -e "ACTIONS_CACHE_URL" -e GITHUB_ACTIONS=true -e CI=true -v "/var/run/docker.sock":"/var/run/docker.sock" -v "/home/runner/work/_temp/_github_home":"/github/home" -v "/home/runner/work/_temp/_github_workflow":"/github/workflow" -v "/home/runner/work/_temp/_runner_file_commands":"/github/file_commands" -v "/home/runner/work/microprint-generator/microprint-generator":"/github/workspace" 8d5581:d5bb21b2d2c35991623e9b8c8cae6fc7
+2022-10-16T21:03:40.5787176Z DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): api.github.com:443
+2022-10-16T21:03:40.9860041Z DEBUG:urllib3.connectionpool:https://api.github.com:443 "GET /repos/AlphaSteam/microprint-generator HTTP/1.1" 200 None
+2022-10-16T21:03:40.9890266Z DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): api.github.com:443
+2022-10-16T21:03:41.5420061Z DEBUG:urllib3.connectionpool:https://api.github.com:443 "GET /repos/AlphaSteam/microprint-generator/actions/runs/3260910889/jobs HTTP/1.1" 200 None
+2022-10-16T21:03:41.5455112Z DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): api.github.com:443
+2022-10-16T21:03:41.9887196Z DEBUG:urllib3.connectionpool:https://api.github.com:443 "GET /repos/AlphaSteam/microprint-generator/actions/jobs/8919488382/logs HTTP/1.1" 302 0
+2022-10-16T21:03:41.9904471Z DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): pipelines.actions.githubusercontent.com:443
+2022-10-16T21:03:42.3090220Z DEBUG:urllib3.connectionpool:https://pipelines.actions.githubusercontent.com:443 "GET /serviceHosts/871f7675-65c0-436d-aa94-5c5a4536b9ce/_apis/pipelines/1/runs/211/signedlogcontent/13?urlExpires=2022-10-16T21%3A04%3A41.8778596Z&urlSigningMethod=HMACV1&urlSignature=juWxiCMJtiW5PO8%2BZw3CTs9R0O9Z7ZJ6NREA%2BfHfz94%3D HTTP/1.1" 200 None
+2022-10-16T21:03:42.3138142Z INFO:root:Generating raster microprint
+2022-10-16T21:03:42.3652142Z Without spaces
+2022-10-16T21:03:42.3652705Z string before:  ./Examples/Mid-job/logs (macos-latest, 1.6)
+2022-10-16T21:03:42.3653097Z string after:  ./Examples/Mid-job/logs-(macos-latest,-1.6)
+2022-10-16T21:03:42.3653348Z Without spaces
+2022-10-16T21:03:42.3653680Z string before:  ./Examples/Mid-job/microprint (macos-latest, 1.6)
+2022-10-16T21:03:42.3654064Z string after:  ./Examples/Mid-job/microprint-(macos-latest,-1.6)
+2022-10-16T21:03:42.5189456Z ##[group]Run git pull
+2022-10-16T21:03:42.5189732Z [36;1mgit pull[0m
+2022-10-16T21:03:42.5255241Z shell: /usr/bin/bash -e {0}
+2022-10-16T21:03:42.5255487Z ##[endgroup]
+2022-10-16T21:03:44.2289901Z From https://github.com/AlphaSteam/microprint-generator
+2022-10-16T21:03:44.2290554Z    3f9fb85..01b1b86  matrix_actions          -> origin/matrix_actions
+2022-10-16T21:03:44.2291133Z  * [new branch]      add_custom_rules        -> origin/add_custom_rules
+2022-10-16T21:03:44.2291651Z  * [new branch]      add_microprint_analysis -> origin/add_microprint_analysis
+2022-10-16T21:03:44.2310698Z  * [new branch]      add_multiple_columns    -> origin/add_multiple_columns
+2022-10-16T21:03:44.2311202Z  * [new branch]      create-pull-request/patch -> origin/create-pull-request/patch
+2022-10-16T21:03:44.2311603Z  * [new branch]      custom_fonts            -> origin/custom_fonts
+2022-10-16T21:03:44.2311963Z  * [new branch]      develop                 -> origin/develop
+2022-10-16T21:03:44.2312357Z  * [new branch]      main                    -> origin/main
+2022-10-16T21:03:44.2312797Z  * [new branch]      microprint_visualizer_integration -> origin/microprint_visualizer_integration
+2022-10-16T21:03:44.2313229Z  * [new branch]      reduce_code_duplication -> origin/reduce_code_duplication
+2022-10-16T21:03:44.2313617Z  * [new branch]      release/v1              -> origin/release/v1
+2022-10-16T21:03:44.2314221Z  * [new branch]      release/v2              -> origin/release/v2
+2022-10-16T21:03:44.2314586Z  * [new branch]      test_workflow           -> origin/test_workflow
+2022-10-16T21:03:44.2431605Z  * [new tag]         v1                      -> v1
+2022-10-16T21:03:44.2432361Z  * [new tag]         v1.0.0                  -> v1.0.0
+2022-10-16T21:03:44.2432952Z  * [new tag]         v2                      -> v2
+2022-10-16T21:03:44.2433543Z  * [new tag]         v2.0.0                  -> v2.0.0
+2022-10-16T21:03:44.2433953Z  * [new tag]         v3                      -> v3
+2022-10-16T21:03:44.2434375Z  * [new tag]         v3.0.0                  -> v3.0.0
+2022-10-16T21:03:44.2653907Z Updating 3f9fb85..01b1b86
+2022-10-16T21:03:44.2654694Z Fast-forward
+2022-10-16T21:03:44.2680031Z  Examples/Mid-job/logs-(windows-latest,-1.6)/logs.txt  |   5 +++++
+2022-10-16T21:03:44.2680637Z  Examples/Mid-job/logs/logs.txt                        |  10 +++++-----
+2022-10-16T21:03:44.2681181Z  .../microprint-(windows-latest,-1.6)/microprint.png   | Bin 0 -> 1216 bytes
+2022-10-16T21:03:44.2681743Z  Examples/Mid-job/microprint/microprint.png            | Bin 1213 -> 1233 bytes
+2022-10-16T21:03:44.2682343Z  4 files changed, 10 insertions(+), 5 deletions(-)
+2022-10-16T21:03:44.2684729Z  create mode 100644 Examples/Mid-job/logs-(windows-latest,-1.6)/logs.txt
+2022-10-16T21:03:44.2689417Z  create mode 100644 Examples/Mid-job/microprint-(windows-latest,-1.6)/microprint.png
+2022-10-16T21:03:44.2825069Z ##[group]Run stefanzweifel/git-auto-commit-action@v4
+2022-10-16T21:03:44.2825345Z with:
+2022-10-16T21:03:44.2825556Z   commit_message: Updated mid-job microprint
+2022-10-16T21:03:44.2825774Z   file_pattern: .
+2022-10-16T21:03:44.2825941Z   repository: .
+2022-10-16T21:03:44.2826148Z   commit_user_name: github-actions[bot]
+2022-10-16T21:03:44.2826424Z   commit_user_email: github-actions[bot]@users.noreply.github.com
+2022-10-16T21:03:44.2826740Z   commit_author: AlphaSteam <AlphaSteam@users.noreply.github.com>
+2022-10-16T21:03:44.2827267Z   skip_dirty_check: false
+2022-10-16T21:03:44.2827465Z   skip_fetch: false
+2022-10-16T21:03:44.2827661Z   skip_checkout: false
+2022-10-16T21:03:44.2827879Z   disable_globbing: false
+2022-10-16T21:03:44.2828063Z   create_branch: false
+2022-10-16T21:03:44.2828254Z ##[endgroup]
+2022-10-16T21:03:44.3244527Z Started: bash /home/runner/work/_actions/stefanzweifel/git-auto-commit-action/v4/entrypoint.sh
+2022-10-16T21:03:44.3297618Z INPUT_REPOSITORY value: .
+2022-10-16T21:03:44.3298003Z INPUT_STATUS_OPTIONS: 
+2022-10-16T21:03:44.3299687Z INPUT_FILE_PATTERN: .
+2022-10-16T21:03:44.3363727Z ##[warning]The `set-output` command is deprecated and will be disabled soon. Please upgrade to using Environment Files. For more information see: https://github.blog/changelog/2022-10-11-github-actions-deprecating-save-state-and-set-output-commands/
+2022-10-16T21:03:44.3375746Z INPUT_BRANCH value: 
+2022-10-16T21:03:45.3212858Z Your branch is up to date with 'origin/matrix_actions'.
+2022-10-16T21:03:45.3219356Z INPUT_ADD_OPTIONS: 
+2022-10-16T21:03:45.3222574Z INPUT_FILE_PATTERN: .
+2022-10-16T21:03:45.3253564Z INPUT_COMMIT_OPTIONS: 
+2022-10-16T21:03:45.3255450Z INPUT_COMMIT_USER_NAME: github-actions[bot]
+2022-10-16T21:03:45.3255858Z INPUT_COMMIT_USER_EMAIL: github-actions[bot]@users.noreply.github.com
+2022-10-16T21:03:45.3256205Z INPUT_COMMIT_MESSAGE: Updated mid-job microprint
+2022-10-16T21:03:45.3256512Z INPUT_COMMIT_AUTHOR: AlphaSteam <AlphaSteam@users.noreply.github.com>
+2022-10-16T21:03:45.3315919Z [matrix_actions 4b9a7f8] Updated mid-job microprint
+2022-10-16T21:03:45.3316267Z  Author: AlphaSteam <AlphaSteam@users.noreply.github.com>
+2022-10-16T21:03:45.3316555Z  2 files changed, 5 insertions(+)
+2022-10-16T21:03:45.3316932Z  create mode 100644 Examples/Mid-job/logs-(macos-latest,-1.6)/logs.txt
+2022-10-16T21:03:45.3317394Z  create mode 100644 Examples/Mid-job/microprint-(macos-latest,-1.6)/microprint.png
+2022-10-16T21:03:45.3338638Z ##[warning]The `set-output` command is deprecated and will be disabled soon. Please upgrade to using Environment Files. For more information see: https://github.blog/changelog/2022-10-11-github-actions-deprecating-save-state-and-set-output-commands/
+2022-10-16T21:03:45.3348908Z INPUT_TAGGING_MESSAGE: 
+2022-10-16T21:03:45.3349466Z No tagging message supplied. No tag will be added.
+2022-10-16T21:03:45.3352811Z INPUT_PUSH_OPTIONS: 
+2022-10-16T21:03:46.3053145Z To https://github.com/AlphaSteam/microprint-generator
+2022-10-16T21:03:46.3055204Z    01b1b86..4b9a7f8  matrix_actions -> matrix_actions
+2022-10-16T21:03:46.3222521Z Post job cleanup.
+2022-10-16T21:03:46.4765225Z [command]/usr/bin/git version
+2022-10-16T21:03:46.4824904Z git version 2.38.0
+2022-10-16T21:03:46.4885465Z Temporarily overriding HOME='/home/runner/work/_temp/4c9e2c2f-a8b4-4ad4-9e41-bc58d6f40ee6' before making global git config changes
+2022-10-16T21:03:46.4886972Z Adding repository directory to the temporary git global config as a safe directory
+2022-10-16T21:03:46.4891868Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/microprint-generator/microprint-generator
+2022-10-16T21:03:46.4940364Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2022-10-16T21:03:46.5039329Z [command]/usr/bin/git submodule foreach --recursive git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :
+2022-10-16T21:03:46.5307794Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2022-10-16T21:03:46.5327304Z http.https://github.com/.extraheader
+2022-10-16T21:03:46.5342617Z [command]/usr/bin/git config --local --unset-all http.https://github.com/.extraheader
+2022-10-16T21:03:46.5384090Z [command]/usr/bin/git submodule foreach --recursive git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :
+2022-10-16T21:03:46.5949892Z Cleaning up orphan processes
