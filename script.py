@@ -90,13 +90,12 @@ def get_logs(api):
         # TODO add matrix values to job_id
         current_job_id = job_id
     else:
-        print("aca")
         if matrix_values != None and matrix_values != "":
             print("matrix_values: ", matrix_values)
             matrix_values = matrix_values.values()
 
             print("matrix_values", matrix_values)
-            if matrix_values.length > 0:
+            if len(matrix_values) > 0:
                 job_name += " (" + ', '.join(map(str, matrix_values)) + ")"
 
         current_job_id = get_job_id(api, job_name, run_id)
