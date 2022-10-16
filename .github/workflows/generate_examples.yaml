@@ -202,10 +202,10 @@ jobs:
           uses: ./
           with:
               job_name: generate_microprint_mid_job_matrix
-              log_path: ./Examples/Mid-job/logs
-              microprint_path: ./Examples/Mid-job/microprint
-              microprint_config_path: ./Examples/Mid-job/
-              microprint_visualizer_link_path: ./Examples/Mid-job/microprint
+              log_path: ./Examples/Mid-job-matrix/logs
+              microprint_path: ./Examples/Mid-job-matrix/microprint
+              microprint_config_path: ./Examples/Mid-job-matrix/
+              microprint_visualizer_link_path: ./Examples/Mid-job-matrix/microprint
 
         - name: Pull Remote Changes
           run: git pull
