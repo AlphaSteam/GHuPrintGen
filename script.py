@@ -120,7 +120,7 @@ def remove_ansi_escape_sequences(text):
     return ansi_escape.sub('', text)
 
 
-def generate_visualizer_link():
+def generate_visualizer_link(api):
     microprint_visualizer_page = "https://alphasteam.github.io/microprint-visualizer/"
 
     link = f"{microprint_visualizer_page}?url=https://api.github.com/repos/{api.owner}/{api.repo}/contents/{microprint_filename}&ref={api.ref}"
@@ -176,7 +176,7 @@ def main():
         microprint_generator.render_microprint()
 
         if os.environ['INPUT_GENERATE_MICROPRINT_VISUALIZER_LINK']:
-            generate_visualizer_link()
+            generate_visualizer_link(api)
 
     else:
         microprint_filename = directory_path / \
