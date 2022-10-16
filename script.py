@@ -91,7 +91,7 @@ def get_logs(api):
         current_job_id = job_id
     else:
         print("aca")
-        if matrix_values != None:
+        if matrix_values != None and matrix_values != "":
             print("matrix_values: ", matrix_values)
             matrix_values = matrix_values.values()
 
