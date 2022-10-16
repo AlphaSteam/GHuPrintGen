@@ -40,13 +40,14 @@ def get_job_by_name(job_name, job_list):
             return job_obj
 
 
-def append_matrix_values(string, matrix_values):
+def append_matrix_values(string, matrix_values, with_spaces="false"):
 
     if matrix_values != None and matrix_values != "":
         matrix_values = matrix_values.values()
 
         if len(matrix_values) > 0:
-            string += " (" + ', '.join(map(str, matrix_values)) + ")"
+            string += f"{' ' if with_spaces == True else '-' }(" + ', '.join(
+                map(str, matrix_values)) + ")"
 
     return string
 
@@ -63,7 +64,8 @@ def get_job_id(api, matrix_values):
         # TODO add matrix values to job_id
         current_job_id = job_id
     else:
-        job_name = append_matrix_values(job_name, matrix_values)
+        job_name = append_matrix_values(
+            job_name, matrix_values, with_spaces=True)
 
         all_jobs = api.get(f"runs/{run_id}/jobs").json()
 
