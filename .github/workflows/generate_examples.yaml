@@ -36,7 +36,7 @@ jobs:
           branch: main
 
   generate_microprint_mid_job_matrix:
-    runs-on: ${{ matrix.os }}
+    runs-on: ubuntu-latest
 
     needs: generate_microprint_mid_job
 
@@ -48,8 +48,6 @@ jobs:
         max-parallel: 1
 
     steps:
-      - name: Run container as root
-        run: sudo chown -R $USER:$USER ${{ github.workspace }}
       - name: Checkout code
         uses: actions/checkout@v3
 
@@ -76,6 +74,18 @@ jobs:
         with:
           token: ${{ secrets.pat }}
           branch: main
+          
+      - name: Get Actions user id
+        id: get_uid
+        run: |
+          actions_user_id=`id -u $USER`
+          echo $actions_user_id
+          echo ::set-output name=uid::$actions_user_id
+
+      - name: Correct Ownership in GITHUB_WORKSPACE directory
+        uses: peter-murray/reset-workspace-ownership-action@v1
+        with:
+          user_id: ${{ steps.get_uid.outputs.uid }}
 
   generate_microprint_of_first_job_with_custom_rules:
     runs-on: ubuntu-latest
