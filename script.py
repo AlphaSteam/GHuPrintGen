@@ -92,6 +92,7 @@ def get_logs(api):
     else:
         print("aca")
         if matrix_values != None:
+            print("matrix_values: ", matrix_values)
             matrix_values = matrix_values.values()
 
             print("matrix_values", matrix_values)
