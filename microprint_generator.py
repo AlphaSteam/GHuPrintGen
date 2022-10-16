@@ -44,15 +44,13 @@ class MicroprintGenerator(ABC):
 
         self.output_filename = output_filename
 
-        if not os.path.exists(output_filename):
-            os.makedirs(output_filename)
-
         self.text_lines = text.split('\n')
 
         self._load_config_file()
 
         self.scale = self.rules.get("scale", 2)
         self.vertical_spacing = self.rules.get("vertical_spacing", 1)
+
         self.scale_with_spacing = self.scale * self.vertical_spacing
 
         self.scaled_microprint_height = len(
@@ -76,6 +74,7 @@ class MicroprintGenerator(ABC):
 
         self.column_gap_size = self.rules.get(
             "column_gap_size", 0.2) * self.scale
+
         self.column_gap_color = self.rules.get("column_gap_color", "white")
 
         self.microprint_width = (
