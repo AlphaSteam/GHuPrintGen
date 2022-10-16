@@ -106,8 +106,12 @@ def get_logs(api, matrix_values):
         save_path = directory_path / \
             (os.environ['INPUT_LOG_FILENAME'] + ".txt")
 
-        if not os.path.exists(directory_path):
-            os.makedirs(directory_path)
+        try:
+            if not os.path.exists(directory_path):
+                os.makedirs(directory_path)
+        except e:
+            print(
+                f"Directory: {directory_path} couldn't be created. Error: {e}")
 
         with open(save_path, 'w') as file:
             file.write(current_job_logs)
@@ -139,8 +143,11 @@ def generate_visualizer_link(api, microprint_filename, matrix_values):
     markdown_path = directory_path / Path(
         os.environ['INPUT_MICROPRINT_VISUALIZER_LINK_FILENAME'] + ".md")
 
-    if not os.path.exists(directory_path):
-        os.makedirs(directory_path)
+    try:
+        if not os.path.exists(directory_path):
+            os.makedirs(directory_path)
+    except e:
+        print(f"Directory: {directory_path} couldn't be created. Error: {e}")
 
     Path(markdown_path).write_text(markdown)
 
@@ -165,8 +172,12 @@ def main():
     directory_path = Path(append_matrix_values(
         os.environ['INPUT_MICROPRINT_PATH'], matrix_values))
 
-    if not os.path.exists(directory_path):
-        os.makedirs(directory_path)
+    try:
+        if not os.path.exists(directory_path):
+            os.makedirs(directory_path)
+    except e:
+        print(
+            f"Directory: {directory_path} couldn't be created. Error: {e}")
 
     if os.environ['INPUT_MICROPRINT_RENDER_METHOD'] == "svg":
         microprint_filename = directory_path / \
