@@ -58,6 +58,9 @@ jobs:
             microprint_path: ./Examples/Mid-job/microprint
             microprint_config_path: ./Examples/Mid-job/
 
+      - name: Pull Remote Changes
+        run: git pull
+
       - name: Commit microprint
         if: github.ref != 'refs/heads/main'
         uses: stefanzweifel/git-auto-commit-action@v4

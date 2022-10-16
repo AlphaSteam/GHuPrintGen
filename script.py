@@ -40,18 +40,45 @@ def get_job_by_name(job_name, job_list):
             return job_obj
 
 
-def get_job_id(api, job_name, run_id):
+def append_matrix_values(string, matrix_values):
+    if matrix_values != None and matrix_values != "":
+        matrix_values = matrix_values.values()
 
-    all_jobs = api.get(f"runs/{run_id}/jobs").json()
+        if len(matrix_values) > 0:
+            string += " (" + ', '.join(map(str, matrix_values)) + ")"
 
-    all_jobs = all_jobs["jobs"]
+    return string
 
-    print("all_jobs", all_jobs)
 
-    print("job_name", job_name)
-    job = get_job_by_name(job_name, all_jobs)
+def get_job_id(api, matrix_values):
 
-    return job["id"]
+    job_name = os.environ['INPUT_JOB_NAME']
+
+    run_id = os.environ['GITHUB_RUN_ID']
+
+    job_id = os.environ['INPUT_JOB_ID']
+
+    if matrix_values != None and matrix_values != "":
+        try:
+            matrix_values = json.loads(matrix_values)
+        except e:
+            pass
+
+    if job_id != None and job_id != "":
+        # TODO add matrix values to job_id
+        current_job_id = job_id
+    else:
+        job_name = append_matrix_values(job_name, matrix_values)
+
+        all_jobs = api.get(f"runs/{run_id}/jobs").json()
+
+        all_jobs = all_jobs["jobs"]
+
+        job = get_job_by_name(job_name, all_jobs)
+
+        current_job_id = job["id"]
+
+    return current_job_id
 
 
 def setup_api():
@@ -69,40 +96,13 @@ def setup_api():
     return Api(repo, owner, token, ref)
 
 
-def get_logs(api):
+def get_logs(api, matrix_values):
 
-    job_name = os.environ['INPUT_JOB_NAME']
+    job_id = get_job_id(api, matrix_values)
 
-    job_id = os.environ['INPUT_JOB_ID']
+    current_job_logs = api.get(f"jobs/{job_id}/logs").text
 
-    run_id = os.environ['GITHUB_RUN_ID']
-
-    matrix_values = os.environ.get("INPUT_MATRIX", None)
-
-    if matrix_values != None and matrix_values != "":
-        print(matrix_values)
-        try:
-            matrix_values = json.loads(matrix_values)
-        except e:
-            pass
-
-    if job_id != None and job_id != "":
-        # TODO add matrix values to job_id
-        current_job_id = job_id
-    else:
-        if matrix_values != None and matrix_values != "":
-            print("matrix_values: ", matrix_values)
-            matrix_values = matrix_values.values()
-
-            print("matrix_values", matrix_values)
-            if len(matrix_values) > 0:
-                job_name += " (" + ', '.join(map(str, matrix_values)) + ")"
-
-        current_job_id = get_job_id(api, job_name, run_id)
-
-    current_job_logs = api.get(f"jobs/{current_job_id}/logs").text
-
-    save_path = Path(os.environ['INPUT_LOG_PATH']) / \
+    save_path = Path(append_matrix_values(os.environ['INPUT_LOG_PATH'], matrix_values)) / \
         (os.environ['INPUT_LOG_FILENAME'] + ".txt")
 
     if os.environ['INPUT_SAVE_LOG'] == "true":
@@ -124,11 +124,14 @@ def main():
 
     api = setup_api()
 
-    logs = get_logs(api)
+    matrix_values = os.environ.get("INPUT_MATRIX", None)
+
+    logs = get_logs(api, matrix_values)
 
     logs = remove_ansi_escape_sequences(logs)
 
-    microprint_filename = Path(os.environ['INPUT_MICROPRINT_PATH'])
+    microprint_filename = Path(append_matrix_values(
+        os.environ['INPUT_MICROPRINT_PATH'], matrix_values))
 
     if os.environ['INPUT_MICROPRINT_RENDER_METHOD'] == "svg":
         microprint_filename = microprint_filename / \
@@ -150,7 +153,8 @@ def main():
             markdown = (
                 f"[Look at microprint with Microprint visualizer]({link})")
 
-            markdown_path = Path(os.environ['INPUT_MICROPRINT_VISUALIZER_LINK_PATH']) / Path(
+            markdown_path = Path(append_matrix_values(
+                os.environ['INPUT_MICROPRINT_VISUALIZER_LINK_PATH'], matrix_values)) / Path(
                 os.environ['INPUT_MICROPRINT_VISUALIZER_LINK_FILENAME'] + ".md")
 
             Path(markdown_path).write_text(markdown)
