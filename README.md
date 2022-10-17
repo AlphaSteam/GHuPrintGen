@@ -82,7 +82,7 @@ jobs:
             #
             # Default: ./
             
-            log_path: ./Examples/With-custom-rules/logs
+            log_path: ./Examples/With-custom-rules/
 
             # ====================================================================================
             # Microprint inputs
@@ -97,7 +97,7 @@ jobs:
             #
             # Default: ./
             
-            microprint_path: ./Examples/With-custom-rules/microprints
+            microprint_path: ./Examples/With-custom-rules/
 
             # How to render the microprint. There's two options, 'svg' and 'raster'. The latter has some limitations.
             # Mainly low resolution and lack of custom fonts.
@@ -138,19 +138,26 @@ jobs:
             #
             # Default: ./
             
-            microprint_visualizer_link_path: ./Examples/With-custom-rules/microprint
+            microprint_visualizer_link_path: ./Examples/With-custom-rules/
 
+            # ====================================================================================
+            # Matrix inputs
+            
+            # Matrix values. Only change if you want to hardcode the matrix values. NOT RECOMMENDED.
+            #
+            # Default: ${{matrix && toJSON(matrix)}}
 
-      # Pull changes before committing
-      - name: Pull Remote Changes
-        run: git pull
+            matrix: ${{matrix && toJSON(matrix)}}
+
 
       # Here you can use any action for committing the generated files. But if you don't commit them, they'll be lost.
+
       - name: Commit microprint
-        if: github.ref != 'refs/heads/main'
-        uses: stefanzweifel/git-auto-commit-action@v4
-        with:
-            commit_message: Updated custom rules microprint
+        uses: EndBug/add-and-commit@v9
+          with:
+            message: Updated custom rules microprint
+            pull: '--rebase --autostash'
+      
 ```
 ## Microprint rules
 
