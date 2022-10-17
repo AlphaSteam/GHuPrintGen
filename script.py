@@ -103,11 +103,10 @@ def get_logs(api, matrix_values):
     current_job_logs = api.get(f"jobs/{job_id}/logs").text
 
     if os.environ['INPUT_SAVE_LOG'] == "true":
-        directory_path = Path(os.environ['INPUT_LOG_PATH']) / Path(append_matrix_values(
-            "", matrix_values))
-
+        directory_path = Path(os.environ['INPUT_LOG_PATH'])
         save_path = directory_path / \
-            (os.environ['INPUT_LOG_FILENAME'] + ".txt")
+            Path(append_matrix_values(
+                os.environ['INPUT_LOG_FILENAME'], matrix_values) + ".txt")
 
         try:
             if not os.path.exists(directory_path):
@@ -140,11 +139,10 @@ def generate_visualizer_link(api, microprint_filename, matrix_values):
     markdown = (
         f"[Look at microprint with Microprint visualizer]({link})")
 
-    directory_path = Path(os.environ['INPUT_MICROPRINT_VISUALIZER_LINK_PATH']) / Path(append_matrix_values(
-        "", matrix_values))
+    directory_path = Path(os.environ['INPUT_MICROPRINT_VISUALIZER_LINK_PATH'])
 
-    markdown_path = directory_path / Path(
-        os.environ['INPUT_MICROPRINT_VISUALIZER_LINK_FILENAME'] + ".md")
+    markdown_path = directory_path / Path(append_matrix_values(
+        os.environ['INPUT_MICROPRINT_VISUALIZER_LINK_FILENAME'], matrix_values) + ".md")
 
     try:
         if not os.path.exists(directory_path):
@@ -172,8 +170,7 @@ def main():
 
     logs = remove_ansi_escape_sequences(logs)
 
-    directory_path = Path(os.environ['INPUT_MICROPRINT_PATH']) / Path(append_matrix_values(
-        "", matrix_values))
+    directory_path = Path(os.environ['INPUT_MICROPRINT_PATH'])
 
     try:
         if not os.path.exists(directory_path):
@@ -184,7 +181,8 @@ def main():
 
     if os.environ['INPUT_MICROPRINT_RENDER_METHOD'] == "svg":
         microprint_filename = directory_path / \
-            (os.environ['INPUT_MICROPRINT_FILENAME'] + ".svg")
+            Path(append_matrix_values(
+                os.environ['INPUT_MICROPRINT_FILENAME'], matrix_values) + ".svg")
 
         microprint_generator = SVGMicroprintGenerator(
             output_filename=microprint_filename, text=logs)
@@ -196,7 +194,8 @@ def main():
 
     else:
         microprint_filename = directory_path / \
-            (os.environ['INPUT_MICROPRINT_FILENAME'] + ".png")
+            Path(append_matrix_values(
+                os.environ['INPUT_MICROPRINT_FILENAME'], matrix_values) + ".png")
 
         microprint_generator = RasterMicroprintGenerator(
             output_filename=microprint_filename, text=logs)
