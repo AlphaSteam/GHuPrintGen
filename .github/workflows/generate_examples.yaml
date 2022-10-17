@@ -59,11 +59,10 @@ jobs:
             microprint_path: ./Examples/Mid-job-matrix/
             microprint_config_path: ./Examples/Mid-job-matrix/
 
-      - name: push
-        uses: github-actions-x/commit@v2.9
+      - uses: EndBug/add-and-commit@v9
         with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-          rebase: 'true'
+          default_author: github_actions
+          pull: '--rebase --autostash'
 
       - name: Push to protected branch
         if: github.ref == 'refs/heads/main'
