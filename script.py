@@ -64,8 +64,8 @@ def get_job_id(api, matrix_values):
     job_id = os.environ['INPUT_JOB_ID']
 
     if job_id != None and job_id != "":
-        # TODO add matrix values to job_id
-        current_job_id = job_id
+        current_job_id = append_matrix_values(
+            job_id, matrix_values, with_spaces=True)
     else:
         job_name = append_matrix_values(
             job_name, matrix_values, with_spaces=True)
