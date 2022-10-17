@@ -20,10 +20,10 @@ jobs:
             microprint_config_path: ./Examples/Mid-job/
 
       - name: Commit microprint
-          uses: EndBug/add-and-commit@v9
-            with:
-              message: Updated custom rules microprint
-              pull: '--rebase --autostash'
+        uses: EndBug/add-and-commit@v9
+        with:
+            message: Updated custom rules microprint
+            pull: '--rebase --autostash'
 
       - name: Push to protected branch
         if: github.ref == 'refs/heads/main'
@@ -55,10 +55,10 @@ jobs:
             microprint_config_path: ./Examples/Mid-job-matrix/
 
       - name: Commit microprint
-          uses: EndBug/add-and-commit@v9
-            with:
-              message: Updated custom rules microprint
-              pull: '--rebase --autostash'
+        uses: EndBug/add-and-commit@v9
+        with:
+            message: Updated custom rules microprint
+            pull: '--rebase --autostash'
 
       - name: Push to protected branch
         if: github.ref == 'refs/heads/main'
@@ -92,9 +92,9 @@ jobs:
 
         - name: Commit microprint
           uses: EndBug/add-and-commit@v9
-            with:
-              message: Updated custom rules microprint
-              pull: '--rebase --autostash'
+          with:
+            message: Updated custom rules microprint
+            pull: '--rebase --autostash'
 
         - name: Push to protected branch
           if: github.ref == 'refs/heads/main'
@@ -129,10 +129,10 @@ jobs:
             microprint_visualizer_link_path: ./Examples/With-custom-rules
 
       - name: Commit microprint
-          uses: EndBug/add-and-commit@v9
-            with:
-              message: Updated custom rules microprint
-              pull: '--rebase --autostash'
+        uses: EndBug/add-and-commit@v9
+        with:
+          message: Updated custom rules microprint
+          pull: '--rebase --autostash'
 
       - name: Push to protected branch
         if: github.ref == 'refs/heads/main'
@@ -161,9 +161,9 @@ jobs:
 
         - name: Commit microprint
           uses: EndBug/add-and-commit@v9
-            with:
-              message: Updated custom rules microprint
-              pull: '--rebase --autostash'
+          with:
+            message: Updated custom rules microprint
+            pull: '--rebase --autostash'
 
         - name: Push to protected branch
           if: github.ref == 'refs/heads/main'
@@ -192,9 +192,9 @@ jobs:
 
         - name: Commit microprint
           uses: EndBug/add-and-commit@v9
-            with:
-              message: Updated custom rules microprint
-              pull: '--rebase --autostash'
+          with:
+            message: Updated custom rules microprint
+            pull: '--rebase --autostash'
 
         - name: Push to protected branch
           if: github.ref == 'refs/heads/main'
