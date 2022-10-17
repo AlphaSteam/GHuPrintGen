@@ -89,10 +89,10 @@ jobs:
           uses: ./
           with:
               job_name: generate_microprint_mid_job_matrix
-              log_path: ./Examples/Mid-job-matrix
-              microprint_path: ./Examples/Mid-job-matrix
-              microprint_config_path: ./Examples/Mid-job-matrix/
-              microprint_visualizer_link_path: ./Examples/Mid-job-matrix
+              log_path: ./Examples/Matrix/
+              microprint_path: ./Examples/Matrix/
+              microprint_config_path: ./Examples/Matrix/
+              microprint_visualizer_link_path: ./Examples/Matrix/
 
         - uses: EndBug/add-and-commit@v9
           with:
