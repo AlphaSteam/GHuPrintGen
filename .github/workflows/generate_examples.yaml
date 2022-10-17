@@ -84,7 +84,7 @@ jobs:
         - name: Get microprint of jobs logs
           uses: ./
           with:
-              job_name: generate_microprint_mid_job_matrix
+              job_id: generate_microprint_mid_job_matrix
               log_path: ./Examples/Matrix/
               microprint_path: ./Examples/Matrix/
               microprint_config_path: ./Examples/Matrix/
