@@ -42,6 +42,7 @@ jobs:
 
     strategy:
         fail-fast: true
+        max-parallel: 0
         matrix:
           os: [ubuntu-latest, macos-latest, windows-latest]
           version: [1.6]
@@ -54,8 +55,8 @@ jobs:
         uses: ./
         with:
             microprint_render_method: "raster"
-            log_path: ./Examples/Mid-job-matrix
-            microprint_path: ./Examples/Mid-job-matrix
+            log_path: ./Examples/Mid-job-matrix/
+            microprint_path: ./Examples/Mid-job-matrix/
             microprint_config_path: ./Examples/Mid-job-matrix/
 
       - name: Pull Remote Changes
