@@ -7,7 +7,7 @@
     "text_color": "white"
   },
   "line_rules": {
-    "error": {
+    "(?:^|\\W)error(?:$|\\W)": {
       "text_color": "red",
       "background_color": "white"
     },
