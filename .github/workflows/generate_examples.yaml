@@ -42,7 +42,6 @@ jobs:
 
     strategy:
         fail-fast: true
-        max-parallel: 0
         matrix:
           os: [ubuntu-latest, macos-latest, windows-latest]
           version: [1.6]
@@ -75,17 +74,6 @@ jobs:
           token: ${{ secrets.pat }}
           branch: main
 
-      - name: Get Actions user id
-        id: get_uid
-        run: |
-          actions_user_id=`id -u $USER`
-          echo $actions_user_id
-          echo ::set-output name=uid::$actions_user_id
-
-      - name: Correct Ownership in GITHUB_WORKSPACE directory
-        uses: peter-murray/reset-workspace-ownership-action@v1
-        with:
-          user_id: ${{ steps.get_uid.outputs.uid }}
 
   generate_microprint_matrix:
       runs-on: ubuntu-latest
@@ -96,7 +84,6 @@ jobs:
         matrix:
           os: [ubuntu-latest, macos-latest, windows-latest]
           version: [1.6]
-          
 
       needs: generate_microprint_mid_job_matrix
 
