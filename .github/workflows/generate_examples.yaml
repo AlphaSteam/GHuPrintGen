@@ -15,8 +15,8 @@ jobs:
         uses: ./
         with:
             microprint_render_method: "raster"
-            log_path: ./Examples/Mid-job/logs
-            microprint_path: ./Examples/Mid-job/microprint
+            log_path: ./Examples/Mid-job
+            microprint_path: ./Examples/Mid-job
             microprint_config_path: ./Examples/Mid-job/
 
       - name: Pull Remote Changes
@@ -42,7 +42,6 @@ jobs:
 
     strategy:
         fail-fast: true
-        max-parallel: 0
         matrix:
           os: [ubuntu-latest, macos-latest, windows-latest]
           version: [1.6]
@@ -55,9 +54,9 @@ jobs:
         uses: ./
         with:
             microprint_render_method: "raster"
-            log_path: ./Examples/Mid-job/logs
-            microprint_path: ./Examples/Mid-job/microprint
-            microprint_config_path: ./Examples/Mid-job/
+            log_path: ./Examples/Mid-job-matrix
+            microprint_path: ./Examples/Mid-job-matrix
+            microprint_config_path: ./Examples/Mid-job-matrix/
 
       - name: Pull Remote Changes
         run: git pull
@@ -75,8 +74,6 @@ jobs:
           token: ${{ secrets.pat }}
           branch: main
       
-
-
   generate_microprint_matrix:
       runs-on: ubuntu-latest
 
@@ -97,10 +94,10 @@ jobs:
           uses: ./
           with:
               job_name: generate_microprint_mid_job_matrix
-              log_path: ./Examples/Mid-job-matrix/logs
-              microprint_path: ./Examples/Mid-job-matrix/microprint
+              log_path: ./Examples/Mid-job-matrix
+              microprint_path: ./Examples/Mid-job-matrix
               microprint_config_path: ./Examples/Mid-job-matrix/
-              microprint_visualizer_link_path: ./Examples/Mid-job-matrix/microprint
+              microprint_visualizer_link_path: ./Examples/Mid-job-matrix
 
         - name: Pull Remote Changes
           run: git pull
@@ -135,13 +132,13 @@ jobs:
             job_id: generate_microprint_mid_job
             github_token: ${{ secrets.pat }}
             log_filename: custom_log_name
-            log_path: ./Examples/With-custom-rules/logs
+            log_path: ./Examples/With-custom-rules
             microprint_filename: custom_microprint_name
-            microprint_path: ./Examples/With-custom-rules/microprint
+            microprint_path: ./Examples/With-custom-rules
             microprint_config_path: ./Examples/With-custom-rules/
             microprint_config_filename: custom_config_name
             microprint_visualizer_link_filename: custom_visualizer_link_name
-            microprint_visualizer_link_path: ./Examples/With-custom-rules/microprint
+            microprint_visualizer_link_path: ./Examples/With-custom-rules
 
 
       - name: Pull Remote Changes
@@ -173,10 +170,10 @@ jobs:
           uses: ./
           with:
               job_id: generate_microprint_mid_job
-              log_path: ./Examples/With-default-rules/logs
-              microprint_path: ./Examples/With-default-rules/microprint
+              log_path: ./Examples/With-default-rules
+              microprint_path: ./Examples/With-default-rules
               microprint_config_path: ./Examples/With-default-rules/
-              microprint_visualizer_link_path: ./Examples/With-default-rules/microprint
+              microprint_visualizer_link_path: ./Examples/With-default-rules
 
         - name: Pull Remote Changes
           run: git pull
@@ -207,10 +204,10 @@ jobs:
           uses: ./
           with:
               job_id: generate_microprint_mid_job
-              log_path: ./Examples/With-multiple-columns/logs
-              microprint_path: ./Examples/With-multiple-columns/microprint
+              log_path: ./Examples/With-multiple-columns
+              microprint_path: ./Examples/With-multiple-columns
               microprint_config_path: ./Examples/With-multiple-columns/
-              microprint_visualizer_link_path: ./Examples/With-multiple-columns/microprint
+              microprint_visualizer_link_path: ./Examples/With-multiple-columns
 
         - name: Pull Remote Changes
           run: git pull
