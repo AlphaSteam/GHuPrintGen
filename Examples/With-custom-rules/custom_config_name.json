@@ -29,6 +29,10 @@
     "complete": {
       "text_color": "green",
       "background_color": "white"
+    },
+    "##\\[[a-zA-Z]+]": {
+      "text_color": "black",
+      "background_color": "cyan"
     }
   },
   "additional_fonts": {
