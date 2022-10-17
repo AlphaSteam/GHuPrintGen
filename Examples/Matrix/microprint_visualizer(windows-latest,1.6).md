@@ -1,1 +1,0 @@
-[Look at microprint with Microprint visualizer](https://alphasteam.github.io/microprint-visualizer/?url=https://api.github.com/repos/AlphaSteam/microprint-generator/contents/Examples/Matrix/microprint(windows-latest,1.6).svg&ref=refs/heads/matrix_actions)
