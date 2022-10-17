@@ -11,7 +11,7 @@
       "text_color": "red",
       "background_color": "white"
     },
-    "installing": {
+    "(?:^|\\W)installing(?:$|\\W)": {
       "text_color": "white",
       "background_color": "green"
     },
