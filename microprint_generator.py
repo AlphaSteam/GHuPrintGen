@@ -44,12 +44,14 @@ class MicroprintGenerator(ABC):
     def __init__(self, output_filename, text):
 
         self.output_filename = output_filename
+
         self.text_lines = text.split('\n')
 
         self._load_config_file()
 
         self.scale = self.rules.get("scale", 2)
         self.vertical_spacing = self.rules.get("vertical_spacing", 1)
+
         self.scale_with_spacing = self.scale * self.vertical_spacing
 
         self.scaled_microprint_height = len(
@@ -73,6 +75,7 @@ class MicroprintGenerator(ABC):
 
         self.column_gap_size = self.rules.get(
             "column_gap_size", 0.2) * self.scale
+
         self.column_gap_color = self.rules.get("column_gap_color", "white")
 
         self.microprint_width = (
@@ -141,6 +144,7 @@ class SVGMicroprintGenerator(MicroprintGenerator):
             output_filename, (self.microprint_width, self.microprint_height), debug=False)
 
         self.font_family = self.rules.get("font-family", "Sans")
+
         self._load_svg_fonts()
 
     def render_microprint_column(self, first_line, last_line, x_with_gap, y, current_line):
@@ -175,6 +179,7 @@ class SVGMicroprintGenerator(MicroprintGenerator):
             texts.add(text)
 
             y += self.scale_with_spacing
+
             current_line += 1
 
     def render_microprint(self):
