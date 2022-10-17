@@ -7,11 +7,11 @@
     "text_color": "white"
   },
   "line_rules": {
-    "error": {
+    "(?:^|\\W)error(?:$|\\W)": {
       "text_color": "red",
       "background_color": "white"
     },
-    "installing": {
+    "(?:^|\\W)installing(?:$|\\W)": {
       "text_color": "white",
       "background_color": "green"
     },
@@ -29,6 +29,10 @@
     "complete": {
       "text_color": "green",
       "background_color": "white"
+    },
+    "##\\[[a-zA-Z]+]": {
+      "text_color": "black",
+      "background_color": "cyan"
     }
   },
   "additional_fonts": {

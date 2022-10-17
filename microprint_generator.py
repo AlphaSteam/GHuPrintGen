@@ -6,6 +6,7 @@ from pathlib import Path
 import os
 from abc import ABC, abstractmethod
 import math
+import re
 
 
 class MicroprintGenerator(ABC):
@@ -93,8 +94,14 @@ class MicroprintGenerator(ABC):
         default_color = self.default_colors[color_type]
 
         for rule in line_rules:
-            if text_line.find(rule) != -1:
-                return line_rules[rule].get(color_type, default_color)
+            try:
+                pattern = re.compile(rule, re.IGNORECASE)
+                if re.search(pattern, text_line):
+                    return line_rules[rule].get(color_type, default_color)
+
+            except re.error:
+                if text_line.find(rule) != -1:
+                    return line_rules[rule].get(color_type, default_color)
 
         return default_color
 
