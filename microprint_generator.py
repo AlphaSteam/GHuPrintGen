@@ -95,7 +95,7 @@ class MicroprintGenerator(ABC):
 
         for rule in line_rules:
             try:
-                pattern = re.compile(pattern, re.IGNORECASE)
+                pattern = re.compile(rule, re.IGNORECASE)
                 if re.search(pattern, text_line):
                     return line_rules[rule].get(color_type, default_color)
 
