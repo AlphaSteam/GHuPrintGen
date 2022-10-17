@@ -41,7 +41,6 @@ jobs:
     needs: generate_microprint_mid_job
 
     strategy:
-        fail-fast: true
         max-parallel: 1
         matrix:
           os: [ubuntu-latest, macos-latest, windows-latest]
@@ -75,7 +74,6 @@ jobs:
       runs-on: ubuntu-latest
 
       strategy:
-        fail-fast: true
         max-parallel: 1
         matrix:
           os: [ubuntu-latest, macos-latest, windows-latest]
