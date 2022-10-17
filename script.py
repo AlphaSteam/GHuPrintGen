@@ -50,10 +50,7 @@ def append_matrix_values(string, matrix_values, with_spaces=False):
                 map(str, matrix_values)) + ")"
 
     if with_spaces == False:
-        print("Without spaces")
-        print("string before: ", string)
         string = string.replace(" ", "")
-        print("string after: ", string)
 
     return string
 
@@ -106,8 +103,8 @@ def get_logs(api, matrix_values):
     current_job_logs = api.get(f"jobs/{job_id}/logs").text
 
     if os.environ['INPUT_SAVE_LOG'] == "true":
-        directory_path = Path(append_matrix_values(
-            os.environ['INPUT_LOG_PATH'], matrix_values))
+        directory_path = Path(os.environ['INPUT_LOG_PATH']) / Path(append_matrix_values(
+            "", matrix_values))
 
         save_path = directory_path / \
             (os.environ['INPUT_LOG_FILENAME'] + ".txt")
@@ -143,8 +140,8 @@ def generate_visualizer_link(api, microprint_filename, matrix_values):
     markdown = (
         f"[Look at microprint with Microprint visualizer]({link})")
 
-    directory_path = Path(append_matrix_values(
-        os.environ['INPUT_MICROPRINT_VISUALIZER_LINK_PATH'], matrix_values))
+    directory_path = Path(os.environ['INPUT_MICROPRINT_VISUALIZER_LINK_PATH']) / Path(append_matrix_values(
+        "", matrix_values))
 
     markdown_path = directory_path / Path(
         os.environ['INPUT_MICROPRINT_VISUALIZER_LINK_FILENAME'] + ".md")
@@ -175,8 +172,8 @@ def main():
 
     logs = remove_ansi_escape_sequences(logs)
 
-    directory_path = Path(append_matrix_values(
-        os.environ['INPUT_MICROPRINT_PATH'], matrix_values))
+    directory_path = Path(os.environ['INPUT_MICROPRINT_PATH']) / Path(append_matrix_values(
+        "", matrix_values))
 
     try:
         if not os.path.exists(directory_path):
