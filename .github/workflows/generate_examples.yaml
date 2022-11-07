@@ -184,7 +184,7 @@ jobs:
         - name: Get microprint of jobs logs
           uses: ./
           with:
-              job_id: generate_microprint_mid_job
+              job_name: generate_microprint_mid_job
               log_path: ./Examples/With-multiple-columns
               microprint_path: ./Examples/With-multiple-columns
               microprint_config_path: ./Examples/With-multiple-columns/
