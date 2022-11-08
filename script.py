@@ -61,22 +61,16 @@ def get_job_id(api, matrix_values):
 
     run_id = os.environ['GITHUB_RUN_ID']
 
-    job_id = os.environ['INPUT_JOB_ID']
+    job_name = append_matrix_values(
+        job_name, matrix_values, with_spaces=True)
 
-    if job_id != None and job_id != "":
-        # TODO add matrix values to job_id
-        current_job_id = job_id
-    else:
-        job_name = append_matrix_values(
-            job_name, matrix_values, with_spaces=True)
+    all_jobs = api.get(f"runs/{run_id}/jobs").json()
 
-        all_jobs = api.get(f"runs/{run_id}/jobs").json()
+    all_jobs = all_jobs["jobs"]
 
-        all_jobs = all_jobs["jobs"]
+    job = get_job_by_name(job_name, all_jobs)
 
-        job = get_job_by_name(job_name, all_jobs)
-
-        current_job_id = job["id"]
+    current_job_id = job["id"]
 
     return current_job_id
 

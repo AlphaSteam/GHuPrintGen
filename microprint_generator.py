@@ -150,7 +150,11 @@ class SVGMicroprintGenerator(MicroprintGenerator):
     def render_microprint_column(self, first_line, last_line, x_with_gap, y, current_line):
 
         backgrounds = self.drawing.add(self.drawing.g())
-        texts = self.drawing.add(self.drawing.g(font_size=self.scale))
+
+        default_text_color = self.default_colors["text_color"]
+
+        texts = self.drawing.add(self.drawing.g(
+            font_size=self.scale, fill=default_text_color))
 
         attributes = {'xml:space': 'preserve',
                       "font-family": self.font_family}
