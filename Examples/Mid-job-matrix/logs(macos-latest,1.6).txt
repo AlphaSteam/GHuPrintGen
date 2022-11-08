@@ -1,5 +1,5 @@
-2022-11-08T00:23:25.7359677Z Requested labels: ubuntu-latest
-2022-11-08T00:23:25.7359708Z Job defined at: AlphaSteam/microprint-generator/.github/workflows/generate_examples.yaml@refs/heads/develop
-2022-11-08T00:23:25.7359726Z Waiting for a runner to pick up this job...
-2022-11-08T00:23:26.0251686Z Job is waiting for a hosted runner to come online.
-2022-11-08T00:23:31.5204277Z Job is about to start running on the hosted runner: GitHub Actions 3 (hosted)
+2022-11-08T00:26:28.3451874Z Requested labels: ubuntu-latest
+2022-11-08T00:26:28.3451919Z Job defined at: AlphaSteam/microprint-generator/.github/workflows/generate_examples.yaml@refs/heads/develop
+2022-11-08T00:26:28.3451940Z Waiting for a runner to pick up this job...
+2022-11-08T00:26:28.8268296Z Job is waiting for a hosted runner to come online.
+2022-11-08T00:26:31.7772165Z Job is about to start running on the hosted runner: GitHub Actions 4 (hosted)
