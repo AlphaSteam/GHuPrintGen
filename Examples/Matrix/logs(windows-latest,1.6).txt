@@ -1,1 +1,5 @@
-{"message":"Not Found","documentation_url":"https://docs.github.com/rest/reference/actions#download-job-logs-for-a-workflow-run"}
+2022-11-08T00:24:19.5241581Z Requested labels: ubuntu-latest
+2022-11-08T00:24:19.5241624Z Job defined at: AlphaSteam/microprint-generator/.github/workflows/generate_examples.yaml@refs/heads/develop
+2022-11-08T00:24:19.5241645Z Waiting for a runner to pick up this job...
+2022-11-08T00:24:19.8029683Z Job is waiting for a hosted runner to come online.
+2022-11-08T00:24:23.7411882Z Job is about to start running on the hosted runner: GitHub Actions 3 (hosted)
