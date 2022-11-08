@@ -84,7 +84,7 @@ jobs:
         - name: Get microprint of jobs logs
           uses: ./
           with:
-              job_id: generate_microprint_mid_job_matrix
+              job_name: generate_microprint_mid_job_matrix
               log_path: ./Examples/Matrix/
               microprint_path: ./Examples/Matrix/
               microprint_config_path: ./Examples/Matrix/
@@ -117,7 +117,7 @@ jobs:
       - name: Get microprint of jobs logs
         uses: ./
         with:
-            job_id: generate_microprint_mid_job
+            job_name: generate_microprint_mid_job
             github_token: ${{ secrets.pat }}
             log_filename: custom_log_name
             log_path: ./Examples/With-custom-rules
@@ -153,7 +153,7 @@ jobs:
         - name: Get microprint of jobs logs
           uses: ./
           with:
-              job_id: generate_microprint_mid_job
+              job_name: generate_microprint_mid_job
               log_path: ./Examples/With-default-rules
               microprint_path: ./Examples/With-default-rules
               microprint_config_path: ./Examples/With-default-rules/
@@ -184,7 +184,7 @@ jobs:
         - name: Get microprint of jobs logs
           uses: ./
           with:
-              job_id: generate_microprint_mid_job
+              job_name: generate_microprint_mid_job
               log_path: ./Examples/With-multiple-columns
               microprint_path: ./Examples/With-multiple-columns
               microprint_config_path: ./Examples/With-multiple-columns/
