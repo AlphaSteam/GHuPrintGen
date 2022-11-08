@@ -66,7 +66,6 @@ def get_job_id(api, matrix_values):
     if job_id != None and job_id != "":
         current_job_id = append_matrix_values(
             job_id, matrix_values, with_spaces=True)
-        print("current_job_id", current_job_id)
     else:
         job_name = append_matrix_values(
             job_name, matrix_values, with_spaces=True)
@@ -75,14 +74,14 @@ def get_job_id(api, matrix_values):
 
         all_jobs = all_jobs["jobs"]
 
+        print("all_jobs", all_jobs)
+
         job = get_job_by_name(job_name, all_jobs)
 
         current_job_id = job["id"]
 
         test = append_matrix_values(
             job_id, matrix_values, with_spaces=True)
-        print("test_job_id", test)
-        print("current_job_id", current_job_id)
 
     return current_job_id
 
