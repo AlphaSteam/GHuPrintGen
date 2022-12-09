@@ -52,6 +52,7 @@ jobs:
             log_path: ./Examples/Mid-job-matrix/
             microprint_path: ./Examples/Mid-job-matrix/
             microprint_config_path: ./Examples/Mid-job-matrix/
+            microprint_visualizer_link_path: ./Examples/Mid-job-matrix/
 
       - name: Commit microprint
         uses: EndBug/add-and-commit@v9
