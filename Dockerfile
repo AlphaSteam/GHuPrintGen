@@ -6,6 +6,4 @@ RUN pip install -r /requirements.txt
 
 COPY script.py /script.py
 
-COPY microprint_generator.py /microprint_generator.py
-
 CMD ["python", "/script.py"] 
