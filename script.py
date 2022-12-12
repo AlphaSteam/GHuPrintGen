@@ -1,6 +1,6 @@
 import os
 import requests
-from microprint_generator import SVGMicroprintGenerator, RasterMicroprintGenerator
+from uPrintGen import SVGMicroprintGenerator
 from pathlib import Path
 import re
 import logging
@@ -61,22 +61,16 @@ def get_job_id(api, matrix_values):
 
     run_id = os.environ['GITHUB_RUN_ID']
 
-    job_id = os.environ['INPUT_JOB_ID']
+    job_name = append_matrix_values(
+        job_name, matrix_values, with_spaces=True)
 
-    if job_id != None and job_id != "":
-        # TODO add matrix values to job_id
-        current_job_id = job_id
-    else:
-        job_name = append_matrix_values(
-            job_name, matrix_values, with_spaces=True)
+    all_jobs = api.get(f"runs/{run_id}/jobs").json()
 
-        all_jobs = api.get(f"runs/{run_id}/jobs").json()
+    all_jobs = all_jobs["jobs"]
 
-        all_jobs = all_jobs["jobs"]
+    job = get_job_by_name(job_name, all_jobs)
 
-        job = get_job_by_name(job_name, all_jobs)
-
-        current_job_id = job["id"]
+    current_job_id = job["id"]
 
     return current_job_id
 
@@ -121,13 +115,6 @@ def get_logs(api, matrix_values):
     return current_job_logs
 
 
-def remove_ansi_escape_sequences(text):
-
-    ansi_escape = re.compile(r'\x1B(?:[@-Z\\-_]|\[[0-?]*[ -/]*[@-~])')
-
-    return ansi_escape.sub('', text)
-
-
 def generate_visualizer_link(api, microprint_filename, matrix_values):
     microprint_visualizer_page = "https://alphasteam.github.io/microprint-visualizer/"
 
@@ -168,8 +155,6 @@ def main():
 
     logs = get_logs(api, matrix_values)
 
-    logs = remove_ansi_escape_sequences(logs)
-
     directory_path = Path(os.environ['INPUT_MICROPRINT_PATH'])
 
     try:
@@ -179,28 +164,23 @@ def main():
         print(
             f"Directory: {directory_path} couldn't be created. Error: {e}")
 
-    if os.environ['INPUT_MICROPRINT_RENDER_METHOD'] == "svg":
-        microprint_filename = directory_path / \
-            Path(append_matrix_values(
-                os.environ['INPUT_MICROPRINT_FILENAME'], matrix_values) + ".svg")
+    microprint_filename = directory_path / \
+        Path(append_matrix_values(
+            os.environ['INPUT_MICROPRINT_FILENAME'], matrix_values) + ".svg")
 
-        microprint_generator = SVGMicroprintGenerator(
-            output_filename=microprint_filename, text=logs)
+    config_path = Path(os.environ['INPUT_MICROPRINT_CONFIG_PATH'])
+    config_filename = (
+        os.environ['INPUT_MICROPRINT_CONFIG_FILENAME'] + ".json")
 
-        microprint_generator.render_microprint()
+    config_file_path = config_path / config_filename
 
-        if os.environ['INPUT_GENERATE_MICROPRINT_VISUALIZER_LINK']:
-            generate_visualizer_link(api, microprint_filename, matrix_values)
+    microprint_generator = SVGMicroprintGenerator(
+        output_filename=microprint_filename, text=logs, config_file_path=config_file_path)
 
-    else:
-        microprint_filename = directory_path / \
-            Path(append_matrix_values(
-                os.environ['INPUT_MICROPRINT_FILENAME'], matrix_values) + ".png")
+    microprint_generator.render_microprint()
 
-        microprint_generator = RasterMicroprintGenerator(
-            output_filename=microprint_filename, text=logs)
-
-        microprint_generator.render_microprint()
+    if os.environ['INPUT_GENERATE_MICROPRINT_VISUALIZER_LINK']:
+        generate_visualizer_link(api, microprint_filename, matrix_values)
 
 
 if __name__ == "__main__":

@@ -1,1 +1,1 @@
-[Look at microprint with Microprint visualizer](https://alphasteam.github.io/microprint-visualizer/?url=https://api.github.com/repos/AlphaSteam/microprint-generator/contents/Examples/With-custom-rules/custom_microprint_name.svg&ref=refs/heads/develop)
+[Look at microprint with Microprint visualizer](https://alphasteam.github.io/microprint-visualizer/?url=https://api.github.com/repos/AlphaSteam/GHuPrintGen/contents/Examples/With-custom-rules/custom_microprint_name.svg&ref=refs/heads/integrate_uPrintGen)
