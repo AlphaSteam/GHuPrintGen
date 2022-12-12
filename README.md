@@ -66,7 +66,7 @@ jobs:
             # ====================================================================================
             # Log inputs
 
-            # Wether or not to save the logs retrieved with the GitHub API as plain text
+            # Whether or not to save the logs retrieved with the GitHub API as plain text
             #
             # Default: true 
             

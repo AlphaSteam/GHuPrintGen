@@ -116,7 +116,7 @@ def get_logs(api, matrix_values):
 
 
 def generate_visualizer_link(api, microprint_filename, matrix_values):
-    microprint_visualizer_page = "https://alphasteam.github.io/microprint-visualizer/"
+    microprint_visualizer_page = "https://alphasteam.github.io/uPrintVis/"
 
     link = f"{microprint_visualizer_page}?url=https://api.github.com/repos/{api.owner}/{api.repo}/contents/{microprint_filename}&ref={api.ref}"
 
