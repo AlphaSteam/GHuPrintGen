@@ -19,7 +19,6 @@ jobs:
             microprint_config_path: ./Examples/Mid-job/
 
       - name: Commit microprint
-        if: github.ref != 'refs/heads/main'
         uses: EndBug/add-and-commit@v9
         with:
             message: Updated custom rules microprint
