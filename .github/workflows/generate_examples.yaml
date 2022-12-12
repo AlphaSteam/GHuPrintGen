@@ -16,7 +16,6 @@ jobs:
         with:
             log_path: ./Examples/Mid-job
             microprint_path: ./Examples/Mid-job
-            microprint_config_path: ./Examples/Mid-job/
 
       - name: Commit microprint
         if: github.ref != 'refs/heads/main'
@@ -52,7 +51,6 @@ jobs:
         with:
             log_path: ./Examples/Mid-job-matrix/
             microprint_path: ./Examples/Mid-job-matrix/
-            microprint_config_path: ./Examples/Mid-job-matrix/
             microprint_visualizer_link_path: ./Examples/Mid-job-matrix/
 
       - name: Commit microprint
@@ -89,7 +87,6 @@ jobs:
               job_name: generate_microprint_mid_job_matrix
               log_path: ./Examples/Matrix/
               microprint_path: ./Examples/Matrix/
-              microprint_config_path: ./Examples/Matrix/
               microprint_visualizer_link_path: ./Examples/Matrix/
 
         - name: Commit microprint
@@ -192,7 +189,6 @@ jobs:
               job_name: generate_microprint_mid_job
               log_path: ./Examples/With-multiple-columns
               microprint_path: ./Examples/With-multiple-columns
-              microprint_config_path: ./Examples/With-multiple-columns/
               microprint_visualizer_link_path: ./Examples/With-multiple-columns
 
         - name: Commit microprint
