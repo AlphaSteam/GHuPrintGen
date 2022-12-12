@@ -128,6 +128,7 @@ jobs:
             microprint_visualizer_link_path: ./Examples/With-custom-rules
 
       - name: Commit microprint
+        if: github.ref != 'refs/heads/main'
         uses: EndBug/add-and-commit@v9
         with:
           message: Updated custom rules microprint
@@ -159,6 +160,7 @@ jobs:
               microprint_visualizer_link_path: ./Examples/With-default-rules
 
         - name: Commit microprint
+          if: github.ref != 'refs/heads/main'
           uses: EndBug/add-and-commit@v9
           with:
             message: Updated custom rules microprint
@@ -190,7 +192,7 @@ jobs:
               microprint_visualizer_link_path: ./Examples/With-multiple-columns
 
         - name: Commit microprint
-          uses: EndBug/add-and-commit@v9
+          if: github.ref != 'refs/heads/main'
           with:
             message: Updated custom rules microprint
             pull: '--rebase --autostash'
