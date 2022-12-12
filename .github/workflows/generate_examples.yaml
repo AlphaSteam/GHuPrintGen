@@ -18,19 +18,11 @@ jobs:
             microprint_path: ./Examples/Mid-job
 
       - name: Commit microprint
-        if: github.ref != 'refs/heads/main'
         uses: EndBug/add-and-commit@v9
         with:
             message: Updated custom rules microprint
             pull: '--rebase --autostash'
-        
-      - name: Push to protected branch
-        if: github.ref == 'refs/heads/main'
-        uses: CasperWA/push-protected@v2
-        with:
-          token: ${{ secrets.pat }}
-          branch: main
-          unprotect_reviews: True
+
 
   generate_microprint_mid_job_matrix:
     runs-on: ubuntu-latest
@@ -54,18 +46,10 @@ jobs:
             microprint_visualizer_link_path: ./Examples/Mid-job-matrix/
 
       - name: Commit microprint
-        if: github.ref != 'refs/heads/main'
         uses: EndBug/add-and-commit@v9
         with:
             message: Updated custom rules microprint
             pull: '--rebase --autostash'
-
-      - name: Push to protected branch
-        if: github.ref == 'refs/heads/main'
-        uses: CasperWA/push-protected@v2
-        with:
-          token: ${{ secrets.pat }}
-          branch: main
       
   generate_microprint_matrix:
       runs-on: ubuntu-latest
@@ -90,18 +74,10 @@ jobs:
               microprint_visualizer_link_path: ./Examples/Matrix/
 
         - name: Commit microprint
-          if: github.ref != 'refs/heads/main'
           uses: EndBug/add-and-commit@v9
           with:
             message: Updated custom rules microprint
             pull: '--rebase --autostash'
-
-        - name: Push to protected branch
-          if: github.ref == 'refs/heads/main'
-          uses: CasperWA/push-protected@v2
-          with:
-            token: ${{ secrets.pat }}
-            branch: main
         
 
   generate_microprint_of_first_job_with_custom_rules:
@@ -129,18 +105,10 @@ jobs:
             microprint_visualizer_link_path: ./Examples/With-custom-rules
 
       - name: Commit microprint
-        if: github.ref != 'refs/heads/main'
         uses: EndBug/add-and-commit@v9
         with:
           message: Updated custom rules microprint
           pull: '--rebase --autostash'
-
-      - name: Push to protected branch
-        if: github.ref == 'refs/heads/main'
-        uses: CasperWA/push-protected@v2
-        with:
-          token: ${{ secrets.pat }}
-          branch: main
 
   generate_microprint_with_default_rules:
       runs-on: ubuntu-latest
@@ -161,18 +129,10 @@ jobs:
               microprint_visualizer_link_path: ./Examples/With-default-rules
 
         - name: Commit microprint
-          if: github.ref != 'refs/heads/main'
           uses: EndBug/add-and-commit@v9
           with:
             message: Updated custom rules microprint
             pull: '--rebase --autostash'
-
-        - name: Push to protected branch
-          if: github.ref == 'refs/heads/main'
-          uses: CasperWA/push-protected@v2
-          with:
-            token: ${{ secrets.pat }}
-            branch: main
 
   generate_microprint_with_multiple_columns:
       runs-on: ubuntu-latest
@@ -193,16 +153,7 @@ jobs:
 
         - name: Commit microprint
           uses: EndBug/add-and-commit@v9
-          if: github.ref != 'refs/heads/main'
           with:
             message: Updated custom rules microprint
             pull: '--rebase --autostash'
-
-        - name: Push to protected branch
-          if: github.ref == 'refs/heads/main'
-          uses: CasperWA/push-protected@v2
-          with:
-            token: ${{ secrets.pat }}
-            branch: main
-
   
