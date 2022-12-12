@@ -1,1 +1,1 @@
-[Look at microprint with Microprint visualizer](https://alphasteam.github.io/microprint-visualizer/?url=https://api.github.com/repos/AlphaSteam/GHuPrintGen/contents/Examples/Mid-job/microprint.svg&ref=refs/heads/develop)
+[Look at microprint with Microprint visualizer](https://alphasteam.github.io/uPrintVis/?url=https://api.github.com/repos/AlphaSteam/GHuPrintGen/contents/Examples/Mid-job/microprint.svg&ref=refs/heads/main)
