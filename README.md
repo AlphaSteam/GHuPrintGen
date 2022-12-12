@@ -30,7 +30,7 @@ jobs:
         uses: actions/checkout@v3
 
       - name: Get microprint of jobs logs
-        uses: AlphaSteam/GHuPrintGen@v4
+        uses: AlphaSteam/GHuPrintGen@v5
         with: # None of the inputs are required (though some are really recommended)
 
             # ====================================================================================
