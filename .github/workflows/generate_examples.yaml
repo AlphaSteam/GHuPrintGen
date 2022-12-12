@@ -24,9 +24,6 @@ jobs:
         with:
             message: Updated custom rules microprint
             pull: '--rebase --autostash'
-
-      - uses: stefanzweifel/git-auto-commit-action@v4
-        if: github.ref == 'refs/heads/main'
         
       - name: Push to protected branch
         if: github.ref == 'refs/heads/main'
@@ -34,6 +31,7 @@ jobs:
         with:
           token: ${{ secrets.pat }}
           branch: main
+          unprotect_reviews: True
 
   generate_microprint_mid_job_matrix:
     runs-on: ubuntu-latest
