@@ -1,4 +1,4 @@
-pillow 
 requests
 svgwrite
 markdown-it-py[plugins]
+uPrintGen

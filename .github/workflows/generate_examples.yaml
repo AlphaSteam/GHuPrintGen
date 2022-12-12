@@ -48,7 +48,6 @@ jobs:
       - name: Get microprint of jobs logs
         uses: ./
         with:
-            microprint_render_method: "raster"
             log_path: ./Examples/Mid-job-matrix/
             microprint_path: ./Examples/Mid-job-matrix/
             microprint_config_path: ./Examples/Mid-job-matrix/

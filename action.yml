@@ -66,12 +66,6 @@ inputs:
     default: ./
     description: Path where the microprint will be saved 
 
-  
-  microprint_render_method:
-    required: false
-    default: svg # svg | raster
-    description: How to render the microprint. As svg or raster
-
   microprint_config_filename:
     required: false
     default: config
