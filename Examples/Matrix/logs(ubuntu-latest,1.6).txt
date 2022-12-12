@@ -1,618 +1,636 @@
-2022-12-12T07:11:40.5185481Z Requested labels: ubuntu-latest
-2022-12-12T07:11:40.5185519Z Job defined at: AlphaSteam/GHuPrintGen/.github/workflows/generate_examples.yaml@refs/heads/integrate_uPrintGen
-2022-12-12T07:11:40.5185540Z Waiting for a runner to pick up this job...
-2022-12-12T07:11:42.1443864Z Job is waiting for a hosted runner to come online.
-2022-12-12T07:11:44.9228531Z Job is about to start running on the hosted runner: GitHub Actions 3 (hosted)
-2022-12-12T07:11:47.2284765Z Current runner version: '2.299.1'
-2022-12-12T07:11:47.2310732Z ##[group]Operating System
-2022-12-12T07:11:47.2311256Z Ubuntu
-2022-12-12T07:11:47.2311488Z 22.04.1
-2022-12-12T07:11:47.2311828Z LTS
-2022-12-12T07:11:47.2312105Z ##[endgroup]
-2022-12-12T07:11:47.2312432Z ##[group]Runner Image
-2022-12-12T07:11:47.2312727Z Image: ubuntu-22.04
-2022-12-12T07:11:47.2313038Z Version: 20221204.2
-2022-12-12T07:11:47.2313581Z Included Software: https://github.com/actions/runner-images/blob/ubuntu22/20221204.2/images/linux/Ubuntu2204-Readme.md
-2022-12-12T07:11:47.2314197Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu22%2F20221204.2
-2022-12-12T07:11:47.2314586Z ##[endgroup]
-2022-12-12T07:11:47.2314916Z ##[group]Runner Image Provisioner
-2022-12-12T07:11:47.2315268Z 2.0.91.1
-2022-12-12T07:11:47.2315544Z ##[endgroup]
-2022-12-12T07:11:47.2316422Z ##[group]GITHUB_TOKEN Permissions
-2022-12-12T07:11:47.2317036Z Actions: write
-2022-12-12T07:11:47.2317324Z Checks: write
-2022-12-12T07:11:47.2317795Z Contents: write
-2022-12-12T07:11:47.2318116Z Deployments: write
-2022-12-12T07:11:47.2318416Z Discussions: write
-2022-12-12T07:11:47.2318999Z Issues: write
-2022-12-12T07:11:47.2319316Z Metadata: read
-2022-12-12T07:11:47.2319616Z Packages: write
-2022-12-12T07:11:47.2319866Z Pages: write
-2022-12-12T07:11:47.2320218Z PullRequests: write
-2022-12-12T07:11:47.2320570Z RepositoryProjects: write
-2022-12-12T07:11:47.2320866Z SecurityEvents: write
-2022-12-12T07:11:47.2321178Z Statuses: write
-2022-12-12T07:11:47.2321473Z ##[endgroup]
-2022-12-12T07:11:47.2324996Z Secret source: Actions
-2022-12-12T07:11:47.2325406Z Prepare workflow directory
-2022-12-12T07:11:47.3152342Z Prepare all required actions
-2022-12-12T07:11:47.3335192Z Getting action download info
-2022-12-12T07:11:47.5043090Z Download action repository 'actions/checkout@v3' (SHA:93ea575cb5d8a053eaa0ac8fa3b40d7e05a33cc8)
-2022-12-12T07:11:47.8309420Z Download action repository 'EndBug/add-and-commit@v9' (SHA:61a88be553afe4206585b31aa72387c64295d08b)
-2022-12-12T07:11:48.0844436Z Download action repository 'CasperWA/push-protected@v2' (SHA:6b25de805895da731062c43da647425fbb383128)
-2022-12-12T07:11:48.5294864Z ##[group]Build container for action use: '/home/runner/work/_actions/CasperWA/push-protected/v2/Dockerfile'.
-2022-12-12T07:11:48.5368420Z ##[command]/usr/bin/docker build -t 290506:0492175f8b2049ecb8fc6872866f5e2f -f "/home/runner/work/_actions/CasperWA/push-protected/v2/Dockerfile" "/home/runner/work/_actions/CasperWA/push-protected/v2"
-2022-12-12T07:11:48.6294599Z Sending build context to Docker daemon  113.2kB
-2022-12-12T07:11:48.6298109Z 
-2022-12-12T07:11:48.6649400Z Step 1/6 : FROM python:alpine
-2022-12-12T07:11:48.9103802Z alpine: Pulling from library/python
-2022-12-12T07:11:48.9677430Z c158987b0551: Pulling fs layer
-2022-12-12T07:11:48.9677930Z 7ec3a91b66d9: Pulling fs layer
-2022-12-12T07:11:48.9678245Z c89fd98887b3: Pulling fs layer
-2022-12-12T07:11:48.9678867Z 877ccf16716c: Pulling fs layer
-2022-12-12T07:11:48.9679285Z 3cfcd1e4ebae: Pulling fs layer
-2022-12-12T07:11:48.9680667Z 877ccf16716c: Waiting
-2022-12-12T07:11:48.9683508Z 3cfcd1e4ebae: Waiting
-2022-12-12T07:11:49.0613198Z 7ec3a91b66d9: Verifying Checksum
-2022-12-12T07:11:49.0620069Z 7ec3a91b66d9: Download complete
-2022-12-12T07:11:49.0856668Z c158987b0551: Verifying Checksum
-2022-12-12T07:11:49.0859232Z c158987b0551: Download complete
-2022-12-12T07:11:49.1554153Z c89fd98887b3: Verifying Checksum
-2022-12-12T07:11:49.1555266Z c89fd98887b3: Download complete
-2022-12-12T07:11:49.1642640Z 877ccf16716c: Verifying Checksum
-2022-12-12T07:11:49.1643459Z 877ccf16716c: Download complete
-2022-12-12T07:11:49.2565593Z 3cfcd1e4ebae: Verifying Checksum
-2022-12-12T07:11:49.2566025Z 3cfcd1e4ebae: Download complete
-2022-12-12T07:11:49.2930774Z c158987b0551: Pull complete
-2022-12-12T07:11:49.6620320Z 7ec3a91b66d9: Pull complete
-2022-12-12T07:11:50.3455824Z c89fd98887b3: Pull complete
-2022-12-12T07:11:50.3809549Z 877ccf16716c: Pull complete
-2022-12-12T07:11:50.8081891Z 3cfcd1e4ebae: Pull complete
-2022-12-12T07:11:50.8116630Z Digest: sha256:af8fef83397b3886ed93d2c81bf3b4e70d39c0789c1c6feb1ecb86ca9bc42a0a
-2022-12-12T07:11:50.8128906Z Status: Downloaded newer image for python:alpine
-2022-12-12T07:11:50.8143376Z  ---> 18ccdc39ea28
-2022-12-12T07:11:50.8143689Z Step 2/6 : COPY README.md setup.py requirements*.txt ./
-2022-12-12T07:11:51.1102136Z  ---> 1d5a48b9c322
-2022-12-12T07:11:51.1102543Z Step 3/6 : COPY push_action ./push_action
-2022-12-12T07:11:52.0271169Z  ---> de69e19a86f5
-2022-12-12T07:11:52.0271552Z Step 4/6 : RUN apk update     && apk add --no-cache git git-lfs bash     && pip install -U -e .
-2022-12-12T07:11:52.0461034Z  ---> Running in d1ddbe64459a
-2022-12-12T07:11:52.2972125Z fetch https://dl-cdn.alpinelinux.org/alpine/v3.17/main/x86_64/APKINDEX.tar.gz
-2022-12-12T07:11:52.5671085Z fetch https://dl-cdn.alpinelinux.org/alpine/v3.17/community/x86_64/APKINDEX.tar.gz
-2022-12-12T07:11:52.8772945Z v3.17.0-154-gb60cc15be3 [https://dl-cdn.alpinelinux.org/alpine/v3.17/main]
-2022-12-12T07:11:52.8773391Z v3.17.0-152-g5578d899a7 [https://dl-cdn.alpinelinux.org/alpine/v3.17/community]
-2022-12-12T07:11:52.8773720Z OK: 17804 distinct packages available
-2022-12-12T07:11:52.9107020Z fetch https://dl-cdn.alpinelinux.org/alpine/v3.17/main/x86_64/APKINDEX.tar.gz
-2022-12-12T07:11:53.0809213Z fetch https://dl-cdn.alpinelinux.org/alpine/v3.17/community/x86_64/APKINDEX.tar.gz
-2022-12-12T07:11:53.3538225Z (1/7) Installing bash (5.2.12-r0)
-2022-12-12T07:11:53.3821706Z Executing bash-5.2.12-r0.post-install
-2022-12-12T07:11:53.3835894Z (2/7) Installing brotli-libs (1.0.9-r9)
-2022-12-12T07:11:53.4002559Z (3/7) Installing nghttp2-libs (1.51.0-r0)
-2022-12-12T07:11:53.4087983Z (4/7) Installing libcurl (7.86.0-r1)
-2022-12-12T07:11:53.4219980Z (5/7) Installing pcre2 (10.41-r0)
-2022-12-12T07:11:53.4362016Z (6/7) Installing git (2.38.2-r0)
-2022-12-12T07:11:53.5307917Z (7/7) Installing git-lfs (3.2.0-r2)
-2022-12-12T07:11:53.6365813Z Executing git-lfs-3.2.0-r2.post-install
-2022-12-12T07:11:53.6494716Z Git LFS initialized.
-2022-12-12T07:11:53.6510973Z Executing busybox-1.35.0-r29.trigger
-2022-12-12T07:11:53.6557051Z OK: 37 MiB in 44 packages
-2022-12-12T07:11:55.7055903Z Obtaining file:///
-2022-12-12T07:11:55.7064691Z   Preparing metadata (setup.py): started
-2022-12-12T07:11:56.3362745Z   Preparing metadata (setup.py): finished with status 'done'
-2022-12-12T07:11:56.4415200Z Collecting requests~=2.28
-2022-12-12T07:11:56.5126728Z   Downloading requests-2.28.1-py3-none-any.whl (62 kB)
-2022-12-12T07:11:56.5291017Z      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 62.8/62.8 kB 3.8 MB/s eta 0:00:00
-2022-12-12T07:11:56.5970222Z Collecting charset-normalizer<3,>=2
-2022-12-12T07:11:56.6045984Z   Downloading charset_normalizer-2.1.1-py3-none-any.whl (39 kB)
-2022-12-12T07:11:56.6265004Z Collecting idna<4,>=2.5
-2022-12-12T07:11:56.6335370Z   Downloading idna-3.4-py3-none-any.whl (61 kB)
-2022-12-12T07:11:56.6412090Z      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 61.5/61.5 kB 11.4 MB/s eta 0:00:00
-2022-12-12T07:11:56.6795358Z Collecting urllib3<1.27,>=1.21.1
-2022-12-12T07:11:56.6866458Z   Downloading urllib3-1.26.13-py2.py3-none-any.whl (140 kB)
-2022-12-12T07:11:56.6998448Z      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 140.6/140.6 kB 12.1 MB/s eta 0:00:00
-2022-12-12T07:11:56.7242776Z Collecting certifi>=2017.4.17
-2022-12-12T07:11:56.7313008Z   Downloading certifi-2022.12.7-py3-none-any.whl (155 kB)
-2022-12-12T07:11:56.7444421Z      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 155.3/155.3 kB 13.4 MB/s eta 0:00:00
-2022-12-12T07:11:56.8373726Z Installing collected packages: urllib3, idna, charset-normalizer, certifi, requests, push-action
-2022-12-12T07:11:57.1399663Z   Running setup.py develop for push-action
-2022-12-12T07:11:57.5270647Z Successfully installed certifi-2022.12.7 charset-normalizer-2.1.1 idna-3.4 push-action-2.14.0 requests-2.28.1 urllib3-1.26.13
-2022-12-12T07:11:57.5274541Z [91mWARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv
-2022-12-12T07:11:58.5498579Z [0mRemoving intermediate container d1ddbe64459a
-2022-12-12T07:11:58.5498930Z  ---> 438804c654a2
-2022-12-12T07:11:58.5499160Z Step 5/6 : COPY entrypoint.sh ./
-2022-12-12T07:11:59.0123194Z  ---> 660621a16221
-2022-12-12T07:11:59.0123931Z Step 6/6 : ENTRYPOINT [ "/entrypoint.sh" ]
-2022-12-12T07:11:59.0227823Z  ---> Running in 6503abb97c14
-2022-12-12T07:12:00.0130148Z Removing intermediate container 6503abb97c14
-2022-12-12T07:12:00.0130820Z  ---> 8d3f989d4386
-2022-12-12T07:12:00.0137462Z Successfully built 8d3f989d4386
-2022-12-12T07:12:00.0159951Z Successfully tagged 290506:0492175f8b2049ecb8fc6872866f5e2f
-2022-12-12T07:12:00.0178997Z ##[endgroup]
-2022-12-12T07:12:00.0598824Z ##[group]Run actions/checkout@v3
-2022-12-12T07:12:00.0599091Z with:
-2022-12-12T07:12:00.0599323Z   repository: AlphaSteam/GHuPrintGen
-2022-12-12T07:12:00.0599793Z   token: ***
-2022-12-12T07:12:00.0599998Z   ssh-strict: true
-2022-12-12T07:12:00.0600221Z   persist-credentials: true
-2022-12-12T07:12:00.0600443Z   clean: true
-2022-12-12T07:12:00.0600644Z   fetch-depth: 1
-2022-12-12T07:12:00.0600835Z   lfs: false
-2022-12-12T07:12:00.0601030Z   submodules: false
-2022-12-12T07:12:00.0601253Z   set-safe-directory: true
-2022-12-12T07:12:00.0601463Z ##[endgroup]
-2022-12-12T07:12:00.2936225Z Syncing repository: AlphaSteam/GHuPrintGen
-2022-12-12T07:12:00.2937862Z ##[group]Getting Git version info
-2022-12-12T07:12:00.2938327Z Working directory is '/home/runner/work/GHuPrintGen/GHuPrintGen'
-2022-12-12T07:12:00.2938818Z [command]/usr/bin/git version
-2022-12-12T07:12:00.3014814Z git version 2.38.1
-2022-12-12T07:12:00.3040440Z ##[endgroup]
-2022-12-12T07:12:00.3058208Z Temporarily overriding HOME='/home/runner/work/_temp/93f6bd98-1710-49ff-88dd-4ad97b6d384d' before making global git config changes
-2022-12-12T07:12:00.3058683Z Adding repository directory to the temporary git global config as a safe directory
-2022-12-12T07:12:00.3061228Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/GHuPrintGen/GHuPrintGen
-2022-12-12T07:12:00.3107509Z Deleting the contents of '/home/runner/work/GHuPrintGen/GHuPrintGen'
-2022-12-12T07:12:00.3112994Z ##[group]Initializing the repository
-2022-12-12T07:12:00.3116440Z [command]/usr/bin/git init /home/runner/work/GHuPrintGen/GHuPrintGen
-2022-12-12T07:12:00.3170748Z hint: Using 'master' as the name for the initial branch. This default branch name
-2022-12-12T07:12:00.3171383Z hint: is subject to change. To configure the initial branch name to use in all
-2022-12-12T07:12:00.3172167Z hint: of your new repositories, which will suppress this warning, call:
-2022-12-12T07:12:00.3172588Z hint: 
-2022-12-12T07:12:00.3173297Z hint: 	git config --global init.defaultBranch <name>
-2022-12-12T07:12:00.3173699Z hint: 
-2022-12-12T07:12:00.3174391Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
-2022-12-12T07:12:00.3174985Z hint: 'development'. The just-created branch can be renamed via this command:
-2022-12-12T07:12:00.3175629Z hint: 
-2022-12-12T07:12:00.3176012Z hint: 	git branch -m <name>
-2022-12-12T07:12:00.3182795Z Initialized empty Git repository in /home/runner/work/GHuPrintGen/GHuPrintGen/.git/
-2022-12-12T07:12:00.3190947Z [command]/usr/bin/git remote add origin https://github.com/AlphaSteam/GHuPrintGen
-2022-12-12T07:12:00.3229020Z ##[endgroup]
-2022-12-12T07:12:00.3229687Z ##[group]Disabling automatic garbage collection
-2022-12-12T07:12:00.3233197Z [command]/usr/bin/git config --local gc.auto 0
-2022-12-12T07:12:00.3263207Z ##[endgroup]
-2022-12-12T07:12:00.3263820Z ##[group]Setting up auth
-2022-12-12T07:12:00.3271138Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
-2022-12-12T07:12:00.3303454Z [command]/usr/bin/git submodule foreach --recursive git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :
-2022-12-12T07:12:00.3609229Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
-2022-12-12T07:12:00.3633542Z [command]/usr/bin/git submodule foreach --recursive git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :
-2022-12-12T07:12:00.3857532Z [command]/usr/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
-2022-12-12T07:12:00.3889976Z ##[endgroup]
-2022-12-12T07:12:00.3890539Z ##[group]Fetching the repository
-2022-12-12T07:12:00.3901069Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --progress --no-recurse-submodules --depth=1 origin +709b4040b643a221644cc1730e581ff3bb87a48a:refs/remotes/origin/integrate_uPrintGen
-2022-12-12T07:12:00.5967843Z remote: Enumerating objects: 55, done.        
-2022-12-12T07:12:00.5980135Z remote: Counting objects:   1% (1/55)        
-2022-12-12T07:12:00.5980892Z remote: Counting objects:   3% (2/55)        
-2022-12-12T07:12:00.5981314Z remote: Counting objects:   5% (3/55)        
-2022-12-12T07:12:00.5981941Z remote: Counting objects:   7% (4/55)        
-2022-12-12T07:12:00.5982342Z remote: Counting objects:   9% (5/55)        
-2022-12-12T07:12:00.5982927Z remote: Counting objects:  10% (6/55)        
-2022-12-12T07:12:00.5983326Z remote: Counting objects:  12% (7/55)        
-2022-12-12T07:12:00.5983942Z remote: Counting objects:  14% (8/55)        
-2022-12-12T07:12:00.5984328Z remote: Counting objects:  16% (9/55)        
-2022-12-12T07:12:00.5984921Z remote: Counting objects:  18% (10/55)        
-2022-12-12T07:12:00.5985320Z remote: Counting objects:  20% (11/55)        
-2022-12-12T07:12:00.5985925Z remote: Counting objects:  21% (12/55)        
-2022-12-12T07:12:00.5986338Z remote: Counting objects:  23% (13/55)        
-2022-12-12T07:12:00.5986931Z remote: Counting objects:  25% (14/55)        
-2022-12-12T07:12:00.5987323Z remote: Counting objects:  27% (15/55)        
-2022-12-12T07:12:00.5987936Z remote: Counting objects:  29% (16/55)        
-2022-12-12T07:12:00.5988326Z remote: Counting objects:  30% (17/55)        
-2022-12-12T07:12:00.5988979Z remote: Counting objects:  32% (18/55)        
-2022-12-12T07:12:00.5989374Z remote: Counting objects:  34% (19/55)        
-2022-12-12T07:12:00.5989959Z remote: Counting objects:  36% (20/55)        
-2022-12-12T07:12:00.5990346Z remote: Counting objects:  38% (21/55)        
-2022-12-12T07:12:00.5990933Z remote: Counting objects:  40% (22/55)        
-2022-12-12T07:12:00.5991329Z remote: Counting objects:  41% (23/55)        
-2022-12-12T07:12:00.5991920Z remote: Counting objects:  43% (24/55)        
-2022-12-12T07:12:00.5992308Z remote: Counting objects:  45% (25/55)        
-2022-12-12T07:12:00.5992897Z remote: Counting objects:  47% (26/55)        
-2022-12-12T07:12:00.5993290Z remote: Counting objects:  49% (27/55)        
-2022-12-12T07:12:00.5993893Z remote: Counting objects:  50% (28/55)        
-2022-12-12T07:12:00.5994293Z remote: Counting objects:  52% (29/55)        
-2022-12-12T07:12:00.5994871Z remote: Counting objects:  54% (30/55)        
-2022-12-12T07:12:00.5995261Z remote: Counting objects:  56% (31/55)        
-2022-12-12T07:12:00.5995860Z remote: Counting objects:  58% (32/55)        
-2022-12-12T07:12:00.5996248Z remote: Counting objects:  60% (33/55)        
-2022-12-12T07:12:00.5996843Z remote: Counting objects:  61% (34/55)        
-2022-12-12T07:12:00.5997222Z remote: Counting objects:  63% (35/55)        
-2022-12-12T07:12:00.5997811Z remote: Counting objects:  65% (36/55)        
-2022-12-12T07:12:00.5998197Z remote: Counting objects:  67% (37/55)        
-2022-12-12T07:12:00.5998962Z remote: Counting objects:  69% (38/55)        
-2022-12-12T07:12:00.5999364Z remote: Counting objects:  70% (39/55)        
-2022-12-12T07:12:00.5999957Z remote: Counting objects:  72% (40/55)        
-2022-12-12T07:12:00.6000349Z remote: Counting objects:  74% (41/55)        
-2022-12-12T07:12:00.6000942Z remote: Counting objects:  76% (42/55)        
-2022-12-12T07:12:00.6001332Z remote: Counting objects:  78% (43/55)        
-2022-12-12T07:12:00.6001913Z remote: Counting objects:  80% (44/55)        
-2022-12-12T07:12:00.6002474Z remote: Counting objects:  81% (45/55)        
-2022-12-12T07:12:00.6003084Z remote: Counting objects:  83% (46/55)        
-2022-12-12T07:12:00.6003470Z remote: Counting objects:  85% (47/55)        
-2022-12-12T07:12:00.6004059Z remote: Counting objects:  87% (48/55)        
-2022-12-12T07:12:00.6004435Z remote: Counting objects:  89% (49/55)        
-2022-12-12T07:12:00.6005029Z remote: Counting objects:  90% (50/55)        
-2022-12-12T07:12:00.6005412Z remote: Counting objects:  92% (51/55)        
-2022-12-12T07:12:00.6006014Z remote: Counting objects:  94% (52/55)        
-2022-12-12T07:12:00.6006476Z remote: Counting objects:  96% (53/55)        
-2022-12-12T07:12:00.6007533Z remote: Counting objects:  98% (54/55)        
-2022-12-12T07:12:00.6007776Z remote: Counting objects: 100% (55/55)        
-2022-12-12T07:12:00.6008033Z remote: Counting objects: 100% (55/55), done.        
-2022-12-12T07:12:00.6008330Z remote: Compressing objects:   2% (1/46)        
-2022-12-12T07:12:00.6008597Z remote: Compressing objects:   4% (2/46)        
-2022-12-12T07:12:00.6008864Z remote: Compressing objects:   6% (3/46)        
-2022-12-12T07:12:00.6009314Z remote: Compressing objects:   8% (4/46)        
-2022-12-12T07:12:00.6009797Z remote: Compressing objects:  10% (5/46)        
-2022-12-12T07:12:00.6010061Z remote: Compressing objects:  13% (6/46)        
-2022-12-12T07:12:00.6015656Z remote: Compressing objects:  15% (7/46)        
-2022-12-12T07:12:00.6018009Z remote: Compressing objects:  17% (8/46)        
-2022-12-12T07:12:00.6021368Z remote: Compressing objects:  19% (9/46)        
-2022-12-12T07:12:00.6023335Z remote: Compressing objects:  21% (10/46)        
-2022-12-12T07:12:00.6025083Z remote: Compressing objects:  23% (11/46)        
-2022-12-12T07:12:00.6026917Z remote: Compressing objects:  26% (12/46)        
-2022-12-12T07:12:00.6029465Z remote: Compressing objects:  28% (13/46)        
-2022-12-12T07:12:00.6031303Z remote: Compressing objects:  30% (14/46)        
-2022-12-12T07:12:00.6032986Z remote: Compressing objects:  32% (15/46)        
-2022-12-12T07:12:00.6034754Z remote: Compressing objects:  34% (16/46)        
-2022-12-12T07:12:00.6036388Z remote: Compressing objects:  36% (17/46)        
-2022-12-12T07:12:00.6037950Z remote: Compressing objects:  39% (18/46)        
-2022-12-12T07:12:00.6039760Z remote: Compressing objects:  41% (19/46)        
-2022-12-12T07:12:00.6041368Z remote: Compressing objects:  43% (20/46)        
-2022-12-12T07:12:00.6043357Z remote: Compressing objects:  45% (21/46)        
-2022-12-12T07:12:00.6044935Z remote: Compressing objects:  47% (22/46)        
-2022-12-12T07:12:00.6207294Z remote: Compressing objects:  50% (23/46)        
-2022-12-12T07:12:00.6231178Z remote: Compressing objects:  52% (24/46)        
-2022-12-12T07:12:00.6265136Z remote: Compressing objects:  54% (25/46)        
-2022-12-12T07:12:00.6265411Z remote: Compressing objects:  56% (26/46)        
-2022-12-12T07:12:00.6265672Z remote: Compressing objects:  58% (27/46)        
-2022-12-12T07:12:00.6265927Z remote: Compressing objects:  60% (28/46)        
-2022-12-12T07:12:00.6266177Z remote: Compressing objects:  63% (29/46)        
-2022-12-12T07:12:00.6266426Z remote: Compressing objects:  65% (30/46)        
-2022-12-12T07:12:00.6266676Z remote: Compressing objects:  67% (31/46)        
-2022-12-12T07:12:00.6266925Z remote: Compressing objects:  69% (32/46)        
-2022-12-12T07:12:00.6267172Z remote: Compressing objects:  71% (33/46)        
-2022-12-12T07:12:00.6273587Z remote: Compressing objects:  73% (34/46)        
-2022-12-12T07:12:00.6273848Z remote: Compressing objects:  76% (35/46)        
-2022-12-12T07:12:00.6274097Z remote: Compressing objects:  78% (36/46)        
-2022-12-12T07:12:00.6274339Z remote: Compressing objects:  80% (37/46)        
-2022-12-12T07:12:00.6274584Z remote: Compressing objects:  82% (38/46)        
-2022-12-12T07:12:00.6274829Z remote: Compressing objects:  84% (39/46)        
-2022-12-12T07:12:00.6275069Z remote: Compressing objects:  86% (40/46)        
-2022-12-12T07:12:00.6276123Z remote: Compressing objects:  89% (41/46)        
-2022-12-12T07:12:00.6276537Z remote: Compressing objects:  91% (42/46)        
-2022-12-12T07:12:00.6276781Z remote: Compressing objects:  93% (43/46)        
-2022-12-12T07:12:00.6277026Z remote: Compressing objects:  95% (44/46)        
-2022-12-12T07:12:00.6277268Z remote: Compressing objects:  97% (45/46)        
-2022-12-12T07:12:00.6277810Z remote: Compressing objects: 100% (46/46)        
-2022-12-12T07:12:00.6278084Z remote: Compressing objects: 100% (46/46), done.        
-2022-12-12T07:12:00.7554449Z remote: Total 55 (delta 17), reused 26 (delta 5), pack-reused 0        
-2022-12-12T07:12:00.7796976Z From https://github.com/AlphaSteam/GHuPrintGen
-2022-12-12T07:12:00.7797695Z  * [new ref]         709b4040b643a221644cc1730e581ff3bb87a48a -> origin/integrate_uPrintGen
-2022-12-12T07:12:00.7824409Z ##[endgroup]
-2022-12-12T07:12:00.7825029Z ##[group]Determining the checkout info
-2022-12-12T07:12:00.7826710Z ##[endgroup]
-2022-12-12T07:12:00.7827320Z ##[group]Checking out the ref
-2022-12-12T07:12:00.7836229Z [command]/usr/bin/git checkout --progress --force -B integrate_uPrintGen refs/remotes/origin/integrate_uPrintGen
-2022-12-12T07:12:00.8062813Z Switched to a new branch 'integrate_uPrintGen'
-2022-12-12T07:12:00.8066797Z branch 'integrate_uPrintGen' set up to track 'origin/integrate_uPrintGen'.
-2022-12-12T07:12:00.8071411Z ##[endgroup]
-2022-12-12T07:12:00.8112941Z [command]/usr/bin/git log -1 --format='%H'
-2022-12-12T07:12:00.8142835Z '709b4040b643a221644cc1730e581ff3bb87a48a'
-2022-12-12T07:12:00.8539663Z ##[group]Run ./
-2022-12-12T07:12:00.8539858Z with:
-2022-12-12T07:12:00.8540084Z   log_path: ./Examples/Mid-job-matrix/
-2022-12-12T07:12:00.8540364Z   microprint_path: ./Examples/Mid-job-matrix/
-2022-12-12T07:12:00.8540651Z   microprint_config_path: ./Examples/Mid-job-matrix/
-2022-12-12T07:12:00.8540956Z   microprint_visualizer_link_path: ./Examples/Mid-job-matrix/
-2022-12-12T07:12:00.8541245Z   repository: AlphaSteam/GHuPrintGen
-2022-12-12T07:12:00.8541687Z   github_token: ***
-2022-12-12T07:12:00.8541943Z   job_name: generate_microprint_mid_job_matrix
-2022-12-12T07:12:00.8542190Z   ref: refs/heads/integrate_uPrintGen
-2022-12-12T07:12:00.8542416Z   log_filename: logs
-2022-12-12T07:12:00.8542610Z   save_log: true
-2022-12-12T07:12:00.8542833Z   microprint_filename: microprint
-2022-12-12T07:12:00.8543066Z   microprint_config_filename: config
-2022-12-12T07:12:00.8543325Z   generate_microprint_visualizer_link: true
-2022-12-12T07:12:00.8543654Z   microprint_visualizer_link_filename: microprint_visualizer
-2022-12-12T07:12:00.8543967Z   matrix: {
+2022-12-12T07:31:02.1679207Z Requested labels: ubuntu-latest
+2022-12-12T07:31:02.1679249Z Job defined at: AlphaSteam/GHuPrintGen/.github/workflows/generate_examples.yaml@refs/heads/develop
+2022-12-12T07:31:02.1679270Z Waiting for a runner to pick up this job...
+2022-12-12T07:31:03.6565202Z Job is waiting for a hosted runner to come online.
+2022-12-12T07:31:04.8412494Z Job is about to start running on the hosted runner: Hosted Agent (hosted)
+2022-12-12T07:31:07.6807946Z Current runner version: '2.299.1'
+2022-12-12T07:31:07.6834833Z ##[group]Operating System
+2022-12-12T07:31:07.6835620Z Ubuntu
+2022-12-12T07:31:07.6835927Z 22.04.1
+2022-12-12T07:31:07.6836326Z LTS
+2022-12-12T07:31:07.6836661Z ##[endgroup]
+2022-12-12T07:31:07.6836944Z ##[group]Runner Image
+2022-12-12T07:31:07.6837305Z Image: ubuntu-22.04
+2022-12-12T07:31:07.6837654Z Version: 20221204.2
+2022-12-12T07:31:07.6838227Z Included Software: https://github.com/actions/runner-images/blob/ubuntu22/20221204.2/images/linux/Ubuntu2204-Readme.md
+2022-12-12T07:31:07.6838865Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu22%2F20221204.2
+2022-12-12T07:31:07.6839329Z ##[endgroup]
+2022-12-12T07:31:07.6839696Z ##[group]Runner Image Provisioner
+2022-12-12T07:31:07.6840082Z 2.0.91.1
+2022-12-12T07:31:07.6840348Z ##[endgroup]
+2022-12-12T07:31:07.6841374Z ##[group]GITHUB_TOKEN Permissions
+2022-12-12T07:31:07.6842019Z Actions: write
+2022-12-12T07:31:07.6842381Z Checks: write
+2022-12-12T07:31:07.6842866Z Contents: write
+2022-12-12T07:31:07.6843229Z Deployments: write
+2022-12-12T07:31:07.6843571Z Discussions: write
+2022-12-12T07:31:07.6843953Z Issues: write
+2022-12-12T07:31:07.6844224Z Metadata: read
+2022-12-12T07:31:07.6844558Z Packages: write
+2022-12-12T07:31:07.6844879Z Pages: write
+2022-12-12T07:31:07.6845236Z PullRequests: write
+2022-12-12T07:31:07.6845558Z RepositoryProjects: write
+2022-12-12T07:31:07.6845933Z SecurityEvents: write
+2022-12-12T07:31:07.6846283Z Statuses: write
+2022-12-12T07:31:07.6846606Z ##[endgroup]
+2022-12-12T07:31:07.6850240Z Secret source: Actions
+2022-12-12T07:31:07.6850765Z Prepare workflow directory
+2022-12-12T07:31:07.7653960Z Prepare all required actions
+2022-12-12T07:31:07.7838318Z Getting action download info
+2022-12-12T07:31:08.0295237Z Download action repository 'actions/checkout@v3' (SHA:93ea575cb5d8a053eaa0ac8fa3b40d7e05a33cc8)
+2022-12-12T07:31:08.3104191Z Download action repository 'EndBug/add-and-commit@v9' (SHA:61a88be553afe4206585b31aa72387c64295d08b)
+2022-12-12T07:31:08.5190861Z Download action repository 'CasperWA/push-protected@v2' (SHA:6b25de805895da731062c43da647425fbb383128)
+2022-12-12T07:31:08.9274110Z ##[group]Build container for action use: '/home/runner/work/_actions/CasperWA/push-protected/v2/Dockerfile'.
+2022-12-12T07:31:08.9346637Z ##[command]/usr/bin/docker build -t 290506:3440550ff0bf4b399f45542b7a300eb7 -f "/home/runner/work/_actions/CasperWA/push-protected/v2/Dockerfile" "/home/runner/work/_actions/CasperWA/push-protected/v2"
+2022-12-12T07:31:09.0485943Z Sending build context to Docker daemon  113.2kB
+2022-12-12T07:31:09.0487412Z 
+2022-12-12T07:31:09.0859067Z Step 1/6 : FROM python:alpine
+2022-12-12T07:31:09.3656315Z alpine: Pulling from library/python
+2022-12-12T07:31:09.4167106Z c158987b0551: Pulling fs layer
+2022-12-12T07:31:09.4167458Z 7ec3a91b66d9: Pulling fs layer
+2022-12-12T07:31:09.4167727Z c89fd98887b3: Pulling fs layer
+2022-12-12T07:31:09.4170595Z 877ccf16716c: Pulling fs layer
+2022-12-12T07:31:09.4171024Z 3cfcd1e4ebae: Pulling fs layer
+2022-12-12T07:31:09.4171899Z 877ccf16716c: Waiting
+2022-12-12T07:31:09.4172134Z 3cfcd1e4ebae: Waiting
+2022-12-12T07:31:09.4573937Z 7ec3a91b66d9: Verifying Checksum
+2022-12-12T07:31:09.4581452Z 7ec3a91b66d9: Download complete
+2022-12-12T07:31:09.4765023Z c158987b0551: Verifying Checksum
+2022-12-12T07:31:09.4765384Z c158987b0551: Download complete
+2022-12-12T07:31:09.5251921Z 877ccf16716c: Verifying Checksum
+2022-12-12T07:31:09.5263879Z 877ccf16716c: Download complete
+2022-12-12T07:31:09.5582656Z 3cfcd1e4ebae: Verifying Checksum
+2022-12-12T07:31:09.5583556Z 3cfcd1e4ebae: Download complete
+2022-12-12T07:31:09.5912229Z c89fd98887b3: Verifying Checksum
+2022-12-12T07:31:09.5915497Z c89fd98887b3: Download complete
+2022-12-12T07:31:09.6833775Z c158987b0551: Pull complete
+2022-12-12T07:31:09.9573786Z 7ec3a91b66d9: Pull complete
+2022-12-12T07:31:10.7367779Z c89fd98887b3: Pull complete
+2022-12-12T07:31:10.8074996Z 877ccf16716c: Pull complete
+2022-12-12T07:31:11.2071950Z 3cfcd1e4ebae: Pull complete
+2022-12-12T07:31:11.2116658Z Digest: sha256:af8fef83397b3886ed93d2c81bf3b4e70d39c0789c1c6feb1ecb86ca9bc42a0a
+2022-12-12T07:31:11.2133851Z Status: Downloaded newer image for python:alpine
+2022-12-12T07:31:11.2145696Z  ---> 18ccdc39ea28
+2022-12-12T07:31:11.2146272Z Step 2/6 : COPY README.md setup.py requirements*.txt ./
+2022-12-12T07:31:12.0168499Z  ---> 3cb68aad4154
+2022-12-12T07:31:12.0168869Z Step 3/6 : COPY push_action ./push_action
+2022-12-12T07:31:13.0149487Z  ---> 153fa9fce2f7
+2022-12-12T07:31:13.0150141Z Step 4/6 : RUN apk update     && apk add --no-cache git git-lfs bash     && pip install -U -e .
+2022-12-12T07:31:13.0406219Z  ---> Running in 3dcce7610e82
+2022-12-12T07:31:13.3190666Z fetch https://dl-cdn.alpinelinux.org/alpine/v3.17/main/x86_64/APKINDEX.tar.gz
+2022-12-12T07:31:13.4653383Z fetch https://dl-cdn.alpinelinux.org/alpine/v3.17/community/x86_64/APKINDEX.tar.gz
+2022-12-12T07:31:13.7100130Z v3.17.0-154-gb60cc15be3 [https://dl-cdn.alpinelinux.org/alpine/v3.17/main]
+2022-12-12T07:31:13.7100820Z v3.17.0-152-g5578d899a7 [https://dl-cdn.alpinelinux.org/alpine/v3.17/community]
+2022-12-12T07:31:13.7101231Z OK: 17804 distinct packages available
+2022-12-12T07:31:13.7485906Z fetch https://dl-cdn.alpinelinux.org/alpine/v3.17/main/x86_64/APKINDEX.tar.gz
+2022-12-12T07:31:13.8799270Z fetch https://dl-cdn.alpinelinux.org/alpine/v3.17/community/x86_64/APKINDEX.tar.gz
+2022-12-12T07:31:14.1001493Z (1/7) Installing bash (5.2.12-r0)
+2022-12-12T07:31:14.1158636Z Executing bash-5.2.12-r0.post-install
+2022-12-12T07:31:14.1180823Z (2/7) Installing brotli-libs (1.0.9-r9)
+2022-12-12T07:31:14.1270647Z (3/7) Installing nghttp2-libs (1.51.0-r0)
+2022-12-12T07:31:14.1302756Z (4/7) Installing libcurl (7.86.0-r1)
+2022-12-12T07:31:14.1371318Z (5/7) Installing pcre2 (10.41-r0)
+2022-12-12T07:31:14.1456712Z (6/7) Installing git (2.38.2-r0)
+2022-12-12T07:31:14.2125437Z (7/7) Installing git-lfs (3.2.0-r2)
+2022-12-12T07:31:14.3034270Z Executing git-lfs-3.2.0-r2.post-install
+2022-12-12T07:31:14.3183899Z Git LFS initialized.
+2022-12-12T07:31:14.3199481Z Executing busybox-1.35.0-r29.trigger
+2022-12-12T07:31:14.3250369Z OK: 37 MiB in 44 packages
+2022-12-12T07:31:16.3627166Z Obtaining file:///
+2022-12-12T07:31:16.3634380Z   Preparing metadata (setup.py): started
+2022-12-12T07:31:16.9936347Z   Preparing metadata (setup.py): finished with status 'done'
+2022-12-12T07:31:17.1190953Z Collecting requests~=2.28
+2022-12-12T07:31:17.1747931Z   Downloading requests-2.28.1-py3-none-any.whl (62 kB)
+2022-12-12T07:31:17.1962205Z      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 62.8/62.8 kB 3.6 MB/s eta 0:00:00
+2022-12-12T07:31:17.2591185Z Collecting charset-normalizer<3,>=2
+2022-12-12T07:31:17.2618968Z   Downloading charset_normalizer-2.1.1-py3-none-any.whl (39 kB)
+2022-12-12T07:31:17.2809916Z Collecting idna<4,>=2.5
+2022-12-12T07:31:17.2880433Z   Downloading idna-3.4-py3-none-any.whl (61 kB)
+2022-12-12T07:31:17.2937324Z      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 61.5/61.5 kB 19.5 MB/s eta 0:00:00
+2022-12-12T07:31:17.3280402Z Collecting urllib3<1.27,>=1.21.1
+2022-12-12T07:31:17.3309239Z   Downloading urllib3-1.26.13-py2.py3-none-any.whl (140 kB)
+2022-12-12T07:31:17.3375199Z      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 140.6/140.6 kB 32.8 MB/s eta 0:00:00
+2022-12-12T07:31:17.3581804Z Collecting certifi>=2017.4.17
+2022-12-12T07:31:17.3606353Z   Downloading certifi-2022.12.7-py3-none-any.whl (155 kB)
+2022-12-12T07:31:17.3672391Z      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 155.3/155.3 kB 35.7 MB/s eta 0:00:00
+2022-12-12T07:31:17.4603668Z Installing collected packages: urllib3, idna, charset-normalizer, certifi, requests, push-action
+2022-12-12T07:31:17.7745164Z   Running setup.py develop for push-action
+2022-12-12T07:31:18.1652231Z Successfully installed certifi-2022.12.7 charset-normalizer-2.1.1 idna-3.4 push-action-2.14.0 requests-2.28.1 urllib3-1.26.13
+2022-12-12T07:31:18.1652943Z [91mWARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv
+2022-12-12T07:31:19.5102258Z [0mRemoving intermediate container 3dcce7610e82
+2022-12-12T07:31:19.5102605Z  ---> 3fe651ae97fd
+2022-12-12T07:31:19.5103572Z Step 5/6 : COPY entrypoint.sh ./
+2022-12-12T07:31:20.0128432Z  ---> d6dc9f6ddef9
+2022-12-12T07:31:20.0129074Z Step 6/6 : ENTRYPOINT [ "/entrypoint.sh" ]
+2022-12-12T07:31:20.0217506Z  ---> Running in 498aebab0050
+2022-12-12T07:31:21.0184461Z Removing intermediate container 498aebab0050
+2022-12-12T07:31:21.0184806Z  ---> c72f1990e3bc
+2022-12-12T07:31:21.0185038Z Successfully built c72f1990e3bc
+2022-12-12T07:31:21.0228046Z Successfully tagged 290506:3440550ff0bf4b399f45542b7a300eb7
+2022-12-12T07:31:21.0240485Z ##[endgroup]
+2022-12-12T07:31:21.0627843Z ##[group]Run actions/checkout@v3
+2022-12-12T07:31:21.0628107Z with:
+2022-12-12T07:31:21.0628348Z   repository: AlphaSteam/GHuPrintGen
+2022-12-12T07:31:21.0628807Z   token: ***
+2022-12-12T07:31:21.0629021Z   ssh-strict: true
+2022-12-12T07:31:21.0629245Z   persist-credentials: true
+2022-12-12T07:31:21.0629479Z   clean: true
+2022-12-12T07:31:21.0629693Z   fetch-depth: 1
+2022-12-12T07:31:21.0629906Z   lfs: false
+2022-12-12T07:31:21.0630095Z   submodules: false
+2022-12-12T07:31:21.0630322Z   set-safe-directory: true
+2022-12-12T07:31:21.0630616Z ##[endgroup]
+2022-12-12T07:31:21.3575992Z Syncing repository: AlphaSteam/GHuPrintGen
+2022-12-12T07:31:21.3577643Z ##[group]Getting Git version info
+2022-12-12T07:31:21.3578209Z Working directory is '/home/runner/work/GHuPrintGen/GHuPrintGen'
+2022-12-12T07:31:21.3578716Z [command]/usr/bin/git version
+2022-12-12T07:31:21.3713802Z git version 2.38.1
+2022-12-12T07:31:21.3742579Z ##[endgroup]
+2022-12-12T07:31:21.3761843Z Temporarily overriding HOME='/home/runner/work/_temp/b96859f2-3382-4438-a834-28aad2b12b79' before making global git config changes
+2022-12-12T07:31:21.3763841Z Adding repository directory to the temporary git global config as a safe directory
+2022-12-12T07:31:21.3770138Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/GHuPrintGen/GHuPrintGen
+2022-12-12T07:31:21.3824529Z Deleting the contents of '/home/runner/work/GHuPrintGen/GHuPrintGen'
+2022-12-12T07:31:21.3830252Z ##[group]Initializing the repository
+2022-12-12T07:31:21.3834570Z [command]/usr/bin/git init /home/runner/work/GHuPrintGen/GHuPrintGen
+2022-12-12T07:31:21.3949779Z hint: Using 'master' as the name for the initial branch. This default branch name
+2022-12-12T07:31:21.3950885Z hint: is subject to change. To configure the initial branch name to use in all
+2022-12-12T07:31:21.3951304Z hint: of your new repositories, which will suppress this warning, call:
+2022-12-12T07:31:21.3951582Z hint: 
+2022-12-12T07:31:21.3952088Z hint: 	git config --global init.defaultBranch <name>
+2022-12-12T07:31:21.3952344Z hint: 
+2022-12-12T07:31:21.3952687Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+2022-12-12T07:31:21.3953328Z hint: 'development'. The just-created branch can be renamed via this command:
+2022-12-12T07:31:21.3953623Z hint: 
+2022-12-12T07:31:21.3953873Z hint: 	git branch -m <name>
+2022-12-12T07:31:21.3964041Z Initialized empty Git repository in /home/runner/work/GHuPrintGen/GHuPrintGen/.git/
+2022-12-12T07:31:21.3975273Z [command]/usr/bin/git remote add origin https://github.com/AlphaSteam/GHuPrintGen
+2022-12-12T07:31:21.4023264Z ##[endgroup]
+2022-12-12T07:31:21.4023737Z ##[group]Disabling automatic garbage collection
+2022-12-12T07:31:21.4030214Z [command]/usr/bin/git config --local gc.auto 0
+2022-12-12T07:31:21.4064684Z ##[endgroup]
+2022-12-12T07:31:21.4065464Z ##[group]Setting up auth
+2022-12-12T07:31:21.4074046Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2022-12-12T07:31:21.4110589Z [command]/usr/bin/git submodule foreach --recursive git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :
+2022-12-12T07:31:21.4498143Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2022-12-12T07:31:21.4536665Z [command]/usr/bin/git submodule foreach --recursive git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :
+2022-12-12T07:31:21.4767207Z [command]/usr/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
+2022-12-12T07:31:21.4813050Z ##[endgroup]
+2022-12-12T07:31:21.4814064Z ##[group]Fetching the repository
+2022-12-12T07:31:21.4823415Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --progress --no-recurse-submodules --depth=1 origin +934c32017541ed679203dbae6d61a457d8e47136:refs/remotes/origin/develop
+2022-12-12T07:31:21.6564516Z remote: Enumerating objects: 61, done.        
+2022-12-12T07:31:21.6565335Z remote: Counting objects:   1% (1/61)        
+2022-12-12T07:31:21.6567344Z remote: Counting objects:   3% (2/61)        
+2022-12-12T07:31:21.6567851Z remote: Counting objects:   4% (3/61)        
+2022-12-12T07:31:21.6568343Z remote: Counting objects:   6% (4/61)        
+2022-12-12T07:31:21.6568918Z remote: Counting objects:   8% (5/61)        
+2022-12-12T07:31:21.6571517Z remote: Counting objects:   9% (6/61)        
+2022-12-12T07:31:21.6577668Z remote: Counting objects:  11% (7/61)        
+2022-12-12T07:31:21.6578322Z remote: Counting objects:  13% (8/61)        
+2022-12-12T07:31:21.6578725Z remote: Counting objects:  14% (9/61)        
+2022-12-12T07:31:21.6579124Z remote: Counting objects:  16% (10/61)        
+2022-12-12T07:31:21.6579512Z remote: Counting objects:  18% (11/61)        
+2022-12-12T07:31:21.6583434Z remote: Counting objects:  19% (12/61)        
+2022-12-12T07:31:21.6586819Z remote: Counting objects:  21% (13/61)        
+2022-12-12T07:31:21.6587208Z remote: Counting objects:  22% (14/61)        
+2022-12-12T07:31:21.6587519Z remote: Counting objects:  24% (15/61)        
+2022-12-12T07:31:21.6587828Z remote: Counting objects:  26% (16/61)        
+2022-12-12T07:31:21.6588140Z remote: Counting objects:  27% (17/61)        
+2022-12-12T07:31:21.6588430Z remote: Counting objects:  29% (18/61)        
+2022-12-12T07:31:21.6588743Z remote: Counting objects:  31% (19/61)        
+2022-12-12T07:31:21.6589051Z remote: Counting objects:  32% (20/61)        
+2022-12-12T07:31:21.6589350Z remote: Counting objects:  34% (21/61)        
+2022-12-12T07:31:21.6589637Z remote: Counting objects:  36% (22/61)        
+2022-12-12T07:31:21.6589933Z remote: Counting objects:  37% (23/61)        
+2022-12-12T07:31:21.6590232Z remote: Counting objects:  39% (24/61)        
+2022-12-12T07:31:21.6590577Z remote: Counting objects:  40% (25/61)        
+2022-12-12T07:31:21.6590876Z remote: Counting objects:  42% (26/61)        
+2022-12-12T07:31:21.6591164Z remote: Counting objects:  44% (27/61)        
+2022-12-12T07:31:21.6591461Z remote: Counting objects:  45% (28/61)        
+2022-12-12T07:31:21.6591927Z remote: Counting objects:  47% (29/61)        
+2022-12-12T07:31:21.6592229Z remote: Counting objects:  49% (30/61)        
+2022-12-12T07:31:21.6592645Z remote: Counting objects:  50% (31/61)        
+2022-12-12T07:31:21.6592950Z remote: Counting objects:  52% (32/61)        
+2022-12-12T07:31:21.6593251Z remote: Counting objects:  54% (33/61)        
+2022-12-12T07:31:21.6593550Z remote: Counting objects:  55% (34/61)        
+2022-12-12T07:31:21.6593837Z remote: Counting objects:  57% (35/61)        
+2022-12-12T07:31:21.6594138Z remote: Counting objects:  59% (36/61)        
+2022-12-12T07:31:21.6594439Z remote: Counting objects:  60% (37/61)        
+2022-12-12T07:31:21.6594734Z remote: Counting objects:  62% (38/61)        
+2022-12-12T07:31:21.6595015Z remote: Counting objects:  63% (39/61)        
+2022-12-12T07:31:21.6595582Z remote: Counting objects:  65% (40/61)        
+2022-12-12T07:31:21.6595887Z remote: Counting objects:  67% (41/61)        
+2022-12-12T07:31:21.6596185Z remote: Counting objects:  68% (42/61)        
+2022-12-12T07:31:21.6596466Z remote: Counting objects:  70% (43/61)        
+2022-12-12T07:31:21.6596761Z remote: Counting objects:  72% (44/61)        
+2022-12-12T07:31:21.6597063Z remote: Counting objects:  73% (45/61)        
+2022-12-12T07:31:21.6597662Z remote: Counting objects:  75% (46/61)        
+2022-12-12T07:31:21.6597945Z remote: Counting objects:  77% (47/61)        
+2022-12-12T07:31:21.6598247Z remote: Counting objects:  78% (48/61)        
+2022-12-12T07:31:21.6598545Z remote: Counting objects:  80% (49/61)        
+2022-12-12T07:31:21.6598846Z remote: Counting objects:  81% (50/61)        
+2022-12-12T07:31:21.6599131Z remote: Counting objects:  83% (51/61)        
+2022-12-12T07:31:21.6599430Z remote: Counting objects:  85% (52/61)        
+2022-12-12T07:31:21.6599731Z remote: Counting objects:  86% (53/61)        
+2022-12-12T07:31:21.6600124Z remote: Counting objects:  88% (54/61)        
+2022-12-12T07:31:21.6600414Z remote: Counting objects:  90% (55/61)        
+2022-12-12T07:31:21.6600709Z remote: Counting objects:  91% (56/61)        
+2022-12-12T07:31:21.6601008Z remote: Counting objects:  93% (57/61)        
+2022-12-12T07:31:21.6601310Z remote: Counting objects:  95% (58/61)        
+2022-12-12T07:31:21.6603826Z remote: Counting objects:  96% (59/61)        
+2022-12-12T07:31:21.6604249Z remote: Counting objects:  98% (60/61)        
+2022-12-12T07:31:21.6604538Z remote: Counting objects: 100% (61/61)        
+2022-12-12T07:31:21.6604857Z remote: Counting objects: 100% (61/61), done.        
+2022-12-12T07:31:21.6605203Z remote: Compressing objects:   1% (1/57)        
+2022-12-12T07:31:21.6605534Z remote: Compressing objects:   3% (2/57)        
+2022-12-12T07:31:21.6605844Z remote: Compressing objects:   5% (3/57)        
+2022-12-12T07:31:21.6606159Z remote: Compressing objects:   7% (4/57)        
+2022-12-12T07:31:21.6606486Z remote: Compressing objects:   8% (5/57)        
+2022-12-12T07:31:21.6606819Z remote: Compressing objects:  10% (6/57)        
+2022-12-12T07:31:21.6627417Z remote: Compressing objects:  12% (7/57)        
+2022-12-12T07:31:21.6627973Z remote: Compressing objects:  14% (8/57)        
+2022-12-12T07:31:21.6628489Z remote: Compressing objects:  15% (9/57)        
+2022-12-12T07:31:21.6628788Z remote: Compressing objects:  17% (10/57)        
+2022-12-12T07:31:21.6629059Z remote: Compressing objects:  19% (11/57)        
+2022-12-12T07:31:21.6629342Z remote: Compressing objects:  21% (12/57)        
+2022-12-12T07:31:21.6629622Z remote: Compressing objects:  22% (13/57)        
+2022-12-12T07:31:21.6629897Z remote: Compressing objects:  24% (14/57)        
+2022-12-12T07:31:21.6630157Z remote: Compressing objects:  26% (15/57)        
+2022-12-12T07:31:21.6630432Z remote: Compressing objects:  28% (16/57)        
+2022-12-12T07:31:21.6630708Z remote: Compressing objects:  29% (17/57)        
+2022-12-12T07:31:21.6630980Z remote: Compressing objects:  31% (18/57)        
+2022-12-12T07:31:21.6631255Z remote: Compressing objects:  33% (19/57)        
+2022-12-12T07:31:21.6631513Z remote: Compressing objects:  35% (20/57)        
+2022-12-12T07:31:21.6631780Z remote: Compressing objects:  36% (21/57)        
+2022-12-12T07:31:21.6632047Z remote: Compressing objects:  38% (22/57)        
+2022-12-12T07:31:21.6804115Z remote: Compressing objects:  40% (23/57)        
+2022-12-12T07:31:21.6840841Z remote: Compressing objects:  42% (24/57)        
+2022-12-12T07:31:21.6889669Z remote: Compressing objects:  43% (25/57)        
+2022-12-12T07:31:21.6890093Z remote: Compressing objects:  45% (26/57)        
+2022-12-12T07:31:21.6891008Z remote: Compressing objects:  47% (27/57)        
+2022-12-12T07:31:21.6891512Z remote: Compressing objects:  49% (28/57)        
+2022-12-12T07:31:21.6995777Z remote: Compressing objects:  50% (29/57)        
+2022-12-12T07:31:21.6996546Z remote: Compressing objects:  52% (30/57)        
+2022-12-12T07:31:21.7001329Z remote: Compressing objects:  54% (31/57)        
+2022-12-12T07:31:21.7001890Z remote: Compressing objects:  56% (32/57)        
+2022-12-12T07:31:21.7002549Z remote: Compressing objects:  57% (33/57)        
+2022-12-12T07:31:21.7002995Z remote: Compressing objects:  59% (34/57)        
+2022-12-12T07:31:21.7003620Z remote: Compressing objects:  61% (35/57)        
+2022-12-12T07:31:21.7004354Z remote: Compressing objects:  63% (36/57)        
+2022-12-12T07:31:21.7004981Z remote: Compressing objects:  64% (37/57)        
+2022-12-12T07:31:21.7005424Z remote: Compressing objects:  66% (38/57)        
+2022-12-12T07:31:21.7006037Z remote: Compressing objects:  68% (39/57)        
+2022-12-12T07:31:21.7006469Z remote: Compressing objects:  70% (40/57)        
+2022-12-12T07:31:21.7007100Z remote: Compressing objects:  71% (41/57)        
+2022-12-12T07:31:21.7007530Z remote: Compressing objects:  73% (42/57)        
+2022-12-12T07:31:21.7008149Z remote: Compressing objects:  75% (43/57)        
+2022-12-12T07:31:21.7008660Z remote: Compressing objects:  77% (44/57)        
+2022-12-12T07:31:21.7009584Z remote: Compressing objects:  78% (45/57)        
+2022-12-12T07:31:21.7010022Z remote: Compressing objects:  80% (46/57)        
+2022-12-12T07:31:21.7010637Z remote: Compressing objects:  82% (47/57)        
+2022-12-12T07:31:21.7011068Z remote: Compressing objects:  84% (48/57)        
+2022-12-12T07:31:21.7012170Z remote: Compressing objects:  85% (49/57)        
+2022-12-12T07:31:21.7013276Z remote: Compressing objects:  87% (50/57)        
+2022-12-12T07:31:21.7013698Z remote: Compressing objects:  89% (51/57)        
+2022-12-12T07:31:21.7014332Z remote: Compressing objects:  91% (52/57)        
+2022-12-12T07:31:21.7014916Z remote: Compressing objects:  92% (53/57)        
+2022-12-12T07:31:21.7015479Z remote: Compressing objects:  94% (54/57)        
+2022-12-12T07:31:21.7016023Z remote: Compressing objects:  96% (55/57)        
+2022-12-12T07:31:21.7016566Z remote: Compressing objects:  98% (56/57)        
+2022-12-12T07:31:21.7017138Z remote: Compressing objects: 100% (57/57)        
+2022-12-12T07:31:21.7017712Z remote: Compressing objects: 100% (57/57), done.        
+2022-12-12T07:31:21.8085855Z remote: Total 61 (delta 24), reused 24 (delta 0), pack-reused 0        
+2022-12-12T07:31:21.8328959Z From https://github.com/AlphaSteam/GHuPrintGen
+2022-12-12T07:31:21.8329946Z  * [new ref]         934c32017541ed679203dbae6d61a457d8e47136 -> origin/develop
+2022-12-12T07:31:21.8360633Z ##[endgroup]
+2022-12-12T07:31:21.8366001Z ##[group]Determining the checkout info
+2022-12-12T07:31:21.8366909Z ##[endgroup]
+2022-12-12T07:31:21.8367544Z ##[group]Checking out the ref
+2022-12-12T07:31:21.8377440Z [command]/usr/bin/git checkout --progress --force -B develop refs/remotes/origin/develop
+2022-12-12T07:31:21.8604314Z Switched to a new branch 'develop'
+2022-12-12T07:31:21.8605111Z branch 'develop' set up to track 'origin/develop'.
+2022-12-12T07:31:21.8610710Z ##[endgroup]
+2022-12-12T07:31:21.8659054Z [command]/usr/bin/git log -1 --format='%H'
+2022-12-12T07:31:21.8710067Z '934c32017541ed679203dbae6d61a457d8e47136'
+2022-12-12T07:31:21.9104023Z ##[group]Run ./
+2022-12-12T07:31:21.9104328Z with:
+2022-12-12T07:31:21.9104603Z   log_path: ./Examples/Mid-job-matrix/
+2022-12-12T07:31:21.9104963Z   microprint_path: ./Examples/Mid-job-matrix/
+2022-12-12T07:31:21.9105391Z   microprint_config_path: ./Examples/Mid-job-matrix/
+2022-12-12T07:31:21.9105808Z   microprint_visualizer_link_path: ./Examples/Mid-job-matrix/
+2022-12-12T07:31:21.9106148Z   repository: AlphaSteam/GHuPrintGen
+2022-12-12T07:31:21.9106652Z   github_token: ***
+2022-12-12T07:31:21.9106981Z   job_name: generate_microprint_mid_job_matrix
+2022-12-12T07:31:21.9107346Z   ref: refs/heads/develop
+2022-12-12T07:31:21.9107656Z   log_filename: logs
+2022-12-12T07:31:21.9107889Z   save_log: true
+2022-12-12T07:31:21.9108192Z   microprint_filename: microprint
+2022-12-12T07:31:21.9108559Z   microprint_config_filename: config
+2022-12-12T07:31:21.9108922Z   generate_microprint_visualizer_link: true
+2022-12-12T07:31:21.9109361Z   microprint_visualizer_link_filename: microprint_visualizer
+2022-12-12T07:31:21.9109758Z   matrix: {
   "os": "ubuntu-latest",
   "version": 1.6
 }
-2022-12-12T07:12:00.8544191Z ##[endgroup]
-2022-12-12T07:12:00.8664049Z ##[group]Building docker image
-2022-12-12T07:12:00.8664380Z Dockerfile for action: '/home/runner/work/GHuPrintGen/GHuPrintGen/./Dockerfile'.
-2022-12-12T07:12:00.8665595Z ##[command]/usr/bin/docker build -t 290506:7d818c3497a45ba67a7777cea1100d98 -f "/home/runner/work/GHuPrintGen/GHuPrintGen/./Dockerfile" "/home/runner/work/GHuPrintGen/GHuPrintGen"
-2022-12-12T07:12:00.9528286Z Sending build context to Docker daemon   3.68MB
-2022-12-12T07:12:00.9529167Z 
-2022-12-12T07:12:00.9548070Z Step 1/5 : FROM python:3
-2022-12-12T07:12:01.1761032Z 3: Pulling from library/python
-2022-12-12T07:12:01.2530822Z f2f58072e9ed: Pulling fs layer
-2022-12-12T07:12:01.2543495Z 5c8cfbf51e6e: Pulling fs layer
-2022-12-12T07:12:01.2544447Z aa3a609d1579: Pulling fs layer
-2022-12-12T07:12:01.2544815Z 094e7d9bb04e: Pulling fs layer
-2022-12-12T07:12:01.2545534Z 2cbfd734f382: Pulling fs layer
-2022-12-12T07:12:01.2546190Z aa86ac293d0f: Pulling fs layer
-2022-12-12T07:12:01.2546806Z 4cffc9f44941: Pulling fs layer
-2022-12-12T07:12:01.2547432Z ae2c75627c86: Pulling fs layer
-2022-12-12T07:12:01.2548030Z 2d2b74d2f0f7: Pulling fs layer
-2022-12-12T07:12:01.2548642Z 094e7d9bb04e: Waiting
-2022-12-12T07:12:01.2549214Z 2cbfd734f382: Waiting
-2022-12-12T07:12:01.2549857Z aa86ac293d0f: Waiting
-2022-12-12T07:12:01.2550459Z 4cffc9f44941: Waiting
-2022-12-12T07:12:01.2551047Z ae2c75627c86: Waiting
-2022-12-12T07:12:01.2551594Z 2d2b74d2f0f7: Waiting
-2022-12-12T07:12:01.3832770Z 5c8cfbf51e6e: Verifying Checksum
-2022-12-12T07:12:01.3833715Z 5c8cfbf51e6e: Download complete
-2022-12-12T07:12:01.4515407Z aa3a609d1579: Verifying Checksum
-2022-12-12T07:12:01.4535344Z aa3a609d1579: Download complete
-2022-12-12T07:12:01.9927486Z f2f58072e9ed: Verifying Checksum
-2022-12-12T07:12:01.9927735Z f2f58072e9ed: Download complete
-2022-12-12T07:12:02.2091824Z aa86ac293d0f: Verifying Checksum
-2022-12-12T07:12:02.2092083Z aa86ac293d0f: Download complete
-2022-12-12T07:12:02.3769862Z 094e7d9bb04e: Verifying Checksum
-2022-12-12T07:12:02.3770150Z 094e7d9bb04e: Download complete
-2022-12-12T07:12:02.5154438Z ae2c75627c86: Verifying Checksum
-2022-12-12T07:12:02.5154749Z ae2c75627c86: Download complete
-2022-12-12T07:12:02.5402328Z 4cffc9f44941: Verifying Checksum
-2022-12-12T07:12:02.5402590Z 4cffc9f44941: Download complete
-2022-12-12T07:12:02.7261177Z 2d2b74d2f0f7: Verifying Checksum
-2022-12-12T07:12:02.7261438Z 2d2b74d2f0f7: Download complete
-2022-12-12T07:12:03.0329600Z 2cbfd734f382: Verifying Checksum
-2022-12-12T07:12:03.0329870Z 2cbfd734f382: Download complete
-2022-12-12T07:12:04.2708333Z f2f58072e9ed: Pull complete
-2022-12-12T07:12:06.4658967Z 5c8cfbf51e6e: Pull complete
-2022-12-12T07:12:06.7633674Z aa3a609d1579: Pull complete
-2022-12-12T07:12:10.0119605Z 094e7d9bb04e: Pull complete
-2022-12-12T07:12:19.1683716Z 2cbfd734f382: Pull complete
-2022-12-12T07:12:19.5196429Z aa86ac293d0f: Pull complete
-2022-12-12T07:12:20.4211294Z 4cffc9f44941: Pull complete
-2022-12-12T07:12:20.4851406Z ae2c75627c86: Pull complete
-2022-12-12T07:12:20.8166418Z 2d2b74d2f0f7: Pull complete
-2022-12-12T07:12:20.8196662Z Digest: sha256:1a91094b2729a1d78fa2bb3260b94576447b20d05346d983e9c2f4fd72c6d9b5
-2022-12-12T07:12:20.8209819Z Status: Downloaded newer image for python:3
-2022-12-12T07:12:20.8217642Z  ---> 539eccd5ee4e
-2022-12-12T07:12:20.8217918Z Step 2/5 : COPY requirements.txt /requirements.txt
-2022-12-12T07:12:21.7718776Z  ---> c319cc67a9f7
-2022-12-12T07:12:21.7719112Z Step 3/5 : RUN pip install -r /requirements.txt
-2022-12-12T07:12:21.7894342Z  ---> Running in 7493ca49ffcc
-2022-12-12T07:12:23.5852167Z Collecting requests
-2022-12-12T07:12:23.6247748Z   Downloading requests-2.28.1-py3-none-any.whl (62 kB)
-2022-12-12T07:12:23.6400978Z      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 62.8/62.8 kB 7.0 MB/s eta 0:00:00
-2022-12-12T07:12:23.6590808Z Collecting svgwrite
-2022-12-12T07:12:23.6679721Z   Downloading svgwrite-1.4.3-py3-none-any.whl (67 kB)
-2022-12-12T07:12:23.6731527Z      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 67.1/67.1 kB 21.2 MB/s eta 0:00:00
-2022-12-12T07:12:23.7017484Z Collecting markdown-it-py[plugins]
-2022-12-12T07:12:23.7094158Z   Downloading markdown_it_py-2.1.0-py3-none-any.whl (84 kB)
-2022-12-12T07:12:23.7137890Z      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 84.5/84.5 kB 35.4 MB/s eta 0:00:00
-2022-12-12T07:12:23.7311656Z Collecting uPrintGen
-2022-12-12T07:12:23.7400044Z   Downloading uPrintGen-1.0.0-py3-none-any.whl (31 kB)
-2022-12-12T07:12:23.8242390Z Collecting charset-normalizer<3,>=2
-2022-12-12T07:12:23.8316203Z   Downloading charset_normalizer-2.1.1-py3-none-any.whl (39 kB)
-2022-12-12T07:12:23.8557166Z Collecting idna<4,>=2.5
-2022-12-12T07:12:23.8630470Z   Downloading idna-3.4-py3-none-any.whl (61 kB)
-2022-12-12T07:12:23.8670395Z      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 61.5/61.5 kB 27.2 MB/s eta 0:00:00
-2022-12-12T07:12:23.9094587Z Collecting urllib3<1.27,>=1.21.1
-2022-12-12T07:12:23.9170615Z   Downloading urllib3-1.26.13-py2.py3-none-any.whl (140 kB)
-2022-12-12T07:12:23.9221243Z      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 140.6/140.6 kB 53.9 MB/s eta 0:00:00
-2022-12-12T07:12:23.9510575Z Collecting certifi>=2017.4.17
-2022-12-12T07:12:23.9586150Z   Downloading certifi-2022.12.7-py3-none-any.whl (155 kB)
-2022-12-12T07:12:23.9638108Z      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 155.3/155.3 kB 55.2 MB/s eta 0:00:00
-2022-12-12T07:12:24.0024163Z Collecting mdurl~=0.1
-2022-12-12T07:12:24.0097887Z   Downloading mdurl-0.1.2-py3-none-any.whl (10.0 kB)
-2022-12-12T07:12:24.0326638Z Collecting mdit-py-plugins
-2022-12-12T07:12:24.0408057Z   Downloading mdit_py_plugins-0.3.3-py3-none-any.whl (50 kB)
-2022-12-12T07:12:24.0447609Z      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 50.5/50.5 kB 22.6 MB/s eta 0:00:00
-2022-12-12T07:12:24.1101279Z Collecting tqdm
-2022-12-12T07:12:24.1176337Z   Downloading tqdm-4.64.1-py2.py3-none-any.whl (78 kB)
-2022-12-12T07:12:24.1218902Z      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 78.5/78.5 kB 32.7 MB/s eta 0:00:00
-2022-12-12T07:12:24.3022157Z Installing collected packages: urllib3, tqdm, svgwrite, mdurl, idna, charset-normalizer, certifi, uPrintGen, requests, markdown-it-py, mdit-py-plugins
-2022-12-12T07:12:24.7727222Z Successfully installed certifi-2022.12.7 charset-normalizer-2.1.1 idna-3.4 markdown-it-py-2.1.0 mdit-py-plugins-0.3.3 mdurl-0.1.2 requests-2.28.1 svgwrite-1.4.3 tqdm-4.64.1 uPrintGen-1.0.0 urllib3-1.26.13
-2022-12-12T07:12:24.7733198Z [91mWARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv
-2022-12-12T07:12:26.8163466Z [0mRemoving intermediate container 7493ca49ffcc
-2022-12-12T07:12:26.8163753Z  ---> cb812755d7e4
-2022-12-12T07:12:26.8163980Z Step 4/5 : COPY script.py /script.py
-2022-12-12T07:12:27.8189066Z  ---> 38be7c89c212
-2022-12-12T07:12:27.8189347Z Step 5/5 : CMD ["python", "/script.py"]
-2022-12-12T07:12:27.8359106Z  ---> Running in 67a846fd6650
-2022-12-12T07:12:28.8156949Z Removing intermediate container 67a846fd6650
-2022-12-12T07:12:28.8157262Z  ---> a50c1a0d7e1c
-2022-12-12T07:12:28.8203448Z Successfully built a50c1a0d7e1c
-2022-12-12T07:12:28.8240006Z Successfully tagged 290506:7d818c3497a45ba67a7777cea1100d98
-2022-12-12T07:12:28.8261437Z ##[endgroup]
-2022-12-12T07:12:28.8382015Z ##[command]/usr/bin/docker run --name d818c3497a45ba67a7777cea1100d98_5c929c --label 290506 --workdir /github/workspace --rm -e "INPUT_LOG_PATH" -e "INPUT_MICROPRINT_PATH" -e "INPUT_MICROPRINT_CONFIG_PATH" -e "INPUT_MICROPRINT_VISUALIZER_LINK_PATH" -e "INPUT_REPOSITORY" -e "INPUT_GITHUB_TOKEN" -e "INPUT_JOB_NAME" -e "INPUT_REF" -e "INPUT_LOG_FILENAME" -e "INPUT_SAVE_LOG" -e "INPUT_MICROPRINT_FILENAME" -e "INPUT_MICROPRINT_CONFIG_FILENAME" -e "INPUT_GENERATE_MICROPRINT_VISUALIZER_LINK" -e "INPUT_MICROPRINT_VISUALIZER_LINK_FILENAME" -e "INPUT_MATRIX" -e "HOME" -e "GITHUB_JOB" -e "GITHUB_REF" -e "GITHUB_SHA" -e "GITHUB_REPOSITORY" -e "GITHUB_REPOSITORY_OWNER" -e "GITHUB_RUN_ID" -e "GITHUB_RUN_NUMBER" -e "GITHUB_RETENTION_DAYS" -e "GITHUB_RUN_ATTEMPT" -e "GITHUB_ACTOR" -e "GITHUB_TRIGGERING_ACTOR" -e "GITHUB_WORKFLOW" -e "GITHUB_HEAD_REF" -e "GITHUB_BASE_REF" -e "GITHUB_EVENT_NAME" -e "GITHUB_SERVER_URL" -e "GITHUB_API_URL" -e "GITHUB_GRAPHQL_URL" -e "GITHUB_REF_NAME" -e "GITHUB_REF_PROTECTED" -e "GITHUB_REF_TYPE" -e "GITHUB_WORKSPACE" -e "GITHUB_ACTION" -e "GITHUB_EVENT_PATH" -e "GITHUB_ACTION_REPOSITORY" -e "GITHUB_ACTION_REF" -e "GITHUB_PATH" -e "GITHUB_ENV" -e "GITHUB_STEP_SUMMARY" -e "GITHUB_STATE" -e "GITHUB_OUTPUT" -e "RUNNER_OS" -e "RUNNER_ARCH" -e "RUNNER_NAME" -e "RUNNER_TOOL_CACHE" -e "RUNNER_TEMP" -e "RUNNER_WORKSPACE" -e "ACTIONS_RUNTIME_URL" -e "ACTIONS_RUNTIME_TOKEN" -e "ACTIONS_CACHE_URL" -e GITHUB_ACTIONS=true -e CI=true -v "/var/run/docker.sock":"/var/run/docker.sock" -v "/home/runner/work/_temp/_github_home":"/github/home" -v "/home/runner/work/_temp/_github_workflow":"/github/workflow" -v "/home/runner/work/_temp/_runner_file_commands":"/github/file_commands" -v "/home/runner/work/GHuPrintGen/GHuPrintGen":"/github/workspace" 290506:7d818c3497a45ba67a7777cea1100d98
-2022-12-12T07:12:29.2502352Z DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): api.github.com:443
-2022-12-12T07:12:29.4028573Z DEBUG:urllib3.connectionpool:https://api.github.com:443 "GET /repos/AlphaSteam/GHuPrintGen HTTP/1.1" 200 None
-2022-12-12T07:12:29.4053192Z DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): api.github.com:443
-2022-12-12T07:12:29.7415206Z DEBUG:urllib3.connectionpool:https://api.github.com:443 "GET /repos/AlphaSteam/GHuPrintGen/actions/runs/3673499338/jobs HTTP/1.1" 200 None
-2022-12-12T07:12:29.7441622Z DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): api.github.com:443
-2022-12-12T07:12:29.9209576Z DEBUG:urllib3.connectionpool:https://api.github.com:443 "GET /repos/AlphaSteam/GHuPrintGen/actions/jobs/10029395996/logs HTTP/1.1" 302 0
-2022-12-12T07:12:29.9225809Z DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): pipelines.actions.githubusercontent.com:443
-2022-12-12T07:12:29.9620817Z DEBUG:urllib3.connectionpool:https://pipelines.actions.githubusercontent.com:443 "GET /serviceHosts/871f7675-65c0-436d-aa94-5c5a4536b9ce/_apis/pipelines/1/runs/280/signedlogcontent/11?urlExpires=2022-12-12T07%3A13%3A29.8994449Z&urlSigningMethod=HMACV1&urlSignature=vcMg5sfNx6Lt%2BlU7RuVJGnjiQ6prE6Xfy08ON5gGaBE%3D HTTP/1.1" 200 None
-2022-12-12T07:12:29.9651763Z ERROR:root:Couldn't open config file 'Examples/Mid-job-matrix/config.json'. Using default parameters.
-2022-12-12T07:12:29.9654860Z INFO:root:Generating svg microprint
-2022-12-12T07:12:29.9843365Z 
-2022-12-12T07:12:29.9847741Z Generating columns:   0%|          | 0/1 [00:00<?, ?it/s]
-2022-12-12T07:12:29.9850836Z 
-2022-12-12T07:12:29.9859062Z Generating rows:   0%|          | 0/5 [00:00<?, ?it/s][A
-2022-12-12T07:12:29.9859498Z Generating rows: 100%|██████████| 5/5 [00:00<00:00, 11644.38it/s]
-2022-12-12T07:12:29.9863102Z 
-2022-12-12T07:12:29.9864570Z Generating columns: 100%|██████████| 1/1 [00:00<00:00, 673.78it/s]
-2022-12-12T07:12:29.9873009Z INFO:root:Microprint saved as 'Examples/Mid-job-matrix/microprint(ubuntu-latest,1.6).svg'
-2022-12-12T07:12:30.1442877Z ##[group]Run EndBug/add-and-commit@v9
-2022-12-12T07:12:30.1443108Z with:
-2022-12-12T07:12:30.1443325Z   message: Updated custom rules microprint
-2022-12-12T07:12:30.1443581Z   pull: --rebase --autostash
-2022-12-12T07:12:30.1443794Z   add: .
-2022-12-12T07:12:30.1443961Z   cwd: .
-2022-12-12T07:12:30.1444156Z   default_author: github_actor
-2022-12-12T07:12:30.1444397Z   fetch: --tags --force
-2022-12-12T07:12:30.1444627Z   pathspec_error_handling: ignore
-2022-12-12T07:12:30.1444836Z   push: true
-2022-12-12T07:12:30.1445212Z   github_token: ***
-2022-12-12T07:12:30.1445416Z ##[endgroup]
-2022-12-12T07:12:30.2808342Z Running in /home/runner/work/GHuPrintGen/GHuPrintGen
-2022-12-12T07:12:30.2833764Z Add input parsed as single string, running 1 git add command.
-2022-12-12T07:12:30.2837751Z > Using 'AlphaSteam <AlphaSteam@users.noreply.github.com>' as author.
-2022-12-12T07:12:30.2838511Z > Using "Updated custom rules microprint" as commit message.
-2022-12-12T07:12:30.2845485Z ##[group]Internal logs
-2022-12-12T07:12:30.2845873Z > Staging files...
-2022-12-12T07:12:30.2894186Z > Adding files...
-2022-12-12T07:12:30.3584896Z > No files to remove.
-2022-12-12T07:12:30.3586603Z > Checking for uncommitted changes in the git working tree...
-2022-12-12T07:12:30.3646262Z > Found 3 changed files.
-2022-12-12T07:12:30.7004544Z > Fetching repo...
-2022-12-12T07:12:31.4428319Z {
-2022-12-12T07:12:31.4435243Z   raw: '',
-2022-12-12T07:12:31.4436095Z   remote: 'https://github.com/AlphaSteam/GHuPrintGen',
-2022-12-12T07:12:31.4436537Z   branches: [
-2022-12-12T07:12:31.4437380Z     { name: 'add_custom_rules', tracking: 'origin/add_custom_rules' },
-2022-12-12T07:12:31.4437810Z     {
-2022-12-12T07:12:31.4438428Z       name: 'add_microprint_analysis',
-2022-12-12T07:12:31.4439037Z       tracking: 'origin/add_microprint_analysis'
-2022-12-12T07:12:31.4439634Z     },
-2022-12-12T07:12:31.4439951Z     {
-2022-12-12T07:12:31.4440541Z       name: 'add_multiple_columns',
-2022-12-12T07:12:31.4441319Z       tracking: 'origin/add_multiple_columns'
-2022-12-12T07:12:31.4441934Z     },
-2022-12-12T07:12:31.4442263Z     {
-2022-12-12T07:12:31.4442883Z       name: 'create-pull-request/patch',
-2022-12-12T07:12:31.4443392Z       tracking: 'origin/create-pull-request/patch'
-2022-12-12T07:12:31.4443981Z     },
-2022-12-12T07:12:31.4444453Z     { name: 'custom_fonts', tracking: 'origin/custom_fonts' },
-2022-12-12T07:12:31.4445435Z     { name: 'develop', tracking: 'origin/develop' },
-2022-12-12T07:12:31.4445968Z     { name: 'fix_job_id_matrix', tracking: 'origin/fix_job_id_matrix' },
-2022-12-12T07:12:31.4446681Z     { name: 'main', tracking: 'origin/main' },
-2022-12-12T07:12:31.4447205Z     { name: 'matrix_actions', tracking: 'origin/matrix_actions' },
-2022-12-12T07:12:31.4447809Z     {
-2022-12-12T07:12:31.4448243Z       name: 'microprint_visualizer_integration',
-2022-12-12T07:12:31.4448955Z       tracking: 'origin/microprint_visualizer_integration'
-2022-12-12T07:12:31.4449355Z     },
-2022-12-12T07:12:31.4449876Z     {
-2022-12-12T07:12:31.4450277Z       name: 'reduce_code_duplication',
-2022-12-12T07:12:31.4450946Z       tracking: 'origin/reduce_code_duplication'
-2022-12-12T07:12:31.4451318Z     },
-2022-12-12T07:12:31.4451970Z     { name: 'regex_rules', tracking: 'origin/regex_rules' },
-2022-12-12T07:12:31.4452496Z     { name: 'release/v1', tracking: 'origin/release/v1' },
-2022-12-12T07:12:31.4453209Z     { name: 'release/v2', tracking: 'origin/release/v2' },
-2022-12-12T07:12:31.4453722Z     { name: 'test_workflow', tracking: 'origin/test_workflow' }
-2022-12-12T07:12:31.4454321Z   ],
-2022-12-12T07:12:31.4454650Z   tags: [
-2022-12-12T07:12:31.4455291Z     { name: 'v1', tracking: 'v1' },
-2022-12-12T07:12:31.4455773Z     { name: 'v1.0.0', tracking: 'v1.0.0' },
-2022-12-12T07:12:31.4456413Z     { name: 'v2', tracking: 'v2' },
-2022-12-12T07:12:31.4456860Z     { name: 'v2.0.0', tracking: 'v2.0.0' },
-2022-12-12T07:12:31.4457496Z     { name: 'v3', tracking: 'v3' },
-2022-12-12T07:12:31.4457932Z     { name: 'v3.0.0', tracking: 'v3.0.0' },
-2022-12-12T07:12:31.4458704Z     { name: 'v4', tracking: 'v4' },
-2022-12-12T07:12:31.4459152Z     { name: 'v4.0.0', tracking: 'v4.0.0' },
-2022-12-12T07:12:31.4459810Z     { name: 'v4.0.1', tracking: 'v4.0.1' }
-2022-12-12T07:12:31.4460180Z   ]
-2022-12-12T07:12:31.4460690Z }
-2022-12-12T07:12:31.4461080Z > Pulling from remote...
-2022-12-12T07:12:31.6699663Z { raw: '', remote: null, branches: [], tags: [] }
-2022-12-12T07:12:31.8692188Z Rt {
-2022-12-12T07:12:31.8697576Z   remoteMessages: It { all: [] },
-2022-12-12T07:12:31.8698308Z   created: [],
-2022-12-12T07:12:31.8698685Z   deleted: [],
-2022-12-12T07:12:31.8699245Z   files: [
-2022-12-12T07:12:31.8700124Z     'Examples/Mid-job/logs.txt',
-2022-12-12T07:12:31.8700835Z     'Examples/Mid-job/microprint.svg',
-2022-12-12T07:12:31.8701301Z     'microprint_visualizer.md'
-2022-12-12T07:12:31.8701872Z   ],
-2022-12-12T07:12:31.8702193Z   deletions: {
-2022-12-12T07:12:31.8702817Z     'Examples/Mid-job/logs.txt': 5,
-2022-12-12T07:12:31.8703291Z     'Examples/Mid-job/microprint.svg': 1,
-2022-12-12T07:12:31.8703970Z     'microprint_visualizer.md': 1
-2022-12-12T07:12:31.8704323Z   },
-2022-12-12T07:12:31.8704862Z   insertions: {
-2022-12-12T07:12:31.8705278Z     'Examples/Mid-job/logs.txt': 5,
-2022-12-12T07:12:31.8705948Z     'Examples/Mid-job/microprint.svg': 1,
-2022-12-12T07:12:31.8706399Z     'microprint_visualizer.md': 1
-2022-12-12T07:12:31.8706955Z   },
-2022-12-12T07:12:31.8707344Z   summary: { changes: 3, deletions: 7, insertions: 7 }
-2022-12-12T07:12:31.8707924Z }
-2022-12-12T07:12:31.8708334Z > Checking for conflicts...
-2022-12-12T07:12:31.8756203Z nr {
-2022-12-12T07:12:31.8756688Z   not_added: [],
-2022-12-12T07:12:31.8757441Z   conflicted: [],
-2022-12-12T07:12:31.8757785Z   created: [
-2022-12-12T07:12:31.8758917Z     'Examples/Mid-job-matrix/microprint(ubuntu-latest,1.6).svg',
-2022-12-12T07:12:31.8759519Z     'Examples/Mid-job-matrix/microprint_visualizer(ubuntu-latest,1.6).md'
-2022-12-12T07:12:31.8760307Z   ],
-2022-12-12T07:12:31.8760651Z   deleted: [],
-2022-12-12T07:12:31.8761328Z   ignored: undefined,
-2022-12-12T07:12:31.8761851Z   modified: [ 'Examples/Mid-job-matrix/logs(ubuntu-latest,1.6).txt' ],
-2022-12-12T07:12:31.8762641Z   renamed: [],
-2022-12-12T07:12:31.8762974Z   files: [
-2022-12-12T07:12:31.8763651Z     sr {
-2022-12-12T07:12:31.8764134Z       path: 'Examples/Mid-job-matrix/logs(ubuntu-latest,1.6).txt',
-2022-12-12T07:12:31.8764980Z       index: ' ',
-2022-12-12T07:12:31.8765566Z       working_dir: 'M'
-2022-12-12T07:12:31.8766289Z     },
-2022-12-12T07:12:31.8766602Z     sr {
-2022-12-12T07:12:31.8767407Z       path: 'Examples/Mid-job-matrix/microprint(ubuntu-latest,1.6).svg',
-2022-12-12T07:12:31.8767866Z       index: 'A',
-2022-12-12T07:12:31.8769186Z       working_dir: ' '
-2022-12-12T07:12:31.8769526Z     },
-2022-12-12T07:12:31.8770191Z     sr {
-2022-12-12T07:12:31.8770714Z       path: 'Examples/Mid-job-matrix/microprint_visualizer(ubuntu-latest,1.6).md',
-2022-12-12T07:12:31.8771503Z       index: 'A',
-2022-12-12T07:12:31.8771880Z       working_dir: ' '
-2022-12-12T07:12:31.8772543Z     }
-2022-12-12T07:12:31.8772851Z   ],
-2022-12-12T07:12:31.8773484Z   staged: [
-2022-12-12T07:12:31.8773967Z     'Examples/Mid-job-matrix/microprint(ubuntu-latest,1.6).svg',
-2022-12-12T07:12:31.8774866Z     'Examples/Mid-job-matrix/microprint_visualizer(ubuntu-latest,1.6).md'
-2022-12-12T07:12:31.8775262Z   ],
-2022-12-12T07:12:31.8775937Z   ahead: 0,
-2022-12-12T07:12:31.8776266Z   behind: 0,
-2022-12-12T07:12:31.8777021Z   current: 'integrate_uPrintGen',
-2022-12-12T07:12:31.8777481Z   tracking: 'origin/integrate_uPrintGen',
-2022-12-12T07:12:31.8778194Z   detached: false,
-2022-12-12T07:12:31.8778558Z   isClean: [Function (anonymous)]
-2022-12-12T07:12:31.8778839Z }
-2022-12-12T07:12:31.8779153Z > No conflicts found.
-2022-12-12T07:12:31.8779472Z > Re-staging files...
-2022-12-12T07:12:31.9329973Z > Creating commit...
-2022-12-12T07:12:31.9415510Z {
-2022-12-12T07:12:31.9415986Z   author: null,
-2022-12-12T07:12:31.9417131Z   branch: 'integrate_uPrintGen',
-2022-12-12T07:12:31.9417866Z   commit: '13ebaba27d7e8bf84f154a57a5f4f79435c58ba0',
-2022-12-12T07:12:31.9418458Z   root: false,
-2022-12-12T07:12:31.9418829Z   summary: { changes: 3, insertions: 8, deletions: 5 }
-2022-12-12T07:12:31.9419341Z }
-2022-12-12T07:12:31.9459637Z > No tag info provided.
-2022-12-12T07:12:31.9460063Z > Pushing commit to repo...
-2022-12-12T07:12:32.5990103Z {
-2022-12-12T07:12:32.5990748Z   pushed: [],
-2022-12-12T07:12:32.5991109Z   update: {
-2022-12-12T07:12:32.5991655Z     head: {
-2022-12-12T07:12:32.5992795Z       local: 'refs/heads/integrate_uPrintGen',
-2022-12-12T07:12:32.5993768Z       remote: 'refs/heads/integrate_uPrintGen'
-2022-12-12T07:12:32.5994732Z     },
-2022-12-12T07:12:32.5995285Z     hash: { from: '9eff8f6', to: '13ebaba' }
-2022-12-12T07:12:32.5995564Z   },
-2022-12-12T07:12:32.5996357Z   repo: 'https://github.com/AlphaSteam/GHuPrintGen',
-2022-12-12T07:12:32.5996819Z   ref: { local: 'refs/remotes/origin/integrate_uPrintGen' },
-2022-12-12T07:12:32.5997303Z   remoteMessages: It { all: [] }
-2022-12-12T07:12:32.5997929Z }
-2022-12-12T07:12:32.5998612Z > No tags to push.
-2022-12-12T07:12:32.5999719Z ##[endgroup]
-2022-12-12T07:12:32.5999994Z > Task completed.
-2022-12-12T07:12:32.6000949Z ##[group]Outputs
-2022-12-12T07:12:32.6039086Z committed: true
-2022-12-12T07:12:32.6039521Z commit_long_sha: 13ebaba27d7e8bf84f154a57a5f4f79435c58ba0
-2022-12-12T07:12:32.6040166Z commit_sha: 13ebaba27d7e8bf84f154a57a5f4f79435c58ba0
-2022-12-12T07:12:32.6040632Z pushed: true
-2022-12-12T07:12:32.6040959Z tagged: false
-2022-12-12T07:12:32.6041535Z tag_pushed: false
-2022-12-12T07:12:32.6042169Z ##[endgroup]
-2022-12-12T07:12:32.6588870Z Post job cleanup.
-2022-12-12T07:12:32.7887047Z [command]/usr/bin/git version
-2022-12-12T07:12:32.7934702Z git version 2.38.1
-2022-12-12T07:12:32.7982413Z Temporarily overriding HOME='/home/runner/work/_temp/fcdcc111-892b-4a88-a176-e4190b72173f' before making global git config changes
-2022-12-12T07:12:32.7983830Z Adding repository directory to the temporary git global config as a safe directory
-2022-12-12T07:12:32.7988942Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/GHuPrintGen/GHuPrintGen
-2022-12-12T07:12:32.8029861Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
-2022-12-12T07:12:32.8066636Z [command]/usr/bin/git submodule foreach --recursive git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :
-2022-12-12T07:12:32.8305632Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
-2022-12-12T07:12:32.8324150Z http.https://github.com/.extraheader
-2022-12-12T07:12:32.8336108Z [command]/usr/bin/git config --local --unset-all http.https://github.com/.extraheader
-2022-12-12T07:12:32.8373122Z [command]/usr/bin/git submodule foreach --recursive git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :
-2022-12-12T07:12:32.8863280Z Cleaning up orphan processes
+2022-12-12T07:31:21.9110090Z ##[endgroup]
+2022-12-12T07:31:21.9232408Z ##[group]Building docker image
+2022-12-12T07:31:21.9232875Z Dockerfile for action: '/home/runner/work/GHuPrintGen/GHuPrintGen/./Dockerfile'.
+2022-12-12T07:31:21.9234627Z ##[command]/usr/bin/docker build -t 290506:7d818c3497a45ba67a7777cea1100d98 -f "/home/runner/work/GHuPrintGen/GHuPrintGen/./Dockerfile" "/home/runner/work/GHuPrintGen/GHuPrintGen"
+2022-12-12T07:31:22.0246259Z Sending build context to Docker daemon  3.764MB
+2022-12-12T07:31:22.0246617Z 
+2022-12-12T07:31:22.0279227Z Step 1/5 : FROM python:3
+2022-12-12T07:31:22.2092532Z 3: Pulling from library/python
+2022-12-12T07:31:23.2558988Z f2f58072e9ed: Pulling fs layer
+2022-12-12T07:31:23.2563286Z 5c8cfbf51e6e: Pulling fs layer
+2022-12-12T07:31:23.2563736Z aa3a609d1579: Pulling fs layer
+2022-12-12T07:31:23.2564121Z 094e7d9bb04e: Pulling fs layer
+2022-12-12T07:31:23.2564601Z 2cbfd734f382: Pulling fs layer
+2022-12-12T07:31:23.2565104Z aa86ac293d0f: Pulling fs layer
+2022-12-12T07:31:23.2565528Z 4cffc9f44941: Pulling fs layer
+2022-12-12T07:31:23.2565832Z ae2c75627c86: Pulling fs layer
+2022-12-12T07:31:23.2570054Z 2d2b74d2f0f7: Pulling fs layer
+2022-12-12T07:31:23.2570492Z 2cbfd734f382: Waiting
+2022-12-12T07:31:23.2574981Z aa86ac293d0f: Waiting
+2022-12-12T07:31:23.2575607Z 4cffc9f44941: Waiting
+2022-12-12T07:31:23.2576126Z ae2c75627c86: Waiting
+2022-12-12T07:31:23.2576455Z 2d2b74d2f0f7: Waiting
+2022-12-12T07:31:23.2576850Z 094e7d9bb04e: Waiting
+2022-12-12T07:31:23.5086000Z 5c8cfbf51e6e: Verifying Checksum
+2022-12-12T07:31:23.5086667Z 5c8cfbf51e6e: Download complete
+2022-12-12T07:31:23.5315247Z aa3a609d1579: Verifying Checksum
+2022-12-12T07:31:23.5316286Z aa3a609d1579: Download complete
+2022-12-12T07:31:23.9404721Z f2f58072e9ed: Verifying Checksum
+2022-12-12T07:31:23.9405525Z f2f58072e9ed: Download complete
+2022-12-12T07:31:24.0401589Z 094e7d9bb04e: Verifying Checksum
+2022-12-12T07:31:24.0402015Z 094e7d9bb04e: Download complete
+2022-12-12T07:31:24.1072466Z aa86ac293d0f: Verifying Checksum
+2022-12-12T07:31:24.1072855Z aa86ac293d0f: Download complete
+2022-12-12T07:31:24.2617426Z ae2c75627c86: Verifying Checksum
+2022-12-12T07:31:24.2617906Z ae2c75627c86: Download complete
+2022-12-12T07:31:24.3001242Z 4cffc9f44941: Verifying Checksum
+2022-12-12T07:31:24.3001661Z 4cffc9f44941: Download complete
+2022-12-12T07:31:24.3615029Z 2d2b74d2f0f7: Verifying Checksum
+2022-12-12T07:31:24.3618346Z 2d2b74d2f0f7: Download complete
+2022-12-12T07:31:24.9572128Z 2cbfd734f382: Verifying Checksum
+2022-12-12T07:31:24.9577605Z 2cbfd734f382: Download complete
+2022-12-12T07:31:26.1196655Z f2f58072e9ed: Pull complete
+2022-12-12T07:31:28.4585822Z 5c8cfbf51e6e: Pull complete
+2022-12-12T07:31:28.8074995Z aa3a609d1579: Pull complete
+2022-12-12T07:31:31.9169931Z 094e7d9bb04e: Pull complete
+2022-12-12T07:31:39.8465366Z 2cbfd734f382: Pull complete
+2022-12-12T07:31:40.2005668Z aa86ac293d0f: Pull complete
+2022-12-12T07:31:41.0614199Z 4cffc9f44941: Pull complete
+2022-12-12T07:31:41.1173591Z ae2c75627c86: Pull complete
+2022-12-12T07:31:41.5440835Z 2d2b74d2f0f7: Pull complete
+2022-12-12T07:31:41.5493872Z Digest: sha256:1a91094b2729a1d78fa2bb3260b94576447b20d05346d983e9c2f4fd72c6d9b5
+2022-12-12T07:31:41.5509755Z Status: Downloaded newer image for python:3
+2022-12-12T07:31:41.5519422Z  ---> 539eccd5ee4e
+2022-12-12T07:31:41.5519882Z Step 2/5 : COPY requirements.txt /requirements.txt
+2022-12-12T07:31:42.5088246Z  ---> 074000e05c51
+2022-12-12T07:31:42.5089256Z Step 3/5 : RUN pip install -r /requirements.txt
+2022-12-12T07:31:42.5245644Z  ---> Running in c3c27b9c8ffe
+2022-12-12T07:31:44.2042246Z Collecting requests
+2022-12-12T07:31:44.2215354Z   Downloading requests-2.28.1-py3-none-any.whl (62 kB)
+2022-12-12T07:31:44.2279144Z      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 62.8/62.8 kB 14.6 MB/s eta 0:00:00
+2022-12-12T07:31:44.2465780Z Collecting svgwrite
+2022-12-12T07:31:44.2495366Z   Downloading svgwrite-1.4.3-py3-none-any.whl (67 kB)
+2022-12-12T07:31:44.2548004Z      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 67.1/67.1 kB 22.8 MB/s eta 0:00:00
+2022-12-12T07:31:44.2785789Z Collecting markdown-it-py[plugins]
+2022-12-12T07:31:44.2813793Z   Downloading markdown_it_py-2.1.0-py3-none-any.whl (84 kB)
+2022-12-12T07:31:44.2859325Z      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 84.5/84.5 kB 30.7 MB/s eta 0:00:00
+2022-12-12T07:31:44.3059643Z Collecting uPrintGen
+2022-12-12T07:31:44.3105300Z   Downloading uPrintGen-1.0.0-py3-none-any.whl (31 kB)
+2022-12-12T07:31:44.3889537Z Collecting charset-normalizer<3,>=2
+2022-12-12T07:31:44.3919196Z   Downloading charset_normalizer-2.1.1-py3-none-any.whl (39 kB)
+2022-12-12T07:31:44.4110962Z Collecting idna<4,>=2.5
+2022-12-12T07:31:44.4138331Z   Downloading idna-3.4-py3-none-any.whl (61 kB)
+2022-12-12T07:31:44.4199362Z      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 61.5/61.5 kB 13.2 MB/s eta 0:00:00
+2022-12-12T07:31:44.4584537Z Collecting urllib3<1.27,>=1.21.1
+2022-12-12T07:31:44.4730611Z   Downloading urllib3-1.26.13-py2.py3-none-any.whl (140 kB)
+2022-12-12T07:31:44.4785824Z      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 140.6/140.6 kB 42.0 MB/s eta 0:00:00
+2022-12-12T07:31:44.4933691Z Collecting certifi>=2017.4.17
+2022-12-12T07:31:44.4960807Z   Downloading certifi-2022.12.7-py3-none-any.whl (155 kB)
+2022-12-12T07:31:44.5012576Z      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 155.3/155.3 kB 46.4 MB/s eta 0:00:00
+2022-12-12T07:31:44.5336607Z Collecting mdurl~=0.1
+2022-12-12T07:31:44.5362407Z   Downloading mdurl-0.1.2-py3-none-any.whl (10.0 kB)
+2022-12-12T07:31:44.5526700Z Collecting mdit-py-plugins
+2022-12-12T07:31:44.5551096Z   Downloading mdit_py_plugins-0.3.3-py3-none-any.whl (50 kB)
+2022-12-12T07:31:44.5596206Z      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 50.5/50.5 kB 16.3 MB/s eta 0:00:00
+2022-12-12T07:31:44.6249170Z Collecting tqdm
+2022-12-12T07:31:44.6285196Z   Downloading tqdm-4.64.1-py2.py3-none-any.whl (78 kB)
+2022-12-12T07:31:44.6336571Z      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 78.5/78.5 kB 24.8 MB/s eta 0:00:00
+2022-12-12T07:31:44.8155549Z Installing collected packages: urllib3, tqdm, svgwrite, mdurl, idna, charset-normalizer, certifi, uPrintGen, requests, markdown-it-py, mdit-py-plugins
+2022-12-12T07:31:45.2761499Z Successfully installed certifi-2022.12.7 charset-normalizer-2.1.1 idna-3.4 markdown-it-py-2.1.0 mdit-py-plugins-0.3.3 mdurl-0.1.2 requests-2.28.1 svgwrite-1.4.3 tqdm-4.64.1 uPrintGen-1.0.0 urllib3-1.26.13
+2022-12-12T07:31:45.2762521Z [91mWARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv
+2022-12-12T07:31:47.1987182Z [0mRemoving intermediate container c3c27b9c8ffe
+2022-12-12T07:31:47.1987774Z  ---> bb5c6927029d
+2022-12-12T07:31:47.1988668Z Step 4/5 : COPY script.py /script.py
+2022-12-12T07:31:48.1912921Z  ---> bf0d6de7f675
+2022-12-12T07:31:48.1913265Z Step 5/5 : CMD ["python", "/script.py"]
+2022-12-12T07:31:48.2126122Z  ---> Running in 62aabe7a1f62
+2022-12-12T07:31:49.1896666Z Removing intermediate container 62aabe7a1f62
+2022-12-12T07:31:49.1897029Z  ---> 38778931292d
+2022-12-12T07:31:49.1969078Z Successfully built 38778931292d
+2022-12-12T07:31:49.2026341Z Successfully tagged 290506:7d818c3497a45ba67a7777cea1100d98
+2022-12-12T07:31:49.2033372Z ##[endgroup]
+2022-12-12T07:31:49.2151743Z ##[command]/usr/bin/docker run --name d818c3497a45ba67a7777cea1100d98_bfc76a --label 290506 --workdir /github/workspace --rm -e "INPUT_LOG_PATH" -e "INPUT_MICROPRINT_PATH" -e "INPUT_MICROPRINT_CONFIG_PATH" -e "INPUT_MICROPRINT_VISUALIZER_LINK_PATH" -e "INPUT_REPOSITORY" -e "INPUT_GITHUB_TOKEN" -e "INPUT_JOB_NAME" -e "INPUT_REF" -e "INPUT_LOG_FILENAME" -e "INPUT_SAVE_LOG" -e "INPUT_MICROPRINT_FILENAME" -e "INPUT_MICROPRINT_CONFIG_FILENAME" -e "INPUT_GENERATE_MICROPRINT_VISUALIZER_LINK" -e "INPUT_MICROPRINT_VISUALIZER_LINK_FILENAME" -e "INPUT_MATRIX" -e "HOME" -e "GITHUB_JOB" -e "GITHUB_REF" -e "GITHUB_SHA" -e "GITHUB_REPOSITORY" -e "GITHUB_REPOSITORY_OWNER" -e "GITHUB_RUN_ID" -e "GITHUB_RUN_NUMBER" -e "GITHUB_RETENTION_DAYS" -e "GITHUB_RUN_ATTEMPT" -e "GITHUB_ACTOR" -e "GITHUB_TRIGGERING_ACTOR" -e "GITHUB_WORKFLOW" -e "GITHUB_HEAD_REF" -e "GITHUB_BASE_REF" -e "GITHUB_EVENT_NAME" -e "GITHUB_SERVER_URL" -e "GITHUB_API_URL" -e "GITHUB_GRAPHQL_URL" -e "GITHUB_REF_NAME" -e "GITHUB_REF_PROTECTED" -e "GITHUB_REF_TYPE" -e "GITHUB_WORKSPACE" -e "GITHUB_ACTION" -e "GITHUB_EVENT_PATH" -e "GITHUB_ACTION_REPOSITORY" -e "GITHUB_ACTION_REF" -e "GITHUB_PATH" -e "GITHUB_ENV" -e "GITHUB_STEP_SUMMARY" -e "GITHUB_STATE" -e "GITHUB_OUTPUT" -e "RUNNER_OS" -e "RUNNER_ARCH" -e "RUNNER_NAME" -e "RUNNER_TOOL_CACHE" -e "RUNNER_TEMP" -e "RUNNER_WORKSPACE" -e "ACTIONS_RUNTIME_URL" -e "ACTIONS_RUNTIME_TOKEN" -e "ACTIONS_CACHE_URL" -e GITHUB_ACTIONS=true -e CI=true -v "/var/run/docker.sock":"/var/run/docker.sock" -v "/home/runner/work/_temp/_github_home":"/github/home" -v "/home/runner/work/_temp/_github_workflow":"/github/workflow" -v "/home/runner/work/_temp/_runner_file_commands":"/github/file_commands" -v "/home/runner/work/GHuPrintGen/GHuPrintGen":"/github/workspace" 290506:7d818c3497a45ba67a7777cea1100d98
+2022-12-12T07:31:49.6314765Z DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): api.github.com:443
+2022-12-12T07:31:49.7535822Z DEBUG:urllib3.connectionpool:https://api.github.com:443 "GET /repos/AlphaSteam/GHuPrintGen HTTP/1.1" 200 None
+2022-12-12T07:31:49.7562602Z DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): api.github.com:443
+2022-12-12T07:31:50.0555653Z DEBUG:urllib3.connectionpool:https://api.github.com:443 "GET /repos/AlphaSteam/GHuPrintGen/actions/runs/3673609085/jobs HTTP/1.1" 200 None
+2022-12-12T07:31:50.0584123Z DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): api.github.com:443
+2022-12-12T07:31:50.2243734Z DEBUG:urllib3.connectionpool:https://api.github.com:443 "GET /repos/AlphaSteam/GHuPrintGen/actions/jobs/10029674063/logs HTTP/1.1" 302 0
+2022-12-12T07:31:50.2257421Z DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): pipelines.actions.githubusercontent.com:443
+2022-12-12T07:31:50.2549037Z DEBUG:urllib3.connectionpool:https://pipelines.actions.githubusercontent.com:443 "GET /serviceHosts/871f7675-65c0-436d-aa94-5c5a4536b9ce/_apis/pipelines/1/runs/281/signedlogcontent/11?urlExpires=2022-12-12T07%3A32%3A50.2239035Z&urlSigningMethod=HMACV1&urlSignature=%2F1e94A6UamTiDAbSllLRFxkF4rml8didZFtSZ4Ff5JE%3D HTTP/1.1" 200 None
+2022-12-12T07:31:50.2579599Z ERROR:root:Couldn't open config file 'Examples/Mid-job-matrix/config.json'. Using default parameters.
+2022-12-12T07:31:50.2580039Z INFO:root:Generating svg microprint
+2022-12-12T07:31:50.2756215Z 
+2022-12-12T07:31:50.2757424Z Generating columns:   0%|          | 0/1 [00:00<?, ?it/s]
+2022-12-12T07:31:50.2758171Z 
+2022-12-12T07:31:50.2758574Z Generating rows:   0%|          | 0/5 [00:00<?, ?it/s][A
+2022-12-12T07:31:50.2759061Z Generating rows: 100%|██████████| 5/5 [00:00<00:00, 26749.39it/s]
+2022-12-12T07:31:50.2759976Z 
+2022-12-12T07:31:50.2761291Z Generating columns: 100%|██████████| 1/1 [00:00<00:00, 1068.88it/s]
+2022-12-12T07:31:50.2768558Z INFO:root:Microprint saved as 'Examples/Mid-job-matrix/microprint(ubuntu-latest,1.6).svg'
+2022-12-12T07:31:50.4440902Z ##[group]Run EndBug/add-and-commit@v9
+2022-12-12T07:31:50.4441157Z with:
+2022-12-12T07:31:50.4441392Z   message: Updated custom rules microprint
+2022-12-12T07:31:50.4441654Z   pull: --rebase --autostash
+2022-12-12T07:31:50.4441869Z   add: .
+2022-12-12T07:31:50.4442053Z   cwd: .
+2022-12-12T07:31:50.4442260Z   default_author: github_actor
+2022-12-12T07:31:50.4442478Z   fetch: --tags --force
+2022-12-12T07:31:50.4442715Z   pathspec_error_handling: ignore
+2022-12-12T07:31:50.4442942Z   push: true
+2022-12-12T07:31:50.4443283Z   github_token: ***
+2022-12-12T07:31:50.4443480Z ##[endgroup]
+2022-12-12T07:31:50.5723030Z Running in /home/runner/work/GHuPrintGen/GHuPrintGen
+2022-12-12T07:31:50.5746895Z Add input parsed as single string, running 1 git add command.
+2022-12-12T07:31:50.5748999Z > Using 'AlphaSteam <AlphaSteam@users.noreply.github.com>' as author.
+2022-12-12T07:31:50.5838946Z > Using "Updated custom rules microprint" as commit message.
+2022-12-12T07:31:50.5840022Z ##[group]Internal logs
+2022-12-12T07:31:50.5840254Z > Staging files...
+2022-12-12T07:31:50.5840451Z > Adding files...
+2022-12-12T07:31:50.6494006Z > No files to remove.
+2022-12-12T07:31:50.6494754Z > Checking for uncommitted changes in the git working tree...
+2022-12-12T07:31:50.6562767Z > Found 3 changed files.
+2022-12-12T07:31:50.9967981Z > Fetching repo...
+2022-12-12T07:31:51.6885471Z {
+2022-12-12T07:31:51.6886270Z   raw: '',
+2022-12-12T07:31:51.6886919Z   remote: 'https://github.com/AlphaSteam/GHuPrintGen',
+2022-12-12T07:31:51.6887369Z   branches: [
+2022-12-12T07:31:51.6887971Z     { name: 'add_custom_rules', tracking: 'origin/add_custom_rules' },
+2022-12-12T07:31:51.6888687Z     {
+2022-12-12T07:31:51.6889150Z       name: 'add_microprint_analysis',
+2022-12-12T07:31:51.6889493Z       tracking: 'origin/add_microprint_analysis'
+2022-12-12T07:31:51.6889735Z     },
+2022-12-12T07:31:51.6889914Z     {
+2022-12-12T07:31:51.6890181Z       name: 'add_multiple_columns',
+2022-12-12T07:31:51.6890509Z       tracking: 'origin/add_multiple_columns'
+2022-12-12T07:31:51.6890743Z     },
+2022-12-12T07:31:51.6890918Z     {
+2022-12-12T07:31:51.6891202Z       name: 'create-pull-request/patch',
+2022-12-12T07:31:51.6891561Z       tracking: 'origin/create-pull-request/patch'
+2022-12-12T07:31:51.6891811Z     },
+2022-12-12T07:31:51.6892126Z     { name: 'custom_fonts', tracking: 'origin/custom_fonts' },
+2022-12-12T07:31:51.6892538Z     { name: 'fix_job_id_matrix', tracking: 'origin/fix_job_id_matrix' },
+2022-12-12T07:31:51.6892787Z     {
+2022-12-12T07:31:51.6893051Z       name: 'integrate_uPrintGen',
+2022-12-12T07:31:51.6893374Z       tracking: 'origin/integrate_uPrintGen'
+2022-12-12T07:31:51.6893606Z     },
+2022-12-12T07:31:51.6893868Z     { name: 'main', tracking: 'origin/main' },
+2022-12-12T07:31:51.6894244Z     { name: 'matrix_actions', tracking: 'origin/matrix_actions' },
+2022-12-12T07:31:51.6894498Z     {
+2022-12-12T07:31:51.6894779Z       name: 'microprint_visualizer_integration',
+2022-12-12T07:31:51.6895160Z       tracking: 'origin/microprint_visualizer_integration'
+2022-12-12T07:31:51.6895413Z     },
+2022-12-12T07:31:51.6895588Z     {
+2022-12-12T07:31:51.6895830Z       name: 'reduce_code_duplication',
+2022-12-12T07:31:51.6896167Z       tracking: 'origin/reduce_code_duplication'
+2022-12-12T07:31:51.6896400Z     },
+2022-12-12T07:31:51.6896707Z     { name: 'regex_rules', tracking: 'origin/regex_rules' },
+2022-12-12T07:31:51.6897084Z     { name: 'release/v1', tracking: 'origin/release/v1' },
+2022-12-12T07:31:51.6897450Z     { name: 'release/v2', tracking: 'origin/release/v2' },
+2022-12-12T07:31:51.6897823Z     { name: 'test_workflow', tracking: 'origin/test_workflow' }
+2022-12-12T07:31:51.6898073Z   ],
+2022-12-12T07:31:51.6898239Z   tags: [
+2022-12-12T07:31:51.6898496Z     { name: 'v1', tracking: 'v1' },
+2022-12-12T07:31:51.6898848Z     { name: 'v1.0.0', tracking: 'v1.0.0' },
+2022-12-12T07:31:51.6899139Z     { name: 'v2', tracking: 'v2' },
+2022-12-12T07:31:51.6899427Z     { name: 'v2.0.0', tracking: 'v2.0.0' },
+2022-12-12T07:31:51.6900080Z     { name: 'v3', tracking: 'v3' },
+2022-12-12T07:31:51.6900394Z     { name: 'v3.0.0', tracking: 'v3.0.0' },
+2022-12-12T07:31:51.6900681Z     { name: 'v4', tracking: 'v4' },
+2022-12-12T07:31:51.6900964Z     { name: 'v4.0.0', tracking: 'v4.0.0' },
+2022-12-12T07:31:51.6901269Z     { name: 'v4.0.1', tracking: 'v4.0.1' }
+2022-12-12T07:31:51.6901486Z   ]
+2022-12-12T07:31:51.6901659Z }
+2022-12-12T07:31:51.6901857Z > Pulling from remote...
+2022-12-12T07:31:51.8953543Z { raw: '', remote: null, branches: [], tags: [] }
+2022-12-12T07:31:52.1037921Z Rt {
+2022-12-12T07:31:52.1038528Z   remoteMessages: It { all: [] },
+2022-12-12T07:31:52.1039260Z   created: [],
+2022-12-12T07:31:52.1039609Z   deleted: [],
+2022-12-12T07:31:52.1039976Z   files: [
+2022-12-12T07:31:52.1040682Z     'Examples/Mid-job/logs.txt',
+2022-12-12T07:31:52.1041164Z     'Examples/Mid-job/microprint.svg',
+2022-12-12T07:31:52.1041677Z     'README.md',
+2022-12-12T07:31:52.1042555Z     'microprint_visualizer.md'
+2022-12-12T07:31:52.1042817Z   ],
+2022-12-12T07:31:52.1043036Z   deletions: {
+2022-12-12T07:31:52.1043320Z     'Examples/Mid-job/logs.txt': 5,
+2022-12-12T07:31:52.1043654Z     'Examples/Mid-job/microprint.svg': 1,
+2022-12-12T07:31:52.1044153Z     'README.md': 1,
+2022-12-12T07:31:52.1044416Z     'microprint_visualizer.md': 1
+2022-12-12T07:31:52.1044636Z   },
+2022-12-12T07:31:52.1044824Z   insertions: {
+2022-12-12T07:31:52.1045095Z     'Examples/Mid-job/logs.txt': 5,
+2022-12-12T07:31:52.1045402Z     'Examples/Mid-job/microprint.svg': 1,
+2022-12-12T07:31:52.1045680Z     'README.md': 1,
+2022-12-12T07:31:52.1045953Z     'microprint_visualizer.md': 1
+2022-12-12T07:31:52.1046172Z   },
+2022-12-12T07:31:52.1046399Z   summary: { changes: 4, deletions: 8, insertions: 8 }
+2022-12-12T07:31:52.1046640Z }
+2022-12-12T07:31:52.1046848Z > Checking for conflicts...
+2022-12-12T07:31:52.1108589Z nr {
+2022-12-12T07:31:52.1108825Z   not_added: [],
+2022-12-12T07:31:52.1110353Z   conflicted: [],
+2022-12-12T07:31:52.1110787Z   created: [],
+2022-12-12T07:31:52.1111187Z   deleted: [],
+2022-12-12T07:31:52.1113081Z   ignored: undefined,
+2022-12-12T07:31:52.1113438Z   modified: [
+2022-12-12T07:31:52.1114051Z     'Examples/Mid-job-matrix/logs(ubuntu-latest,1.6).txt',
+2022-12-12T07:31:52.1161652Z     'Examples/Mid-job-matrix/microprint(ubuntu-latest,1.6).svg',
+2022-12-12T07:31:52.1162117Z     'Examples/Mid-job-matrix/microprint_visualizer(ubuntu-latest,1.6).md'
+2022-12-12T07:31:52.1162406Z   ],
+2022-12-12T07:31:52.1162592Z   renamed: [],
+2022-12-12T07:31:52.1162792Z   files: [
+2022-12-12T07:31:52.1162968Z     sr {
+2022-12-12T07:31:52.1163311Z       path: 'Examples/Mid-job-matrix/logs(ubuntu-latest,1.6).txt',
+2022-12-12T07:31:52.1163616Z       index: ' ',
+2022-12-12T07:31:52.1163841Z       working_dir: 'M'
+2022-12-12T07:31:52.1164047Z     },
+2022-12-12T07:31:52.1164264Z     sr {
+2022-12-12T07:31:52.1164626Z       path: 'Examples/Mid-job-matrix/microprint(ubuntu-latest,1.6).svg',
+2022-12-12T07:31:52.1164928Z       index: ' ',
+2022-12-12T07:31:52.1165165Z       working_dir: 'M'
+2022-12-12T07:31:52.1165378Z     },
+2022-12-12T07:31:52.1165562Z     sr {
+2022-12-12T07:31:52.1165929Z       path: 'Examples/Mid-job-matrix/microprint_visualizer(ubuntu-latest,1.6).md',
+2022-12-12T07:31:52.1166265Z       index: ' ',
+2022-12-12T07:31:52.1166502Z       working_dir: 'M'
+2022-12-12T07:31:52.1166700Z     }
+2022-12-12T07:31:52.1166863Z   ],
+2022-12-12T07:31:52.1167044Z   staged: [],
+2022-12-12T07:31:52.1167240Z   ahead: 0,
+2022-12-12T07:31:52.1167420Z   behind: 0,
+2022-12-12T07:31:52.1167662Z   current: 'develop',
+2022-12-12T07:31:52.1167933Z   tracking: 'origin/develop',
+2022-12-12T07:31:52.1168157Z   detached: false,
+2022-12-12T07:31:52.1168373Z   isClean: [Function (anonymous)]
+2022-12-12T07:31:52.1168592Z }
+2022-12-12T07:31:52.1168779Z > No conflicts found.
+2022-12-12T07:31:52.1169031Z > Re-staging files...
+2022-12-12T07:31:52.1673491Z > Creating commit...
+2022-12-12T07:31:52.1767952Z {
+2022-12-12T07:31:52.1768399Z   author: null,
+2022-12-12T07:31:52.1769138Z   branch: 'develop',
+2022-12-12T07:31:52.1769901Z   commit: '7e1d00704fd224fd55cefcc0c00ca689858624f1',
+2022-12-12T07:31:52.1770555Z   root: false,
+2022-12-12T07:31:52.1770972Z   summary: { changes: 3, insertions: 7, deletions: 7 }
+2022-12-12T07:31:52.1771558Z }
+2022-12-12T07:31:52.1811493Z > No tag info provided.
+2022-12-12T07:31:52.1811941Z > Pushing commit to repo...
+2022-12-12T07:31:52.8068662Z {
+2022-12-12T07:31:52.8069372Z   pushed: [],
+2022-12-12T07:31:52.8069788Z   update: {
+2022-12-12T07:31:52.8071287Z     head: { local: 'refs/heads/develop', remote: 'refs/heads/develop' },
+2022-12-12T07:31:52.8071839Z     hash: { from: '7396b4b', to: '7e1d007' }
+2022-12-12T07:31:52.8072574Z   },
+2022-12-12T07:31:52.8073957Z   repo: 'https://github.com/AlphaSteam/GHuPrintGen',
+2022-12-12T07:31:52.8074549Z   ref: { local: 'refs/remotes/origin/develop' },
+2022-12-12T07:31:52.8074952Z   remoteMessages: It { all: [] }
+2022-12-12T07:31:52.8075515Z }
+2022-12-12T07:31:52.8076049Z > No tags to push.
+2022-12-12T07:31:52.8077196Z ##[endgroup]
+2022-12-12T07:31:52.8077534Z > Task completed.
+2022-12-12T07:31:52.8078791Z ##[group]Outputs
+2022-12-12T07:31:52.8114830Z committed: true
+2022-12-12T07:31:52.8115823Z commit_long_sha: 7e1d00704fd224fd55cefcc0c00ca689858624f1
+2022-12-12T07:31:52.8116806Z commit_sha: 7e1d00704fd224fd55cefcc0c00ca689858624f1
+2022-12-12T07:31:52.8117230Z pushed: true
+2022-12-12T07:31:52.8117778Z tagged: false
+2022-12-12T07:31:52.8118142Z tag_pushed: false
+2022-12-12T07:31:52.8119051Z ##[endgroup]
+2022-12-12T07:31:52.8701674Z Post job cleanup.
+2022-12-12T07:31:52.9960735Z [command]/usr/bin/git version
+2022-12-12T07:31:53.0012572Z git version 2.38.1
+2022-12-12T07:31:53.0064104Z Temporarily overriding HOME='/home/runner/work/_temp/046d778c-82d8-4b95-9922-39d092a430ab' before making global git config changes
+2022-12-12T07:31:53.0067640Z Adding repository directory to the temporary git global config as a safe directory
+2022-12-12T07:31:53.0074084Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/GHuPrintGen/GHuPrintGen
+2022-12-12T07:31:53.0118768Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2022-12-12T07:31:53.0157893Z [command]/usr/bin/git submodule foreach --recursive git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :
+2022-12-12T07:31:53.0390066Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2022-12-12T07:31:53.0418160Z http.https://github.com/.extraheader
+2022-12-12T07:31:53.0429603Z [command]/usr/bin/git config --local --unset-all http.https://github.com/.extraheader
+2022-12-12T07:31:53.0465598Z [command]/usr/bin/git submodule foreach --recursive git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :
+2022-12-12T07:31:53.0937285Z Cleaning up orphan processes
