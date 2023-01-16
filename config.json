@@ -6,28 +6,43 @@
     "background_color": "rgb(30, 30, 30)",
     "text_color": "white"
   },
-  "line_rules": {
-    "error": {
+  "line_rules": [
+    {
+      "includes": [
+        "error"
+      ],
       "text_color": "red",
       "background_color": "white"
     },
-    "installing": {
+    {
+      "includes": [
+        "installing"
+      ],
       "text_color": "white",
       "background_color": "green"
     },
-    "warning": {
+    {
+      "includes": [
+        "warning"
+      ],
       "text_color": "black",
       "background_color": "yellow"
     },
-    "fetching": {
+    {
+      "includes": [
+        "fetching"
+      ],
       "text_color": "black",
       "background_color": "orange"
     },
-    "complete": {
+    {
+      "includes": [
+        "complete"
+      ],
       "text_color": "green",
       "background_color": "white"
     }
-  },
+  ],
   "additional_fonts": {
     "google_fonts": [
       {

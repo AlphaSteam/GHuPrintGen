@@ -1,10 +1,10 @@
 import os
-import requests
-from uPrintGen import SVGMicroprintGenerator
 from pathlib import Path
+import requests
 import re
 import logging
 import json
+from uPrintGen import SVGMicroprintGenerator
 
 
 class Api:

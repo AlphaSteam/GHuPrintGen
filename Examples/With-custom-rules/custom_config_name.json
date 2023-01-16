@@ -6,35 +6,56 @@
     "background_color": "rgb(30, 30, 30)",
     "text_color": "white"
   },
-  "line_rules": {
-    "(?:^|\\W)error(?:$|\\W)": {
+  "line_rules": [
+    {
+      "includes": [
+        "(?:^|\\W)error(?:$|\\W)"
+      ],
       "text_color": "red",
       "background_color": "white"
     },
-    "(?:^|\\W)installing(?:$|\\W)": {
+    {
+      "includes": [
+        "(?:^|\\W)installing(?:$|\\W)"
+      ],
       "text_color": "white",
       "background_color": "green"
     },
-    "command": {
+    {
+      "includes": [
+        "command"
+      ],
       "text_color": "purple"
     },
-    "warning": {
+    {
+      "includes": [
+        "warning"
+      ],
       "text_color": "black",
       "background_color": "yellow"
     },
-    "fetching": {
+    {
+      "includes": [
+        "fetching"
+      ],
       "text_color": "black",
       "background_color": "orange"
     },
-    "complete": {
+    {
+      "includes": [
+        "complete"
+      ],
       "text_color": "green",
       "background_color": "white"
     },
-    "##\\[[a-zA-Z]+]": {
+    {
+      "includes": [
+        "##\\[[a-zA-Z]+]"
+      ],
       "text_color": "black",
       "background_color": "cyan"
     }
-  },
+  ],
   "additional_fonts": {
     "google_fonts": [
       {

@@ -150,7 +150,8 @@ jobs:
               log_path: ./Examples/With-multiple-columns
               microprint_path: ./Examples/With-multiple-columns
               microprint_visualizer_link_path: ./Examples/With-multiple-columns
-
+              microprint_config_path: ./Examples/With-multiple-columns/
+              
         - name: Commit microprint
           uses: EndBug/add-and-commit@v9
           with:
