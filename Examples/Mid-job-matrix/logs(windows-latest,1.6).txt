@@ -1,5 +1,5 @@
-2022-12-12T10:52:03.5124282Z Requested labels: ubuntu-latest
-2022-12-12T10:52:03.5124323Z Job defined at: AlphaSteam/GHuPrintGen/.github/workflows/generate_examples.yaml@refs/heads/main
-2022-12-12T10:52:03.5124344Z Waiting for a runner to pick up this job...
-2022-12-12T10:52:03.7239735Z Job is waiting for a hosted runner to come online.
-2022-12-12T10:52:07.6813262Z Job is about to start running on the hosted runner: GitHub Actions 2 (hosted)
+2022-12-12T08:44:30.2407393Z Requested labels: ubuntu-latest
+2022-12-12T08:44:30.2407427Z Job defined at: AlphaSteam/GHuPrintGen/.github/workflows/generate_examples.yaml@refs/heads/develop
+2022-12-12T08:44:30.2407444Z Waiting for a runner to pick up this job...
+2022-12-12T08:44:30.8668734Z Job is waiting for a hosted runner to come online.
+2022-12-12T08:44:33.9148009Z Job is about to start running on the hosted runner: GitHub Actions 3 (hosted)
