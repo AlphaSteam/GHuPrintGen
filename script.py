@@ -4,7 +4,7 @@ import requests
 import re
 import logging
 import json
-from uPrintGen import SVGMicroprintGenerator
+from uprintgen import SVGMicroprintGenerator
 
 
 class Api:
