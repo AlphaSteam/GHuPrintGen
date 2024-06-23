@@ -1,5 +1,5 @@
-2023-01-16T10:38:32.4405761Z Requested labels: ubuntu-latest
-2023-01-16T10:38:32.4405792Z Job defined at: AlphaSteam/GHuPrintGen/.github/workflows/generate_examples.yaml@refs/heads/main
-2023-01-16T10:38:32.4405829Z Waiting for a runner to pick up this job...
-2023-01-16T10:38:32.5414908Z Job is waiting for a hosted runner to come online.
-2023-01-16T10:38:36.9890314Z Job is about to start running on the hosted runner: Hosted Agent (hosted)
+2024-06-23T23:21:42.3180117Z Requested labels: ubuntu-latest
+2024-06-23T23:21:42.3180352Z Job defined at: AlphaSteam/GHuPrintGen/.github/workflows/generate_examples.yaml@refs/heads/main
+2024-06-23T23:21:42.3180476Z Waiting for a runner to pick up this job...
+2024-06-23T23:21:43.3417058Z Job is waiting for a hosted runner to come online.
+2024-06-23T23:21:46.0266641Z Job is about to start running on the hosted runner: GitHub Actions 15 (hosted)
