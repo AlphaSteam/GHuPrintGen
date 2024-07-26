@@ -105,7 +105,7 @@ def get_logs(api, matrix_values):
         try:
             if not os.path.exists(directory_path):
                 os.makedirs(directory_path)
-        except e:
+        except Exception as e:
             print(
                 f"Directory: {directory_path} couldn't be created. Error: {e}")
 
@@ -134,8 +134,8 @@ def generate_visualizer_link(api, microprint_filename, matrix_values):
     try:
         if not os.path.exists(directory_path):
             os.makedirs(directory_path)
-    except e:
-        print(f"Directory: {directory_path} couldn't be created. Error: {e}")
+    except Exception as exception:
+        print(f"Directory: {directory_path} couldn't be created. Error: {exception}")
 
     Path(markdown_path).write_text(markdown)
 
@@ -150,7 +150,7 @@ def main():
     if matrix_values != None and matrix_values != "":
         try:
             matrix_values = json.loads(matrix_values)
-        except e:
+        except Exception as e:
             pass
 
     logs = get_logs(api, matrix_values)
@@ -160,9 +160,9 @@ def main():
     try:
         if not os.path.exists(directory_path):
             os.makedirs(directory_path)
-    except e:
+    except Exception as exception:
         print(
-            f"Directory: {directory_path} couldn't be created. Error: {e}")
+            f"Directory: {directory_path} couldn't be created. Error: {exception}")
 
     microprint_filename = directory_path / \
         Path(append_matrix_values(
